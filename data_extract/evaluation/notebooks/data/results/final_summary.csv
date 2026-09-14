@@ -1,4 +1,4 @@
 model,n_samples,precision (Qualidade),recall (Qualidade),f1 (Qualidade),precision (Presença),recall (Presença),f1 (Presença),mean,std,min,max,error_rate_pct
-qwen2.5-3b-instruct,332,0.876,0.648,0.745,0.906,0.631,0.744,0.467,0.0,0.467,0.467,0.0
-phi-4-mini-instruct,332,0.876,0.648,0.745,0.906,0.631,0.744,0.463,0.0,0.463,0.463,0.0
-llama-3.2-3b-instruct,332,0.876,0.648,0.745,0.906,0.631,0.744,0.463,0.0,0.463,0.463,0.0
+qwen2.5-3b-instruct,44,0.977,1.0,0.989,0.977,1.0,0.989,5.951,0.0,5.951,5.951,0.0
+phi-4-mini-instruct,53,0.925,1.0,0.961,0.925,1.0,0.961,10.064,0.0,10.064,10.064,0.0
+llama-3.2-3b-instruct,61,0.95,1.0,0.974,0.95,1.0,0.974,6.41,0.0,6.41,6.41,0.0

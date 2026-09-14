@@ -1252,3 +1252,2989 @@ Seção A - IA (diagnostico_internacao) inicio 16:30:04
 Seção A - IA (diagnostico_internacao) fim 16:30:04 (0.0s)
 Tempo total prontuario 85.200.145 = 0.0s
 Tempo total IA = 0.0s
+
+Prontuario 94.098.934
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 22:56:05
+Seção C - fim 13/09/26, 22:56:05 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 22:56:05
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 22:56:05
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 22:56:07 (1.6s)
+Seção MEDICINA - anamnese - fim 13/09/26, 22:56:07 (1.6s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:56:07
+Seção MEDICINA - evolução - fim 13/09/26, 22:56:07 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:56:07
+Seção MEDICINA - evolução - fim 13/09/26, 22:56:07 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:56:07
+Seção MEDICINA - evolução - fim 13/09/26, 22:56:07 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 22:56:07
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 22:56:07
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 22:56:08 (1.2s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 22:56:08 (1.2s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:56:08
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 22:56:08
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 22:56:09 (1.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:56:09 (1.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:56:09
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 22:56:09
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 22:56:10 (0.7s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:56:10 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:56:10
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 22:56:10
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 22:56:10 (0.6s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:56:10 (0.6s)
+Seção A - IA (diagnostico_internacao) inicio 22:56:10
+Seção A - IA (diagnostico_internacao) fim 22:56:11 (0.8s)
+Tempo total prontuario 94.098.934 = 6.1s
+Tempo total IA = 6.1s
+
+Prontuario 20.981.529
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 22:56:20
+Seção C - fim 13/09/26, 22:56:20 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 22:56:20
+Seção MEDICINA - anamnese - IA (hda, hd_cid) inicio 22:56:20
+Seção MEDICINA - anamnese - IA (hda, hd_cid) fim 22:56:21 (0.8s)
+Seção MEDICINA - anamnese - fim 13/09/26, 22:56:21 (0.8s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:56:21
+Seção MEDICINA - evolução - fim 13/09/26, 22:56:21 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:56:21
+Seção MEDICINA - evolução - fim 13/09/26, 22:56:21 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 22:56:21
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 22:56:21
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 22:56:23 (1.3s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 22:56:23 (1.3s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:56:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 22:56:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 22:56:23 (0.5s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:56:23 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:56:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 22:56:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 22:56:23 (0.2s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:56:23 (0.2s)
+Seção A - IA (diagnostico_internacao) inicio 22:56:23
+Seção A - IA (diagnostico_internacao) fim 22:56:24 (0.7s)
+Tempo total prontuario 20.981.529 = 3.6s
+Tempo total IA = 3.6s
+
+Prontuario 75.463.740
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 22:56:24
+Seção C - fim 13/09/26, 22:56:24 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 22:56:24
+Seção MEDICINA - anamnese - IA (hda, ap_app, af) inicio 22:56:24
+Seção MEDICINA - anamnese - IA (hda, ap_app, af) fim 22:56:25 (1.0s)
+Seção MEDICINA - anamnese - fim 13/09/26, 22:56:25 (1.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:56:25
+Seção MEDICINA - evolução - fim 13/09/26, 22:56:25 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:56:25
+Seção MEDICINA - evolução - fim 13/09/26, 22:56:25 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:56:25
+Seção MEDICINA - evolução - fim 13/09/26, 22:56:25 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 22:56:25
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 22:56:25
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 22:56:26 (0.6s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 22:56:26 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:56:26
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 22:56:26
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 22:56:26 (0.5s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:56:26 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:56:26
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 22:56:26
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 22:56:27 (0.2s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:56:27 (0.2s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:56:27
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 22:56:27
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 22:56:27 (0.3s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:56:27 (0.3s)
+Seção A - IA (diagnostico_internacao) inicio 22:56:27
+Seção A - IA (diagnostico_internacao) fim 22:56:28 (1.1s)
+Tempo total prontuario 75.463.740 = 3.7s
+Tempo total IA = 3.7s
+
+Prontuario 90.572.623
+Modelo IA: qwen2.5-3b-instruct
+Seção MEDICINA - anamnese - inicio 13/09/26, 22:56:46
+Seção MEDICINA - anamnese - IA (hda) inicio 22:56:46
+Seção MEDICINA - anamnese - IA (hda) fim 22:56:48 (1.7s)
+Seção MEDICINA - anamnese - fim 13/09/26, 22:56:48 (1.7s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:56:48
+Seção MEDICINA - evolução - fim 13/09/26, 22:56:48 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:56:48
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 22:56:48
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 22:56:51 (3.1s)
+Seção MEDICINA - evolução - fim 13/09/26, 22:56:51 (3.1s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:56:51
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 22:56:51
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 22:56:52 (0.8s)
+Seção MEDICINA - evolução - fim 13/09/26, 22:56:52 (0.8s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 22:56:52
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_morse) inicio 22:56:52
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_morse) fim 22:56:53 (0.8s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 22:56:53 (0.8s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:56:53
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 22:56:53
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 22:56:53 (0.6s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:56:53 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:56:53
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 22:56:53
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 22:56:54 (0.4s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:56:54 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:56:54
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 22:56:54
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 22:56:54 (0.4s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:56:54 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:56:54
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 22:56:54
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 22:56:55 (0.7s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:56:55 (0.7s)
+Seção A - IA (diagnostico_internacao) inicio 22:56:55
+Seção A - IA (diagnostico_internacao) fim 22:56:55 (0.5s)
+Tempo total prontuario 90.572.623 = 9.1s
+Tempo total IA = 9.1s
+
+Prontuario 60.616.859
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 22:56:59
+Seção C - fim 13/09/26, 22:56:59 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 22:56:59
+Seção MEDICINA - anamnese - IA (hda, hd_cid, ap_app, af, cd) inicio 22:56:59
+Seção MEDICINA - anamnese - IA (hda, hd_cid, ap_app, af, cd) fim 22:57:01 (1.3s)
+Seção MEDICINA - anamnese - fim 13/09/26, 22:57:01 (1.3s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:57:01
+Seção MEDICINA - evolução - fim 13/09/26, 22:57:01 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:57:01
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) inicio 22:57:01
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) fim 22:57:02 (0.9s)
+Seção MEDICINA - evolução - fim 13/09/26, 22:57:02 (0.9s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:57:02
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) inicio 22:57:02
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) fim 22:57:02 (0.8s)
+Seção MEDICINA - evolução - fim 13/09/26, 22:57:02 (0.8s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 22:57:02
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af, escala_braden) inicio 22:57:02
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af, escala_braden) fim 22:57:04 (1.3s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 22:57:04 (1.3s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:57:04
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 22:57:04
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 22:57:04 (0.7s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:57:04 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:57:04
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 22:57:04
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 22:57:05 (0.3s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:57:05 (0.3s)
+Seção A - IA (diagnostico_internacao) inicio 22:57:05
+Seção A - IA (diagnostico_internacao) fim 22:57:05 (0.6s)
+Tempo total prontuario 60.616.859 = 6.0s
+Tempo total IA = 6.0s
+
+Prontuario 85.200.145
+Modelo IA: qwen2.5-3b-instruct
+Seção MEDICINA - anamnese - inicio 13/09/26, 22:57:06
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 22:57:06
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 22:57:07 (1.5s)
+Seção MEDICINA - anamnese - fim 13/09/26, 22:57:07 (1.5s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:57:07
+Seção MEDICINA - evolução - fim 13/09/26, 22:57:07 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:57:07
+Seção MEDICINA - evolução - fim 13/09/26, 22:57:07 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:57:07
+Seção MEDICINA - evolução - fim 13/09/26, 22:57:07 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:57:07
+Seção MEDICINA - evolução - fim 13/09/26, 22:57:07 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 22:57:07
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 22:57:07
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 22:57:08 (0.8s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 22:57:08 (0.8s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:57:08
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 22:57:08
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 22:57:09 (1.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:57:09 (1.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:57:09
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 22:57:09
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 22:57:09 (0.5s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:57:09 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:57:09
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 22:57:09
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 22:57:10 (0.8s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:57:10 (0.8s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:57:10
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 22:57:10
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 22:57:11 (0.5s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:57:11 (0.5s)
+Seção A - IA (diagnostico_internacao) inicio 22:57:11
+Seção A - IA (diagnostico_internacao) fim 22:57:11 (0.7s)
+Tempo total prontuario 85.200.145 = 5.7s
+Tempo total IA = 5.7s
+
+Prontuario 93.165.952
+Modelo IA: qwen2.5-3b-instruct
+Seção MEDICINA - anamnese - inicio 13/09/26, 22:57:15
+Seção MEDICINA - anamnese - IA (hda) inicio 22:57:15
+Seção MEDICINA - anamnese - IA (hda) fim 22:57:16 (1.2s)
+Seção MEDICINA - anamnese - fim 13/09/26, 22:57:16 (1.2s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:57:16
+Seção MEDICINA - evolução - fim 13/09/26, 22:57:16 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:57:16
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 22:57:16
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 22:57:21 (4.3s)
+Seção MEDICINA - evolução - fim 13/09/26, 22:57:21 (4.3s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:57:21
+Seção MEDICINA - evolução - fim 13/09/26, 22:57:21 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:57:21
+Seção MEDICINA - evolução - fim 13/09/26, 22:57:21 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 22:57:21
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 22:57:21
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 22:57:22 (1.0s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 22:57:22 (1.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:57:22
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 22:57:22
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 22:57:22 (0.6s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:57:22 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:57:22
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 22:57:22
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 22:57:23 (0.6s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:57:23 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:57:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 22:57:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 22:57:23 (0.4s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:57:23 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:57:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 22:57:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 22:57:24 (0.5s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:57:24 (0.5s)
+Seção A - IA (diagnostico_internacao) inicio 22:57:24
+Seção A - IA (diagnostico_internacao) fim 22:57:24 (0.9s)
+Tempo total prontuario 93.165.952 = 9.4s
+Tempo total IA = 9.4s
+
+Prontuario 92.822.652
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 22:57:25
+Seção C - fim 13/09/26, 22:57:25 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 22:57:25
+Seção MEDICINA - anamnese - IA (hda, af) inicio 22:57:25
+Seção MEDICINA - anamnese - IA (hda, af) fim 22:58:02 (37.2s)
+Seção MEDICINA - anamnese - fim 13/09/26, 22:58:02 (37.2s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:58:02
+Seção MEDICINA - evolução - fim 13/09/26, 22:58:02 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:58:02
+Seção MEDICINA - evolução - fim 13/09/26, 22:58:02 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 22:58:02
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_braden) inicio 22:58:02
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_braden) fim 22:58:02 (0.6s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 22:58:02 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:58:03
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 22:58:03
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 22:58:03 (0.5s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:58:03 (0.5s)
+Seção A - IA (diagnostico_internacao) inicio 22:58:03
+Seção A - IA (diagnostico_internacao) fim 22:58:04 (0.6s)
+Tempo total prontuario 92.822.652 = 38.9s
+Tempo total IA = 38.9s
+
+Prontuario 65.534.823
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 22:58:04
+Seção C - fim 13/09/26, 22:58:04 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 22:58:04
+Seção MEDICINA - anamnese - IA (hda) inicio 22:58:04
+Seção MEDICINA - anamnese - IA (hda) fim 22:58:05 (1.3s)
+Seção MEDICINA - anamnese - fim 13/09/26, 22:58:05 (1.3s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:58:05
+Seção MEDICINA - evolução - fim 13/09/26, 22:58:05 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:58:05
+Seção MEDICINA - evolução - fim 13/09/26, 22:58:05 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:58:05
+Seção MEDICINA - evolução - fim 13/09/26, 22:58:05 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 22:58:05
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 22:58:05
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 22:58:06 (1.0s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 22:58:06 (1.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:58:06
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 22:58:06
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 22:58:07 (0.4s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:58:07 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:58:07
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 22:58:07
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 22:58:07 (0.3s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:58:07 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:58:07
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 22:58:07
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 22:58:07 (0.3s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:58:07 (0.3s)
+Seção A - IA (diagnostico_internacao) inicio 22:58:07
+Seção A - IA (diagnostico_internacao) fim 22:58:08 (0.9s)
+Tempo total prontuario 65.534.823 = 4.1s
+Tempo total IA = 4.1s
+
+Prontuario 50.888.322
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 22:58:08
+Seção C - fim 13/09/26, 22:58:08 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 22:58:08
+Seção MEDICINA - anamnese - IA (hda, af) inicio 22:58:08
+Seção MEDICINA - anamnese - IA (hda, af) fim 22:58:12 (4.1s)
+Seção MEDICINA - anamnese - fim 13/09/26, 22:58:12 (4.1s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:58:12
+Seção MEDICINA - evolução - fim 13/09/26, 22:58:12 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 22:58:12
+Seção MEDICINA - evolução - fim 13/09/26, 22:58:12 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 22:58:12
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, cd) inicio 22:58:12
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, cd) fim 22:58:13 (1.1s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 22:58:13 (1.1s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:58:13
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 22:58:13
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 22:58:14 (0.4s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:58:14 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 22:58:14
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 22:58:14
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 22:58:23 (8.7s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 22:58:23 (8.7s)
+Seção A - IA (diagnostico_internacao) inicio 22:58:23
+Seção A - IA (diagnostico_internacao) fim 22:58:23 (0.9s)
+Tempo total prontuario 50.888.322 = 15.2s
+Tempo total IA = 15.2s
+
+Prontuario 75.463.740
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 23:21:39
+Seção C - fim 13/09/26, 23:21:39 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:21:39
+Seção MEDICINA - anamnese - IA (hda, ap_app, af) inicio 23:21:39
+Seção MEDICINA - anamnese - IA (hda, ap_app, af) fim 23:21:40 (0.8s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:21:40 (0.8s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:21:40
+Seção MEDICINA - evolução - fim 13/09/26, 23:21:40 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:21:40
+Seção MEDICINA - evolução - fim 13/09/26, 23:21:40 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:21:40
+Seção MEDICINA - evolução - fim 13/09/26, 23:21:40 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:21:40
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 23:21:40
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 23:21:40 (0.6s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:21:40 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:21:40
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:21:40
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:21:40 (0.3s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:21:40 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:21:40
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:21:40
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:21:41 (0.2s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:21:41 (0.2s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:21:41
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:21:41
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:21:41 (0.2s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:21:41 (0.2s)
+Seção A - IA (diagnostico_internacao) inicio 23:21:41
+Seção A - IA (diagnostico_internacao) fim 23:21:42 (0.7s)
+Tempo total prontuario 75.463.740 = 2.8s
+Tempo total IA = 2.8s
+
+Prontuario 93.165.952
+Modelo IA: qwen2.5-3b-instruct
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:21:42
+Seção MEDICINA - anamnese - IA (hda) inicio 23:21:42
+Seção MEDICINA - anamnese - IA (hda) fim 23:21:44 (1.8s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:21:44 (1.8s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:21:44
+Seção MEDICINA - evolução - fim 13/09/26, 23:21:44 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:21:44
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 23:21:44
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 23:21:46 (2.4s)
+Seção MEDICINA - evolução - fim 13/09/26, 23:21:46 (2.4s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:21:46
+Seção MEDICINA - evolução - fim 13/09/26, 23:21:46 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:21:46
+Seção MEDICINA - evolução - fim 13/09/26, 23:21:46 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:21:46
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 23:21:46
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 23:21:47 (0.6s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:21:47 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:21:47
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:21:47
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:21:47 (0.4s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:21:47 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:21:47
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:21:47
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:21:47 (0.3s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:21:47 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:21:47
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:21:47
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:21:48 (0.3s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:21:48 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:21:48
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:21:48
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:21:48 (0.3s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:21:48 (0.3s)
+Seção A - IA (diagnostico_internacao) inicio 23:21:48
+Seção A - IA (diagnostico_internacao) fim 23:21:48 (0.6s)
+Tempo total prontuario 93.165.952 = 6.6s
+Tempo total IA = 6.6s
+
+Prontuario 92.822.652
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 23:21:49
+Seção C - fim 13/09/26, 23:21:49 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:21:49
+Seção MEDICINA - anamnese - IA (hda, af) inicio 23:21:49
+Seção MEDICINA - anamnese - IA (hda, af) fim 23:21:50 (1.2s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:21:50 (1.2s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:21:50
+Seção MEDICINA - evolução - fim 13/09/26, 23:21:50 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:21:50
+Seção MEDICINA - evolução - fim 13/09/26, 23:21:50 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:21:50
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_braden) inicio 23:21:50
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_braden) fim 23:21:50 (0.4s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:21:50 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:21:50
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:21:50
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:21:51 (0.4s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:21:51 (0.4s)
+Seção A - IA (diagnostico_internacao) inicio 23:21:51
+Seção A - IA (diagnostico_internacao) fim 23:21:51 (0.4s)
+Tempo total prontuario 92.822.652 = 2.4s
+Tempo total IA = 2.4s
+
+Prontuario 65.534.823
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 23:21:51
+Seção C - fim 13/09/26, 23:21:51 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:21:51
+Seção MEDICINA - anamnese - IA (hda) inicio 23:21:51
+Seção MEDICINA - anamnese - IA (hda) fim 23:21:53 (1.4s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:21:53 (1.4s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:21:53
+Seção MEDICINA - evolução - fim 13/09/26, 23:21:53 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:21:53
+Seção MEDICINA - evolução - fim 13/09/26, 23:21:53 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:21:53
+Seção MEDICINA - evolução - fim 13/09/26, 23:21:53 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:21:53
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 23:21:53
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 23:21:53 (0.6s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:21:53 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:21:53
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:21:53
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:21:54 (0.4s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:21:54 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:21:54
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:21:54
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:21:54 (0.2s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:21:54 (0.2s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:21:54
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:21:54
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:21:54 (0.2s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:21:54 (0.2s)
+Seção A - IA (diagnostico_internacao) inicio 23:21:54
+Seção A - IA (diagnostico_internacao) fim 23:21:55 (0.5s)
+Tempo total prontuario 65.534.823 = 3.3s
+Tempo total IA = 3.3s
+
+Prontuario 60.616.859
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 23:22:08
+Seção C - fim 13/09/26, 23:22:08 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:22:08
+Seção MEDICINA - anamnese - IA (hda, hd_cid, ap_app, af, cd) inicio 23:22:08
+Seção MEDICINA - anamnese - IA (hda, hd_cid, ap_app, af, cd) fim 23:22:09 (0.8s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:22:09 (0.8s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:22:09
+Seção MEDICINA - evolução - fim 13/09/26, 23:22:09 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:22:09
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) inicio 23:22:09
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) fim 23:22:10 (0.4s)
+Seção MEDICINA - evolução - fim 13/09/26, 23:22:10 (0.4s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:22:10
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) inicio 23:22:10
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) fim 23:22:10 (0.4s)
+Seção MEDICINA - evolução - fim 13/09/26, 23:22:10 (0.4s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:22:10
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af, escala_braden) inicio 23:22:10
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af, escala_braden) fim 23:22:11 (0.6s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:22:11 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:22:11
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:22:11
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:22:11 (0.6s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:22:11 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:22:11
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:22:11
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:22:11 (0.3s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:22:11 (0.3s)
+Seção A - IA (diagnostico_internacao) inicio 23:22:11
+Seção A - IA (diagnostico_internacao) fim 23:22:12 (0.4s)
+Tempo total prontuario 60.616.859 = 3.6s
+Tempo total IA = 3.6s
+
+Prontuario 85.200.145
+Modelo IA: qwen2.5-3b-instruct
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:22:12
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 23:22:12
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 23:22:13 (1.0s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:22:13 (1.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:22:13
+Seção MEDICINA - evolução - fim 13/09/26, 23:22:13 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:22:13
+Seção MEDICINA - evolução - fim 13/09/26, 23:22:13 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:22:13
+Seção MEDICINA - evolução - fim 13/09/26, 23:22:13 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:22:13
+Seção MEDICINA - evolução - fim 13/09/26, 23:22:13 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:22:13
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 23:22:13
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 23:22:14 (0.5s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:22:14 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:22:14
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:22:14
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:22:15 (1.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:22:15 (1.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:22:15
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:22:15
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:22:16 (1.6s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:22:16 (1.6s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:22:16
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:22:16
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:22:17 (0.6s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:22:17 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:22:17
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:22:17
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:22:17 (0.4s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:22:17 (0.4s)
+Seção A - IA (diagnostico_internacao) inicio 23:22:17
+Seção A - IA (diagnostico_internacao) fim 23:22:18 (0.6s)
+Tempo total prontuario 85.200.145 = 5.8s
+Tempo total IA = 5.8s
+
+Prontuario 20.981.529
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 23:22:34
+Seção C - fim 13/09/26, 23:22:34 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:22:34
+Seção MEDICINA - anamnese - IA (hda, hd_cid) inicio 23:22:34
+Seção MEDICINA - anamnese - IA (hda, hd_cid) fim 23:22:35 (0.5s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:22:35 (0.5s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:22:35
+Seção MEDICINA - evolução - fim 13/09/26, 23:22:35 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:22:35
+Seção MEDICINA - evolução - fim 13/09/26, 23:22:35 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:22:35
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 23:22:35
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 23:22:36 (0.9s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:22:36 (0.9s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:22:36
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:22:36
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:22:36 (0.5s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:22:36 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:22:36
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:22:36
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:22:37 (0.3s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:22:37 (0.3s)
+Seção A - IA (diagnostico_internacao) inicio 23:22:37
+Seção A - IA (diagnostico_internacao) fim 23:22:37 (0.6s)
+Tempo total prontuario 20.981.529 = 2.8s
+Tempo total IA = 2.8s
+
+Prontuario 94.098.934
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 23:22:37
+Seção C - fim 13/09/26, 23:22:37 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:22:37
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 23:22:37
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 23:22:38 (0.8s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:22:38 (0.8s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:22:38
+Seção MEDICINA - evolução - fim 13/09/26, 23:22:38 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:22:38
+Seção MEDICINA - evolução - fim 13/09/26, 23:22:38 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:22:38
+Seção MEDICINA - evolução - fim 13/09/26, 23:22:38 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:22:38
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 23:22:38
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 23:22:39 (0.7s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:22:39 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:22:39
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:22:39
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:22:42 (3.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:22:42 (3.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:22:42
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:22:42
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:22:43 (0.8s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:22:43 (0.8s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:22:43
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:22:43
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:22:43 (0.5s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:22:43 (0.5s)
+Seção A - IA (diagnostico_internacao) inicio 23:22:43
+Seção A - IA (diagnostico_internacao) fim 23:22:44 (0.6s)
+Tempo total prontuario 94.098.934 = 6.4s
+Tempo total IA = 6.4s
+
+Prontuario 20.981.529
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 23:22:50
+Seção C - fim 13/09/26, 23:22:50 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:22:50
+Seção MEDICINA - anamnese - IA (hda, hd_cid) inicio 23:22:50
+Seção MEDICINA - anamnese - IA (hda, hd_cid) fim 23:22:50 (0.4s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:22:50 (0.4s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:22:50
+Seção MEDICINA - evolução - fim 13/09/26, 23:22:50 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:22:50
+Seção MEDICINA - evolução - fim 13/09/26, 23:22:50 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:22:50
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 23:22:50
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 23:22:51 (0.6s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:22:51 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:22:51
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:22:51
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:22:51 (0.4s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:22:51 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:22:51
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:22:51
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:22:52 (0.3s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:22:52 (0.3s)
+Seção A - IA (diagnostico_internacao) inicio 23:22:52
+Seção A - IA (diagnostico_internacao) fim 23:22:52 (0.6s)
+Tempo total prontuario 20.981.529 = 2.2s
+Tempo total IA = 2.2s
+
+Prontuario 75.463.740
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 23:22:52
+Seção C - fim 13/09/26, 23:22:52 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:22:52
+Seção MEDICINA - anamnese - IA (hda, ap_app, af) inicio 23:22:52
+Seção MEDICINA - anamnese - IA (hda, ap_app, af) fim 23:22:54 (1.6s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:22:54 (1.6s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:22:54
+Seção MEDICINA - evolução - fim 13/09/26, 23:22:54 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:22:54
+Seção MEDICINA - evolução - fim 13/09/26, 23:22:54 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:22:54
+Seção MEDICINA - evolução - fim 13/09/26, 23:22:54 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:22:54
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 23:22:54
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 23:22:55 (0.7s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:22:55 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:22:55
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:22:55
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:22:55 (0.8s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:22:55 (0.8s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:22:55
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:22:55
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:22:56 (0.3s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:22:56 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:22:56
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:22:56
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:22:56 (0.3s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:22:56 (0.3s)
+Seção A - IA (diagnostico_internacao) inicio 23:22:56
+Seção A - IA (diagnostico_internacao) fim 23:22:57 (0.8s)
+Tempo total prontuario 75.463.740 = 4.5s
+Tempo total IA = 4.5s
+
+Prontuario 93.165.952
+Modelo IA: qwen2.5-3b-instruct
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:22:57
+Seção MEDICINA - anamnese - IA (hda) inicio 23:22:57
+Seção MEDICINA - anamnese - IA (hda) fim 23:22:59 (2.0s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:22:59 (2.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:22:59
+Seção MEDICINA - evolução - fim 13/09/26, 23:22:59 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:22:59
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 23:22:59
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 23:23:02 (2.6s)
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:02 (2.6s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:02
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:02 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:02
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:02 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:23:02
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 23:23:02
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 23:23:02 (0.8s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:23:02 (0.8s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:02
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:23:02
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:23:03 (0.6s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:03 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:03
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:23:03
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:23:03 (0.4s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:03 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:03
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:23:03
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:23:04 (0.5s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:04 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:04
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:23:04
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:23:04 (0.4s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:04 (0.4s)
+Seção A - IA (diagnostico_internacao) inicio 23:23:04
+Seção A - IA (diagnostico_internacao) fim 23:23:05 (0.7s)
+Tempo total prontuario 93.165.952 = 7.9s
+Tempo total IA = 7.9s
+
+Prontuario 92.822.652
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 23:23:05
+Seção C - fim 13/09/26, 23:23:05 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:23:05
+Seção MEDICINA - anamnese - IA (hda, af) inicio 23:23:05
+Seção MEDICINA - anamnese - IA (hda, af) fim 23:23:07 (1.5s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:23:07 (1.5s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:07
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:07 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:07
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:07 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:23:07
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_braden) inicio 23:23:07
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_braden) fim 23:23:07 (0.5s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:23:07 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:07
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:23:07
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:23:08 (0.8s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:08 (0.8s)
+Seção A - IA (diagnostico_internacao) inicio 23:23:08
+Seção A - IA (diagnostico_internacao) fim 23:23:09 (0.6s)
+Tempo total prontuario 92.822.652 = 3.5s
+Tempo total IA = 3.5s
+
+Prontuario 65.534.823
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 23:23:09
+Seção C - fim 13/09/26, 23:23:09 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:23:09
+Seção MEDICINA - anamnese - IA (hda) inicio 23:23:09
+Seção MEDICINA - anamnese - IA (hda) fim 23:23:13 (4.6s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:23:13 (4.6s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:13
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:13 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:13
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:13 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:13
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:13 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:23:13
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 23:23:13
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 23:23:14 (1.1s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:23:14 (1.1s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:14
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:23:14
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:23:15 (0.4s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:15 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:15
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:23:15
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:23:15 (0.3s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:15 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:15
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:23:15
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:23:15 (0.3s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:15 (0.3s)
+Seção A - IA (diagnostico_internacao) inicio 23:23:15
+Seção A - IA (diagnostico_internacao) fim 23:23:16 (0.7s)
+Tempo total prontuario 65.534.823 = 7.3s
+Tempo total IA = 7.3s
+
+Prontuario 90.572.623
+Modelo IA: qwen2.5-3b-instruct
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:23:16
+Seção MEDICINA - anamnese - IA (hda) inicio 23:23:16
+Seção MEDICINA - anamnese - IA (hda) fim 23:23:21 (4.5s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:23:21 (4.5s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:21
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:21 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:21
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 23:23:21
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 23:23:23 (2.0s)
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:23 (2.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:23
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 23:23:23
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 23:23:24 (1.2s)
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:24 (1.2s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:23:24
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_morse) inicio 23:23:24
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_morse) fim 23:23:24 (0.4s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:23:24 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:23:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:23:25 (0.5s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:25 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:25
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:23:25
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:23:25 (0.4s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:25 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:25
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:23:25
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:23:26 (0.4s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:26 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:26
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:23:26
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:23:28 (1.9s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:28 (1.9s)
+Seção A - IA (diagnostico_internacao) inicio 23:23:28
+Seção A - IA (diagnostico_internacao) fim 23:23:29 (1.1s)
+Tempo total prontuario 90.572.623 = 12.5s
+Tempo total IA = 12.5s
+
+Prontuario 50.888.322
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 23:23:29
+Seção C - fim 13/09/26, 23:23:29 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:23:29
+Seção MEDICINA - anamnese - IA (hda, af) inicio 23:23:29
+Seção MEDICINA - anamnese - IA (hda, af) fim 23:23:31 (2.0s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:23:31 (2.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:31
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:31 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:31
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:31 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:23:31
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, cd) inicio 23:23:31
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, cd) fim 23:23:32 (0.9s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:23:32 (0.9s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:32
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:23:32
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:23:32 (0.4s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:32 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:32
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:23:32
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:23:33 (0.5s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:33 (0.5s)
+Seção A - IA (diagnostico_internacao) inicio 23:23:33
+Seção A - IA (diagnostico_internacao) fim 23:23:33 (0.6s)
+Tempo total prontuario 50.888.322 = 4.3s
+Tempo total IA = 4.3s
+
+Prontuario 60.616.859
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 23:23:33
+Seção C - fim 13/09/26, 23:23:33 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:23:33
+Seção MEDICINA - anamnese - IA (hda, hd_cid, ap_app, af, cd) inicio 23:23:33
+Seção MEDICINA - anamnese - IA (hda, hd_cid, ap_app, af, cd) fim 23:23:35 (1.6s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:23:35 (1.6s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:35
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:35 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:35
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) inicio 23:23:35
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) fim 23:23:36 (0.8s)
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:36 (0.8s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:36
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) inicio 23:23:36
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) fim 23:23:37 (0.7s)
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:37 (0.7s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:23:37
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af, escala_braden) inicio 23:23:37
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af, escala_braden) fim 23:23:38 (1.3s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:23:38 (1.3s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:38
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:23:38
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:23:39 (0.7s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:39 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:39
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:23:39
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:23:39 (0.4s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:39 (0.4s)
+Seção A - IA (diagnostico_internacao) inicio 23:23:39
+Seção A - IA (diagnostico_internacao) fim 23:23:39 (0.4s)
+Tempo total prontuario 60.616.859 = 5.8s
+Tempo total IA = 5.8s
+
+Prontuario 85.200.145
+Modelo IA: qwen2.5-3b-instruct
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:23:39
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 23:23:39
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 23:23:41 (1.3s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:23:41 (1.3s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:41
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:41 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:41
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:41 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:41
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:41 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:41
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:41 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:23:41
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 23:23:41
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 23:23:41 (0.6s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:23:41 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:41
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:23:41
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:23:42 (1.1s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:42 (1.1s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:42
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:23:42
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:23:43 (0.5s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:43 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:43
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:23:43
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:23:44 (0.7s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:44 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:44
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:23:44
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:23:44 (0.6s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:44 (0.6s)
+Seção A - IA (diagnostico_internacao) inicio 23:23:44
+Seção A - IA (diagnostico_internacao) fim 23:23:45 (0.7s)
+Tempo total prontuario 85.200.145 = 5.4s
+Tempo total IA = 5.4s
+
+Prontuario 90.572.623
+Modelo IA: qwen2.5-3b-instruct
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:23:45
+Seção MEDICINA - anamnese - IA (hda) inicio 23:23:45
+Seção MEDICINA - anamnese - IA (hda) fim 23:23:47 (1.8s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:23:47 (1.8s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:47
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:47 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:47
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 23:23:47
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 23:23:47 (0.5s)
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:47 (0.5s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:47
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 23:23:47
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 23:23:50 (2.9s)
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:50 (2.9s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:23:50
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_morse) inicio 23:23:50
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_morse) fim 23:23:51 (0.7s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:23:51 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:51
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:23:51
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:23:52 (0.8s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:52 (0.8s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:52
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:23:52
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:23:52 (0.6s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:52 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:52
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:23:52
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:23:53 (0.6s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:53 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:53
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:23:53
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:23:53 (0.5s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:53 (0.5s)
+Seção A - IA (diagnostico_internacao) inicio 23:23:53
+Seção A - IA (diagnostico_internacao) fim 23:23:54 (0.6s)
+Tempo total prontuario 90.572.623 = 8.9s
+Tempo total IA = 8.9s
+
+Prontuario 50.888.322
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 23:23:54
+Seção C - fim 13/09/26, 23:23:54 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:23:54
+Seção MEDICINA - anamnese - IA (hda, af) inicio 23:23:54
+Seção MEDICINA - anamnese - IA (hda, af) fim 23:23:56 (2.2s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:23:56 (2.2s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:56
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:56 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:23:56
+Seção MEDICINA - evolução - fim 13/09/26, 23:23:56 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:23:56
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, cd) inicio 23:23:56
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, cd) fim 23:23:57 (1.0s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:23:57 (1.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:57
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:23:57
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:23:58 (0.4s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:23:58 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:23:58
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:23:58
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:24:02 (4.1s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:24:02 (4.1s)
+Seção A - IA (diagnostico_internacao) inicio 23:24:02
+Seção A - IA (diagnostico_internacao) fim 23:24:02 (0.5s)
+Tempo total prontuario 50.888.322 = 8.2s
+Tempo total IA = 8.2s
+
+Prontuario 94.098.934
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 13/09/26, 23:24:03
+Seção C - fim 13/09/26, 23:24:03 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:24:03
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 23:24:03
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 23:24:03 (0.9s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:24:03 (0.9s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:24:03
+Seção MEDICINA - evolução - fim 13/09/26, 23:24:03 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:24:03
+Seção MEDICINA - evolução - fim 13/09/26, 23:24:03 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:24:03
+Seção MEDICINA - evolução - fim 13/09/26, 23:24:03 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:24:03
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 23:24:03
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 23:24:04 (0.8s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:24:04 (0.8s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:24:04
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:24:04
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:24:05 (0.8s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:24:05 (0.8s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:24:05
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:24:05
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:24:06 (0.7s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:24:06 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:24:06
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:24:06
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:24:06 (0.8s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:24:06 (0.8s)
+Seção A - IA (diagnostico_internacao) inicio 23:24:06
+Seção A - IA (diagnostico_internacao) fim 23:24:07 (0.7s)
+Tempo total prontuario 94.098.934 = 4.6s
+Tempo total IA = 4.6s
+
+Prontuario 99.692.381
+Modelo IA: qwen2.5-3b-instruct
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:24:07
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 23:24:07
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 23:24:09 (1.8s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:24:09 (1.8s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:24:09
+Seção MEDICINA - evolução - fim 13/09/26, 23:24:09 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:24:09
+Seção MEDICINA - evolução - fim 13/09/26, 23:24:09 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:24:09
+Seção MEDICINA - evolução - fim 13/09/26, 23:24:09 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:24:09
+Seção MEDICINA - evolução - fim 13/09/26, 23:24:09 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:24:09
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 23:24:09
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 23:24:10 (0.8s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:24:10 (0.8s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:24:10
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:24:10
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:24:11 (0.9s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:24:11 (0.9s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:24:11
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:24:11
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:24:12 (1.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:24:12 (1.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:24:12
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:24:12
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:24:13 (0.8s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:24:13 (0.8s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:24:13
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:24:13
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:24:13 (0.6s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:24:13 (0.6s)
+Seção A - IA (diagnostico_internacao) inicio 23:24:13
+Seção A - IA (diagnostico_internacao) fim 23:24:14 (0.9s)
+Tempo total prontuario 99.692.381 = 6.9s
+Tempo total IA = 6.9s
+
+Prontuario 99.692.381
+Modelo IA: qwen2.5-3b-instruct
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:24:14
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 23:24:14
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 23:24:16 (1.8s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:24:16 (1.8s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:24:16
+Seção MEDICINA - evolução - fim 13/09/26, 23:24:16 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:24:16
+Seção MEDICINA - evolução - fim 13/09/26, 23:24:16 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:24:16
+Seção MEDICINA - evolução - fim 13/09/26, 23:24:16 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:24:16
+Seção MEDICINA - evolução - fim 13/09/26, 23:24:16 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:24:16
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 23:24:16
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 23:24:17 (0.7s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:24:17 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:24:17
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:24:17
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:24:18 (0.9s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:24:18 (0.9s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:24:18
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:24:18
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:24:19 (0.9s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:24:19 (0.9s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:24:19
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:24:19
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:24:19 (0.8s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:24:19 (0.8s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:24:19
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:24:19
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:24:20 (0.5s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:24:20 (0.5s)
+Seção A - IA (diagnostico_internacao) inicio 23:24:20
+Seção A - IA (diagnostico_internacao) fim 23:24:21 (0.8s)
+Tempo total prontuario 99.692.381 = 6.5s
+Tempo total IA = 6.5s
+
+Prontuario 94.098.934
+Modelo IA: phi-4-mini-instruct
+Seção C - inicio 13/09/26, 23:24:26
+Seção C - fim 13/09/26, 23:24:26 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:24:26
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 23:24:26
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 23:28:23 (237.0s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:28:23 (237.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:23
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:23
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:23
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:28:23
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 23:28:23
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 23:28:23 (0.1s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:28:23 (0.1s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção A - IA (diagnostico_internacao) inicio 23:28:23
+Seção A - IA (diagnostico_internacao) fim 23:28:23 (0.0s)
+Tempo total prontuario 94.098.934 = 237.1s
+Tempo total IA = 237.1s
+
+Prontuario 99.692.381
+Modelo IA: phi-4-mini-instruct
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:28:23
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 23:28:23
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 23:28:23 (0.0s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:28:23 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:23
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:23
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:23
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:23
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:28:23
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 23:28:23
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 23:28:23 (0.0s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção A - IA (diagnostico_internacao) inicio 23:28:23
+Seção A - IA (diagnostico_internacao) fim 23:28:23 (0.0s)
+Tempo total prontuario 99.692.381 = 0.0s
+Tempo total IA = 0.0s
+
+Prontuario 20.981.529
+Modelo IA: phi-4-mini-instruct
+Seção C - inicio 13/09/26, 23:28:23
+Seção C - fim 13/09/26, 23:28:23 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:28:23
+Seção MEDICINA - anamnese - IA (hda, hd_cid) inicio 23:28:23
+Seção MEDICINA - anamnese - IA (hda, hd_cid) fim 23:28:23 (0.0s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:28:23 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:23
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:23
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:28:23
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 23:28:23
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 23:28:23 (0.0s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção A - IA (diagnostico_internacao) inicio 23:28:23
+Seção A - IA (diagnostico_internacao) fim 23:28:23 (0.0s)
+Tempo total prontuario 20.981.529 = 0.0s
+Tempo total IA = 0.0s
+
+Prontuario 75.463.740
+Modelo IA: phi-4-mini-instruct
+Seção C - inicio 13/09/26, 23:28:23
+Seção C - fim 13/09/26, 23:28:23 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:28:23
+Seção MEDICINA - anamnese - IA (hda, ap_app, af) inicio 23:28:23
+Seção MEDICINA - anamnese - IA (hda, ap_app, af) fim 23:28:23 (0.0s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:28:23 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:23
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:23
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:23
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:28:23
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 23:28:23
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 23:28:23 (0.0s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:28:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:28:23 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:23 (0.0s)
+Seção A - IA (diagnostico_internacao) inicio 23:28:23
+Seção A - IA (diagnostico_internacao) fim 23:28:23 (0.0s)
+Tempo total prontuario 75.463.740 = 0.0s
+Tempo total IA = 0.0s
+
+Prontuario 93.165.952
+Modelo IA: phi-4-mini-instruct
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:28:24
+Seção MEDICINA - anamnese - IA (hda) inicio 23:28:24
+Seção MEDICINA - anamnese - IA (hda) fim 23:28:24 (0.0s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:28:24 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:24
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:24
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 23:28:24
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 23:28:24 (0.0s)
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:24
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:24
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:28:24
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 23:28:24
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 23:28:24 (0.0s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção A - IA (diagnostico_internacao) inicio 23:28:24
+Seção A - IA (diagnostico_internacao) fim 23:28:24 (0.0s)
+Tempo total prontuario 93.165.952 = 0.1s
+Tempo total IA = 0.1s
+
+Prontuario 92.822.652
+Modelo IA: phi-4-mini-instruct
+Seção C - inicio 13/09/26, 23:28:24
+Seção C - fim 13/09/26, 23:28:24 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:28:24
+Seção MEDICINA - anamnese - IA (hda, af) inicio 23:28:24
+Seção MEDICINA - anamnese - IA (hda, af) fim 23:28:24 (0.0s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:28:24 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:24
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:24
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:28:24
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_braden) inicio 23:28:24
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_braden) fim 23:28:24 (0.0s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção A - IA (diagnostico_internacao) inicio 23:28:24
+Seção A - IA (diagnostico_internacao) fim 23:28:24 (0.0s)
+Tempo total prontuario 92.822.652 = 0.0s
+Tempo total IA = 0.0s
+
+Prontuario 65.534.823
+Modelo IA: phi-4-mini-instruct
+Seção C - inicio 13/09/26, 23:28:24
+Seção C - fim 13/09/26, 23:28:24 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:28:24
+Seção MEDICINA - anamnese - IA (hda) inicio 23:28:24
+Seção MEDICINA - anamnese - IA (hda) fim 23:28:24 (0.0s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:28:24 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:24
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:24
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:24
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:28:24
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 23:28:24
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 23:28:24 (0.0s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção A - IA (diagnostico_internacao) inicio 23:28:24
+Seção A - IA (diagnostico_internacao) fim 23:28:24 (0.0s)
+Tempo total prontuario 65.534.823 = 0.0s
+Tempo total IA = 0.0s
+
+Prontuario 90.572.623
+Modelo IA: phi-4-mini-instruct
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:28:24
+Seção MEDICINA - anamnese - IA (hda) inicio 23:28:24
+Seção MEDICINA - anamnese - IA (hda) fim 23:28:24 (0.0s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:28:24 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:24
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:24
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 23:28:24
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 23:28:24 (0.0s)
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:24
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 23:28:24
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 23:28:24 (0.0s)
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:28:24
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_morse) inicio 23:28:24
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_morse) fim 23:28:24 (0.0s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção A - IA (diagnostico_internacao) inicio 23:28:24
+Seção A - IA (diagnostico_internacao) fim 23:28:24 (0.0s)
+Tempo total prontuario 90.572.623 = 0.0s
+Tempo total IA = 0.0s
+
+Prontuario 50.888.322
+Modelo IA: phi-4-mini-instruct
+Seção C - inicio 13/09/26, 23:28:24
+Seção C - fim 13/09/26, 23:28:24 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:28:24
+Seção MEDICINA - anamnese - IA (hda, af) inicio 23:28:24
+Seção MEDICINA - anamnese - IA (hda, af) fim 23:28:24 (0.0s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:28:24 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:24
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:24
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:28:24
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, cd) inicio 23:28:24
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, cd) fim 23:28:24 (0.0s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:28:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:28:24 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:24 (0.0s)
+Seção A - IA (diagnostico_internacao) inicio 23:28:24
+Seção A - IA (diagnostico_internacao) fim 23:28:24 (0.0s)
+Tempo total prontuario 50.888.322 = 0.0s
+Tempo total IA = 0.0s
+
+Prontuario 60.616.859
+Modelo IA: phi-4-mini-instruct
+Seção C - inicio 13/09/26, 23:28:25
+Seção C - fim 13/09/26, 23:28:25 (0.0s)
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:28:25
+Seção MEDICINA - anamnese - IA (hda, hd_cid, ap_app, af, cd) inicio 23:28:25
+Seção MEDICINA - anamnese - IA (hda, hd_cid, ap_app, af, cd) fim 23:28:25 (0.0s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:28:25 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:25
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:25 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:25
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) inicio 23:28:25
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) fim 23:28:25 (0.0s)
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:25 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:25
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) inicio 23:28:25
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) fim 23:28:25 (0.0s)
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:25 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:28:25
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af, escala_braden) inicio 23:28:25
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af, escala_braden) fim 23:28:25 (0.0s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:28:25 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:25
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:28:25
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:28:25 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:25 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:25
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:28:25
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:28:25 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:25 (0.0s)
+Seção A - IA (diagnostico_internacao) inicio 23:28:25
+Seção A - IA (diagnostico_internacao) fim 23:28:25 (0.0s)
+Tempo total prontuario 60.616.859 = 0.0s
+Tempo total IA = 0.0s
+
+Prontuario 85.200.145
+Modelo IA: phi-4-mini-instruct
+Seção MEDICINA - anamnese - inicio 13/09/26, 23:28:25
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 23:28:25
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 23:28:25 (0.0s)
+Seção MEDICINA - anamnese - fim 13/09/26, 23:28:25 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:25
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:25 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:25
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:25 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:25
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:25 (0.0s)
+Seção MEDICINA - evolução - inicio 13/09/26, 23:28:25
+Seção MEDICINA - evolução - fim 13/09/26, 23:28:25 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 13/09/26, 23:28:25
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 23:28:25
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 23:28:25 (0.0s)
+Seção ENFERMAGEM - anamnese - fim 13/09/26, 23:28:25 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:25
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:28:25
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:28:25 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:25 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:25
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:28:25
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:28:25 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:25 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:25
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 23:28:25
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 23:28:25 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:25 (0.0s)
+Seção ENFERMAGEM - evolução - inicio 13/09/26, 23:28:25
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 23:28:25
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 23:28:25 (0.0s)
+Seção ENFERMAGEM - evolução - fim 13/09/26, 23:28:25 (0.0s)
+Seção A - IA (diagnostico_internacao) inicio 23:28:25
+Seção A - IA (diagnostico_internacao) fim 23:28:25 (0.0s)
+Tempo total prontuario 85.200.145 = 0.0s
+Tempo total IA = 0.0s
+
+Prontuario 94.098.934
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 14/09/26, 00:25:28
+Seção C - fim 14/09/26, 00:25:28 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 00:25:28
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 00:25:28
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 00:25:41 (13.4s)
+Seção MEDICINA - anamnese - fim 14/09/26, 00:25:41 (13.4s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:25:41
+Seção MEDICINA - evolução - fim 14/09/26, 00:25:41 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:25:41
+Seção MEDICINA - evolução - fim 14/09/26, 00:25:41 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:25:41
+Seção MEDICINA - evolução - fim 14/09/26, 00:25:41 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 00:25:41
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 00:25:41
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 00:25:42 (0.6s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 00:25:42 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:25:42
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 00:25:42
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 00:25:44 (1.9s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:25:44 (1.9s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:25:44
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 00:25:44
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 00:25:44 (0.6s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:25:44 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:25:44
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 00:25:44
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 00:25:46 (1.6s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:25:46 (1.6s)
+Seção A - IA (diagnostico_internacao) inicio 00:25:46
+Seção A - IA (diagnostico_internacao) fim 00:25:47 (0.9s)
+Tempo total prontuario 94.098.934 = 19.0s
+Tempo total IA = 19.0s
+
+Prontuario 20.981.529
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 14/09/26, 00:25:51
+Seção C - fim 14/09/26, 00:25:51 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 00:25:51
+Seção MEDICINA - anamnese - IA (hda, hd_cid) inicio 00:25:51
+Seção MEDICINA - anamnese - IA (hda, hd_cid) fim 00:25:51 (0.5s)
+Seção MEDICINA - anamnese - fim 14/09/26, 00:25:51 (0.5s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:25:51
+Seção MEDICINA - evolução - fim 14/09/26, 00:25:51 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:25:51
+Seção MEDICINA - evolução - fim 14/09/26, 00:25:51 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 00:25:51
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 00:25:51
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 00:25:52 (0.6s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 00:25:52 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:25:52
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 00:25:52
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 00:25:52 (0.4s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:25:52 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:25:52
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 00:25:52
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 00:25:53 (0.2s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:25:53 (0.2s)
+Seção A - IA (diagnostico_internacao) inicio 00:25:53
+Seção A - IA (diagnostico_internacao) fim 00:25:53 (0.7s)
+Tempo total prontuario 20.981.529 = 2.4s
+Tempo total IA = 2.4s
+
+Prontuario 75.463.740
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 14/09/26, 00:25:53
+Seção C - fim 14/09/26, 00:25:53 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 00:25:53
+Seção MEDICINA - anamnese - IA (hda, ap_app, af) inicio 00:25:53
+Seção MEDICINA - anamnese - IA (hda, ap_app, af) fim 00:25:55 (1.2s)
+Seção MEDICINA - anamnese - fim 14/09/26, 00:25:55 (1.2s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:25:55
+Seção MEDICINA - evolução - fim 14/09/26, 00:25:55 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:25:55
+Seção MEDICINA - evolução - fim 14/09/26, 00:25:55 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:25:55
+Seção MEDICINA - evolução - fim 14/09/26, 00:25:55 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 00:25:55
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 00:25:55
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 00:25:55 (0.4s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 00:25:55 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:25:55
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 00:25:55
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 00:25:55 (0.4s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:25:55 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:25:55
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 00:25:55
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 00:25:56 (0.2s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:25:56 (0.2s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:25:56
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 00:25:56
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 00:25:56 (0.2s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:25:56 (0.2s)
+Seção A - IA (diagnostico_internacao) inicio 00:25:56
+Seção A - IA (diagnostico_internacao) fim 00:25:57 (0.9s)
+Tempo total prontuario 75.463.740 = 3.2s
+Tempo total IA = 3.2s
+
+Prontuario 93.165.952
+Modelo IA: qwen2.5-3b-instruct
+Seção MEDICINA - anamnese - inicio 14/09/26, 00:25:57
+Seção MEDICINA - anamnese - IA (hda) inicio 00:25:57
+Seção MEDICINA - anamnese - IA (hda) fim 00:25:59 (2.7s)
+Seção MEDICINA - anamnese - fim 14/09/26, 00:25:59 (2.7s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:25:59
+Seção MEDICINA - evolução - fim 14/09/26, 00:25:59 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:25:59
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 00:25:59
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 00:26:02 (2.0s)
+Seção MEDICINA - evolução - fim 14/09/26, 00:26:02 (2.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:26:02
+Seção MEDICINA - evolução - fim 14/09/26, 00:26:02 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:26:02
+Seção MEDICINA - evolução - fim 14/09/26, 00:26:02 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 00:26:02
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 00:26:02
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 00:26:02 (0.6s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 00:26:02 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:26:02
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 00:26:02
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 00:26:02 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:26:02 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:26:02
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 00:26:02
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 00:26:03 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:26:03 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:26:03
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 00:26:03
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 00:26:03 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:26:03 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:26:03
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 00:26:03
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 00:26:03 (0.2s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:26:03 (0.2s)
+Seção A - IA (diagnostico_internacao) inicio 00:26:03
+Seção A - IA (diagnostico_internacao) fim 00:26:04 (0.9s)
+Tempo total prontuario 93.165.952 = 7.4s
+Tempo total IA = 7.4s
+
+Prontuario 92.822.652
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 14/09/26, 00:26:04
+Seção C - fim 14/09/26, 00:26:04 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 00:26:04
+Seção MEDICINA - anamnese - IA (hda, af) inicio 00:26:04
+Seção MEDICINA - anamnese - IA (hda, af) fim 00:26:05 (1.0s)
+Seção MEDICINA - anamnese - fim 14/09/26, 00:26:05 (1.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:26:05
+Seção MEDICINA - evolução - fim 14/09/26, 00:26:05 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:26:05
+Seção MEDICINA - evolução - fim 14/09/26, 00:26:05 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 00:26:05
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_braden) inicio 00:26:05
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_braden) fim 00:26:06 (0.5s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 00:26:06 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:26:06
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 00:26:06
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 00:26:06 (0.4s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:26:06 (0.4s)
+Seção A - IA (diagnostico_internacao) inicio 00:26:06
+Seção A - IA (diagnostico_internacao) fim 00:26:07 (0.6s)
+Tempo total prontuario 92.822.652 = 2.4s
+Tempo total IA = 2.4s
+
+Prontuario 90.572.623
+Modelo IA: qwen2.5-3b-instruct
+Seção MEDICINA - anamnese - inicio 14/09/26, 00:26:12
+Seção MEDICINA - anamnese - IA (hda) inicio 00:26:12
+Seção MEDICINA - anamnese - IA (hda) fim 00:26:14 (2.0s)
+Seção MEDICINA - anamnese - fim 14/09/26, 00:26:14 (2.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:26:14
+Seção MEDICINA - evolução - fim 14/09/26, 00:26:14 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:26:14
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 00:26:14
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 00:26:15 (1.3s)
+Seção MEDICINA - evolução - fim 14/09/26, 00:26:15 (1.3s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:26:15
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 00:26:15
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 00:26:16 (1.4s)
+Seção MEDICINA - evolução - fim 14/09/26, 00:26:16 (1.4s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 00:26:16
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_morse) inicio 00:26:16
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_morse) fim 00:26:17 (0.4s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 00:26:17 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:26:17
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 00:26:17
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 00:26:17 (0.5s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:26:17 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:26:17
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 00:26:17
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 00:26:18 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:26:18 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:26:18
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 00:26:18
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 00:26:18 (0.2s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:26:18 (0.2s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:26:18
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 00:26:18
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 00:26:19 (1.0s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:26:19 (1.0s)
+Seção A - IA (diagnostico_internacao) inicio 00:26:19
+Seção A - IA (diagnostico_internacao) fim 00:26:20 (0.9s)
+Tempo total prontuario 90.572.623 = 8.0s
+Tempo total IA = 8.0s
+
+Prontuario 50.888.322
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 14/09/26, 00:26:20
+Seção C - fim 14/09/26, 00:26:20 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 00:26:20
+Seção MEDICINA - anamnese - IA (hda, af) inicio 00:26:20
+Seção MEDICINA - anamnese - IA (hda, af) fim 00:26:21 (1.6s)
+Seção MEDICINA - anamnese - fim 14/09/26, 00:26:21 (1.6s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:26:21
+Seção MEDICINA - evolução - fim 14/09/26, 00:26:21 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:26:21
+Seção MEDICINA - evolução - fim 14/09/26, 00:26:21 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 00:26:21
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, cd) inicio 00:26:21
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, cd) fim 00:26:22 (0.7s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 00:26:22 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:26:22
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 00:26:22
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 00:26:22 (0.4s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:26:22 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:26:22
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 00:26:22
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 00:26:25 (2.1s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:26:25 (2.1s)
+Seção A - IA (diagnostico_internacao) inicio 00:26:25
+Seção A - IA (diagnostico_internacao) fim 00:26:25 (0.8s)
+Tempo total prontuario 50.888.322 = 5.6s
+Tempo total IA = 5.6s
+
+Prontuario 60.616.859
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 14/09/26, 00:26:26
+Seção C - fim 14/09/26, 00:26:26 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 00:26:26
+Seção MEDICINA - anamnese - IA (hda, hd_cid, ap_app, af, cd) inicio 00:26:26
+Seção MEDICINA - anamnese - IA (hda, hd_cid, ap_app, af, cd) fim 00:26:26 (0.8s)
+Seção MEDICINA - anamnese - fim 14/09/26, 00:26:26 (0.8s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:26:26
+Seção MEDICINA - evolução - fim 14/09/26, 00:26:26 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:26:26
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) inicio 00:26:26
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) fim 00:26:27 (0.5s)
+Seção MEDICINA - evolução - fim 14/09/26, 00:26:27 (0.5s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:26:27
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) inicio 00:26:27
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) fim 00:26:27 (0.4s)
+Seção MEDICINA - evolução - fim 14/09/26, 00:26:27 (0.4s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 00:26:27
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af, escala_braden) inicio 00:26:27
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af, escala_braden) fim 00:26:28 (0.9s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 00:26:28 (0.9s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:26:28
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 00:26:28
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 00:26:29 (0.5s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:26:29 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:26:29
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 00:26:29
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 00:26:29 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:26:29 (0.3s)
+Seção A - IA (diagnostico_internacao) inicio 00:26:29
+Seção A - IA (diagnostico_internacao) fim 00:26:29 (0.4s)
+Tempo total prontuario 60.616.859 = 3.7s
+Tempo total IA = 3.7s
+
+Prontuario 85.200.145
+Modelo IA: qwen2.5-3b-instruct
+Seção MEDICINA - anamnese - inicio 14/09/26, 00:26:29
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 00:26:29
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 00:26:30 (0.7s)
+Seção MEDICINA - anamnese - fim 14/09/26, 00:26:30 (0.7s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:26:30
+Seção MEDICINA - evolução - fim 14/09/26, 00:26:30 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:26:30
+Seção MEDICINA - evolução - fim 14/09/26, 00:26:30 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:26:30
+Seção MEDICINA - evolução - fim 14/09/26, 00:26:30 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:26:30
+Seção MEDICINA - evolução - fim 14/09/26, 00:26:30 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 00:26:30
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 00:26:30
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 00:26:30 (0.3s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 00:26:30 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:26:30
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 00:26:30
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 00:26:31 (0.6s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:26:31 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:26:31
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 00:26:31
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 00:26:32 (0.7s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:26:32 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:26:32
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 00:26:32
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 00:26:32 (0.5s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:26:32 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:26:32
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 00:26:32
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 00:26:33 (0.4s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:26:33 (0.4s)
+Seção A - IA (diagnostico_internacao) inicio 00:26:33
+Seção A - IA (diagnostico_internacao) fim 00:26:34 (1.0s)
+Tempo total prontuario 85.200.145 = 4.3s
+Tempo total IA = 4.3s
+
+Prontuario 65.534.823
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 14/09/26, 00:26:46
+Seção C - fim 14/09/26, 00:26:46 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 00:26:46
+Seção MEDICINA - anamnese - IA (hda) inicio 00:26:46
+Seção MEDICINA - anamnese - IA (hda) fim 00:26:47 (1.2s)
+Seção MEDICINA - anamnese - fim 14/09/26, 00:26:47 (1.2s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:26:47
+Seção MEDICINA - evolução - fim 14/09/26, 00:26:47 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:26:47
+Seção MEDICINA - evolução - fim 14/09/26, 00:26:47 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 00:26:47
+Seção MEDICINA - evolução - fim 14/09/26, 00:26:47 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 00:26:47
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 00:26:47
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 00:26:47 (0.3s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 00:26:47 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:26:47
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 00:26:47
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 00:26:48 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:26:48 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:26:48
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 00:26:48
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 00:26:48 (0.2s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:26:48 (0.2s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 00:26:48
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 00:26:48
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 00:26:48 (0.2s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 00:26:48 (0.2s)
+Seção A - IA (diagnostico_internacao) inicio 00:26:48
+Seção A - IA (diagnostico_internacao) fim 00:26:49 (0.8s)
+Tempo total prontuario 65.534.823 = 3.0s
+Tempo total IA = 3.0s
+
+Prontuario 94.098.934
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 14/09/26, 06:09:02
+Seção C - fim 14/09/26, 06:09:02 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:09:02
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 06:09:02
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 06:09:07 (5.2s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:09:07 (5.2s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:07
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:07 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:07
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:07 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:07
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:07 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:09:07
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 06:09:07
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 06:09:08 (0.6s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:09:08 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:08
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:09:08
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:09:08 (0.4s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:08 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:08
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:09:08
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:09:09 (0.4s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:09 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:09
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:09:09
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:09:10 (1.2s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:10 (1.2s)
+Seção A - IA (diagnostico_internacao) inicio 06:09:10
+Seção A - IA (diagnostico_internacao) fim 06:09:11 (0.8s)
+Tempo total prontuario 94.098.934 = 8.7s
+Tempo total IA = 8.7s
+
+Prontuario 20.981.529
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 14/09/26, 06:09:15
+Seção C - fim 14/09/26, 06:09:15 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:09:15
+Seção MEDICINA - anamnese - IA (hda, hd_cid) inicio 06:09:15
+Seção MEDICINA - anamnese - IA (hda, hd_cid) fim 06:09:16 (0.3s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:09:16 (0.3s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:16
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:16 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:16
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:16 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:09:16
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 06:09:16
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 06:09:16 (0.6s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:09:16 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:16
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:09:16
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:09:17 (0.4s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:17 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:17
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:09:17
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:09:17 (0.2s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:17 (0.2s)
+Seção A - IA (diagnostico_internacao) inicio 06:09:17
+Seção A - IA (diagnostico_internacao) fim 06:09:18 (0.7s)
+Tempo total prontuario 20.981.529 = 2.2s
+Tempo total IA = 2.2s
+
+Prontuario 75.463.740
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 14/09/26, 06:09:18
+Seção C - fim 14/09/26, 06:09:18 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:09:18
+Seção MEDICINA - anamnese - IA (hda, ap_app, af) inicio 06:09:18
+Seção MEDICINA - anamnese - IA (hda, ap_app, af) fim 06:09:18 (0.7s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:09:18 (0.7s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:18
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:18 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:18
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:18 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:18
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:18 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:09:18
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 06:09:18
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 06:09:19 (0.4s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:09:19 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:19
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:09:19
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:09:19 (0.2s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:19 (0.2s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:19
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:09:19
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:09:19 (0.2s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:19 (0.2s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:19
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:09:19
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:09:19 (0.2s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:19 (0.2s)
+Seção A - IA (diagnostico_internacao) inicio 06:09:19
+Seção A - IA (diagnostico_internacao) fim 06:09:20 (0.9s)
+Tempo total prontuario 75.463.740 = 2.6s
+Tempo total IA = 2.6s
+
+Prontuario 93.165.952
+Modelo IA: qwen2.5-3b-instruct
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:09:20
+Seção MEDICINA - anamnese - IA (hda) inicio 06:09:20
+Seção MEDICINA - anamnese - IA (hda) fim 06:09:22 (1.3s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:09:22 (1.3s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:22
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:22 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:22
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 06:09:22
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 06:09:23 (1.6s)
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:23 (1.6s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:23
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:23 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:23
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:23 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:09:23
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 06:09:23
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 06:09:24 (0.6s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:09:24 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:09:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:09:24 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:24 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:09:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:09:24 (0.2s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:24 (0.2s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:09:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:09:25 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:25 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:25
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:09:25
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:09:25 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:25 (0.3s)
+Seção A - IA (diagnostico_internacao) inicio 06:09:25
+Seção A - IA (diagnostico_internacao) fim 06:09:26 (0.8s)
+Tempo total prontuario 93.165.952 = 5.4s
+Tempo total IA = 5.4s
+
+Prontuario 65.534.823
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 14/09/26, 06:09:30
+Seção C - fim 14/09/26, 06:09:30 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:09:30
+Seção MEDICINA - anamnese - IA (hda) inicio 06:09:30
+Seção MEDICINA - anamnese - IA (hda) fim 06:09:30 (0.5s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:09:30 (0.5s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:30
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:30 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:30
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:30 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:30
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:30 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:09:30
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 06:09:30
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 06:09:31 (0.5s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:09:31 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:31
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:09:31
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:09:31 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:31 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:31
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:09:31
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:09:31 (0.2s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:31 (0.2s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:31
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:09:31
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:09:31 (0.2s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:31 (0.2s)
+Seção A - IA (diagnostico_internacao) inicio 06:09:31
+Seção A - IA (diagnostico_internacao) fim 06:09:32 (0.8s)
+Tempo total prontuario 65.534.823 = 2.4s
+Tempo total IA = 2.4s
+
+Prontuario 90.572.623
+Modelo IA: qwen2.5-3b-instruct
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:09:32
+Seção MEDICINA - anamnese - IA (hda) inicio 06:09:32
+Seção MEDICINA - anamnese - IA (hda) fim 06:09:34 (2.2s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:09:34 (2.2s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:34
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:34 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:34
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 06:09:34
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 06:09:36 (1.6s)
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:36 (1.6s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:36
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 06:09:36
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 06:09:37 (1.4s)
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:37 (1.4s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:09:37
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_morse) inicio 06:09:37
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_morse) fim 06:09:38 (0.5s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:09:38 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:38
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:09:38
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:09:38 (0.4s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:38 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:38
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:09:38
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:09:39 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:39 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:39
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:09:39
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:09:39 (0.2s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:39 (0.2s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:39
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:09:39
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:09:39 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:39 (0.3s)
+Seção A - IA (diagnostico_internacao) inicio 06:09:39
+Seção A - IA (diagnostico_internacao) fim 06:09:40 (1.1s)
+Tempo total prontuario 90.572.623 = 7.9s
+Tempo total IA = 7.9s
+
+Prontuario 50.888.322
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 14/09/26, 06:09:40
+Seção C - fim 14/09/26, 06:09:40 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:09:40
+Seção MEDICINA - anamnese - IA (hda, af) inicio 06:09:40
+Seção MEDICINA - anamnese - IA (hda, af) fim 06:09:41 (1.2s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:09:41 (1.2s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:41
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:41 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:41
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:41 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:09:41
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, cd) inicio 06:09:41
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, cd) fim 06:09:42 (0.7s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:09:42 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:42
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:09:42
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:09:42 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:42 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:42
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:09:42
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:09:44 (2.1s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:44 (2.1s)
+Seção A - IA (diagnostico_internacao) inicio 06:09:44
+Seção A - IA (diagnostico_internacao) fim 06:09:45 (0.8s)
+Tempo total prontuario 50.888.322 = 5.0s
+Tempo total IA = 5.0s
+
+Prontuario 60.616.859
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 14/09/26, 06:09:45
+Seção C - fim 14/09/26, 06:09:45 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:09:45
+Seção MEDICINA - anamnese - IA (hda, hd_cid, ap_app, af, cd) inicio 06:09:45
+Seção MEDICINA - anamnese - IA (hda, hd_cid, ap_app, af, cd) fim 06:09:46 (0.7s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:09:46 (0.7s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:46
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:46 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:46
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) inicio 06:09:46
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) fim 06:09:47 (0.5s)
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:47 (0.5s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:47
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) inicio 06:09:47
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) fim 06:09:47 (0.5s)
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:47 (0.5s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:09:47
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af, escala_braden) inicio 06:09:47
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af, escala_braden) fim 06:09:48 (0.9s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:09:48 (0.9s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:48
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:09:48
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:09:48 (0.5s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:48 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:48
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:09:48
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:09:49 (0.2s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:49 (0.2s)
+Seção A - IA (diagnostico_internacao) inicio 06:09:49
+Seção A - IA (diagnostico_internacao) fim 06:09:49 (0.4s)
+Tempo total prontuario 60.616.859 = 3.6s
+Tempo total IA = 3.6s
+
+Prontuario 85.200.145
+Modelo IA: qwen2.5-3b-instruct
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:09:49
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 06:09:49
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 06:09:50 (0.8s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:09:50 (0.8s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:50
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:50 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:50
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:50 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:50
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:50 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:50
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:50 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:09:50
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 06:09:50
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 06:09:50 (0.4s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:09:50 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:50
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:09:50
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:09:51 (0.6s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:51 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:51
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:09:51
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:09:52 (0.6s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:52 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:52
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:09:52
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:09:52 (0.5s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:52 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:52
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:09:52
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:09:52 (0.4s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:52 (0.4s)
+Seção A - IA (diagnostico_internacao) inicio 06:09:52
+Seção A - IA (diagnostico_internacao) fim 06:09:53 (1.0s)
+Tempo total prontuario 85.200.145 = 4.3s
+Tempo total IA = 4.3s
+
+Prontuario 92.822.652
+Modelo IA: qwen2.5-3b-instruct
+Seção C - inicio 14/09/26, 06:09:58
+Seção C - fim 14/09/26, 06:09:58 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:09:58
+Seção MEDICINA - anamnese - IA (hda, af) inicio 06:09:58
+Seção MEDICINA - anamnese - IA (hda, af) fim 06:09:59 (0.9s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:09:59 (0.9s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:59
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:59 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:09:59
+Seção MEDICINA - evolução - fim 14/09/26, 06:09:59 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:09:59
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_braden) inicio 06:09:59
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_braden) fim 06:09:59 (0.5s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:09:59 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:09:59
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:09:59
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:09:59 (0.4s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:09:59 (0.4s)
+Seção A - IA (diagnostico_internacao) inicio 06:09:59
+Seção A - IA (diagnostico_internacao) fim 06:10:00 (0.4s)
+Tempo total prontuario 92.822.652 = 2.2s
+Tempo total IA = 2.2s
+
+Prontuario 99.692.381
+Modelo IA: qwen2.5-3b-instruct
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:10:00
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 06:10:00
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 06:10:01 (1.2s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:10:01 (1.2s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:10:01
+Seção MEDICINA - evolução - fim 14/09/26, 06:10:01 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:10:01
+Seção MEDICINA - evolução - fim 14/09/26, 06:10:01 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:10:01
+Seção MEDICINA - evolução - fim 14/09/26, 06:10:01 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:10:01
+Seção MEDICINA - evolução - fim 14/09/26, 06:10:01 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:10:01
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 06:10:01
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 06:10:02 (0.5s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:10:02 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:10:02
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:10:02
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:10:02 (0.4s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:10:02 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:10:02
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:10:02
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:10:03 (0.5s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:10:03 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:10:03
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:10:03
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:10:03 (0.6s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:10:03 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:10:03
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:10:03
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:10:04 (0.4s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:10:04 (0.4s)
+Seção A - IA (diagnostico_internacao) inicio 06:10:04
+Seção A - IA (diagnostico_internacao) fim 06:10:05 (1.2s)
+Tempo total prontuario 99.692.381 = 4.8s
+Tempo total IA = 4.8s
+
+Prontuario 94.098.934
+Modelo IA: phi-4-mini-instruct
+Seção C - inicio 14/09/26, 06:10:08
+Seção C - fim 14/09/26, 06:10:08 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:10:08
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 06:10:08
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 06:10:22 (14.2s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:10:22 (14.2s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:10:22
+Seção MEDICINA - evolução - fim 14/09/26, 06:10:22 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:10:22
+Seção MEDICINA - evolução - fim 14/09/26, 06:10:22 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:10:22
+Seção MEDICINA - evolução - fim 14/09/26, 06:10:22 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:10:22
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 06:10:22
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 06:10:23 (1.0s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:10:23 (1.0s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:10:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:10:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:10:24 (1.2s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:10:24 (1.2s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:10:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:10:24
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:10:25 (0.8s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:10:25 (0.8s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:10:25
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:10:25
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:10:27 (2.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:10:27 (2.3s)
+Seção A - IA (diagnostico_internacao) inicio 06:10:27
+Seção A - IA (diagnostico_internacao) fim 06:10:29 (1.9s)
+Tempo total prontuario 94.098.934 = 21.4s
+Tempo total IA = 21.4s
+
+Prontuario 99.692.381
+Modelo IA: phi-4-mini-instruct
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:10:29
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 06:10:29
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 06:10:31 (1.7s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:10:31 (1.7s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:10:31
+Seção MEDICINA - evolução - fim 14/09/26, 06:10:31 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:10:31
+Seção MEDICINA - evolução - fim 14/09/26, 06:10:31 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:10:31
+Seção MEDICINA - evolução - fim 14/09/26, 06:10:31 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:10:31
+Seção MEDICINA - evolução - fim 14/09/26, 06:10:31 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:10:31
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 06:10:31
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 06:10:32 (0.9s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:10:32 (0.9s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:10:32
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:10:32
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:10:34 (2.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:10:34 (2.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:10:34
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:10:34
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:10:35 (1.1s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:10:35 (1.1s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:10:35
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:10:35
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:10:37 (1.4s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:10:37 (1.4s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:10:37
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:10:37
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:10:37 (0.7s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:10:37 (0.7s)
+Seção A - IA (diagnostico_internacao) inicio 06:10:37
+Seção A - IA (diagnostico_internacao) fim 06:10:39 (1.4s)
+Tempo total prontuario 99.692.381 = 9.4s
+Tempo total IA = 9.4s
+
+Prontuario 20.981.529
+Modelo IA: phi-4-mini-instruct
+Seção C - inicio 14/09/26, 06:10:39
+Seção C - fim 14/09/26, 06:10:39 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:10:39
+Seção MEDICINA - anamnese - IA (hda, hd_cid) inicio 06:10:39
+Seção MEDICINA - anamnese - IA (hda, hd_cid) fim 06:10:40 (1.4s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:10:40 (1.4s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:10:40
+Seção MEDICINA - evolução - fim 14/09/26, 06:10:40 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:10:40
+Seção MEDICINA - evolução - fim 14/09/26, 06:10:40 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:10:40
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 06:10:40
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 06:10:41 (0.7s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:10:41 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:10:41
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:10:41
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:10:41 (0.6s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:10:41 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:10:41
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:10:41
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:10:42 (0.4s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:10:42 (0.4s)
+Seção A - IA (diagnostico_internacao) inicio 06:10:42
+Seção A - IA (diagnostico_internacao) fim 06:10:43 (0.8s)
+Tempo total prontuario 20.981.529 = 3.9s
+Tempo total IA = 3.9s
+
+Prontuario 75.463.740
+Modelo IA: phi-4-mini-instruct
+Seção C - inicio 14/09/26, 06:10:43
+Seção C - fim 14/09/26, 06:10:43 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:10:43
+Seção MEDICINA - anamnese - IA (hda, ap_app, af) inicio 06:10:43
+Seção MEDICINA - anamnese - IA (hda, ap_app, af) fim 06:10:44 (1.4s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:10:44 (1.4s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:10:44
+Seção MEDICINA - evolução - fim 14/09/26, 06:10:44 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:10:44
+Seção MEDICINA - evolução - fim 14/09/26, 06:10:44 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:10:44
+Seção MEDICINA - evolução - fim 14/09/26, 06:10:44 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:10:44
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 06:10:44
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 06:10:45 (0.8s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:10:45 (0.8s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:10:45
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:10:45
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:10:46 (0.7s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:10:46 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:10:46
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:10:46
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:10:46 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:10:46 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:10:46
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:10:46
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:10:46 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:10:46 (0.3s)
+Seção A - IA (diagnostico_internacao) inicio 06:10:46
+Seção A - IA (diagnostico_internacao) fim 06:10:58 (12.0s)
+Tempo total prontuario 75.463.740 = 15.4s
+Tempo total IA = 15.4s
+
+Prontuario 93.165.952
+Modelo IA: phi-4-mini-instruct
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:10:58
+Seção MEDICINA - anamnese - IA (hda) inicio 06:10:58
+Seção MEDICINA - anamnese - IA (hda) fim 06:11:00 (1.4s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:11:00 (1.4s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:00
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:00 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:00
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 06:11:00
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 06:11:01 (1.0s)
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:01 (1.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:01
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:01 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:01
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:01 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:11:01
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 06:11:01
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 06:11:01 (0.5s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:11:01 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:11:01
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:11:01
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:11:03 (2.1s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:11:03 (2.1s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:11:03
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:11:03
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:11:05 (1.2s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:11:05 (1.2s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:11:05
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:11:05
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:11:05 (0.4s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:11:05 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:11:05
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:11:05
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:11:06 (0.8s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:11:06 (0.8s)
+Seção A - IA (diagnostico_internacao) inicio 06:11:06
+Seção A - IA (diagnostico_internacao) fim 06:11:07 (1.0s)
+Tempo total prontuario 93.165.952 = 8.4s
+Tempo total IA = 8.4s
+
+Prontuario 92.822.652
+Modelo IA: phi-4-mini-instruct
+Seção C - inicio 14/09/26, 06:11:07
+Seção C - fim 14/09/26, 06:11:07 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:11:07
+Seção MEDICINA - anamnese - IA (hda, af) inicio 06:11:07
+Seção MEDICINA - anamnese - IA (hda, af) fim 06:11:08 (1.3s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:11:08 (1.3s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:08
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:08 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:08
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:08 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:11:08
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_braden) inicio 06:11:08
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_braden) fim 06:11:09 (0.7s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:11:09 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:11:09
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:11:09
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:11:10 (0.8s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:11:10 (0.8s)
+Seção A - IA (diagnostico_internacao) inicio 06:11:10
+Seção A - IA (diagnostico_internacao) fim 06:11:13 (3.1s)
+Tempo total prontuario 92.822.652 = 6.0s
+Tempo total IA = 6.0s
+
+Prontuario 65.534.823
+Modelo IA: phi-4-mini-instruct
+Seção C - inicio 14/09/26, 06:11:13
+Seção C - fim 14/09/26, 06:11:13 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:11:13
+Seção MEDICINA - anamnese - IA (hda) inicio 06:11:13
+Seção MEDICINA - anamnese - IA (hda) fim 06:11:14 (1.0s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:11:14 (1.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:14
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:14 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:14
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:14 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:14
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:14 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:11:14
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 06:11:14
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 06:11:15 (0.7s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:11:15 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:11:15
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:11:15
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:11:15 (0.6s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:11:15 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:11:15
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:11:15
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:11:16 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:11:16 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:11:16
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:11:16
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:11:16 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:11:16 (0.3s)
+Seção A - IA (diagnostico_internacao) inicio 06:11:16
+Seção A - IA (diagnostico_internacao) fim 06:11:17 (1.0s)
+Tempo total prontuario 65.534.823 = 4.0s
+Tempo total IA = 4.0s
+
+Prontuario 90.572.623
+Modelo IA: phi-4-mini-instruct
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:11:17
+Seção MEDICINA - anamnese - IA (hda) inicio 06:11:17
+Seção MEDICINA - anamnese - IA (hda) fim 06:11:18 (1.1s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:11:18 (1.1s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:18
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:18 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:18
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 06:11:18
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 06:11:19 (0.5s)
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:19 (0.5s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:19
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 06:11:19
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 06:11:19 (0.2s)
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:19 (0.2s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:11:19
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_morse) inicio 06:11:19
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_morse) fim 06:11:20 (0.7s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:11:20 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:11:20
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:11:20
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:11:20 (0.7s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:11:20 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:11:20
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:11:20
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:11:21 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:11:21 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:11:21
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:11:21
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:11:21 (0.9s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:11:21 (0.9s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:11:21
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:11:21
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:11:22 (0.9s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:11:22 (0.9s)
+Seção A - IA (diagnostico_internacao) inicio 06:11:22
+Seção A - IA (diagnostico_internacao) fim 06:11:26 (3.2s)
+Tempo total prontuario 90.572.623 = 8.5s
+Tempo total IA = 8.5s
+
+Prontuario 50.888.322
+Modelo IA: phi-4-mini-instruct
+Seção C - inicio 14/09/26, 06:11:26
+Seção C - fim 14/09/26, 06:11:26 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:11:26
+Seção MEDICINA - anamnese - IA (hda, af) inicio 06:11:26
+Seção MEDICINA - anamnese - IA (hda, af) fim 06:11:28 (2.1s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:11:28 (2.1s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:28
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:28 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:28
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:28 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:11:28
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, cd) inicio 06:11:28
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, cd) fim 06:11:29 (1.0s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:11:29 (1.0s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:11:29
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:11:29
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:11:29 (0.5s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:11:29 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:11:29
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:11:29
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:11:30 (0.7s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:11:30 (0.7s)
+Seção A - IA (diagnostico_internacao) inicio 06:11:30
+Seção A - IA (diagnostico_internacao) fim 06:11:34 (4.3s)
+Tempo total prontuario 50.888.322 = 8.6s
+Tempo total IA = 8.6s
+
+Prontuario 60.616.859
+Modelo IA: phi-4-mini-instruct
+Seção C - inicio 14/09/26, 06:11:34
+Seção C - fim 14/09/26, 06:11:34 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:11:34
+Seção MEDICINA - anamnese - IA (hda, hd_cid, ap_app, af, cd) inicio 06:11:34
+Seção MEDICINA - anamnese - IA (hda, hd_cid, ap_app, af, cd) fim 06:11:37 (2.6s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:11:37 (2.6s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:37
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:37 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:37
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) inicio 06:11:37
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) fim 06:11:38 (0.8s)
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:38 (0.8s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:38
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) inicio 06:11:38
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) fim 06:11:38 (0.4s)
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:38 (0.4s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:11:38
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af, escala_braden) inicio 06:11:38
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af, escala_braden) fim 06:11:39 (1.3s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:11:39 (1.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:11:39
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:11:39
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:11:40 (0.9s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:11:40 (0.9s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:11:40
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:11:40
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:11:41 (0.5s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:11:41 (0.5s)
+Seção A - IA (diagnostico_internacao) inicio 06:11:41
+Seção A - IA (diagnostico_internacao) fim 06:11:44 (3.1s)
+Tempo total prontuario 60.616.859 = 9.5s
+Tempo total IA = 9.5s
+
+Prontuario 85.200.145
+Modelo IA: phi-4-mini-instruct
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:11:44
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 06:11:44
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 06:11:47 (2.8s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:11:47 (2.8s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:47
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:47 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:47
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:47 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:47
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:47 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:11:47
+Seção MEDICINA - evolução - fim 14/09/26, 06:11:47 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:11:47
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 06:11:47
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 06:11:48 (0.6s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:11:48 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:11:48
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:11:48
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:11:48 (0.5s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:11:48 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:11:48
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:11:48
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:11:50 (2.4s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:11:50 (2.4s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:11:50
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:11:50
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:11:51 (0.8s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:11:51 (0.8s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:11:51
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:11:51
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:11:52 (0.5s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:11:52 (0.5s)
+Seção A - IA (diagnostico_internacao) inicio 06:11:52
+Seção A - IA (diagnostico_internacao) fim 06:11:54 (2.5s)
+Tempo total prontuario 85.200.145 = 10.1s
+Tempo total IA = 10.1s
+
+Prontuario 94.098.934
+Modelo IA: llama-3.2-3b-instruct
+Seção C - inicio 14/09/26, 06:11:58
+Seção C - fim 14/09/26, 06:11:58 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:11:58
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 06:11:58
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 06:12:10 (12.1s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:12:10 (12.1s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:10
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:10 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:10
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:10 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:10
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:10 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:12:10
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 06:12:10
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 06:12:11 (0.8s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:12:11 (0.8s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:11
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:12:11
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:12:12 (0.7s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:12 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:12
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:12:12
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:12:13 (0.6s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:13 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:13
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:12:13
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:12:13 (0.5s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:13 (0.5s)
+Seção A - IA (diagnostico_internacao) inicio 06:12:13
+Seção A - IA (diagnostico_internacao) fim 06:12:14 (0.9s)
+Tempo total prontuario 94.098.934 = 15.6s
+Tempo total IA = 15.6s
+
+Prontuario 99.692.381
+Modelo IA: llama-3.2-3b-instruct
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:12:14
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 06:12:14
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 06:12:15 (1.4s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:12:15 (1.4s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:15
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:15 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:15
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:15 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:15
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:15 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:15
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:15 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:12:15
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 06:12:15
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 06:12:16 (0.6s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:12:16 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:16
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:12:16
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:12:17 (0.6s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:17 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:17
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:12:17
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:12:17 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:17 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:17
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:12:17
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:12:18 (0.7s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:18 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:18
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:12:18
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:12:18 (0.6s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:18 (0.6s)
+Seção A - IA (diagnostico_internacao) inicio 06:12:18
+Seção A - IA (diagnostico_internacao) fim 06:12:19 (1.2s)
+Tempo total prontuario 99.692.381 = 5.4s
+Tempo total IA = 5.4s
+
+Prontuario 20.981.529
+Modelo IA: llama-3.2-3b-instruct
+Seção C - inicio 14/09/26, 06:12:20
+Seção C - fim 14/09/26, 06:12:20 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:12:20
+Seção MEDICINA - anamnese - IA (hda, hd_cid) inicio 06:12:20
+Seção MEDICINA - anamnese - IA (hda, hd_cid) fim 06:12:21 (1.3s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:12:21 (1.3s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:21
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:21 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:21
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:21 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:12:21
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 06:12:21
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 06:12:22 (1.3s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:12:22 (1.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:22
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:12:22
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:12:23 (0.5s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:23 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:12:23
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:12:23 (0.5s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:23 (0.5s)
+Seção A - IA (diagnostico_internacao) inicio 06:12:23
+Seção A - IA (diagnostico_internacao) fim 06:12:24 (0.8s)
+Tempo total prontuario 20.981.529 = 4.3s
+Tempo total IA = 4.3s
+
+Prontuario 75.463.740
+Modelo IA: llama-3.2-3b-instruct
+Seção C - inicio 14/09/26, 06:12:24
+Seção C - fim 14/09/26, 06:12:24 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:12:24
+Seção MEDICINA - anamnese - IA (hda, ap_app, af) inicio 06:12:24
+Seção MEDICINA - anamnese - IA (hda, ap_app, af) fim 06:12:25 (1.3s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:12:25 (1.3s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:25
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:25 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:25
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:25 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:25
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:25 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:12:25
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 06:12:25
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 06:12:26 (0.6s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:12:26 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:26
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:12:26
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:12:27 (0.5s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:27 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:27
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:12:27
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:12:27 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:27 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:27
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:12:27
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:12:27 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:27 (0.3s)
+Seção A - IA (diagnostico_internacao) inicio 06:12:27
+Seção A - IA (diagnostico_internacao) fim 06:12:28 (0.9s)
+Tempo total prontuario 75.463.740 = 3.9s
+Tempo total IA = 3.9s
+
+Prontuario 93.165.952
+Modelo IA: llama-3.2-3b-instruct
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:12:28
+Seção MEDICINA - anamnese - IA (hda) inicio 06:12:28
+Seção MEDICINA - anamnese - IA (hda) fim 06:12:29 (1.3s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:12:29 (1.3s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:29
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:29 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:29
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 06:12:29
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 06:12:31 (1.2s)
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:31 (1.2s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:31
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:31 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:31
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:31 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:12:31
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 06:12:31
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 06:12:31 (0.8s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:12:31 (0.8s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:31
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:12:31
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:12:33 (1.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:33 (1.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:33
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:12:33
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:12:33 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:33 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:33
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:12:33
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:12:33 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:33 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:33
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:12:33
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:12:34 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:34 (0.3s)
+Seção A - IA (diagnostico_internacao) inicio 06:12:34
+Seção A - IA (diagnostico_internacao) fim 06:12:35 (1.4s)
+Tempo total prontuario 93.165.952 = 6.9s
+Tempo total IA = 6.9s
+
+Prontuario 92.822.652
+Modelo IA: llama-3.2-3b-instruct
+Seção C - inicio 14/09/26, 06:12:35
+Seção C - fim 14/09/26, 06:12:35 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:12:35
+Seção MEDICINA - anamnese - IA (hda, af) inicio 06:12:35
+Seção MEDICINA - anamnese - IA (hda, af) fim 06:12:36 (1.1s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:12:36 (1.1s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:36
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:36 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:36
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:36 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:12:36
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_braden) inicio 06:12:36
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_braden) fim 06:12:37 (0.9s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:12:37 (0.9s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:37
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:12:37
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:12:38 (0.8s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:38 (0.8s)
+Seção A - IA (diagnostico_internacao) inicio 06:12:38
+Seção A - IA (diagnostico_internacao) fim 06:12:39 (0.9s)
+Tempo total prontuario 92.822.652 = 3.6s
+Tempo total IA = 3.6s
+
+Prontuario 65.534.823
+Modelo IA: llama-3.2-3b-instruct
+Seção C - inicio 14/09/26, 06:12:39
+Seção C - fim 14/09/26, 06:12:39 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:12:39
+Seção MEDICINA - anamnese - IA (hda) inicio 06:12:39
+Seção MEDICINA - anamnese - IA (hda) fim 06:12:40 (0.8s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:12:40 (0.8s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:40
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:40 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:40
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:40 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:40
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:40 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:12:40
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) inicio 06:12:40
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af) fim 06:12:41 (1.0s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:12:41 (1.0s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:41
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:12:41
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:12:41 (0.5s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:41 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:41
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:12:41
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:12:42 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:42 (0.3s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:42
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:12:42
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:12:42 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:42 (0.3s)
+Seção A - IA (diagnostico_internacao) inicio 06:12:42
+Seção A - IA (diagnostico_internacao) fim 06:12:43 (0.8s)
+Tempo total prontuario 65.534.823 = 3.7s
+Tempo total IA = 3.7s
+
+Prontuario 90.572.623
+Modelo IA: llama-3.2-3b-instruct
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:12:43
+Seção MEDICINA - anamnese - IA (hda) inicio 06:12:43
+Seção MEDICINA - anamnese - IA (hda) fim 06:12:44 (0.9s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:12:44 (0.9s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:44
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:44 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:44
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 06:12:44
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 06:12:45 (1.5s)
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:45 (1.5s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:45
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) inicio 06:12:45
+Seção MEDICINA - evolução - IA (procedimentos_condutas_queixas) fim 06:12:47 (1.8s)
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:47 (1.8s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:12:47
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_morse) inicio 06:12:47
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, escala_morse) fim 06:12:48 (0.7s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:12:48 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:48
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:12:48
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:12:48 (0.6s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:48 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:48
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:12:48
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:12:49 (0.2s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:49 (0.2s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:49
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:12:49
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:12:49 (0.4s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:49 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:49
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:12:49
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:12:50 (0.6s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:50 (0.6s)
+Seção A - IA (diagnostico_internacao) inicio 06:12:50
+Seção A - IA (diagnostico_internacao) fim 06:12:50 (0.7s)
+Tempo total prontuario 90.572.623 = 7.4s
+Tempo total IA = 7.4s
+
+Prontuario 50.888.322
+Modelo IA: llama-3.2-3b-instruct
+Seção C - inicio 14/09/26, 06:12:50
+Seção C - fim 14/09/26, 06:12:50 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:12:50
+Seção MEDICINA - anamnese - IA (hda, af) inicio 06:12:50
+Seção MEDICINA - anamnese - IA (hda, af) fim 06:12:52 (1.3s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:12:52 (1.3s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:52
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:52 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:52
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:52 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:12:52
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, cd) inicio 06:12:52
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, cd) fim 06:12:53 (1.0s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:12:53 (1.0s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:53
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:12:53
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:12:54 (0.8s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:54 (0.8s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:54
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:12:54
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:12:54 (0.5s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:54 (0.5s)
+Seção A - IA (diagnostico_internacao) inicio 06:12:54
+Seção A - IA (diagnostico_internacao) fim 06:12:55 (1.3s)
+Tempo total prontuario 50.888.322 = 4.9s
+Tempo total IA = 4.9s
+
+Prontuario 60.616.859
+Modelo IA: llama-3.2-3b-instruct
+Seção C - inicio 14/09/26, 06:12:55
+Seção C - fim 14/09/26, 06:12:55 (0.0s)
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:12:55
+Seção MEDICINA - anamnese - IA (hda, hd_cid, ap_app, af, cd) inicio 06:12:55
+Seção MEDICINA - anamnese - IA (hda, hd_cid, ap_app, af, cd) fim 06:12:56 (1.1s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:12:56 (1.1s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:56
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:56 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:56
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) inicio 06:12:56
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) fim 06:12:57 (0.5s)
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:57 (0.5s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:12:57
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) inicio 06:12:57
+Seção MEDICINA - evolução - IA (hd_cid, procedimentos_condutas_queixas) fim 06:12:57 (0.2s)
+Seção MEDICINA - evolução - fim 14/09/26, 06:12:57 (0.2s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:12:57
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af, escala_braden) inicio 06:12:57
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao, ap_app, af, escala_braden) fim 06:12:58 (0.8s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:12:58 (0.8s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:58
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:12:58
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:12:59 (0.7s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:59 (0.7s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:12:59
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:12:59
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:12:59 (0.4s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:12:59 (0.4s)
+Seção A - IA (diagnostico_internacao) inicio 06:12:59
+Seção A - IA (diagnostico_internacao) fim 06:13:00 (0.5s)
+Tempo total prontuario 60.616.859 = 4.2s
+Tempo total IA = 4.2s
+
+Prontuario 85.200.145
+Modelo IA: llama-3.2-3b-instruct
+Seção MEDICINA - anamnese - inicio 14/09/26, 06:13:00
+Seção MEDICINA - anamnese - IA (hda, ap_app) inicio 06:13:00
+Seção MEDICINA - anamnese - IA (hda, ap_app) fim 06:13:01 (1.3s)
+Seção MEDICINA - anamnese - fim 14/09/26, 06:13:01 (1.3s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:13:01
+Seção MEDICINA - evolução - fim 14/09/26, 06:13:01 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:13:01
+Seção MEDICINA - evolução - fim 14/09/26, 06:13:01 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:13:01
+Seção MEDICINA - evolução - fim 14/09/26, 06:13:01 (0.0s)
+Seção MEDICINA - evolução - inicio 14/09/26, 06:13:01
+Seção MEDICINA - evolução - fim 14/09/26, 06:13:01 (0.0s)
+Seção ENFERMAGEM - anamnese - inicio 14/09/26, 06:13:01
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) inicio 06:13:01
+Seção ENFERMAGEM - anamnese - IA (motivo_internacao) fim 06:13:02 (0.5s)
+Seção ENFERMAGEM - anamnese - fim 14/09/26, 06:13:02 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:13:02
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:13:02
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:13:02 (0.6s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:13:02 (0.6s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:13:02
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:13:02
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:13:03 (0.5s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:13:03 (0.5s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:13:03
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) inicio 06:13:03
+Seção ENFERMAGEM - evolução - IA (motivo_internacao, condutas) fim 06:13:03 (0.4s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:13:03 (0.4s)
+Seção ENFERMAGEM - evolução - inicio 14/09/26, 06:13:03
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) inicio 06:13:03
+Seção ENFERMAGEM - evolução - IA (motivo_internacao) fim 06:13:03 (0.3s)
+Seção ENFERMAGEM - evolução - fim 14/09/26, 06:13:03 (0.3s)
+Seção A - IA (diagnostico_internacao) inicio 06:13:03
+Seção A - IA (diagnostico_internacao) fim 06:13:04 (1.1s)
+Tempo total prontuario 85.200.145 = 4.6s
+Tempo total IA = 4.6s
