@@ -17,21 +17,19 @@ def run_audit(records: list) -> list:
 
     return audit_medical_records(records)
 
-if __name__ == "__main__":
+
+def _run_cli() -> None:
+    """Reads records as JSON from stdin and prints the audit result as JSON to stdout.
+    stdin/stdout keep large payloads from the JS caller out of argv."""
     try:
-        # Lê o JSON da entrada padrão (stdin) para suportar payloads grandes vindos do JS
         input_data = sys.stdin.read()
         if not input_data.strip():
             sys.stderr.write("Erro: Nenhum dado JSON fornecido na entrada padrão (stdin).\n")
             sys.exit(1)
 
         records = json.loads(input_data)
-
-        # Executa a auditoria
-        json_results = run_audit(records)
-
-        # Imprime o resultado como JSON puro no stdout (para o JS capturar)
-        print(json.dumps(json_results, ensure_ascii=False))
+        results = run_audit(records)
+        print(json.dumps(results, ensure_ascii=False))
 
     except json.JSONDecodeError as e:
         sys.stderr.write(f"Erro ao decodificar JSON: {str(e)}\n")
@@ -39,3 +37,7 @@ if __name__ == "__main__":
     except Exception as e:
         sys.stderr.write(f"Erro interno: {str(e)}\n")
         sys.exit(1)
+
+
+if __name__ == "__main__":
+    _run_cli()

@@ -1,7 +1,7 @@
-"""Busca de termos em texto clínico: sem acento, sem diferença de maiúscula e por PALAVRA INTEIRA.
+"""Term search in clinical text: accent-insensitive, case-insensitive and WHOLE-WORD.
 
-A busca por trecho de palavra (`"ar" in texto`) casava dentro de outras palavras ("regul-ar")
-e marcava sistemas do exame físico como presentes sem estarem.
+A substring search (`"ar" in text`) matched inside other words ("regul-ar") and marked physical exam
+systems as present when they were not.
 """
 import re
 import unicodedata
@@ -9,7 +9,7 @@ from functools import lru_cache
 
 
 def normalize(text):
-    """minúsculas + sem acentos ('Respiratório' -> 'respiratorio')."""
+    """Lowercase + accent-stripped ('Respiratório' -> 'respiratorio')."""
     if not text:
         return ""
     decomposed = unicodedata.normalize("NFKD", str(text).lower())
@@ -18,18 +18,19 @@ def normalize(text):
 
 @lru_cache(maxsize=None)
 def _word_pattern(term, plural):
-    # (?<!\w) e (?!\w): o termo não pode estar colado em outras letras/dígitos
-    sufixo = r"(?:s|es)?" if plural else ""
-    return re.compile(r"(?<!\w)" + re.escape(normalize(term)) + sufixo + r"(?!\w)")
+    """Compiles `term` into a whole-word regex: `(?<!\\w)` and `(?!\\w)` keep it from matching
+    glued to other letters or digits."""
+    suffix = r"(?:s|es)?" if plural else ""
+    return re.compile(r"(?<!\w)" + re.escape(normalize(term)) + suffix + r"(?!\w)")
 
 
 def has_word(text_normalized, term, plural=False):
-    """True se `term` aparece como palavra (ou expressão) inteira em texto JÁ normalizado.
-    plural=True aceita também o plural simples ('dreno' casa com 'drenos')."""
+    """True if `term` appears as a whole word (or phrase) in already-normalized text.
+    plural=True also accepts the simple plural ('dreno' matches 'drenos')."""
     return _word_pattern(term, plural).search(text_normalized) is not None
 
 
 def find_words(text, terms, plural=False):
-    """Termos de `terms` presentes no texto (normaliza o texto uma única vez)."""
-    norm = normalize(text)
-    return [t for t in terms if has_word(norm, t, plural)]
+    """Terms from `terms` present in the text (normalizes the text only once)."""
+    normalized = normalize(text)
+    return [t for t in terms if has_word(normalized, t, plural)]

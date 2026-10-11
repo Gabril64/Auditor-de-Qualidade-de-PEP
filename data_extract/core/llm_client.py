@@ -1,3 +1,10 @@
+"""Talks to the LMStudio endpoint to fill in fields the keyword rules left as "Não registrado".
+
+AI_SEED comes from the evaluation notebook (Producer -> Worker -> env LLM_SEED), for reproducible
+runs. AI_MAX_CONTEXT_CHARS caps a record's text sent to the AI so small models' context does not
+overflow. AI_OK/AI_TIMEOUT/AI_HTTP_ERROR/AI_INVALID_JSON/AI_EMPTY_RESPONSE/AI_MISSING_FIELDS are
+the possible outcomes of one AI call; query_ai_fields()'s docstring lists them with "status".
+"""
 import json
 import os
 import socket
@@ -8,16 +15,13 @@ import urllib.request
 
 LMSTUDIO_URL = os.environ.get("LMSTUDIO_URL", "http://localhost:1234/api/v1/chat")
 MODEL_NAME = os.environ.get("LLM_MODEL", "qwen2.5-3b-instruct")
-# Seed opcional (vem do notebook de avaliação via Producer -> Worker -> env LLM_SEED)
 _seed_env = os.environ.get("LLM_SEED", "").strip()
 AI_SEED = int(_seed_env) if _seed_env.lstrip("-").isdigit() else None
-# Limite de caracteres do texto de um registro enviado à IA (evita estourar o contexto de modelos pequenos)
 AI_MAX_CONTEXT_CHARS = int(os.environ.get("AI_MAX_CONTEXT_CHARS", "6000"))
 AI_MAX_ATTEMPTS = int(os.environ.get("AI_MAX_ATTEMPTS", "3"))
 AI_TIMEOUT_SECONDS = int(os.environ.get("AI_TIMEOUT_SECONDS", "300"))
 AI_RETRY_DELAY_SECONDS = float(os.environ.get("AI_RETRY_DELAY_SECONDS", "1"))
 
-# Desfechos possíveis de uma chamada à IA
 AI_OK = "ok"
 AI_TIMEOUT = "timeout"
 AI_HTTP_ERROR = "http_error"
@@ -25,7 +29,7 @@ AI_INVALID_JSON = "invalid_json"
 AI_EMPTY_RESPONSE = "empty_response"
 AI_MISSING_FIELDS = "campos_ausentes"
 
-REGRAS_CAMPOS = {
+FIELD_RULES = {
     "curativo": "Curativo (ITEM NÃO OBRIGATÓRIO — só avalie se houver menção explícita a curativo). Classifique o TIPO em uma de 3 categorias: 'simples' (feridas simples), 'especial' (feridas complexas, coberturas especiais, drenos) ou 'grau II' (lesões abertas extensas, com exposição de tecido). O curativo só está CONFORME se o TIPO foi identificado E o texto descreve TAMANHO, EXSUDATO e NECROSE. Respostas: se tudo estiver presente, retorne 'Curativo <tipo>'. Se o tipo foi identificado mas falta algo, retorne 'não conforme: Curativo <tipo>; faltou: <itens que faltam>'. Se há menção a curativo mas NÃO é possível identificar o tipo, retorne 'não conforme: tipo de curativo não identificado'. Se não houver NENHUMA menção a curativo, retorne null.",
     "hda": "História da Doença Atual (HDA). Procure relatos sobre como o sintoma ou doença que motivou a internação começou e evoluiu ao longo do tempo (ex: 'paciente iniciou quadro há 3 dias com...'). Geralmente é uma narrativa temporal, não apenas uma palavra ou diagnóstico isolado. Diferente de 'motivo_internacao', que é a razão objetiva e direta da internação.",
     "hd_cid": "Hipótese Diagnóstica (HD) ou CID, como está registrado no documento — extraia o trecho LITERAL que aparece após as marcas '#HD:', 'HD:', 'Hipótese Diagnóstica:' ou 'CID:'. Este campo é sobre COMO o diagnóstico está formalmente registrado no documento, não uma interpretação sua do diagnóstico.",
@@ -45,13 +49,13 @@ REGRAS_CAMPOS = {
     "condutas": "Condutas de ENFERMAGEM (não médicas) realizadas ou planejadas. Geralmente aparece em seção 'CONDUTAS:' dentro de registros de Enfermagem. Diferente de 'cd', que é a conduta do MÉDICO.",
 }
 
-def _build_prompts(texto, campos_faltantes, tipo_registro):
-    definicoes = []
-    for campo in campos_faltantes:
-        desc = REGRAS_CAMPOS.get(campo, f"Encontre se existe informação sobre {campo}.")
-        definicoes.append(f"- {campo}: {desc}")
+def _build_prompts(text, missing_fields, record_type):
+    definitions = []
+    for field in missing_fields:
+        description = FIELD_RULES.get(field, f"Encontre se existe informação sobre {field}.")
+        definitions.append(f"- {field}: {description}")
 
-    definicoes_texto = "\n".join(definicoes)
+    definitions_text = "\n".join(definitions)
 
     system_prompt = (
         "Você é um auditor médico altamente técnico e preciso. "
@@ -60,14 +64,14 @@ def _build_prompts(texto, campos_faltantes, tipo_registro):
         "Se a informação não estiver presente no texto, o valor deve ser null.\n"
         "IMPORTANTE: Verifique a completude da informação. Por exemplo, no 'exame_fisico', se a descrição for muito curta ou faltarem os sistemas básicos (respiratório, cardiovascular, etc), você DEVE retornar 'não conforme: <motivo curto explicando o que falta>' em vez da extração. Use sempre o formato 'não conforme: <motivo>' quando a informação existir mas estiver incompleta ou incorreta.\n"
         "NUNCA retorne texto fora do JSON. NUNCA use formatação markdown como ```json.\n\n"
-        f"Campos que você deve buscar:\n{definicoes_texto}"
+        f"Campos que você deve buscar:\n{definitions_text}"
     )
-    input_text = f"TIPO DO REGISTRO: {tipo_registro}\nTEXTO DO REGISTRO:\n{texto}"
+    input_text = f"TIPO DO REGISTRO: {record_type}\nTEXTO DO REGISTRO:\n{text}"
     return system_prompt, input_text
 
 
 def _extract_response_text(result_json):
-    """Lida com os formatos comuns de resposta do LMStudio."""
+    """Handles LMStudio's common response formats."""
     if "choices" in result_json:
         return result_json["choices"][0]["message"]["content"]
     if "output" in result_json and isinstance(result_json["output"], list) and len(result_json["output"]) > 0:
@@ -78,15 +82,15 @@ def _extract_response_text(result_json):
     return str(result_json)
 
 
-def _strip_markdown(texto):
-    texto = (texto or "").strip()
-    if texto.startswith("```json"):
-        texto = texto[7:]
-    if texto.startswith("```"):
-        texto = texto[3:]
-    if texto.endswith("```"):
-        texto = texto[:-3]
-    return texto.strip()
+def _strip_markdown(text):
+    text = (text or "").strip()
+    if text.startswith("```json"):
+        text = text[7:]
+    if text.startswith("```"):
+        text = text[3:]
+    if text.endswith("```"):
+        text = text[:-3]
+    return text.strip()
 
 
 def _post(payload):
@@ -100,20 +104,20 @@ def _post(payload):
         return response.read().decode("utf-8")
 
 
-def _single_attempt(payload, campos_faltantes):
-    """Uma chamada ao LMStudio. Retorna (status, fields, error)."""
+def _single_attempt(payload, missing_fields):
+    """One call to LMStudio. Returns (status, fields, error). If the server rejects the "seed"
+    field, retries once without it; `seed_applied` below is what records that it was NOT applied."""
     try:
         try:
             response_data = _post(payload)
         except urllib.error.HTTPError as e:
-            # O servidor recusou o campo "seed": segue sem ela (e registra que NÃO foi aplicada)
-            corpo = e.read().decode("utf-8", errors="replace")
-            if e.code in (400, 422) and "seed" in payload and "seed" in corpo.lower():
+            body = e.read().decode("utf-8", errors="replace")
+            if e.code in (400, 422) and "seed" in payload and "seed" in body.lower():
                 sys.stderr.write(f"  [AI Fallback] Servidor rejeitou 'seed' ({e.code}); repetindo sem seed.\n")
                 payload.pop("seed")
                 response_data = _post(payload)
             else:
-                return AI_HTTP_ERROR, {}, f"HTTP {e.code}: {corpo[:200]}"
+                return AI_HTTP_ERROR, {}, f"HTTP {e.code}: {body[:200]}"
         result_json = json.loads(response_data)
     except (socket.timeout, TimeoutError) as e:
         return AI_TIMEOUT, {}, f"timeout após {AI_TIMEOUT_SECONDS}s: {e}"
@@ -127,58 +131,58 @@ def _single_attempt(payload, campos_faltantes):
         return AI_HTTP_ERROR, {}, f"{type(e).__name__}: {e}"
 
     try:
-        texto_resposta = _strip_markdown(_extract_response_text(result_json))
+        response_text = _strip_markdown(_extract_response_text(result_json))
     except Exception as e:
         return AI_EMPTY_RESPONSE, {}, f"formato de resposta inesperado: {e}"
 
-    if not texto_resposta:
+    if not response_text:
         return AI_EMPTY_RESPONSE, {}, "resposta vazia"
 
-    sys.stderr.write(f"  [AI Fallback] Resposta: {texto_resposta}\n")
+    sys.stderr.write(f"  [AI Fallback] Resposta: {response_text}\n")
 
     try:
-        analise = json.loads(texto_resposta)
+        parsed = json.loads(response_text)
     except json.JSONDecodeError as e:
-        return AI_INVALID_JSON, {}, f"{e}; resposta: {texto_resposta[:200]}"
+        return AI_INVALID_JSON, {}, f"{e}; resposta: {response_text[:200]}"
 
-    if not isinstance(analise, dict):
-        return AI_INVALID_JSON, {}, f"JSON não é um objeto: {texto_resposta[:200]}"
+    if not isinstance(parsed, dict):
+        return AI_INVALID_JSON, {}, f"JSON não é um objeto: {response_text[:200]}"
 
-    ausentes = [c for c in campos_faltantes if c not in analise]
-    if ausentes:
-        return AI_MISSING_FIELDS, analise, f"chaves ausentes na resposta: {ausentes}"
+    missing = [f for f in missing_fields if f not in parsed]
+    if missing:
+        return AI_MISSING_FIELDS, parsed, f"chaves ausentes na resposta: {missing}"
 
-    return AI_OK, analise, None
+    return AI_OK, parsed, None
 
 
-def query_ai_fields(texto, campos_faltantes, tipo_registro):
+def query_ai_fields(text, missing_fields, record_type):
     """
-    Consulta o LLM até AI_MAX_ATTEMPTS vezes e devolve um desfecho estruturado:
+    Queries the LLM up to AI_MAX_ATTEMPTS times and returns a structured outcome:
     {
       "status": ok | timeout | http_error | invalid_json | empty_response | campos_ausentes,
-      "fields": {campo: trecho|None},   # o que a IA devolveu na melhor tentativa
-      "error": str | None,              # motivo da última falha
+      "fields": {field: snippet|None},  # what the AI returned on the best attempt
+      "error": str | None,              # reason for the last failure
       "attempts": int,
-      "latency": float,                 # segundos somados de todas as tentativas
-      "seed_applied": None | bool,      # None = sem seed configurada; False = servidor recusou a seed
+      "latency": float,                 # seconds summed across every attempt
+      "seed_applied": None | bool,      # None = no seed configured; False = server rejected the seed
     }
-    O status é "ok" somente quando TODAS as chaves pedidas vieram no JSON
-    (valor null é uma resposta válida: a IA olhou e não achou).
+    status is "ok" only when EVERY requested key came back in the JSON
+    (a null value is a valid answer: the AI looked and found nothing).
     """
-    if not texto or not texto.strip():
+    if not text or not text.strip():
         return {"status": AI_OK, "fields": {}, "error": None, "attempts": 0, "latency": 0.0}
 
-    system_prompt, input_text = _build_prompts(texto, campos_faltantes, tipo_registro)
+    system_prompt, input_text = _build_prompts(text, missing_fields, record_type)
     payload = {"model": MODEL_NAME, "system_prompt": system_prompt, "input": input_text}
     if AI_SEED is not None:
         payload["seed"] = AI_SEED
 
-    inicio = time.time()
+    started_at = time.time()
     status, fields, error = AI_HTTP_ERROR, {}, None
     attempts = 0
     for attempts in range(1, AI_MAX_ATTEMPTS + 1):
-        sys.stderr.write(f"  [AI Fallback] Chamando LMStudio para os campos: {campos_faltantes} (tentativa {attempts}/{AI_MAX_ATTEMPTS})...\n")
-        status, fields, error = _single_attempt(payload, campos_faltantes)
+        sys.stderr.write(f"  [AI Fallback] Chamando LMStudio para os campos: {missing_fields} (tentativa {attempts}/{AI_MAX_ATTEMPTS})...\n")
+        status, fields, error = _single_attempt(payload, missing_fields)
         if status == AI_OK:
             break
         sys.stderr.write(f"  [AI Fallback Error] tentativa {attempts}/{AI_MAX_ATTEMPTS} falhou ({status}): {error}\n")
@@ -190,11 +194,11 @@ def query_ai_fields(texto, campos_faltantes, tipo_registro):
         "fields": fields,
         "error": error,
         "attempts": attempts,
-        "latency": time.time() - inicio,
+        "latency": time.time() - started_at,
         "seed_applied": None if AI_SEED is None else ("seed" in payload),
     }
 
 
-def validate_missing_fields_with_ai(texto, campos_faltantes, tipo_registro):
-    """Compatibilidade: devolve apenas o dict de campos (vazio em caso de falha)."""
-    return query_ai_fields(texto, campos_faltantes, tipo_registro)["fields"]
+def validate_missing_fields_with_ai(text, missing_fields, record_type):
+    """Compatibility wrapper: returns just the fields dict (empty on failure)."""
+    return query_ai_fields(text, missing_fields, record_type)["fields"]

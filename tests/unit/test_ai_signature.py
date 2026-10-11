@@ -5,16 +5,16 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import pytest
 
 from data_extract.core import auditor, llm_client
-from data_extract.core.auditor import _new_ia_meta, calculate_conformity, call_ai_and_apply, finalize_ia_meta
+from data_extract.core.auditor import _new_ai_meta, calculate_conformity, call_ai_and_apply, finalize_ai_meta
 
 
 def _fake(responses):
-    """Substitui _single_attempt por uma sequência de (status, fields, error)."""
+    """Replaces _single_attempt with a sequence of (status, fields, error)."""
     seq = list(responses)
     calls = []
 
-    def fn(payload, campos):
-        calls.append(campos)
+    def fn(payload, fields):
+        calls.append(fields)
         return seq.pop(0)
 
     fn.calls = calls
@@ -48,7 +48,7 @@ def test_empty_text_does_not_call_ai(monkeypatch):
 def test_signature_all_outcomes(monkeypatch):
     fields = {"hda": "paciente iniciou quadro", "af": None, "cd": "não conforme (incompleto)"}
     monkeypatch.setattr(llm_client, "_single_attempt", _fake([("ok", fields, None)]))
-    meta, target = _new_ia_meta(), {}
+    meta, target = _new_ai_meta(), {}
     call_ai_and_apply(target, ["hda", "af", "cd"], "texto", "x", "secao_b_anamnese", meta)
     assert target["hda"] == "conforme (IA: paciente iniciou quadro)"
     assert target["af"] == "Não registrado (IA: null)"
@@ -60,21 +60,20 @@ def test_signature_all_outcomes(monkeypatch):
 
 def test_failure_marks_partial(monkeypatch):
     monkeypatch.setattr(llm_client, "_single_attempt", _fake([("timeout", {}, "t")] * 3))
-    meta, target = _new_ia_meta(), {}
+    meta, target = _new_ai_meta(), {}
     call_ai_and_apply(target, ["hda"], "texto", "x", "secao_b_anamnese", meta)
     assert target["hda"] == "Não registrado (IA_NAO_EXECUTADA: timeout)"
     data = {}
-    finalize_ia_meta(data, meta)
+    finalize_ai_meta(data, meta)
     assert data["ia_incompleta"] is True
     assert "A IA não rodou para todos os campos" in data["observacao_ia"]
-    # enviados == ok + null + erro
     m = data["_ia_meta"]
     assert len(m["campos_enviados"]) == len(m["campos_ok"]) + len(m["campos_null"]) + len(m["campos_erro"])
 
 
 def test_missing_key_is_error_for_that_field_only(monkeypatch):
     monkeypatch.setattr(llm_client, "_single_attempt", _fake([("campos_ausentes", {"hda": "x"}, "e")] * 3))
-    meta, target = _new_ia_meta(), {}
+    meta, target = _new_ai_meta(), {}
     call_ai_and_apply(target, ["hda", "af"], "texto", "x", "s", meta)
     assert target["hda"].startswith("conforme")
     assert "IA_NAO_EXECUTADA: campos_ausentes" in target["af"]
@@ -177,7 +176,7 @@ def test_server_rejecting_seed_is_reported_not_silent(monkeypatch):
 
 
 def test_hd_cid_does_not_match_flacido():
-    from data_extract.core.auditor import tem_hipotese_diagnostica as t
+    from data_extract.core.auditor import has_diagnostic_hypothesis as t
     assert not t("abdome flácido, indolor, paciente hidratado, sem acidente")
     assert t("Hipótese diagnóstica: pneumonia") and t("CID J18.9") and t("#HD: ICC") and t("hd: icc")
     assert t("diagnóstico (CID-10 S72.1)")

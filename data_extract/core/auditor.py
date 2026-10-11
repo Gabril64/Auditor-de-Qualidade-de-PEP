@@ -12,26 +12,30 @@ from data_extract.core.llm_client import (
     query_ai_fields,
 )
 from data_extract.core.parser import extract_record_info
-from data_extract.core.temporal import check_criacao_anamnese, check_evolucao_diaria
-from data_extract.keywords.exame_fisico import TERMOS_EXAME_FISICO_ENFERMAGEM, TERMOS_EXAME_FISICO_MEDICINA
-from data_extract.keywords.opme import TERMOS_OPME
+from data_extract.core.temporal import check_anamnesis_creation, check_daily_evolution
+from data_extract.keywords.exame_fisico import MEDICAL_PHYSICAL_EXAM_TERMS, NURSING_PHYSICAL_EXAM_TERMS
+from data_extract.keywords.opme import OPME_TERMS
 from data_extract.utils.helpers import (
     calculate_age,
-    check_curativo,
-    check_exame_fisico_completo,
-    format_periodo,
+    check_complete_physical_exam,
+    check_dressing,
+    format_period,
 )
 from data_extract.utils.text_match import find_words, normalize
 
-
-def tem_hipotese_diagnostica(texto):
-    """Hipótese diagnóstica/CID registrada no texto (sem acento: há registros escritos sem acentuação).
-    'cid' só conta como palavra inteira: a busca por trecho casava com 'flácido', 'acidente' etc."""
-    t = normalize(texto)
-    return "hipotese" in t or "#hd" in t or "hd:" in t or re.search(r"\bcid\b", t) is not None
+FIELDS_WITHOUT_AI = frozenset({"criacao_anamnese", "criacao_evolucao", "frequencia_diaria"})
+"""Fields computed from date/time: there is no text snippet for the AI to look for."""
 
 
-def _new_ia_meta():
+def has_diagnostic_hypothesis(text):
+    """Diagnostic hypothesis/ICD code registered in the text (accent-insensitive: some records are
+    written without accents). 'cid' only counts as a whole word: a substring search matched inside
+    'flácido', 'acidente', etc."""
+    normalized = normalize(text)
+    return "hipotese" in normalized or "#hd" in normalized or "hd:" in normalized or re.search(r"\bcid\b", normalized) is not None
+
+
+def _new_ai_meta():
     return {
         "model": MODEL_NAME,
         "seed": AI_SEED,
@@ -47,390 +51,403 @@ def _new_ia_meta():
     }
 
 
-# Campos calculados por data/hora: não existe trecho de texto para a IA procurar
-CAMPOS_SEM_IA = frozenset({"criacao_anamnese", "criacao_evolucao", "frequencia_diaria"})
+def non_conformity_reason(value):
+    """Strips the AI's answer prefix: 'não conforme: falta ACV' -> 'falta ACV'."""
+    text = re.sub(r"^\s*(?:n[ãa]o conforme|incompleto)\s*[:\-–]?\s*", "", value.strip(), flags=re.IGNORECASE).strip()
+    if text.startswith("(") and text.endswith(")"):
+        text = text[1:-1].strip()
+    return text or value.strip()
 
 
-def motivo_nao_conforme(valor):
-    """Tira o prefixo da resposta da IA: 'não conforme: falta ACV' -> 'falta ACV'."""
-    texto = re.sub(r"^\s*(?:n[ãa]o conforme|incompleto)\s*[:\-–]?\s*", "", valor.strip(), flags=re.IGNORECASE).strip()
-    if texto.startswith("(") and texto.endswith(")"):
-        texto = texto[1:-1].strip()
-    return texto or valor.strip()
+def truncate_text(text):
+    """Caps the text sent to the AI at the configured character budget."""
+    return text if len(text) <= AI_MAX_CONTEXT_CHARS else text[:AI_MAX_CONTEXT_CHARS]
 
 
-def limitar_texto(texto):
-    """Limita o texto enviado à IA ao orçamento de caracteres configurado."""
-    return texto if len(texto) <= AI_MAX_CONTEXT_CHARS else texto[:AI_MAX_CONTEXT_CHARS]
-
-
-def call_ai_and_apply(target, campos, texto, tipo_registro, secao_key, ia_meta, null_overrides=None):
+def call_ai_and_apply(target, fields, text, record_type, section_key, ai_meta, null_overrides=None):
     """
-    Envia `campos` à IA e grava em `target` o resultado com a "assinatura" de cada campo:
-      - conforme / não conforme (IA: trecho)          -> a IA respondeu com um trecho
-      - Não registrado (IA: null)                     -> a IA respondeu null (olhou e não achou)
-      - Não registrado (IA_NAO_EXECUTADA: <motivo>)   -> a IA não rodou (timeout, JSON inválido...)
-    `null_overrides` troca o valor gravado quando a IA responde null (ex.: uso_opme -> "Não se aplica").
-    Só existem "conforme" e "não conforme": incompleto/não conforme da IA viram
-    "não conforme (IA: <motivo>)". Devolve o tempo gasto na IA (segundos).
-    Sem texto, nada é enviado nem registrado.
+    Sends `fields` to the AI and writes into `target` the result with each field's "signature":
+      - conforme / não conforme (IA: trecho)          -> the AI answered with a snippet
+      - Não registrado (IA: null)                     -> the AI answered null (looked and found nothing)
+      - Não registrado (IA_NAO_EXECUTADA: <motivo>)    -> the AI did not run (timeout, invalid JSON...)
+    `null_overrides` swaps the value written when the AI answers null (e.g. uso_opme -> "Não se aplica").
+    Only "conforme" and "não conforme" exist: the AI's incompleto/não conforme become
+    "não conforme (IA: <motivo>)". Returns the time spent on the AI (seconds).
+    Without text, nothing is sent or recorded.
     """
     null_overrides = null_overrides or {}
-    resp = query_ai_fields(texto, campos, tipo_registro)
+    resp = query_ai_fields(text, fields, record_type)
     if resp["attempts"] == 0:
         return 0.0
 
-    ia_meta["chamadas"] += 1
-    ia_meta["tentativas_total"] += resp["attempts"]
-    ia_meta["latencia_ia_s"] += resp["latency"]
+    ai_meta["chamadas"] += 1
+    ai_meta["tentativas_total"] += resp["attempts"]
+    ai_meta["latencia_ia_s"] += resp["latency"]
     if resp.get("seed_applied") is False:
-        ia_meta["seed_aplicada"] = False
+        ai_meta["seed_aplicada"] = False
     if resp["status"] == AI_OK:
-        ia_meta["chamadas_ok"] += 1
+        ai_meta["chamadas_ok"] += 1
 
-    for campo in campos:
-        id_campo = f"{secao_key}.{campo}"
-        ia_meta["campos_enviados"].append(id_campo)
+    for field in fields:
+        field_id = f"{section_key}.{field}"
+        ai_meta["campos_enviados"].append(field_id)
 
-        if campo not in resp["fields"]:
-            motivo = resp["status"] if resp["status"] != AI_OK else AI_MISSING_FIELDS
-            target[campo] = f"Não registrado (IA_NAO_EXECUTADA: {motivo})"
-            ia_meta["campos_erro"].append({"campo": id_campo, "motivo": motivo, "detalhe": resp["error"]})
-            sys.stderr.write(f"  [AI Fallback Error] Campo {id_campo} não foi processado pela IA ({motivo}).\n")
+        if field not in resp["fields"]:
+            reason = resp["status"] if resp["status"] != AI_OK else AI_MISSING_FIELDS
+            target[field] = f"Não registrado (IA_NAO_EXECUTADA: {reason})"
+            ai_meta["campos_erro"].append({"campo": field_id, "motivo": reason, "detalhe": resp["error"]})
+            sys.stderr.write(f"  [AI Fallback Error] Field {field_id} was not processed by the AI ({reason}).\n")
             continue
 
-        valor_ia = resp["fields"][campo]
-        if valor_ia and isinstance(valor_ia, str):
-            if "não conforme" in valor_ia.lower() or "incompleto" in valor_ia.lower():
-                target[campo] = f"não conforme (IA: {motivo_nao_conforme(valor_ia)})"
+        field_value = resp["fields"][field]
+        if field_value and isinstance(field_value, str):
+            if "não conforme" in field_value.lower() or "incompleto" in field_value.lower():
+                target[field] = f"não conforme (IA: {non_conformity_reason(field_value)})"
             else:
-                target[campo] = f"conforme (IA: {valor_ia})"
-            ia_meta["campos_ok"].append(id_campo)
-        elif valor_ia:
-            target[campo] = "conforme (validado por IA)"
-            ia_meta["campos_ok"].append(id_campo)
+                target[field] = f"conforme (IA: {field_value})"
+            ai_meta["campos_ok"].append(field_id)
+        elif field_value:
+            target[field] = "conforme (validado por IA)"
+            ai_meta["campos_ok"].append(field_id)
         else:
-            target[campo] = null_overrides.get(campo, "Não registrado (IA: null)")
-            ia_meta["campos_null"].append(id_campo)
+            target[field] = null_overrides.get(field, "Não registrado (IA: null)")
+            ai_meta["campos_null"].append(field_id)
 
     return resp["latency"]
 
 
-def finalize_ia_meta(audit_data, ia_meta):
-    """Anexa ao resultado o resumo da IA e, se houve falha, o alerta de resultado parcial."""
-    ia_meta["latencia_ia_s"] = round(ia_meta["latencia_ia_s"], 2)
-    audit_data["_ia_meta"] = ia_meta
-    erros = ia_meta["campos_erro"]
-    audit_data["ia_incompleta"] = bool(erros)
-    if erros:
-        lista = ", ".join(f"{e['campo']} ({e['motivo']})" for e in erros)
+def finalize_ai_meta(audit_data, ai_meta):
+    """Attaches the AI summary to the result, and the partial-result warning if anything failed."""
+    ai_meta["latencia_ia_s"] = round(ai_meta["latencia_ia_s"], 2)
+    audit_data["_ia_meta"] = ai_meta
+    errors = ai_meta["campos_erro"]
+    audit_data["ia_incompleta"] = bool(errors)
+    if errors:
+        details = ", ".join(f"{error['campo']} ({error['motivo']})" for error in errors)
         audit_data["observacao_ia"] = (
-            f"A IA não rodou para todos os campos ({len(erros)} de {len(ia_meta['campos_enviados'])}): {lista}. "
+            f"A IA não rodou para todos os campos ({len(errors)} de {len(ai_meta['campos_enviados'])}): {details}. "
             "Esses campos foram marcados como 'Não registrado' e o resultado é parcial."
         )
-        sys.stderr.write(f"  [Auditor] ALERTA: resultado parcial — {audit_data['observacao_ia']}\n")
+        sys.stderr.write(f"  [Auditor] WARNING: partial result — {audit_data['observacao_ia']}\n")
 
 
 def merge_section(current, new_data):
-    """Merge new conformity data, keeping 'conforme' se já estiver presente"""
-    for k, v in new_data.items():
-        curr_v = str(current.get(k))
-        new_v = str(v)
-        if not curr_v.startswith("conforme") and new_v.startswith("conforme"):
-            current[k] = v
-        elif (curr_v.startswith("Não registrado") or curr_v.startswith("Não se aplica")) and not (new_v.startswith("Não registrado") or new_v.startswith("Não se aplica")):
-            current[k] = v
+    """Merges new conformity data, keeping 'conforme' when it is already present."""
+    for key, value in new_data.items():
+        current_text = str(current.get(key))
+        new_text = str(value)
+        if not current_text.startswith("conforme") and new_text.startswith("conforme"):
+            current[key] = value
+        elif (current_text.startswith("Não registrado") or current_text.startswith("Não se aplica")) and not (
+            new_text.startswith("Não registrado") or new_text.startswith("Não se aplica")
+        ):
+            current[key] = value
 
-def _anexa_dias(valor, dias):
-    return valor[:-1] + f" — dia {dias})" if valor.endswith(")") else f"{valor} (dia {dias})"
+
+def _append_day_note(value, days):
+    return value[:-1] + f" — dia {days})" if value.endswith(")") else f"{value} (dia {days})"
 
 
 def aggregate_evolutions(entries):
-    """Evoluções: TODAS precisam estar conformes. `entries` = [(dia 'DD/MM', {campo: valor})].
+    """Evolutions: ALL of them must be conforme. `entries` = [(day 'DD/MM', {field: value})].
 
-    - todas conformes -> mantém o valor da primeira (com a assinatura da IA, se houver)
-    - alguma falhou    -> 'não conforme (<motivo> — dia DD/MM, DD/MM)', dizendo em que dia falhou
-    - nenhuma evolução tem o dado (só 'Não registrado') -> mantém 'Não registrado'
-    - 'Não se aplica' em todas -> 'Não se aplica' (ex.: curativo)
+    - all conforme       -> keeps the first value (with the AI signature, if any)
+    - some failed        -> 'não conforme (<motivo> — dia DD/MM, DD/MM)', naming the day it failed
+    - no evolution has the field (only 'Não registrado')  -> keeps 'Não registrado'
+    - 'Não se aplica' in all of them (e.g. dressing)       -> 'Não se aplica'
     """
-    por_campo: dict[str, list[tuple[str, str]]] = {}
-    for dia, valores in entries:
-        for campo, valor in valores.items():
-            por_campo.setdefault(campo, []).append((dia, str(valor)))
+    by_field: dict[str, list[tuple[str, str]]] = {}
+    for day, values in entries:
+        for field, value in values.items():
+            by_field.setdefault(field, []).append((day, str(value)))
 
-    resultado = {}
-    for campo, itens in por_campo.items():
-        avaliados = [(d, v) for d, v in itens if not v.startswith("Não se aplica")]
-        if not avaliados:
-            resultado[campo] = itens[0][1]
+    result = {}
+    for field, field_entries in by_field.items():
+        applicable = [(day, value) for day, value in field_entries if not value.startswith("Não se aplica")]
+        if not applicable:
+            result[field] = field_entries[0][1]
             continue
-        falhas = [(d, v) for d, v in avaliados if not v.startswith("conforme")]
-        if not falhas:
-            resultado[campo] = avaliados[0][1]
+        failures = [(day, value) for day, value in applicable if not value.startswith("conforme")]
+        if not failures:
+            result[field] = applicable[0][1]
             continue
-        dias = ", ".join(d for d, _ in falhas)
-        v0 = falhas[0][1]
-        erro_ia = next((v for _, v in falhas if "IA_NAO_EXECUTADA" in v), None)
-        algum_conforme = len(falhas) < len(avaliados)
-        algum_nao_conforme = any(v.startswith("não conforme") for _, v in falhas)
-        if erro_ia:
-            resultado[campo] = _anexa_dias(erro_ia, dias)
-        elif not algum_conforme and not algum_nao_conforme:
-            resultado[campo] = v0
-        elif v0.startswith("não conforme"):
-            resultado[campo] = _anexa_dias(v0, dias)
+        days = ", ".join(day for day, _ in failures)
+        first_failure_value = failures[0][1]
+        ai_error = next((value for _, value in failures if "IA_NAO_EXECUTADA" in value), None)
+        any_conforme = len(failures) < len(applicable)
+        any_non_conforme = any(value.startswith("não conforme") for _, value in failures)
+        if ai_error:
+            result[field] = _append_day_note(ai_error, days)
+        elif not any_conforme and not any_non_conforme:
+            result[field] = first_failure_value
+        elif first_failure_value.startswith("não conforme"):
+            result[field] = _append_day_note(first_failure_value, days)
         else:
-            interior = v0[len("Não registrado"):].strip()
-            interior = interior[1:-1] if interior.startswith("(") and interior.endswith(")") else "não registrado"
-            resultado[campo] = f"não conforme ({interior} — dia {dias})"
-    return resultado
+            inner = first_failure_value[len("Não registrado"):].strip()
+            inner = inner[1:-1] if inner.startswith("(") and inner.endswith(")") else "não registrado"
+            result[field] = f"não conforme ({inner} — dia {days})"
+    return result
 
 
-def audit_medical_records(records):
-    """Audit medical records and extract conformity information"""
-    results = []
-
-    # Agrupa registros por prontuário
+def _group_by_patient(records):
     patients: dict[str, list[dict]] = {}
     for record in records:
         info = extract_record_info(record)
-        prontuario = info["prontuario"]
-        if not prontuario:
-            prontuario = "Desconhecido"
+        record_number = info["prontuario"] or "Desconhecido"
+        patients.setdefault(record_number, []).append(info)
+    return patients
 
-        if prontuario not in patients:
-            patients[prontuario] = []
-        patients[prontuario].append(info)
 
-    for prontuario, patient_records in patients.items():
-        sys.stderr.write(f"Auditing patient {prontuario} with {len(patient_records)} records...\n")
+def _build_document_matrix(patient_records):
+    """One entry per `{category} - {record_type}` document, counting how many times each creation
+    date appears. Feeds `secao_a`'s `matriz_documentos`, which the front end renders as a table."""
+    matrix: dict[str, dict[str, int]] = {}
+    all_dates = set()
+    for info in patient_records:
+        category = info.get("categoria_profissional", "Outros")
+        record_type = info.get("tipo_registro", "Registro")
+        doc_name = f"{category} - {record_type}"
 
-        # Puxa informações estáticas do primeiro registro lido
-        base_info = patient_records[0]
+        raw_date = info.get("data_criacao", "")
+        if raw_date:
+            date = raw_date.split(',')[0].strip()
+            all_dates.add(date)
+            matrix.setdefault(doc_name, {})
+            matrix[doc_name][date] = matrix[doc_name].get(date, 0) + 1
+    return matrix, all_dates
 
-        matrix: dict[str, dict[str, int]] = {}
-        all_dates = set()
-        for info_rec in patient_records:
-            cat = info_rec.get("categoria_profissional", "Outros")
-            tipo = info_rec.get("tipo_registro", "Registro")
-            doc_name = f"{cat} - {tipo}"
 
-            dt_raw = info_rec.get("data_criacao", "")
-            if dt_raw:
-                dt = dt_raw.split(',')[0].strip()
-                all_dates.add(dt)
-                if doc_name not in matrix:
-                    matrix[doc_name] = {}
-                matrix[doc_name][dt] = matrix[doc_name].get(dt, 0) + 1
+def _new_audit_data(base_info, matrix, all_dates):
+    return {
+        "matriz_documentos": {
+            "datas": sorted(
+                all_dates,
+                key=lambda d: d.split('/')[2] + d.split('/')[1] + d.split('/')[0] if d.count('/') == 2 else d,
+            ),
+            "matriz": matrix,
+        },
+        "secao_a": {
+            "prontuario": base_info["prontuario"] or "Não registrado",
+            "data_nascimento": base_info["data_nascimento"] or "Não registrado",
+            "idade": base_info["idade"] or (calculate_age(base_info["data_nascimento"], base_info["periodo_internacao"]) or "Não registrado"),
+            "especialidade_internacao": base_info["especialidade_internacao"] or base_info["especialidade_cirurgia"] or "Não registrado",
+            "periodo_internacao": format_period(base_info["periodo_internacao"], base_info.get("data_saida", "")),
+            "diagnostico_internacao": base_info["diagnostico_internacao"] or "Não registrado",
+            "especialidade_cirurgia": base_info["especialidade_cirurgia"] or "Não se aplica",
+            "unidade_funcional": base_info["unidade_funcional"] or "Não registrado",
+        },
+        "secao_b_anamnese": {k: "Não registrado" for k in ["hda", "hd_cid", "ap_app", "af", "exame_fisico", "cd", "criacao_anamnese"]},
+        "secao_b_evolucao": {k: "Não registrado" for k in ["hd_cid", "exame_fisico", "procedimentos_condutas_queixas", "frequencia_diaria"]},
+        "secao_c": {
+            "tem_cirurgia": bool(base_info["especialidade_cirurgia"]),
+            "especialidade": base_info["especialidade_cirurgia"] or "Não registrado",
+            "unidade_funcional": base_info.get("uf_cirurgia") or "Não registrado",
+            "inicio": base_info["data_cirurgia"] or "Não registrado",
+            "fim": base_info["fim_cirurgia"] or "Não registrado",
+            "diagnostico_cid": base_info["cid_procedimento"] or "Não registrado",
+            "descricao_procedimento": base_info["procedimento_realizado"] or "Não registrado",
+            "descricao_tecnica": "Não registrado",
+            "uso_opme": "Não se aplica",
+        },
+        "secao_d_anamnese": {k: "Não registrado" for k in ["motivo_internacao", "ap_app", "af", "exame_fisico", "escala_braden", "escala_morse", "cd", "criacao_anamnese"]},
+        "secao_d_evolucao": dict({k: "Não registrado" for k in ["motivo_internacao", "exame_fisico", "condutas", "escala_braden", "escala_morse", "criacao_evolucao"]}, curativo="Não se aplica"),
+        "secao_e": {
+            "tem_outras_categorias": False,
+            "categoria": "Não se aplica",
+            "descricao": "Não se aplica",
+        },
+    }
 
-        audit_data = {
-            "matriz_documentos": {
-                "datas": sorted(list(all_dates), key=lambda d: d.split('/')[2] + d.split('/')[1] + d.split('/')[0] if d.count('/') == 2 else d),
-                "matriz": matrix
-            },
-            "secao_a": {
-                "prontuario": base_info["prontuario"] if base_info["prontuario"] else "Não registrado",
-                "data_nascimento": base_info["data_nascimento"] if base_info["data_nascimento"] else "Não registrado",
-                "idade": base_info["idade"] if base_info["idade"] else (calculate_age(base_info["data_nascimento"], base_info["periodo_internacao"]) or "Não registrado"),
-                "especialidade_internacao": base_info["especialidade_internacao"] or base_info["especialidade_cirurgia"] or "Não registrado",
-                "periodo_internacao": format_periodo(base_info["periodo_internacao"], base_info.get("data_saida", "")),
-                "diagnostico_internacao": base_info["diagnostico_internacao"] if base_info["diagnostico_internacao"] else "Não registrado",
-                "especialidade_cirurgia": base_info["especialidade_cirurgia"] if base_info["especialidade_cirurgia"] else "Não se aplica",
-                "unidade_funcional": base_info["unidade_funcional"] if base_info["unidade_funcional"] else "Não registrado"
-            },
-            "secao_b_anamnese": { k: "Não registrado" for k in ["hda", "hd_cid", "ap_app", "af", "exame_fisico", "cd", "criacao_anamnese"] },
-            "secao_b_evolucao": { k: "Não registrado" for k in ["hd_cid", "exame_fisico", "procedimentos_condutas_queixas", "frequencia_diaria"] },
-            "secao_c": {
-                "tem_cirurgia": bool(base_info["especialidade_cirurgia"] and base_info["especialidade_cirurgia"] != ""),
-                "especialidade": base_info["especialidade_cirurgia"] if base_info["especialidade_cirurgia"] else "Não registrado",
-                "unidade_funcional": base_info.get("uf_cirurgia") or "Não registrado",
-                "inicio": base_info["data_cirurgia"] if base_info["data_cirurgia"] else "Não registrado",
-                "fim": base_info["fim_cirurgia"] if base_info["fim_cirurgia"] else "Não registrado",
-                "diagnostico_cid": base_info["cid_procedimento"] if base_info["cid_procedimento"] else "Não registrado",
-                "descricao_procedimento": base_info["procedimento_realizado"] if base_info["procedimento_realizado"] else "Não registrado",
-                "descricao_tecnica": "Não registrado",
-                "uso_opme": "Não se aplica"
-            },
-            "secao_d_anamnese": { k: "Não registrado" for k in ["motivo_internacao", "ap_app", "af", "exame_fisico", "escala_braden", "escala_morse", "cd", "criacao_anamnese"] },
-            "secao_d_evolucao": dict({ k: "Não registrado" for k in ["motivo_internacao", "exame_fisico", "condutas", "escala_braden", "escala_morse", "criacao_evolucao"] }, curativo="Não se aplica"),
-            "secao_e": {
-                "tem_outras_categorias": False,
-                "categoria": "Não se aplica",
-                "descricao": "Não se aplica"
+
+def _audit_surgery_section(audit_data, description, ai_meta, meta_lines):
+    """OPME: a matching term found in the surgical description -> conforme; no term -> the AI decides
+    (null -> "Não se aplica"). Only the OPEN fields go to the AI: structured columns that come back
+    empty (especialidade, unidade, início, fim, CID, procedimento) stay "Não registrado", because the
+    source column is the authority on them."""
+    section_started_at = time.time()
+    meta_lines.append(f"Seção C - inicio {datetime.now().strftime('%d/%m/%y, %H:%M:%S')}")
+
+    found_terms = find_words(description, OPME_TERMS, plural=True)
+    audit_data["secao_c"]["uso_opme"] = f"conforme ({', '.join(found_terms)})" if found_terms else "Não registrado"
+
+    missing_fields = [k for k in ("descricao_tecnica", "uso_opme") if audit_data["secao_c"][k] == "Não registrado"]
+    ai_duration = 0.0
+    if missing_fields:
+        meta_lines.append(f"Seção C - IA ({', '.join(missing_fields)}) inicio {datetime.now().strftime('%H:%M:%S')}")
+        ai_duration = call_ai_and_apply(
+            audit_data["secao_c"], missing_fields, truncate_text(description),
+            "Cirurgia / Descrição Cirúrgica", "secao_c", ai_meta,
+            null_overrides={"uso_opme": "Não se aplica (IA: null)"},
+        )
+        meta_lines.append(f"Seção C - IA ({', '.join(missing_fields)}) fim {datetime.now().strftime('%H:%M:%S')} ({ai_duration:.1f}s)")
+
+    meta_lines.append(f"Seção C - fim {datetime.now().strftime('%d/%m/%y, %H:%M:%S')} ({time.time() - section_started_at:.1f}s)")
+    return ai_duration
+
+
+def _apply_daily_evolution_rule(audit_data, patient_records, base_info):
+    """Rule 3.6: medical records write to frequencia_diaria, nursing records to criacao_evolucao."""
+    for category, key, field in (("MEDICINA", "secao_b_evolucao", "frequencia_diaria"),
+                                  ("ENFERMAGEM", "secao_d_evolucao", "criacao_evolucao")):
+        records_of_category = [r for r in patient_records if (r["categoria_profissional"] or "").upper() == category]
+        anamnesis_dates = [r["data_criacao"] for r in records_of_category if "anamnese" in (r["tipo_registro"] or "").lower()]
+        evolution_dates = [r["data_criacao"] for r in records_of_category if "evolução" in (r["tipo_registro"] or "").lower()]
+        if anamnesis_dates or evolution_dates:
+            audit_data[key][field] = check_daily_evolution(
+                base_info["periodo_internacao"], base_info.get("data_saida", ""), anamnesis_dates, evolution_dates
+            )
+
+
+def _local_findings(category, record_type, normalized_description, description):
+    """Keyword-based findings for one record, before the AI fallback fills in what is missing.
+    Returns (target_key, values); target_key is None for a category with no rules of its own.
+    An anamnese's "criacao_anamnese" comes back None: the caller fills it in, since only it has
+    the patient's admission date."""
+    if category == "MEDICINA":
+        if "anamnese" in record_type:
+            return "secao_b_anamnese", {
+                "hda": "conforme" if "hda" in normalized_description or "historia da doenca" in normalized_description else "Não registrado",
+                "hd_cid": "conforme" if has_diagnostic_hypothesis(description) else "Não registrado",
+                "ap_app": "conforme" if "antecedentes pessoais" in normalized_description or "app" in normalized_description or "#ap" in normalized_description or "ap:" in normalized_description else "Não registrado",
+                "af": "conforme" if "antecedentes familiares" in normalized_description or "#af" in normalized_description or "af:" in normalized_description else "Não registrado",
+                "exame_fisico": check_complete_physical_exam(description, MEDICAL_PHYSICAL_EXAM_TERMS),
+                "cd": "conforme" if "conduta" in normalized_description or "terapeutica" in normalized_description or "#cd" in normalized_description or "cd:" in normalized_description else "Não registrado",
+                "criacao_anamnese": None,
             }
-        }
+        if "evolução" in record_type:
+            return "secao_b_evolucao", {
+                "hd_cid": "conforme" if has_diagnostic_hypothesis(description) else "Não registrado",
+                "exame_fisico": check_complete_physical_exam(description, MEDICAL_PHYSICAL_EXAM_TERMS),
+                "procedimentos_condutas_queixas": "conforme" if "procedimento" in normalized_description or "conduta" in normalized_description or "queixa" in normalized_description or "intercorrencia" in normalized_description or "#cd" in normalized_description or "cd:" in normalized_description else "Não registrado",
+            }
+    elif category == "ENFERMAGEM":
+        if "anamnese" in record_type:
+            return "secao_d_anamnese", {
+                "motivo_internacao": "conforme" if "motivo" in normalized_description or "internacao" in normalized_description else "Não registrado",
+                "ap_app": "conforme" if "antecedentes" in normalized_description or "comorbidade" in normalized_description else "Não registrado",
+                "af": "conforme" if "antecedentes familiares" in normalized_description else "Não registrado",
+                "exame_fisico": check_complete_physical_exam(description, NURSING_PHYSICAL_EXAM_TERMS),
+                "escala_braden": "conforme" if "braden" in normalized_description else "Não registrado",
+                "escala_morse": "conforme" if "morse" in normalized_description else "Não registrado",
+                "cd": "conforme" if "conduta" in normalized_description or "#cd" in normalized_description or "cd:" in normalized_description else "Não registrado",
+                "criacao_anamnese": None,
+            }
+        if "evolução" in record_type:
+            return "secao_d_evolucao", {
+                "motivo_internacao": "conforme" if "motivo" in normalized_description else "Não registrado",
+                "exame_fisico": check_complete_physical_exam(description, NURSING_PHYSICAL_EXAM_TERMS),
+                "condutas": "conforme" if "conduta" in normalized_description or "#cd" in normalized_description or "cd:" in normalized_description else "Não registrado",
+                "escala_braden": "conforme" if "braden" in normalized_description else "Não registrado",
+                "escala_morse": "conforme" if "morse" in normalized_description else "Não registrado",
+                "curativo": check_dressing(description),
+            }
+    return None, {}
 
-        # Consolida de acordo com o tipo de registro e categoria
-        descricao_cirurgica_unica = next(
-            (r["descricao_cirurgica"] for r in patient_records if r.get("descricao_cirurgica")),
-            None
+
+def audit_medical_records(records):
+    """Audits one patient's worth of records at a time and returns one result per patient.
+
+    Records are grouped by prontuário; the first one read supplies the static identification
+    fields (secao_a). Each record then contributes keyword-based findings for its section
+    (MEDICINA/ENFERMAGEM × anamnese/evolução); daily evolutions are aggregated afterward so that
+    EVERY day must be conforme (rule 3.6). Fields the keywords leave as "Não registrado" go to the
+    AI fallback. Section E keeps every other professional category, checking only whether it has a
+    description, never its content. Section A's diagnostico_internacao falls back to the AI using
+    MEDICAL text only (rule 3.4): the medical anamnesis, or the first medical evolution if there is
+    no anamnesis.
+    """
+    results = []
+    patients = _group_by_patient(records)
+
+    for record_number, patient_records in patients.items():
+        sys.stderr.write(f"Auditing patient {record_number} with {len(patient_records)} records...\n")
+
+        base_info = patient_records[0]
+        matrix, all_dates = _build_document_matrix(patient_records)
+        audit_data = _new_audit_data(base_info, matrix, all_dates)
+
+        unique_surgical_description = next(
+            (r["descricao_cirurgica"] for r in patient_records if r.get("descricao_cirurgica")), None
         )
 
-        prontuario_inicio = time.time()
-        meta_lines = []
-        tempo_ia_total = 0.0
-        ia_meta = _new_ia_meta()
-        meta_lines.append(f"\nProntuario {prontuario}")
-        meta_lines.append(f"Modelo IA: {MODEL_NAME}")
+        patient_started_at = time.time()
+        meta_lines = [f"\nProntuario {record_number}", f"Modelo IA: {MODEL_NAME}"]
+        total_ai_time = 0.0
+        ai_meta = _new_ai_meta()
 
-        outras_categorias: dict[str, bool] = {}   # categoria -> tem descrição (seção E)
-        evolucoes: dict[str, list[tuple[str, dict]]] = {}   # seção -> [(dia, resultados)]: evoluções são agregadas no fim
+        other_categories: dict[str, bool] = {}
+        evolutions: dict[str, list[tuple[str, dict]]] = {}
 
         for info in patient_records:
-            cat = info["categoria_profissional"].upper() if info["categoria_profissional"] else ""
-            tipo = info["tipo_registro"].lower() if info["tipo_registro"] else ""
-            desc_norm = normalize(info["descricao"])  # sem acento e minúsculo: as regras abaixo comparam com termos sem acento
+            category = (info["categoria_profissional"] or "").upper()
+            record_type = (info["tipo_registro"] or "").lower()
+            normalized_description = normalize(info["descricao"])
 
-            if descricao_cirurgica_unica and audit_data["secao_c"].get("tem_cirurgia"):
-                secao_c_inicio = time.time()
-                meta_lines.append(f"Seção C - inicio {datetime.now().strftime('%d/%m/%y, %H:%M:%S')}")
+            if unique_surgical_description and audit_data["secao_c"]["tem_cirurgia"]:
+                total_ai_time += _audit_surgery_section(audit_data, unique_surgical_description, ai_meta, meta_lines)
+                sys.stderr.write(f"  [Auditor] Surgery section finished for patient {record_number}.\n")
+                unique_surgical_description = None
 
-                # descricao_tecnica começa "Não registrado" e sempre vai para a IA.
-                # OPME: termo encontrado -> conforme; sem termo -> a IA decide (null = "Não se aplica").
-                termos_encontrados = find_words(descricao_cirurgica_unica, TERMOS_OPME, plural=True)
-                if termos_encontrados:
-                    audit_data["secao_c"]["uso_opme"] = f"conforme ({', '.join(termos_encontrados)})"
-                else:
-                    audit_data["secao_c"]["uso_opme"] = "Não registrado"
-
-                # Só os campos ABERTOS vão para a IA. Colunas estruturadas vazias (especialidade, unidade,
-                # início, fim, CID, procedimento) ficam "Não registrado": a coluna é a fonte oficial.
-                faltantes_cirurgia = [k for k in ("descricao_tecnica", "uso_opme") if audit_data["secao_c"][k] == "Não registrado"]
-                if faltantes_cirurgia:
-                    meta_lines.append(f"Seção C - IA ({', '.join(faltantes_cirurgia)}) inicio {datetime.now().strftime('%H:%M:%S')}")
-                    ia_duracao = call_ai_and_apply(
-                        audit_data["secao_c"], faltantes_cirurgia, limitar_texto(descricao_cirurgica_unica),
-                        "Cirurgia / Descrição Cirúrgica", "secao_c", ia_meta,
-                        null_overrides={"uso_opme": "Não se aplica (IA: null)"}
-                    )
-                    tempo_ia_total += ia_duracao
-                    meta_lines.append(f"Seção C - IA ({', '.join(faltantes_cirurgia)}) fim {datetime.now().strftime('%H:%M:%S')} ({ia_duracao:.1f}s)")
-
-                meta_lines.append(f"Seção C - fim {datetime.now().strftime('%d/%m/%y, %H:%M:%S')} ({time.time() - secao_c_inicio:.1f}s)")
-                sys.stderr.write(f"  [Auditor] Seção Cirurgia finalizada para o prontuário {prontuario}.\n")
-                # Marca como None para nao repetir nos outros registros
-                descricao_cirurgica_unica = None
-
-            local_val = {}
-            target_section = None
-            target_key = None
-
-            if cat == "MEDICINA":
-                if "anamnese" in tipo:
-                    target_section = audit_data["secao_b_anamnese"]
-                    target_key = "secao_b_anamnese"
-                    local_val = {
-                        "hda": "conforme" if "hda" in desc_norm or "historia da doenca" in desc_norm else "Não registrado",
-                        "hd_cid": "conforme" if tem_hipotese_diagnostica(info["descricao"]) else "Não registrado",
-                        "ap_app": "conforme" if "antecedentes pessoais" in desc_norm or "app" in desc_norm or "#ap" in desc_norm or "ap:" in desc_norm else "Não registrado",
-                        "af": "conforme" if "antecedentes familiares" in desc_norm or "#af" in desc_norm or "af:" in desc_norm else "Não registrado",
-                        "exame_fisico": check_exame_fisico_completo(info["descricao"], TERMOS_EXAME_FISICO_MEDICINA),
-                        "cd": "conforme" if "conduta" in desc_norm or "terapeutica" in desc_norm or "#cd" in desc_norm or "cd:" in desc_norm else "Não registrado",
-                        "criacao_anamnese": check_criacao_anamnese(info["periodo_internacao"], info["data_criacao"])
-                    }
-                elif "evolução" in tipo:
-                    target_section = audit_data["secao_b_evolucao"]
-                    target_key = "secao_b_evolucao"
-                    local_val = {
-                        "hd_cid": "conforme" if tem_hipotese_diagnostica(info["descricao"]) else "Não registrado",
-                        "exame_fisico": check_exame_fisico_completo(info["descricao"], TERMOS_EXAME_FISICO_MEDICINA),
-                        "procedimentos_condutas_queixas": "conforme" if "procedimento" in desc_norm or "conduta" in desc_norm or "queixa" in desc_norm or "intercorrencia" in desc_norm or "#cd" in desc_norm or "cd:" in desc_norm else "Não registrado"
-                    }
-            elif cat == "ENFERMAGEM":
-                if "anamnese" in tipo:
-                    target_section = audit_data["secao_d_anamnese"]
-                    target_key = "secao_d_anamnese"
-                    local_val = {
-                        "motivo_internacao": "conforme" if "motivo" in desc_norm or "internacao" in desc_norm else "Não registrado",
-                        "ap_app": "conforme" if "antecedentes" in desc_norm or "comorbidade" in desc_norm else "Não registrado",
-                        "af": "conforme" if "antecedentes familiares" in desc_norm else "Não registrado",
-                        "exame_fisico": check_exame_fisico_completo(info["descricao"], TERMOS_EXAME_FISICO_ENFERMAGEM),
-                        "escala_braden": "conforme" if "braden" in desc_norm else "Não registrado",
-                        "escala_morse": "conforme" if "morse" in desc_norm else "Não registrado",
-                        "cd": "conforme" if "conduta" in desc_norm or "#cd" in desc_norm or "cd:" in desc_norm else "Não registrado",
-                        "criacao_anamnese": check_criacao_anamnese(info["periodo_internacao"], info["data_criacao"])
-                    }
-                elif "evolução" in tipo:
-                    target_section = audit_data["secao_d_evolucao"]
-                    target_key = "secao_d_evolucao"
-                    local_val = {
-                        "motivo_internacao": "conforme" if "motivo" in desc_norm else "Não registrado",
-                        "exame_fisico": check_exame_fisico_completo(info["descricao"], TERMOS_EXAME_FISICO_ENFERMAGEM),
-                        "condutas": "conforme" if "conduta" in desc_norm or "#cd" in desc_norm or "cd:" in desc_norm else "Não registrado",
-                        "escala_braden": "conforme" if "braden" in desc_norm else "Não registrado",
-                        "escala_morse": "conforme" if "morse" in desc_norm else "Não registrado",
-                        "curativo": check_curativo(info["descricao"])
-                    }
-            elif cat and cat not in ["MEDICINA", "ENFERMAGEM"]:
+            target_key, local_values = _local_findings(category, record_type, normalized_description, info["descricao"])
+            if "criacao_anamnese" in local_values:
+                local_values["criacao_anamnese"] = check_anamnesis_creation(info["periodo_internacao"], info["data_criacao"])
+            elif category and category not in ("MEDICINA", "ENFERMAGEM"):
                 audit_data["secao_e"]["tem_outras_categorias"] = True
-                outras_categorias[cat] = outras_categorias.get(cat, False) or bool(info["descricao"])
+                other_categories[category] = other_categories.get(category, False) or bool(info["descricao"])
 
-            # Apply AI fallback if applicable
-            if local_val and target_section is not None and target_key is not None:
-                secao_label = f"{cat} - {tipo}"
-                secao_inicio = time.time()
-                meta_lines.append(f"Seção {secao_label} - inicio {datetime.now().strftime('%d/%m/%y, %H:%M:%S')}")
+            if local_values and target_key is not None:
+                target_section = audit_data[target_key]
+                section_label = f"{category} - {record_type}"
+                section_started_at = time.time()
+                meta_lines.append(f"Seção {section_label} - inicio {datetime.now().strftime('%d/%m/%y, %H:%M:%S')}")
 
-                faltantes = [k for k, v in local_val.items()
-                             if k not in CAMPOS_SEM_IA and (v == "Não registrado" or (isinstance(v, str) and v.startswith("Não registrado")))]
-                if faltantes:
-                    texto_base = info["descricao"]
-                    meta_lines.append(f"Seção {secao_label} - IA ({', '.join(faltantes)}) inicio {datetime.now().strftime('%H:%M:%S')}")
-                    ia_duracao = call_ai_and_apply(
-                        local_val, faltantes, limitar_texto(texto_base), f"{cat} - {tipo}", target_key, ia_meta,
-                        null_overrides={"curativo": "não conforme (IA: tipo de curativo não identificado)"}
+                missing_fields = [
+                    k for k, v in local_values.items()
+                    if k not in FIELDS_WITHOUT_AI and (v == "Não registrado" or (isinstance(v, str) and v.startswith("Não registrado")))
+                ]
+                if missing_fields:
+                    meta_lines.append(f"Seção {section_label} - IA ({', '.join(missing_fields)}) inicio {datetime.now().strftime('%H:%M:%S')}")
+                    ai_duration = call_ai_and_apply(
+                        local_values, missing_fields, truncate_text(info["descricao"]), f"{category} - {record_type}", target_key, ai_meta,
+                        null_overrides={"curativo": "não conforme (IA: tipo de curativo não identificado)"},
                     )
-                    tempo_ia_total += ia_duracao
-                    meta_lines.append(f"Seção {secao_label} - IA ({', '.join(faltantes)}) fim {datetime.now().strftime('%H:%M:%S')} ({ia_duracao:.1f}s)")
+                    total_ai_time += ai_duration
+                    meta_lines.append(f"Seção {section_label} - IA ({', '.join(missing_fields)}) fim {datetime.now().strftime('%H:%M:%S')} ({ai_duration:.1f}s)")
 
-                if "evolução" in tipo:
-                    evolucoes.setdefault(target_key, []).append((info["data_criacao"][:5], local_val))
+                if "evolução" in record_type:
+                    evolutions.setdefault(target_key, []).append((info["data_criacao"][:5], local_values))
                 else:
-                    merge_section(target_section, local_val)
-                meta_lines.append(f"Seção {secao_label} - fim {datetime.now().strftime('%d/%m/%y, %H:%M:%S')} ({time.time() - secao_inicio:.1f}s)")
-                sys.stderr.write(f"  [Auditor] Seção {cat} - {tipo} finalizada para o prontuário {prontuario}.\n")
+                    merge_section(target_section, local_values)
+                meta_lines.append(f"Seção {section_label} - fim {datetime.now().strftime('%d/%m/%y, %H:%M:%S')} ({time.time() - section_started_at:.1f}s)")
+                sys.stderr.write(f"  [Auditor] Section {category} - {record_type} finished for patient {record_number}.\n")
 
-        # Evoluções: todas precisam estar conformes (o motivo diz em que dia falhou)
-        for key, entries in evolucoes.items():
+        for key, entries in evolutions.items():
             audit_data[key].update(aggregate_evolutions(entries))
 
-        # Evolução diária (regra 3.6): médica -> frequencia_diaria; enfermagem -> criacao_evolucao
-        for categoria, key, campo in (("MEDICINA", "secao_b_evolucao", "frequencia_diaria"),
-                                      ("ENFERMAGEM", "secao_d_evolucao", "criacao_evolucao")):
-            da_categoria = [r for r in patient_records if (r["categoria_profissional"] or "").upper() == categoria]
-            anamneses = [r["data_criacao"] for r in da_categoria if "anamnese" in (r["tipo_registro"] or "").lower()]
-            evolucoes_datas = [r["data_criacao"] for r in da_categoria if "evolução" in (r["tipo_registro"] or "").lower()]
-            if anamneses or evolucoes_datas:
-                audit_data[key][campo] = check_evolucao_diaria(
-                    base_info["periodo_internacao"], base_info.get("data_saida", ""), anamneses, evolucoes_datas)
+        _apply_daily_evolution_rule(audit_data, patient_records, base_info)
 
-        # Seção E: guarda TODAS as categorias; só verifica se há descrição (sem avaliar o conteúdo)
-        if outras_categorias:
-            audit_data["secao_e"]["categoria"] = ", ".join(outras_categorias)
-            audit_data["secao_e"]["descricao"] = "conforme" if all(outras_categorias.values()) else "Não registrado"
+        if other_categories:
+            audit_data["secao_e"]["categoria"] = ", ".join(other_categories)
+            audit_data["secao_e"]["descricao"] = "conforme" if all(other_categories.values()) else "Não registrado"
 
-        # Fallback de IA para a seção A: diagnostico_internacao.
-        # Só texto MÉDICO (regra 3.4): anamnese médica; sem ela, a primeira evolução médica.
-        if audit_data["secao_a"].get("diagnostico_internacao") == "Não registrado":
-            medicos = [r for r in patient_records
-                       if (r["categoria_profissional"] or "").upper() == "MEDICINA" and r.get("descricao")]
-            base_diagnostico = next((r for r in medicos if "anamnese" in (r["tipo_registro"] or "").lower()), None) \
-                or next((r for r in medicos if "evolução" in (r["tipo_registro"] or "").lower()), None)
-            if base_diagnostico:
+        if audit_data["secao_a"]["diagnostico_internacao"] == "Não registrado":
+            doctors = [r for r in patient_records if (r["categoria_profissional"] or "").upper() == "MEDICINA" and r.get("descricao")]
+            diagnosis_source = next((r for r in doctors if "anamnese" in (r["tipo_registro"] or "").lower()), None) \
+                or next((r for r in doctors if "evolução" in (r["tipo_registro"] or "").lower()), None)
+            if diagnosis_source:
                 meta_lines.append(f"Seção A - IA (diagnostico_internacao) inicio {datetime.now().strftime('%H:%M:%S')}")
-                ia_duracao = call_ai_and_apply(
-                    audit_data["secao_a"], ["diagnostico_internacao"], limitar_texto(base_diagnostico["descricao"]),
-                    "Identificação do Paciente", "secao_a", ia_meta
+                ai_duration = call_ai_and_apply(
+                    audit_data["secao_a"], ["diagnostico_internacao"], truncate_text(diagnosis_source["descricao"]),
+                    "Identificação do Paciente", "secao_a", ai_meta,
                 )
-                tempo_ia_total += ia_duracao
-                meta_lines.append(f"Seção A - IA (diagnostico_internacao) fim {datetime.now().strftime('%H:%M:%S')} ({ia_duracao:.1f}s)")
-                sys.stderr.write(f"  [Auditor] Seção A - diagnóstico_internacao finalizado para o prontuário {prontuario}.\n")
+                total_ai_time += ai_duration
+                meta_lines.append(f"Seção A - IA (diagnostico_internacao) fim {datetime.now().strftime('%H:%M:%S')} ({ai_duration:.1f}s)")
+                sys.stderr.write(f"  [Auditor] Section A - diagnostico_internacao finished for patient {record_number}.\n")
 
-        tempo_total = time.time() - prontuario_inicio
-        meta_lines.append(f"Tempo total prontuario {prontuario} = {tempo_total:.1f}s")
-        meta_lines.append(f"Tempo total IA = {tempo_ia_total:.1f}s")
+        total_time = time.time() - patient_started_at
+        meta_lines.append(f"Tempo total prontuario {record_number} = {total_time:.1f}s")
+        meta_lines.append(f"Tempo total IA = {total_ai_time:.1f}s")
 
-        # Grava metadata no arquivo
         try:
             import os
             meta_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "metadataProntuarios.txt")
@@ -439,179 +456,106 @@ def audit_medical_records(records):
         except Exception:
             pass
 
-        # Calculate conformities
         audit_data = calculate_conformity(audit_data)
-        finalize_ia_meta(audit_data, ia_meta)
+        finalize_ai_meta(audit_data, ai_meta)
 
-        results.append({
-            "record_id": prontuario,
-            "audit_data": audit_data
-        })
+        results.append({"record_id": record_number, "audit_data": audit_data})
 
     return results
 
+
+def _is_valid(value):
+    """A value counts toward conformity only when it is exactly "conforme": "Não registrado (...)",
+    "não conforme (...)" and "Incompleto (...)" do not."""
+    if isinstance(value, bool):
+        return value
+    if not value:
+        return False
+    text = str(value).lower().strip()
+    if text.startswith(("não registrado", "nao registrado", "não conforme", "nao conforme", "incompleto")):
+        return False
+    return text not in ("não", "nao", "false", "")
+
+
+def _is_not_applicable(value):
+    if not value:
+        return False
+    text = str(value).lower().strip()
+    return text.startswith(("não se aplica", "nao se aplica")) or text in ("n/a", "na")
+
+
+def _score(valid, total):
+    return {"total": total, "valid": valid, "percent": (valid / total * 100) if total > 0 else 0}
+
+
 def calculate_conformity(data):
-    """Calculate conformity percentages for each section"""
-
-    # Helper to check if a value is valid (not missing/empty)
-    def is_valid(val):
-        if isinstance(val, bool):
-            return val
-        if not val:
-            return False
-        val_str = str(val).lower().strip()
-        # Só "conforme" conta: "Não registrado (...)", "não conforme (...)" e "Incompleto (...)" são inválidos
-        if val_str.startswith(("não registrado", "nao registrado", "não conforme", "nao conforme", "incompleto")):
-            return False
-        return val_str not in ["não", "nao", "false", ""]
-
-    # Helper to check if a value is "Não se aplica"
-    def is_na(val):
-        if not val:
-            return False
-        val_str = str(val).lower().strip()
-        return val_str.startswith(("não se aplica", "nao se aplica")) or val_str in ["n/a", "na"]
-
-    # Section A
-    secao_a = data.get("secao_a", {})
+    """Calculates the conformity percentage for each section and the global total."""
+    section_a = data.get("secao_a", {})
     a_items = ["prontuario", "data_nascimento", "idade", "periodo_internacao", "diagnostico_internacao", "unidade_funcional"]
-    a_valid = sum(1 for item in a_items if is_valid(secao_a.get(item)))
+    a_valid = sum(1 for item in a_items if _is_valid(section_a.get(item)))
     a_total = len(a_items)
 
-    # Add optional items if they apply
-    if not is_na(secao_a.get("especialidade_cirurgia")):
-        a_items.append("especialidade_cirurgia")
-        a_total += 1
-        if is_valid(secao_a.get("especialidade_cirurgia")):
-            a_valid += 1
+    for optional_item in ("especialidade_cirurgia", "especialidade_internacao"):
+        if not _is_not_applicable(section_a.get(optional_item)):
+            a_total += 1
+            if _is_valid(section_a.get(optional_item)):
+                a_valid += 1
 
-    if not is_na(secao_a.get("especialidade_internacao")):
-        a_items.append("especialidade_internacao")
-        a_total += 1
-        if is_valid(secao_a.get("especialidade_internacao")):
-            a_valid += 1
+    data["conformity_a"] = _score(a_valid, a_total)
 
-    data["conformity_a"] = {
-        "total": a_total,
-        "valid": a_valid,
-        "percent": (a_valid / a_total * 100) if a_total > 0 else 0
-    }
-
-    # Section B - Anamnese
-    secao_b_a = data.get("secao_b_anamnese", {})
+    section_b_anamnese = data.get("secao_b_anamnese", {})
     b_a_items = ["hda", "hd_cid", "ap_app", "af", "exame_fisico", "cd", "criacao_anamnese"]
-    b_a_valid = sum(1 for item in b_a_items if is_valid(secao_b_a.get(item)))
-    b_a_total = len(b_a_items)
+    b_a_valid = sum(1 for item in b_a_items if _is_valid(section_b_anamnese.get(item)))
+    data["conformity_b_anamnese"] = _score(b_a_valid, len(b_a_items))
 
-    data["conformity_b_anamnese"] = {
-        "total": b_a_total,
-        "valid": b_a_valid,
-        "percent": (b_a_valid / b_a_total * 100) if b_a_total > 0 else 0
-    }
-
-    # Section B - Evolucao
-    secao_b_e = data.get("secao_b_evolucao", {})
+    section_b_evolucao = data.get("secao_b_evolucao", {})
     b_e_items = ["hd_cid", "exame_fisico", "procedimentos_condutas_queixas", "frequencia_diaria"]
-    b_e_valid = sum(1 for item in b_e_items if is_valid(secao_b_e.get(item)))
-    b_e_total = len(b_e_items)
+    b_e_valid = sum(1 for item in b_e_items if _is_valid(section_b_evolucao.get(item)))
+    data["conformity_b_evolucao"] = _score(b_e_valid, len(b_e_items))
 
-    data["conformity_b_evolucao"] = {
-        "total": b_e_total,
-        "valid": b_e_valid,
-        "percent": (b_e_valid / b_e_total * 100) if b_e_total > 0 else 0
-    }
-
-    # Section C
-    secao_c = data.get("secao_c", {})
-    tem_cirurgia = secao_c.get("tem_cirurgia", False)
-
-    if tem_cirurgia:
+    section_c = data.get("secao_c", {})
+    has_surgery = section_c.get("tem_cirurgia", False)
+    if has_surgery:
         c_items = ["especialidade", "unidade_funcional", "inicio", "fim", "diagnostico_cid", "descricao_procedimento", "descricao_tecnica"]
-        c_valid = sum(1 for item in c_items if is_valid(secao_c.get(item)))
+        c_valid = sum(1 for item in c_items if _is_valid(section_c.get(item)))
         c_total = len(c_items)
-
-        if not is_na(secao_c.get("uso_opme")):
+        if not _is_not_applicable(section_c.get("uso_opme")):
             c_total += 1
-            if is_valid(secao_c.get("uso_opme")):
+            if _is_valid(section_c.get("uso_opme")):
                 c_valid += 1
-
-        data["conformity_c"] = {
-            "total": c_total,
-            "valid": c_valid,
-            "percent": (c_valid / c_total * 100) if c_total > 0 else 0,
-            "applies": True
-        }
+        data["conformity_c"] = {**_score(c_valid, c_total), "applies": True}
     else:
-        data["conformity_c"] = {
-            "total": 0,
-            "valid": 0,
-            "percent": 100,
-            "applies": False
-        }
+        data["conformity_c"] = {"total": 0, "valid": 0, "percent": 100, "applies": False}
 
-    # Section D - Anamnese
-    secao_d_a = data.get("secao_d_anamnese", {})
+    section_d_anamnese = data.get("secao_d_anamnese", {})
     d_a_items = ["motivo_internacao", "ap_app", "af", "exame_fisico", "escala_braden", "escala_morse", "cd", "criacao_anamnese"]
-    d_a_valid = sum(1 for item in d_a_items if is_valid(secao_d_a.get(item)))
-    d_a_total = len(d_a_items)
+    d_a_valid = sum(1 for item in d_a_items if _is_valid(section_d_anamnese.get(item)))
+    data["conformity_d_anamnese"] = _score(d_a_valid, len(d_a_items))
 
-    data["conformity_d_anamnese"] = {
-        "total": d_a_total,
-        "valid": d_a_valid,
-        "percent": (d_a_valid / d_a_total * 100) if d_a_total > 0 else 0
-    }
-
-    # Section D - Evolucao
-    secao_d_e = data.get("secao_d_evolucao", {})
+    section_d_evolucao = data.get("secao_d_evolucao", {})
     d_e_items = ["motivo_internacao", "exame_fisico", "condutas", "escala_braden", "escala_morse", "criacao_evolucao"]
-    d_e_valid = sum(1 for item in d_e_items if is_valid(secao_d_e.get(item)))
+    d_e_valid = sum(1 for item in d_e_items if _is_valid(section_d_evolucao.get(item)))
     d_e_total = len(d_e_items)
-
-    if not is_na(secao_d_e.get("curativo")):
+    if not _is_not_applicable(section_d_evolucao.get("curativo")):
         d_e_total += 1
-        if is_valid(secao_d_e.get("curativo")):
+        if _is_valid(section_d_evolucao.get("curativo")):
             d_e_valid += 1
+    data["conformity_d_evolucao"] = _score(d_e_valid, d_e_total)
 
-    data["conformity_d_evolucao"] = {
-        "total": d_e_total,
-        "valid": d_e_valid,
-        "percent": (d_e_valid / d_e_total * 100) if d_e_total > 0 else 0
-    }
-
-    # Section E
-    secao_e = data.get("secao_e", {})
-    tem_outras = secao_e.get("tem_outras_categorias", False)
-
-    if tem_outras:
-        e_items = ["descricao"]
-        e_valid = sum(1 for item in e_items if is_valid(secao_e.get(item)))
-        e_total = len(e_items)
-
-        data["conformity_e"] = {
-            "total": e_total,
-            "valid": e_valid,
-            "percent": (e_valid / e_total * 100) if e_total > 0 else 0,
-            "applies": True,
-            "categoria": secao_e.get("categoria", "Outras")
-        }
+    section_e = data.get("secao_e", {})
+    has_other_categories = section_e.get("tem_outras_categorias", False)
+    if has_other_categories:
+        e_valid = 1 if _is_valid(section_e.get("descricao")) else 0
+        data["conformity_e"] = {**_score(e_valid, 1), "applies": True, "categoria": section_e.get("categoria", "Outras")}
     else:
-        data["conformity_e"] = {
-            "total": 0,
-            "valid": 0,
-            "percent": 100,
-            "applies": False,
-            "categoria": "Outras"
-        }
+        data["conformity_e"] = {"total": 0, "valid": 0, "percent": 100, "applies": False, "categoria": "Outras"}
 
-    # Global conformity
-    global_total = a_total + b_a_total + b_e_total + d_a_total + d_e_total
+    global_total = a_total + len(b_a_items) + len(b_e_items) + len(d_a_items) + d_e_total
     global_valid = a_valid + b_a_valid + b_e_valid + d_a_valid + d_e_valid
-
-    if tem_cirurgia:
+    if has_surgery:
         global_total += data["conformity_c"]["total"]
         global_valid += data["conformity_c"]["valid"]
-
-    if tem_outras:
+    if has_other_categories:
         global_total += data["conformity_e"]["total"]
         global_valid += data["conformity_e"]["valid"]
 
@@ -619,8 +563,7 @@ def calculate_conformity(data):
         "total": global_total,
         "valid": global_valid,
         "invalid": global_total - global_valid,
-        "percent": (global_valid / global_total * 100) if global_total > 0 else 0
+        "percent": (global_valid / global_total * 100) if global_total > 0 else 0,
     }
 
     return data
-

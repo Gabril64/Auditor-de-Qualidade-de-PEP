@@ -54,8 +54,7 @@ class TestExtractRecordInfo:
         assert result == expected
 
     def test_extract_missing_fields(self):
-        # Even with empty or missing fields, parser should not throw KeyError
-        # and should default to empty string ""
+        """Empty or missing fields should not raise KeyError and should default to ""."""
         mock_record = {
             "Prontuário": "12345",
             "Data De Nascimento pact": "01/01/1980"

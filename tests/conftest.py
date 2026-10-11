@@ -1,7 +1,11 @@
-"""Infra dos testes de caracterização (Fase 0 da refatoração).
+"""Characterization test infrastructure (refactor Phase 0).
 
-Objetivo: congelar o comportamento ATUAL do backend. Nenhum teste aqui julga se o
-comportamento está certo — só que ele não muda por acidente durante a refatoração.
+Goal: freeze the backend's CURRENT behavior. No test here judges whether the behavior is
+correct — only that it does not change by accident during the refactor.
+
+`worker.worker` opens the SQLite database at import time, so SQLITE_DB_PATH is pointed at a
+disposable directory BEFORE any test imports it — overwritten, not setdefault: a development
+SQLITE_DB_PATH must never receive writes from the tests.
 """
 import hashlib
 import json
@@ -11,9 +15,6 @@ from pathlib import Path
 
 import pytest
 
-# `worker.worker` abre o SQLite no momento do import. Aponta para um diretório descartável ANTES de qualquer
-# teste importá-lo — e sobrescreve (não setdefault): um SQLITE_DB_PATH de desenvolvimento não pode receber
-# escrita dos testes.
 os.environ["SQLITE_DB_PATH"] = os.path.join(tempfile.mkdtemp(prefix="pep-tests-"), "auditor.db")
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -22,102 +23,100 @@ FIXTURES = Path(__file__).parent / "fixtures"
 SNAPSHOTS = Path(__file__).parent / "snapshots"
 
 
-# ── Dados ────────────────────────────────────────────────────────────────
 @pytest.fixture(scope="session")
 def all_records():
-    """Cópia congelada de prontuarios.json (115 registros, 16 prontuários)."""
+    """Frozen copy of prontuarios.json (115 records, 16 prontuários)."""
     with open(FIXTURES / "prontuarios_sample.json", encoding="utf-8") as f:
         return json.load(f)
 
 
-def records_of(all_records, *prontuarios):
-    return [r for r in all_records if r["Prontuário"] in prontuarios]
+def records_of(all_records, *record_numbers):
+    return [r for r in all_records if r["Prontuário"] in record_numbers]
 
 
-# ── Snapshots ────────────────────────────────────────────────────────────
-def _diff(a, b, path="$", out=None, limit=8):
+def _diff(expected, actual, path="$", out=None, limit=8):
     out = [] if out is None else out
     if len(out) >= limit:
         return out
-    if type(a) is not type(b):
-        out.append(f"{path}: tipo {type(a).__name__} != {type(b).__name__}")
-    elif isinstance(a, dict):
-        for k in sorted(set(a) | set(b)):
-            if k not in a:
-                out.append(f"{path}.{k}: apareceu (esperado ausente): {str(b[k])[:80]!r}")
-            elif k not in b:
-                out.append(f"{path}.{k}: sumiu (esperado {str(a[k])[:80]!r})")
+    if type(expected) is not type(actual):
+        out.append(f"{path}: type {type(expected).__name__} != {type(actual).__name__}")
+    elif isinstance(expected, dict):
+        for key in sorted(set(expected) | set(actual)):
+            if key not in expected:
+                out.append(f"{path}.{key}: appeared (expected absent): {str(actual[key])[:80]!r}")
+            elif key not in actual:
+                out.append(f"{path}.{key}: disappeared (expected {str(expected[key])[:80]!r})")
             else:
-                _diff(a[k], b[k], f"{path}.{k}", out, limit)
-    elif isinstance(a, list):
-        if len(a) != len(b):
-            out.append(f"{path}: tamanho {len(a)} != {len(b)}")
-        for i, (x, y) in enumerate(zip(a, b, strict=False)):
+                _diff(expected[key], actual[key], f"{path}.{key}", out, limit)
+    elif isinstance(expected, list):
+        if len(expected) != len(actual):
+            out.append(f"{path}: size {len(expected)} != {len(actual)}")
+        for i, (x, y) in enumerate(zip(expected, actual, strict=False)):
             _diff(x, y, f"{path}[{i}]", out, limit)
-    elif a != b:
-        out.append(f"{path}: esperado {str(a)[:80]!r} mas veio {str(b)[:80]!r}")
+    elif expected != actual:
+        out.append(f"{path}: expected {str(expected)[:80]!r} but got {str(actual)[:80]!r}")
     return out
 
 
 @pytest.fixture
 def snapshot():
-    """snapshot("nome", dados): compara com tests/snapshots/nome.json.
-    Para regravar de propósito (ex.: correção de negócio aprovada): UPDATE_SNAPSHOTS=1 pytest."""
+    """snapshot("name", data): compares against tests/snapshots/name.json.
+    To record it on purpose (e.g. an approved business-rule fix): UPDATE_SNAPSHOTS=1 pytest."""
 
     def check(name, data):
+        """Round-trips `data` through JSON first, so the comparison matches exactly what a
+        real snapshot write would produce."""
         path = SNAPSHOTS / f"{name}.json"
-        # round-trip pelo JSON: garante que compara exatamente o que seria gravado
         data = json.loads(json.dumps(data, ensure_ascii=False))
         if os.environ.get("UPDATE_SNAPSHOTS") == "1":
             path.write_text(json.dumps(data, ensure_ascii=False, indent=1, sort_keys=True) + "\n", encoding="utf-8")
             return
         if not path.exists():
-            pytest.fail(f"Snapshot {path.name} não existe. Gere com UPDATE_SNAPSHOTS=1 pytest.")
+            pytest.fail(f"Snapshot {path.name} does not exist. Generate it with UPDATE_SNAPSHOTS=1 pytest.")
         expected = json.loads(path.read_text(encoding="utf-8"))
         if expected != data:
             diffs = "\n  ".join(_diff(expected, data))
-            pytest.fail(f"Saída mudou em relação ao snapshot {path.name}:\n  {diffs}")
+            pytest.fail(f"Output changed relative to snapshot {path.name}:\n  {diffs}")
 
     return check
 
 
-# ── LLM falso e determinístico ───────────────────────────────────────────
-def _bucket(campo, texto):
-    return int(hashlib.sha1(f"{campo}|{texto}".encode("utf-8")).hexdigest(), 16) % 10
+def _bucket(field, text):
+    return int(hashlib.sha1(f"{field}|{text}".encode("utf-8")).hexdigest(), 16) % 10
 
 
-def scenario_ok_mix(payload, campos):
-    """Mistura determinística de: trecho, null, 'não conforme (incompleto)' e valor não-string."""
-    texto = payload["input"].split("TEXTO DO REGISTRO:\n", 1)[-1]
+def scenario_ok_mix(payload, fields):
+    """Deterministic mix of: snippet, null, 'não conforme (incompleto)' and a non-string value."""
+    text = payload["input"].split("TEXTO DO REGISTRO:\n", 1)[-1]
     out = {}
-    for c in campos:
-        b = _bucket(c, texto)
-        if b < 5:
-            out[c] = f"trecho[{c}]: {texto[:40]}"
-        elif b < 7:
-            out[c] = None
-        elif b < 8:
-            out[c] = "não conforme (incompleto)"
+    for field in fields:
+        bucket = _bucket(field, text)
+        if bucket < 5:
+            out[field] = f"trecho[{field}]: {text[:40]}"
+        elif bucket < 7:
+            out[field] = None
+        elif bucket < 8:
+            out[field] = "não conforme (incompleto)"
         else:
-            out[c] = True
+            out[field] = True
     return "ok", out, None
 
 
-def scenario_all_null(payload, campos):
-    return "ok", {c: None for c in campos}, None
+def scenario_all_null(payload, fields):
+    return "ok", {field: None for field in fields}, None
 
 
-def scenario_timeout(payload, campos):
+def scenario_timeout(payload, fields):
     return "timeout", {}, "timeout simulado"
 
 
-def scenario_invalid_json(payload, campos):
+def scenario_invalid_json(payload, fields):
     return "invalid_json", {}, "json inválido simulado"
 
 
-def scenario_missing_keys(payload, campos):
-    metade = campos[: len(campos) // 2]
-    return "campos_ausentes", {c: f"trecho[{c}]" for c in metade}, "chaves ausentes simuladas"
+def scenario_missing_keys(payload, fields):
+    half = fields[: len(fields) // 2]
+    return "campos_ausentes", {field: f"trecho[{field}]" for field in half}, "chaves ausentes simuladas"
 
 
 SCENARIOS = {
@@ -131,7 +130,9 @@ SCENARIOS = {
 
 @pytest.fixture
 def audit_env(monkeypatch, tmp_path):
-    """Isola o auditor do ambiente: configuração fixa, sem sleep, sem gravar no repositório."""
+    """Isolates the auditor from the environment: fixed configuration, no sleep, no writes to the
+    repository. The auditor writes metadataProntuarios.txt next to the package, so `auditor.__file__`
+    is redirected into `tmp_path` to keep that write out of the repo."""
     from data_extract.core import auditor, llm_client
 
     monkeypatch.setattr(llm_client, "AI_MAX_ATTEMPTS", 3)
@@ -139,7 +140,6 @@ def audit_env(monkeypatch, tmp_path):
     monkeypatch.setattr(llm_client, "AI_SEED", None)
     monkeypatch.setattr(auditor, "MODEL_NAME", "modelo-de-teste")
     monkeypatch.setattr(auditor, "AI_SEED", None)
-    # o auditor grava metadataProntuarios.txt ao lado do pacote: desvia para a pasta temporária
     (tmp_path / "core").mkdir()
     monkeypatch.setattr(auditor, "__file__", str(tmp_path / "core" / "auditor.py"))
 
@@ -147,9 +147,9 @@ def audit_env(monkeypatch, tmp_path):
         calls = []
         fn = SCENARIOS[scenario] if isinstance(scenario, str) else scenario
 
-        def fake(payload, campos):
-            calls.append({"campos": list(campos), "input": payload["input"]})
-            return fn(payload, campos)
+        def fake(payload, fields):
+            calls.append({"fields": list(fields), "input": payload["input"]})
+            return fn(payload, fields)
 
         monkeypatch.setattr(llm_client, "_single_attempt", fake)
         return calls
@@ -158,7 +158,7 @@ def audit_env(monkeypatch, tmp_path):
 
 
 def normalize_audit(results):
-    """Remove o que muda de execução para execução (tempo medido)."""
+    """Strips what changes from run to run (the measured time)."""
     out = json.loads(json.dumps(results, ensure_ascii=False))
     for r in out:
         meta = r["audit_data"].get("_ia_meta")

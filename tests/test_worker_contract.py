@@ -1,8 +1,9 @@
-"""Contrato do Worker: fila Redis (fakeredis) + execução do data_extract.
+"""Worker contract: Redis queue (fakeredis) + data_extract execution.
 
-- `process_patient_record` é testado com o subprocesso REAL (`python -m data_extract.main`) falando
-  com um servidor HTTP falso no lugar do LM Studio: cobre o caminho Worker → auditor → IA de ponta a ponta.
-- O loop `main()` é testado com `process_patient_record` trocado por um dublê, para cobrir só a fila.
+- `process_patient_record` is tested with the REAL subprocess (`python -m data_extract.main`)
+  talking to a fake HTTP server in place of LM Studio: covers Worker -> auditor -> AI end to end.
+- The `main()` loop is tested with `process_patient_record` swapped for a double, to cover only
+  the queue.
 """
 import json
 import re
@@ -20,13 +21,12 @@ from tests.conftest import REPO_ROOT, records_of
 QUEUE, DLQ, PREFIX = worker.QUEUE_KEY, worker.DLQ_KEY, worker.RESULT_KEY_PREFIX
 
 
-# ── Redis falso + quebra-loop ────────────────────────────────────────────
 class _StopLoop(BaseException):
-    """BaseException de propósito: o `except Exception` do Worker não a captura."""
+    """A BaseException on purpose: the Worker's `except Exception` does not catch it."""
 
 
 class LoopBreaker:
-    """Envolve o FakeRedis: quando a fila esvazia, o brpop interrompe o loop `while True` do Worker."""
+    """Wraps FakeRedis: once the queue is empty, brpop breaks the Worker's `while True` loop."""
 
     def __init__(self, r):
         self._r = r
@@ -58,125 +58,127 @@ def run_loop():
         worker.main()
 
 
-# ── main(): fila ─────────────────────────────────────────────────────────
 def test_success_saves_result_under_record_and_job_keys(redis_fake, monkeypatch):
-    resultado = {"record_id": "1", "audit_data": {"ok": True}}
-    monkeypatch.setattr(worker, "process_patient_record", lambda j: resultado)
+    """Saves the same result under both `resultado:<record_number>` and `resultado:<job_id>`."""
+    result = {"record_id": "1", "audit_data": {"ok": True}}
+    monkeypatch.setattr(worker, "process_patient_record", lambda j: result)
     redis_fake.lpush(QUEUE, json.dumps(job(1)))
     run_loop()
-    assert json.loads(redis_fake.get(f"{PREFIX}1")) == resultado          # por prontuário
-    assert json.loads(redis_fake.get(f"{PREFIX}job-1")) == resultado       # por job
+    assert json.loads(redis_fake.get(f"{PREFIX}1")) == result
+    assert json.loads(redis_fake.get(f"{PREFIX}job-1")) == result
     assert redis_fake.llen(QUEUE) == 0 and redis_fake.llen(DLQ) == 0
 
 
 def test_partial_result_is_saved_normally_not_sent_to_dlq(redis_fake, monkeypatch):
-    parcial = {"record_id": "1", "audit_data": {"ia_incompleta": True, "observacao_ia": "IA não rodou"}}
-    monkeypatch.setattr(worker, "process_patient_record", lambda j: parcial)
+    partial = {"record_id": "1", "audit_data": {"ia_incompleta": True, "observacao_ia": "IA não rodou"}}
+    monkeypatch.setattr(worker, "process_patient_record", lambda j: partial)
     redis_fake.lpush(QUEUE, json.dumps(job(1)))
     run_loop()
-    assert json.loads(redis_fake.get(f"{PREFIX}job-1")) == parcial
+    assert json.loads(redis_fake.get(f"{PREFIX}job-1")) == partial
     assert redis_fake.llen(DLQ) == 0
 
 
 def test_failing_job_is_retried_once_then_goes_to_dlq(redis_fake, monkeypatch):
-    chamadas = []
+    """2 runs total (1 retry). The failure is published under the job-id key, for whoever polls
+    the job, but never under the record-number key — that one stays reserved for a real result."""
+    attempts_seen = []
 
-    def falha(j):
-        chamadas.append(j["attempts"])
+    def fail(j):
+        attempts_seen.append(j["attempts"])
         raise RuntimeError("boom")
 
-    monkeypatch.setattr(worker, "process_patient_record", falha)
+    monkeypatch.setattr(worker, "process_patient_record", fail)
     redis_fake.lpush(QUEUE, json.dumps(job(1)))
     run_loop()
 
-    assert chamadas == [0, 1]                          # 2 execuções (1 repetição)
+    assert attempts_seen == [0, 1]
     assert redis_fake.llen(QUEUE) == 0 and redis_fake.llen(DLQ) == 1
-    morto = json.loads(redis_fake.lrange(DLQ, 0, -1)[0])
-    assert morto["attempts"] == 2 and morto["final_error"] == "boom"
-    # a falha fica visível para quem consulta o job
-    falha_publicada = json.loads(redis_fake.get(f"{PREFIX}job-1"))
-    assert falha_publicada["_job_failed"] is True and falha_publicada["attempts"] == 2
-    assert redis_fake.get(f"{PREFIX}1") is None        # não publica no resultado do prontuário
+    dead_job = json.loads(redis_fake.lrange(DLQ, 0, -1)[0])
+    assert dead_job["attempts"] == 2 and dead_job["final_error"] == "boom"
+    published_failure = json.loads(redis_fake.get(f"{PREFIX}job-1"))
+    assert published_failure["_job_failed"] is True and published_failure["attempts"] == 2
+    assert redis_fake.get(f"{PREFIX}1") is None
 
 
 def test_job_that_recovers_on_second_attempt_is_saved(redis_fake, monkeypatch):
-    estado = {"n": 0}
+    state = {"n": 0}
 
-    def instavel(j):
-        estado["n"] += 1
-        if estado["n"] == 1:
+    def unstable(j):
+        state["n"] += 1
+        if state["n"] == 1:
             raise RuntimeError("falha transitória")
         return {"record_id": "1", "audit_data": {}}
 
-    monkeypatch.setattr(worker, "process_patient_record", instavel)
+    monkeypatch.setattr(worker, "process_patient_record", unstable)
     redis_fake.lpush(QUEUE, json.dumps(job(1)))
     run_loop()
-    assert estado["n"] == 2 and redis_fake.llen(DLQ) == 0
+    assert state["n"] == 2 and redis_fake.llen(DLQ) == 0
     assert redis_fake.get(f"{PREFIX}job-1") is not None
 
 
 def test_jobs_are_consumed_fifo(redis_fake, monkeypatch):
-    ordem = []
-    monkeypatch.setattr(worker, "process_patient_record", lambda j: ordem.append(j["job_id"]) or {"audit_data": {}})
-    for n in (1, 2, 3):                                 # o Producer usa LPUSH; o Worker BRPOP
+    """The Producer pushes with LPUSH and the Worker pops with BRPOP, so insertion order is preserved."""
+    order = []
+    monkeypatch.setattr(worker, "process_patient_record", lambda j: order.append(j["job_id"]) or {"audit_data": {}})
+    for n in (1, 2, 3):
         redis_fake.lpush(QUEUE, json.dumps(job(n)))
     run_loop()
-    assert ordem == ["job-1", "job-2", "job-3"]
+    assert order == ["job-1", "job-2", "job-3"]
 
 
 def test_KNOWN_BUG_malformed_message_crashes_the_worker(redis_fake, monkeypatch):
-    """json.loads(raw) está fora do try: uma mensagem inválida derruba o processo (plano F5)."""
+    """json.loads(raw) sits outside the try: an invalid message crashes the process (planned for F5)."""
     monkeypatch.setattr(worker, "process_patient_record", lambda j: {})
     redis_fake.lpush(QUEUE, "isto não é json")
     with pytest.raises(json.JSONDecodeError):
         worker.main()
 
 
-# ── process_patient_record com subprocesso dublê ─────────────────────────
 class _Done:
     def __init__(self, returncode=0, stdout="[]", stderr=""):
         self.returncode, self.stdout, self.stderr = returncode, stdout, stderr
 
 
 def test_model_and_seed_are_passed_to_the_subprocess_env(monkeypatch):
-    capturado = {}
+    captured = {}
 
     def run(cmd, **kw):
-        capturado.update(kw)
+        captured.update(kw)
         return _Done(stdout=json.dumps([{"record_id": "1", "audit_data": {}}]))
 
     monkeypatch.setattr(worker.subprocess, "run", run)
     out = worker.process_patient_record({"records": [{"a": 1}], "model_name": "phi-4", "seed": 42})
     assert out == {"record_id": "1", "audit_data": {}}
-    assert capturado["env"]["LLM_MODEL"] == "phi-4" and capturado["env"]["LLM_SEED"] == "42"
-    assert json.loads(capturado["input"]) == [{"a": 1}]
-    assert capturado["timeout"] == worker.SUBPROCESS_TIMEOUT
+    assert captured["env"]["LLM_MODEL"] == "phi-4" and captured["env"]["LLM_SEED"] == "42"
+    assert json.loads(captured["input"]) == [{"a": 1}]
+    assert captured["timeout"] == worker.SUBPROCESS_TIMEOUT
 
 
-@pytest.mark.parametrize("done,trecho", [
+@pytest.mark.parametrize("done,snippet", [
     (_Done(returncode=1, stderr="traceback"), "data_extract failed (code 1)"),
     (_Done(stdout="não é json"), "invalid JSON"),
     (_Done(stdout="[]"), "empty result"),
 ])
-def test_subprocess_failures_raise_runtime_error(monkeypatch, done, trecho):
+def test_subprocess_failures_raise_runtime_error(monkeypatch, done, snippet):
     monkeypatch.setattr(worker.subprocess, "run", lambda cmd, **kw: done)
-    with pytest.raises(RuntimeError, match=re.escape(trecho)):
+    with pytest.raises(RuntimeError, match=re.escape(snippet)):
         worker.process_patient_record({"records": [{}]})
 
 
-# ── process_patient_record de ponta a ponta (subprocesso real + LLM falso) ──
 class _FakeLLM(BaseHTTPRequestHandler):
-    modo = "null"   # null | erro500
+    """Stands in for LM Studio. `mode` is "null" (answers every field with null) or "error500"."""
+
+    mode = "null"
 
     def do_POST(self):
         body = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
-        if type(self).modo == "erro500":
+        if type(self).mode == "error500":
             self.send_response(500)
             self.send_header("Content-Length", "0")
             self.end_headers()
             return
-        campos = re.findall(r"^- (\w+):", body["system_prompt"], flags=re.M)
-        payload = json.dumps({"choices": [{"message": {"content": json.dumps({c: None for c in campos})}}]}).encode()
+        fields = re.findall(r"^- (\w+):", body["system_prompt"], flags=re.M)
+        payload = json.dumps({"choices": [{"message": {"content": json.dumps({f: None for f in fields})}}]}).encode()
         self.send_response(200)
         self.send_header("Content-Length", str(len(payload)))
         self.end_headers()
@@ -188,6 +190,8 @@ class _FakeLLM(BaseHTTPRequestHandler):
 
 @pytest.fixture
 def fake_llm_server(monkeypatch):
+    """Starts the fake LLM and points the real subprocess at it. Restores
+    data_extract/metadataProntuarios.txt afterward, since the real subprocess appends to it."""
     srv = HTTPServer(("127.0.0.1", 0), _FakeLLM)
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     monkeypatch.setenv("LMSTUDIO_URL", f"http://127.0.0.1:{srv.server_port}/")
@@ -197,18 +201,18 @@ def fake_llm_server(monkeypatch):
 
     real_run = subprocess.run
 
-    def run_no_repositorio(cmd, **kw):
-        # o Worker chama "python" com cwd=worker/; aqui usa o interpretador do teste e a raiz do repo
+    def run_in_repo_root(cmd, **kw):
+        """The Worker calls "python" with cwd=worker/; here it uses the test's own interpreter
+        and the repo root, so it can import data_extract without installing it."""
         return real_run([sys.executable] + list(cmd[1:]), **{**kw, "cwd": str(REPO_ROOT)})
 
-    monkeypatch.setattr(worker.subprocess, "run", run_no_repositorio)
+    monkeypatch.setattr(worker.subprocess, "run", run_in_repo_root)
 
-    # o subprocesso real acrescenta linhas em data_extract/metadataProntuarios.txt: restaura ao final
     metadata = REPO_ROOT / "data_extract" / "metadataProntuarios.txt"
     original = metadata.read_bytes() if metadata.exists() else None
     yield _FakeLLM
     srv.shutdown()
-    _FakeLLM.modo = "null"
+    _FakeLLM.mode = "null"
     if original is None:
         metadata.unlink(missing_ok=True)
     else:
@@ -216,19 +220,19 @@ def fake_llm_server(monkeypatch):
 
 
 def test_end_to_end_real_subprocess_with_fake_llm(fake_llm_server, all_records):
-    fake_llm_server.modo = "null"
-    registros = records_of(all_records, "62.407.871")
-    result = worker.process_patient_record({"records": registros, "model_name": "modelo-x"})
+    fake_llm_server.mode = "null"
+    records = records_of(all_records, "62.407.871")
+    result = worker.process_patient_record({"records": records, "model_name": "modelo-x"})
     assert result["record_id"] == "62.407.871"
     audit = result["audit_data"]
     assert audit["ia_incompleta"] is False
     assert audit["_ia_meta"]["model"] == "modelo-x"
     assert audit["_ia_meta"]["campos_erro"] == []
-    assert audit["_ia_meta"]["campos_null"], "todos os campos enviados à IA deveriam ter voltado null"
+    assert audit["_ia_meta"]["campos_null"], "every field sent to the AI should have come back null"
 
 
 def test_end_to_end_ai_down_returns_partial_result_not_an_exception(fake_llm_server, all_records):
-    fake_llm_server.modo = "erro500"
+    fake_llm_server.mode = "error500"
     result = worker.process_patient_record({"records": records_of(all_records, "62.407.871")})
     audit = result["audit_data"]
     assert audit["ia_incompleta"] is True

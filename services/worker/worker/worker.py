@@ -1,14 +1,25 @@
+"""Consumes `fila:prontuarios`, audits each patient record and persists the result.
+
+MAX_ATTEMPTS = 2: one retry, only for infrastructure failures (the subprocess crashed or timed
+out). An AI failure does NOT retry the job — it becomes a partial result instead, since the AI
+client (llm_client) already retries 3 times per call on its own.
+
+`AuditDatabase` is imported two ways because the Docker image copies worker.py and database.py
+side by side into /app (plain import), while outside Docker it is loaded as the `worker` package,
+which is what the tests and mypy use.
+"""
 import json
 import os
 import subprocess
+import sys
 import time
 
 import redis
 
 try:
-    from database import AuditDatabase  # imagem Docker: worker.py e database.py ficam lado a lado em /app
+    from database import AuditDatabase
 except ImportError:
-    from worker.database import AuditDatabase  # fora do Docker: importado como pacote (testes, mypy)
+    from worker.database import AuditDatabase
 
 r = redis.Redis(
     host=os.getenv("REDIS_HOST", "localhost"),
@@ -16,21 +27,21 @@ r = redis.Redis(
     decode_responses=True,
 )
 
-# Initialize SQLite database
 db = AuditDatabase()
 
 QUEUE_KEY = "fila:prontuarios"
 DLQ_KEY = "fila:prontuarios:falhas"
 RESULT_KEY_PREFIX = "resultado:"
-# Execuções por job: 2 = 1 repetição, só para erro de infraestrutura (subprocesso caiu ou estourou o tempo).
-# Falha da IA NÃO repete o job: vira resultado parcial (o cliente de IA já tenta 3 vezes por chamada).
 MAX_ATTEMPTS = int(os.getenv("WORKER_MAX_ATTEMPTS", "2"))
 SUBPROCESS_TIMEOUT = int(os.getenv("WORKER_SUBPROCESS_TIMEOUT", "3600"))
 
+
 def process_patient_record(job: dict) -> dict:
     """
-    Calls data_extract/main.py as a subprocess, passing the raw records
-    via stdin (JSON array) and reading the audited result from stdout.
+    Calls data_extract/main.py as a subprocess, with cwd set to /app (this file's own directory)
+    so the module resolves the same way in and out of Docker, passing the raw records via stdin
+    (JSON array) and reading the audited result from stdout. The contract returns a list; since
+    the job carries a single patient's records, this takes that list's one and only item.
     """
     records = job["records"]
     model_name = job.get("model_name")
@@ -46,7 +57,7 @@ def process_patient_record(job: dict) -> dict:
         input=json.dumps(records),
         capture_output=True,
         text=True,
-        cwd=os.path.dirname(__file__),  # garante que roda com /app como raiz
+        cwd=os.path.dirname(__file__),
         env=env,
         timeout=SUBPROCESS_TIMEOUT,
     )
@@ -55,7 +66,6 @@ def process_patient_record(job: dict) -> dict:
         raise RuntimeError(f"data_extract failed (code {proc.returncode}): {proc.stderr.strip()}")
 
     if proc.stderr:
-        import sys
         sys.stderr.write(proc.stderr)
 
     try:
@@ -66,14 +76,10 @@ def process_patient_record(job: dict) -> dict:
     if not output:
         raise RuntimeError("data_extract returned an empty result")
 
-    # o contrato retorna uma lista; como mandamos os registros de 1 prontuário só,
-    # pegamos o primeiro (e único) item
     result = output[0]
 
     audit_data = result.get("audit_data", {})
     if audit_data.get("ia_incompleta"):
-        # Resultado parcial: a IA falhou (após as tentativas do llm_client) em alguns campos.
-        # Não vai para a DLQ — é entregue com o alerta em audit_data["observacao_ia"].
         print(f"[PARTIAL] patient record {job.get('record_number')}: {audit_data.get('observacao_ia')}")
 
     return result
@@ -81,15 +87,13 @@ def process_patient_record(job: dict) -> dict:
 
 def save_result(job: dict, result: dict):
     """Save result to both Redis (for fast polling) and SQLite (for persistence)."""
-    # Redis: fast access for polling
-    prontuario_key = f"{RESULT_KEY_PREFIX}{job['record_number']}"
+    patient_key = f"{RESULT_KEY_PREFIX}{job['record_number']}"
     job_key = f"{RESULT_KEY_PREFIX}{job['job_id']}"
 
     data = json.dumps(result)
-    r.set(prontuario_key, data)
+    r.set(patient_key, data)
     r.set(job_key, data)
 
-    # SQLite: durable persistence for dashboard and history
     try:
         db.save_result({
             "batch_id": job.get("batch_id", "unknown"),
@@ -97,13 +101,15 @@ def save_result(job: dict, result: dict):
             "record_number": job.get("record_number", "unknown"),
             "record_number_display": job.get("record_number_display", job.get("record_number", "")),
             "encounter": job.get("encounter", ""),
-            "result": result
+            "result": result,
         })
     except Exception as e:
         print(f"[DB WARNING] Failed to save to SQLite (Redis saved OK): {e}")
 
 
 def main():
+    """Main loop: pop a job, audit it, save the result; after MAX_ATTEMPTS, push it to the DLQ
+    and still set its result key so a client polling the job never waits forever."""
     print("Worker started, waiting for jobs...")
     while True:
         try:
@@ -142,7 +148,6 @@ def main():
             else:
                 job["final_error"] = str(e)
                 r.lpush(DLQ_KEY, json.dumps(job))
-                # Publica a falha no resultado do job, para quem consulta não esperar para sempre
                 r.set(
                     f"{RESULT_KEY_PREFIX}{job['job_id']}",
                     json.dumps({"_job_failed": True, "error": error_msg, "attempts": job["attempts"]}),

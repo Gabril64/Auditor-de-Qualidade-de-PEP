@@ -1,8 +1,9 @@
-# Palavras-chave por sistema do exame físico. O exame só é "conforme" se houver pelo menos UMA
-# palavra de CADA sistema da categoria. A busca é por palavra inteira e sem acento
-# (ver utils/text_match.py). "geral:" só conta como rótulo de seção, para não casar com
-# "anestesia geral".
-TERMOS_EXAME_FISICO_MEDICINA = {
+"""Keywords per physical exam system. The exam is only "conforme" if at least ONE word from EACH
+system in the category is present. The search is whole-word and accent-insensitive (see
+utils/text_match.py). "geral:" only counts as a section label, so it doesn't match "anestesia
+geral".
+"""
+MEDICAL_PHYSICAL_EXAM_TERMS = {
     "Geral": ["estado geral", "geral:", "beg", "reg", "meg", "ebg", "egb"],
     "Cardiovascular": ["acv", "cardiovascular", "bulhas", "ritmo cardíaco", "rcr", "bnf", "ausculta cardíaca", "sopro", "sopros"],
     "Respiratório": ["ar", "aparelho respiratório", "respiratório", "murmúrio vesicular", "mv", "ausculta pulmonar", "ausculta respiratória", "ruídos adventícios", "crepitações"],
@@ -10,7 +11,7 @@ TERMOS_EXAME_FISICO_MEDICINA = {
     "Extremidades": ["ext", "extremidades", "mmii", "mmss", "membros inferiores", "membros superiores", "pulsos", "perfusão", "panturrilhas", "edema"],
 }
 
-TERMOS_EXAME_FISICO_ENFERMAGEM = {
+NURSING_PHYSICAL_EXAM_TERMS = {
     "Nervoso": ["sistema nervoso", "snc", "neurológico", "consciente", "lúcido", "lúcida", "orientado", "orientada", "glasgow", "pupilas"],
     "Pele/Mucosas": ["pele", "mucosas", "corado", "corada", "hidratado", "hidratada", "turgor", "elasticidade", "tegumento"],
     "Respiratório": ["respiratório", "eupneico", "eupneica", "dispneico", "dispneica", "taquipneico", "taquipneica", "murmúrio vesicular", "mv", "saturação", "sato2", "spo2", "o2", "cateter nasal"],

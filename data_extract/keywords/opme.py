@@ -1,4 +1,4 @@
-TERMOS_OPME = [
+OPME_TERMS = [
     "placa", "parafuso", "pino", "haste", "fio de kirschner", "âncora",
     "prótese", "cimento ósseo", "espaçador", "cage", "stent", "cateter",
     "marcapasso", "cardioversor", "desfribilador", "vávula cardíaca",
