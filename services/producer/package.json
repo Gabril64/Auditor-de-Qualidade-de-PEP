@@ -12,10 +12,10 @@
   "main": "dist/server.js",
   "scripts": {
     "build": "tsc",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.test.json",
     "dev": "tsx watch src/server.ts",
     "start": "node dist/server.js",
-    "test": "node --import tsx --test --test-force-exit --experimental-test-module-mocks \"test/**/*.test.js\"",
+    "test": "node --import tsx --test --test-force-exit --experimental-test-module-mocks \"test/**/*.test.ts\"",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
