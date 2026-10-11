@@ -1,12 +1,11 @@
-"""Consumes `fila:prontuarios`, audits each patient record and persists the result.
+"""Consumes `fila:prontuarios`, audits each patient record and publishes the result.
 
 MAX_ATTEMPTS = 2: one retry, only for infrastructure failures (the subprocess crashed or timed
 out). An AI failure does NOT retry the job — it becomes a partial result instead, since the AI
 client (llm_client) already retries 3 times per call on its own.
 
-`AuditDatabase` is imported two ways because the Docker image copies worker.py and database.py
-side by side into /app (plain import), while outside Docker it is loaded as the `worker` package,
-which is what the tests and mypy use.
+The Worker holds no database: it sets the `resultado:*` keys the polling routes read, and pushes
+the finished job onto `fila:resultados`, where the Producer's results consumer persists it (F2.5).
 """
 import json
 import os
@@ -16,22 +15,16 @@ import time
 
 import redis
 
-try:
-    from database import AuditDatabase
-except ImportError:
-    from worker.database import AuditDatabase
-
 r = redis.Redis(
     host=os.getenv("REDIS_HOST", "localhost"),
     port=6379,
     decode_responses=True,
 )
 
-db = AuditDatabase()
-
 QUEUE_KEY = "fila:prontuarios"
 DLQ_KEY = "fila:prontuarios:falhas"
 RESULT_KEY_PREFIX = "resultado:"
+RESULTS_QUEUE_KEY = "fila:resultados"
 MAX_ATTEMPTS = int(os.getenv("WORKER_MAX_ATTEMPTS", "2"))
 SUBPROCESS_TIMEOUT = int(os.getenv("WORKER_SUBPROCESS_TIMEOUT", "3600"))
 
@@ -86,7 +79,8 @@ def process_patient_record(job: dict) -> dict:
 
 
 def save_result(job: dict, result: dict):
-    """Save result to both Redis (for fast polling) and SQLite (for persistence)."""
+    """Sets the `resultado:*` keys the polling routes read, and queues the result for the
+    Producer's results consumer to persist in `audit_results`."""
     patient_key = f"{RESULT_KEY_PREFIX}{job['record_number']}"
     job_key = f"{RESULT_KEY_PREFIX}{job['job_id']}"
 
@@ -94,17 +88,14 @@ def save_result(job: dict, result: dict):
     r.set(patient_key, data)
     r.set(job_key, data)
 
-    try:
-        db.save_result({
-            "batch_id": job.get("batch_id", "unknown"),
-            "job_id": job.get("job_id", "unknown"),
-            "record_number": job.get("record_number", "unknown"),
-            "record_number_display": job.get("record_number_display", job.get("record_number", "")),
-            "encounter": job.get("encounter", ""),
-            "result": result,
-        })
-    except Exception as e:
-        print(f"[DB WARNING] Failed to save to SQLite (Redis saved OK): {e}")
+    r.lpush(RESULTS_QUEUE_KEY, json.dumps({
+        "batch_id": job.get("batch_id", "unknown"),
+        "job_id": job.get("job_id", "unknown"),
+        "record_number": job.get("record_number", "unknown"),
+        "record_number_display": job.get("record_number_display", job.get("record_number", "")),
+        "encounter": job.get("encounter", ""),
+        "result": result,
+    }))
 
 
 def main():

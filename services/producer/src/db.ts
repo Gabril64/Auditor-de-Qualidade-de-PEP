@@ -1,29 +1,6 @@
-import Database from "better-sqlite3";
-import fs from "node:fs";
-import path from "node:path";
+import { getDb } from "./db/connection.js";
 import { errorMessage } from "./errorMessage.js";
 import type { RawAuditResult } from "./transformer.js";
-
-const DB_PATH = process.env.SQLITE_DB_PATH || path.join(process.cwd(), "..", "data", "auditor.db");
-
-const SCHEMA_SQL = `
-  CREATE TABLE IF NOT EXISTS audit_results (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    batch_id TEXT NOT NULL,
-    job_id TEXT UNIQUE NOT NULL,
-    record_number TEXT NOT NULL,
-    record_number_display TEXT,
-    encounter TEXT,
-    audit_data TEXT NOT NULL,
-    conformity_percent REAL DEFAULT 0,
-    status TEXT DEFAULT 'done',
-    created_at TEXT NOT NULL
-  );
-
-  CREATE INDEX IF NOT EXISTS idx_results_record ON audit_results(record_number);
-  CREATE INDEX IF NOT EXISTS idx_results_batch ON audit_results(batch_id);
-  CREATE INDEX IF NOT EXISTS idx_results_job ON audit_results(job_id);
-`;
 
 interface AuditRow {
   id: number;
@@ -59,24 +36,13 @@ interface ExtremeRow {
   conformity_percent: number;
 }
 
-let connection: Database.Database | null = null;
-
-function getDb(): Database.Database | null {
-  if (connection) return connection;
-
-  try {
-    fs.mkdirSync(path.dirname(DB_PATH), { recursive: true });
-    const opened = new Database(DB_PATH);
-    opened.pragma("journal_mode = WAL");
-    opened.pragma("foreign_keys = ON");
-    opened.exec(SCHEMA_SQL);
-    connection = opened;
-    console.log(`[DB] SQLite initialized at ${DB_PATH}`);
-    return connection;
-  } catch (error) {
-    console.error(`[DB] Failed to connect to SQLite at ${DB_PATH}:`, errorMessage(error));
-    return null;
-  }
+export interface CompletedJob {
+  batch_id?: string;
+  job_id?: string;
+  record_number?: string;
+  record_number_display?: string;
+  encounter?: string;
+  result: RawAuditResult;
 }
 
 function roundToTenth(value: number): number {
@@ -167,5 +133,47 @@ export function getDashboardStats(): DashboardStats {
   } catch (error) {
     console.error("[DB] Error fetching dashboard stats:", errorMessage(error));
     return emptyStats();
+  }
+}
+
+/** Inserts a finished audit, or updates it in place if the same job_id was already saved.
+ * Returns false when the database is unavailable or the write fails (logged either way). */
+export function upsertAuditResult(job: CompletedJob): boolean {
+  const conn = getDb();
+  if (!conn) return false;
+
+  try {
+    const auditData = job.result.audit_data ?? job.result;
+    const conformityPercent = auditData?.conformity_global?.percent ?? 0;
+    const auditDataJson = JSON.stringify(job.result);
+    const jobId = job.job_id ?? "unknown";
+
+    const existing = conn.prepare("SELECT id FROM audit_results WHERE job_id = ?").get(jobId);
+    if (existing) {
+      conn
+        .prepare("UPDATE audit_results SET audit_data = ?, conformity_percent = ?, status = 'done' WHERE job_id = ?")
+        .run(auditDataJson, conformityPercent, jobId);
+    } else {
+      conn
+        .prepare(
+          `INSERT INTO audit_results
+           (batch_id, job_id, record_number, record_number_display, encounter, audit_data, conformity_percent, status, created_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, 'done', ?)`,
+        )
+        .run(
+          job.batch_id ?? "unknown",
+          jobId,
+          job.record_number ?? "unknown",
+          job.record_number_display ?? job.record_number ?? "",
+          job.encounter ?? "",
+          auditDataJson,
+          conformityPercent,
+          new Date().toISOString(),
+        );
+    }
+    return true;
+  } catch (error) {
+    console.error(`[DB] Error saving result for job ${job.job_id}:`, errorMessage(error));
+    return false;
   }
 }

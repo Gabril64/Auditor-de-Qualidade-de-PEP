@@ -3,6 +3,8 @@ import express, { type Response } from "express";
 import { getAllAudits, getAuditById, getDashboardStats, type AuditRecord } from "./db.js";
 import { errorMessage } from "./errorMessage.js";
 import { getJobResult, getResult, jobStatusOf, publishBatch } from "./producer.js";
+import { startResultsConsumer } from "./queue/resultsConsumer.js";
+import { runSeed } from "./seed.js";
 import { transformAuditResult } from "./transformer.js";
 
 const PORT = Number(process.env.PORT) || 3001;
@@ -162,3 +164,8 @@ app.get("/health", (_req, res) => {
 app.listen(PORT, () => {
   console.log(`Producer API listening on port ${PORT}`);
 });
+
+if (process.env.DISABLE_BACKGROUND_JOBS !== "1") {
+  await runSeed();
+  void startResultsConsumer(process.env.REDIS_URL || "redis://localhost:6379");
+}

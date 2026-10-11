@@ -18,7 +18,7 @@ import pytest
 import worker.worker as worker
 from tests.conftest import REPO_ROOT, records_of
 
-QUEUE, DLQ, PREFIX = worker.QUEUE_KEY, worker.DLQ_KEY, worker.RESULT_KEY_PREFIX
+QUEUE, DLQ, PREFIX, RESULTS_QUEUE = worker.QUEUE_KEY, worker.DLQ_KEY, worker.RESULT_KEY_PREFIX, worker.RESULTS_QUEUE_KEY
 
 
 class _StopLoop(BaseException):
@@ -59,7 +59,8 @@ def run_loop():
 
 
 def test_success_saves_result_under_record_and_job_keys(redis_fake, monkeypatch):
-    """Saves the same result under both `resultado:<record_number>` and `resultado:<job_id>`."""
+    """Saves the same result under both `resultado:<record_number>` and `resultado:<job_id>`,
+    and queues it in `fila:resultados` for the Producer's results consumer to persist."""
     result = {"record_id": "1", "audit_data": {"ok": True}}
     monkeypatch.setattr(worker, "process_patient_record", lambda j: result)
     redis_fake.lpush(QUEUE, json.dumps(job(1)))
@@ -67,6 +68,9 @@ def test_success_saves_result_under_record_and_job_keys(redis_fake, monkeypatch)
     assert json.loads(redis_fake.get(f"{PREFIX}1")) == result
     assert json.loads(redis_fake.get(f"{PREFIX}job-1")) == result
     assert redis_fake.llen(QUEUE) == 0 and redis_fake.llen(DLQ) == 0
+    queued = json.loads(redis_fake.lrange(RESULTS_QUEUE, 0, -1)[0])
+    assert queued == {"batch_id": "b", "job_id": "job-1", "record_number": "1",
+                       "record_number_display": "1", "encounter": "", "result": result}
 
 
 def test_partial_result_is_saved_normally_not_sent_to_dlq(redis_fake, monkeypatch):
@@ -80,7 +84,8 @@ def test_partial_result_is_saved_normally_not_sent_to_dlq(redis_fake, monkeypatc
 
 def test_failing_job_is_retried_once_then_goes_to_dlq(redis_fake, monkeypatch):
     """2 runs total (1 retry). The failure is published under the job-id key, for whoever polls
-    the job, but never under the record-number key — that one stays reserved for a real result."""
+    the job, but never under the record-number key — that one stays reserved for a real result —
+    nor queued in `fila:resultados`, which only ever carries results to persist."""
     attempts_seen = []
 
     def fail(j):
@@ -98,6 +103,7 @@ def test_failing_job_is_retried_once_then_goes_to_dlq(redis_fake, monkeypatch):
     published_failure = json.loads(redis_fake.get(f"{PREFIX}job-1"))
     assert published_failure["_job_failed"] is True and published_failure["attempts"] == 2
     assert redis_fake.get(f"{PREFIX}1") is None
+    assert redis_fake.llen(RESULTS_QUEUE) == 0
 
 
 def test_job_that_recovers_on_second_attempt_is_saved(redis_fake, monkeypatch):

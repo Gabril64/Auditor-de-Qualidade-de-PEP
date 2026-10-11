@@ -6,7 +6,7 @@ services:
     image: redis:7-alpine
     ports:
       - "6379:6379"
-    command: redis-server --save 60 1
+    command: redis-server --save 60 1 --appendonly yes
     restart: unless-stopped
 
   worker:
@@ -20,17 +20,17 @@ services:
       - REDIS_HOST=redis
       - PYTHONUNBUFFERED=1
       - LMSTUDIO_URL=http://host.docker.internal:1234/api/v1/chat
-      - SQLITE_DB_PATH=/app/data/auditor.db
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
-      - audit-data:/app/data
       - ./data_extract:/app/data_extract
     restart: unless-stopped
 
   producer:
     container_name: auditor-pep-producer
-    build: ./services/producer
+    build:
+      context: .
+      dockerfile: services/producer/Dockerfile
     ports:
       - "3001:3001"
     depends_on:
@@ -38,6 +38,8 @@ services:
     environment:
       - REDIS_URL=redis://redis:6379
       - SQLITE_DB_PATH=/app/data/auditor.db
+      - ADMIN_EMAIL=${ADMIN_EMAIL:-admin@auditor.local}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-}
     volumes:
       - audit-data:/app/data
     restart: unless-stopped

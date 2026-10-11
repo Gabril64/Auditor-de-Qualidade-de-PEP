@@ -4,12 +4,14 @@ RUN apt-get update && apt-get install -y python3 make g++ && rm -rf /var/lib/apt
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY services/producer/package*.json ./
 RUN npm install
 
-COPY tsconfig.json ./
-COPY src ./src
+COPY services/producer/tsconfig.json ./
+COPY services/producer/src ./src
 RUN npm run build && npm prune --omit=dev
+
+COPY db ./db
 
 RUN mkdir -p /app/data
 

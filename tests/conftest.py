@@ -2,20 +2,13 @@
 
 Goal: freeze the backend's CURRENT behavior. No test here judges whether the behavior is
 correct — only that it does not change by accident during the refactor.
-
-`worker.worker` opens the SQLite database at import time, so SQLITE_DB_PATH is pointed at a
-disposable directory BEFORE any test imports it — overwritten, not setdefault: a development
-SQLITE_DB_PATH must never receive writes from the tests.
 """
 import hashlib
 import json
 import os
-import tempfile
 from pathlib import Path
 
 import pytest
-
-os.environ["SQLITE_DB_PATH"] = os.path.join(tempfile.mkdtemp(prefix="pep-tests-"), "auditor.db")
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 

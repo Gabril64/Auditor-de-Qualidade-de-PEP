@@ -59,6 +59,7 @@ const port = await new Promise<number>((resolve) => {
   });
 });
 process.env.PORT = String(port);
+process.env.DISABLE_BACKGROUND_JOBS = "1";
 const BASE = `http://127.0.0.1:${port}`;
 
 await import("../src/server.js");

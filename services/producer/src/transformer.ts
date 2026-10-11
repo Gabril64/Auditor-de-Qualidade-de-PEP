@@ -17,6 +17,7 @@ type Status = "conforme" | "nao_conforme" | "nao_se_aplica";
 interface ConformityCount {
   valid?: number;
   total?: number;
+  percent?: number;
 }
 
 interface Counts {
