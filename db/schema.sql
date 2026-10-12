@@ -33,3 +33,56 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TEXT NOT NULL,
     last_login TEXT
 );
+
+-- The patient records exactly as they were submitted, one row per audit job. Written by the
+-- Producer when it receives a batch, before the job is queued. job_id links to audit_results.
+CREATE TABLE IF NOT EXISTS raw_patient_records (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    job_id TEXT NOT NULL UNIQUE,
+    batch_id TEXT NOT NULL,
+    record_number TEXT NOT NULL,
+    record_number_display TEXT NOT NULL,
+    sha256 TEXT NOT NULL,
+    source TEXT NOT NULL CHECK (source IN ('upload', 'api')),
+    submitted_by INTEGER REFERENCES users(id),
+    submitted_at TEXT NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_raw_records_batch ON raw_patient_records(batch_id);
+CREATE INDEX IF NOT EXISTS idx_raw_records_number ON raw_patient_records(record_number);
+
+-- One row per entry of a patient record. Each key of the submitted JSON has its own TEXT column,
+-- holding the value as it arrived; original_json keeps the whole entry and extra_keys the keys
+-- that have no column. The key-to-column map lives in src/domain/rawRecordColumns.ts.
+CREATE TABLE IF NOT EXISTS raw_record_entries (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    raw_patient_record_id INTEGER NOT NULL REFERENCES raw_patient_records(id),
+    position INTEGER NOT NULL,
+    encounter TEXT,
+    professional_category TEXT,
+    procedure_icd_code TEXT,
+    patient_sus_code TEXT,
+    patient_birth_date TEXT,
+    surgery_end_at TEXT,
+    surgery_start_at TEXT,
+    admission_at TEXT,
+    discharge_at TEXT,
+    death_at TEXT,
+    entry_description TEXT,
+    surgical_description TEXT,
+    surgery_specialty TEXT,
+    internal_procedure_performed TEXT,
+    surgical_procedure_performed TEXT,
+    record_number TEXT,
+    followed_safe_surgery_protocol TEXT,
+    sex TEXT,
+    entry_type TEXT,
+    surgery_functional_unit TEXT,
+    admission_functional_unit TEXT,
+    used_prophylactic_antibiotic TEXT,
+    used_oxygen TEXT,
+    anamnesis_created_at TEXT,
+    original_json TEXT NOT NULL,
+    extra_keys TEXT,
+    UNIQUE (raw_patient_record_id, position)
+);

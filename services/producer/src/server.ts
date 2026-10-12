@@ -4,12 +4,14 @@ import { getAllAudits, getAuditById, getDashboardStats, type AuditRecord } from 
 import { errorMessage } from "./errorMessage.js";
 import { getJobResult, getResult, jobStatusOf, publishBatch } from "./producer.js";
 import { startResultsConsumer } from "./queue/resultsConsumer.js";
+import { getRawPatientRecordByJobId, type RecordSource } from "./repositories/rawRecords.js";
 import { runSeed } from "./seed.js";
 import { transformAuditResult } from "./transformer.js";
 
 const PORT = Number(process.env.PORT) || 3001;
 const ALLOWED_ORIGINS = ["http://localhost:5173", "http://localhost:5174", "http://localhost:3000"];
 const INTEGER_PATTERN = /^-?\d+$/;
+const RECORD_SOURCES: readonly RecordSource[] = ["upload", "api"];
 
 const app = express();
 
@@ -51,6 +53,7 @@ app.post("/batches", async (req, res) => {
     const rawText = typeof req.body === "string" ? req.body : JSON.stringify(req.body);
     const modelName = typeof req.query.model === "string" ? req.query.model : undefined;
     const rawSeed = req.query.seed;
+    const source = RECORD_SOURCES.find((candidate) => candidate === req.query.source) ?? "api";
 
     let seed: number | undefined;
     if (rawSeed !== undefined && rawSeed !== "") {
@@ -66,7 +69,7 @@ app.post("/batches", async (req, res) => {
       return;
     }
 
-    const result = await publishBatch(rawText, modelName, seed);
+    const result = await publishBatch(rawText, modelName, seed, source);
 
     res.status(202).json({
       message: "Batch received and queued",
@@ -143,6 +146,7 @@ app.get("/api/audits/:id", (req, res) => {
       created_at: audit.created_at,
       audit: transformAuditResult(audit.audit_data),
       raw: audit.audit_data,
+      raw_patient_record: getRawPatientRecordByJobId(audit.job_id),
     });
   } catch (error) {
     fail(res, 500, "fetching audit", error);

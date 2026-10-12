@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { createClient } from "redis";
 import { errorMessage } from "./errorMessage.js";
+import { saveRawPatientRecords, type RecordSource } from "./repositories/rawRecords.js";
 import type { RawAuditResult } from "./transformer.js";
 
 export type JobStatus = "processing" | "failed" | "partial" | "done";
@@ -132,20 +133,36 @@ function buildJob(group: PatientGroup, batchId: string, modelName?: string, seed
   return job;
 }
 
-/** Validates the whole batch, then queues one job per patient record number. One invalid record rejects the batch. */
-export async function publishBatch(rawText: string, modelName?: string, seed?: number | null): Promise<PublishResult> {
+/** Validates the whole batch, stores the submitted records, then queues one job per patient
+ * record number. One invalid record rejects the batch, and nothing is queued if it cannot be stored. */
+export async function publishBatch(
+  rawText: string,
+  modelName?: string,
+  seed?: number | null,
+  source: RecordSource = "api",
+): Promise<PublishResult> {
   const batchId = randomUUID();
   const records = parsePayload(rawText);
   assertValidRecords(records);
 
-  const publishedJobs: PublishedJob[] = [];
-  for (const group of groupByRecordNumber(records)) {
-    const job = buildJob(group, batchId, modelName, seed);
+  const jobs = groupByRecordNumber(records).map((group) => buildJob(group, batchId, modelName, seed));
+
+  saveRawPatientRecords(
+    jobs.map((job) => ({
+      jobId: job.job_id,
+      batchId,
+      recordNumber: job.record_number,
+      recordNumberDisplay: job.record_number_display,
+      records: job.records,
+    })),
+    { source, submittedBy: null, submittedAt: new Date().toISOString() },
+  );
+
+  for (const job of jobs) {
     await redis.lPush(QUEUE_KEY, JSON.stringify(job));
-    publishedJobs.push({ record_number: job.record_number, job_id: job.job_id });
   }
 
-  return { batchId, publishedJobs };
+  return { batchId, publishedJobs: jobs.map((job) => ({ record_number: job.record_number, job_id: job.job_id })) };
 }
 
 async function readStoredResult(id: string): Promise<StoredResult | null> {

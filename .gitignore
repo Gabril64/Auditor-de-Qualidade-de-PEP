@@ -57,5 +57,3 @@ services/worker/venv/
 
 # PIDs de processos locais
 *.pid
-
-error.log
