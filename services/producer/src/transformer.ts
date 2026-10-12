@@ -59,6 +59,8 @@ export interface AuditItem {
   item: string;
   valor: FieldValue;
   status: Status;
+  /** Added by the audit detail, so the front end can edit the item; the transformer leaves it out. */
+  ref?: { section: string; record_type: "anamnesis" | "evolution" | null; field: string } | null;
 }
 
 interface ItemGroup {

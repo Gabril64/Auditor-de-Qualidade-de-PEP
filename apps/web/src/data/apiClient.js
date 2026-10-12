@@ -4,7 +4,7 @@
  * Handles batch submission, job polling, and dashboard data fetching.
  */
 
-import { apiFetch } from "./session.js";
+import { ApiError, apiFetch } from "./session.js";
 
 /**
  * Submit a batch of raw medical records to be audited.
@@ -166,5 +166,28 @@ export async function fetchAuditById(id) {
   if (!res.ok) {
     throw new Error(`HTTP ${res.status}`);
   }
+  return res.json();
+}
+
+/**
+ * Save the auditor's changes to an audit. The original the system produced is never touched.
+ * @param {number} id - Audit ID
+ * @param {string|null} seenVersion - The `updated_at` the detail screen was showing
+ * @param {Array<{section: string, record_type: string|null, field: string, status: string, comment?: string}>} changes
+ * @returns {Promise<{updated_at: string}>} The new version
+ * @throws {ApiError} status 409 when someone else saved first
+ */
+export async function saveAuditRevision(id, seenVersion, changes) {
+  const res = await apiFetch(`/api/audits/${id}/revision`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ updated_at: seenVersion, changes }),
+  });
+
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ error: res.statusText }));
+    throw new ApiError(err.error || `HTTP ${res.status}`, { status: res.status });
+  }
+
   return res.json();
 }

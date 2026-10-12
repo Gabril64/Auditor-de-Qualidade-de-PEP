@@ -1,4 +1,5 @@
 import { approvalStateOf } from "../domain/approvals.js";
+import { annotateItemRefs } from "../domain/itemRefs.js";
 import { errorMessage } from "../errorMessage.js";
 import { getAllAudits, getAuditById, getAuditFields, type AuditRecord } from "../repositories/audits.js";
 import { listApprovalEvents, listHistory } from "../repositories/history.js";
@@ -64,6 +65,7 @@ export function getAuditDetail(id: number, user: UserRow) {
   const version = contentVersionOf(revision);
   const approval = approvalStateOf(listApprovalEvents([id]), version);
   const revised = revision && version ? (JSON.parse(revision.audit_data) as typeof audit.audit_data) : null;
+  const current = revised ?? audit.audit_data;
 
   return {
     id: audit.id,
@@ -73,7 +75,7 @@ export function getAuditDetail(id: number, user: UserRow) {
     conformity_percent: revised ? (revision?.conformity_percent ?? audit.conformity_percent) : audit.conformity_percent,
     original_conformity_percent: audit.original_conformity_percent,
     created_at: audit.created_at,
-    audit: transformAuditResult(revised ?? audit.audit_data),
+    audit: annotateItemRefs(transformAuditResult(current), current),
     raw: audit.audit_data,
     fields: getAuditFields(audit.id),
     revised_audit: revised,

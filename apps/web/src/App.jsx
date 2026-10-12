@@ -3,6 +3,7 @@ import Sidebar from './presentation/components/Sidebar.jsx';
 import AuditView from './presentation/views/AuditView.jsx';
 import DashboardView from './presentation/views/DashboardView.jsx';
 import ExplanationView from './presentation/views/ExplanationView.jsx';
+import AuditDetailView from './presentation/views/AuditDetailView.jsx';
 import LoginView from './presentation/views/LoginView.jsx';
 import ChangePasswordView from './presentation/views/ChangePasswordView.jsx';
 import { fetchSession, logout } from './data/authClient.js';
@@ -18,7 +19,8 @@ const sessionOf = (user) =>
 export default function App() {
   // status: 'loading' | 'anonymous' | 'unavailable' | 'ready'
   const [session, setSession] = useState(LOADING);
-  const [activeView, setActiveView] = useState('audit'); // 'audit', 'dashboard', 'explanation'
+  const [activeView, setActiveView] = useState('audit'); // 'audit', 'dashboard', 'details', 'explanation'
+  const [selectedAuditId, setSelectedAuditId] = useState(null);
   const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 600 : false);
 
   useEffect(() => {
@@ -54,8 +56,8 @@ export default function App() {
   };
 
   const handleSelectAuditFromDashboard = (audit) => {
-    // Navigate to audit view — could be extended to display the specific audit
-    setActiveView('audit');
+    setSelectedAuditId(audit.id);
+    setActiveView('details');
   };
 
   if (session.status === 'loading') {
@@ -93,7 +95,7 @@ export default function App() {
       color: 'var(--text)'
     }}>
       {/* Sidebar Navigation */}
-      <Sidebar activeView={activeView} setActiveView={setActiveView} isMobile={isMobile} />
+      <Sidebar activeView={activeView === 'details' ? 'dashboard' : activeView} setActiveView={setActiveView} isMobile={isMobile} />
 
       {/* Main View Container */}
       <div style={{
@@ -164,6 +166,13 @@ export default function App() {
           {activeView === 'dashboard' && (
             <DashboardView
               onSelectAudit={handleSelectAuditFromDashboard}
+              isMobile={isMobile}
+            />
+          )}
+          {activeView === 'details' && selectedAuditId !== null && (
+            <AuditDetailView
+              auditId={selectedAuditId}
+              onBack={() => setActiveView('dashboard')}
               isMobile={isMobile}
             />
           )}

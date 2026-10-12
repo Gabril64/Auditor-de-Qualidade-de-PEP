@@ -117,6 +117,20 @@ test("GET /api/audits/:id returns the transformed audit and the raw result", asy
   assert.ok(body.fields.some((field) => field.section === "A" && field.field === "prontuario"));
 });
 
+test("GET /api/audits/:id gives each audited item the ref the revision endpoint expects", async () => {
+  const { body: list } = await getJson<{ audits: AuditSummary[] }>("/api/audits");
+  const high = list.audits.find((audit) => audit.job_id === "job-high");
+  assert.ok(high);
+
+  const { body } = await getJson<{
+    audit: { secoes: { id: string; itens?: { item: string; ref: unknown }[] }[] };
+  }>(`/api/audits/${high.id}`);
+
+  const identification = body.audit.secoes.find((section) => section.id === "A");
+  const record = identification?.itens?.find((item) => item.item === "Prontuário");
+  assert.deepEqual(record?.ref, { section: "A", record_type: null, field: "prontuario" });
+});
+
 test("a batch posted to /batches is stored raw and shows up in the audit detail", async () => {
   const response = await harness.fetchAs(session, "/batches?source=upload", {
     method: "POST",

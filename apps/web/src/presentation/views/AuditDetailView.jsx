@@ -1,0 +1,226 @@
+import React, { useEffect, useMemo, useState } from 'react';
+import { fetchAuditById, saveAuditRevision } from '../../data/apiClient.js';
+import { changesFromDrafts, refKey } from '../../domain/auditValue.js';
+import { ResultCard } from '../components/AuditReport.jsx';
+
+const SUBMITTED_AT = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+
+/** The submitted record, read only: one block per entry, each key under its own label. */
+function RawRecordPanel({ raw, isMobile }) {
+  if (!raw) {
+    return (
+      <div style={{ color: 'var(--text2)', fontSize: 13, padding: 20 }}>
+        O prontuário original não foi guardado para esta auditoria.
+      </div>
+    );
+  }
+
+  const when = raw.submitted_at ? new Date(raw.submitted_at).toLocaleString('pt-BR', SUBMITTED_AT) : '';
+
+  return (
+    <div>
+      <div style={{ fontSize: 11, color: 'var(--text3)', fontFamily: 'var(--mono)', marginBottom: 12 }}>
+        Enviado em {when} · {raw.entries.length} registro{raw.entries.length === 1 ? '' : 's'}
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+        {raw.entries.map((entry) => {
+          const values = Object.entries(entry.original).filter(([, v]) => v !== null && v !== '');
+          return (
+            <div key={entry.position} style={{ background: 'var(--bg3)', border: '1px solid var(--border)', borderRadius: 10, padding: isMobile ? 10 : 14 }}>
+              <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--accent)', fontFamily: 'var(--mono)', marginBottom: 10 }}>
+                Registro {entry.position + 1}
+                {entry.original['Tipo do registro'] ? ` · ${entry.original['Tipo do registro']}` : ''}
+                {entry.original['Categoria Profissional'] ? ` · ${entry.original['Categoria Profissional']}` : ''}
+              </div>
+              <dl style={{ margin: 0, display: 'flex', flexDirection: 'column', gap: 8 }}>
+                {values.map(([label, value]) => (
+                  <div key={label}>
+                    <dt style={{ fontSize: 10, color: 'var(--text3)', fontFamily: 'var(--mono)' }}>{label}</dt>
+                    <dd style={{ margin: '2px 0 0', fontSize: 12, color: 'var(--text)', whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
+                      {String(value)}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+const panelStyle = { background: 'var(--bg2)', border: '1px solid var(--border)', borderRadius: 12, padding: 16, minWidth: 0 };
+
+export default function AuditDetailView({ auditId, onBack, isMobile }) {
+  const [detail, setDetail] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [drafts, setDrafts] = useState({});
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState(null);
+  const [conflict, setConflict] = useState(false);
+
+  async function load() {
+    setLoading(true);
+    setError(null);
+    try {
+      setDetail(await fetchAuditById(auditId));
+      setDrafts({});
+      setSaveError(null);
+      setConflict(false);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    load();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [auditId]);
+
+  // What the automatic audit produced, by item, to show next to anything an auditor changed.
+  const originals = useMemo(() => {
+    const byKey = {};
+    for (const row of detail?.fields ?? []) byKey[refKey(row)] = row;
+    return byKey;
+  }, [detail]);
+
+  const pending = Object.keys(drafts).length;
+
+  function handleChange(ref, draft) {
+    setDrafts((current) => {
+      const next = { ...current };
+      if (draft) next[refKey(ref)] = { ...draft, ref };
+      else delete next[refKey(ref)];
+      return next;
+    });
+  }
+
+  async function handleSave() {
+    setSaving(true);
+    setSaveError(null);
+    try {
+      await saveAuditRevision(detail.id, detail.updated_at, changesFromDrafts(drafts));
+      setDetail(await fetchAuditById(auditId));
+      setDrafts({});
+    } catch (err) {
+      if (err.status === 409) setConflict(true);
+      setSaveError(err.message);
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  function handleBack() {
+    if (pending > 0 && !window.confirm('Há alterações não salvas. Sair mesmo assim?')) return;
+    onBack();
+  }
+
+  const pad = isMobile ? '12px 10px 80px' : '24px 16px';
+
+  if (loading && !detail) {
+    return <div style={{ padding: pad, color: 'var(--text2)', fontFamily: 'var(--mono)', fontSize: 13 }}>Carregando auditoria...</div>;
+  }
+
+  if (error) {
+    return (
+      <div style={{ padding: pad }}>
+        <button onClick={onBack} style={linkButton}>← Voltar ao dashboard</button>
+        <div style={{ marginTop: 16, color: 'var(--red)', fontSize: 14 }}>Erro ao carregar a auditoria: {error}</div>
+        <button onClick={load} style={{ ...linkButton, marginTop: 12 }}>Tentar novamente</button>
+      </div>
+    );
+  }
+
+  const original = detail.original_conformity_percent;
+  const edited = detail.updated_at !== null && detail.updated_at !== undefined;
+
+  return (
+    <div style={{ padding: pad }}>
+      <button onClick={handleBack} style={linkButton}>← Voltar ao dashboard</button>
+
+      <div style={{ margin: '16px 0 20px' }}>
+        <h1 style={{ fontSize: isMobile ? 20 : 26, fontWeight: 700, letterSpacing: '-0.03em' }}>
+          Prontuário {detail.record_number_display || detail.record_number}
+        </h1>
+        <p style={{ color: 'var(--text2)', fontSize: 12, fontFamily: 'var(--mono)', marginTop: 6 }}>
+          {detail.encounter ? `Atendimento ${detail.encounter} · ` : ''}
+          {edited
+            ? `editado em ${new Date(detail.updated_at).toLocaleString('pt-BR', SUBMITTED_AT)}${typeof original === 'number' ? ` · original da auditoria: ${original}%` : ''}`
+            : 'como saiu da auditoria automática'}
+        </p>
+      </div>
+
+      {pending > 0 && (
+        <div style={{
+          position: 'sticky', top: 64, zIndex: 5, marginBottom: 16,
+          background: 'var(--bg4)', border: '1px solid var(--accent)', borderRadius: 10,
+          padding: '10px 14px', display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap',
+        }}>
+          <span style={{ fontSize: 13, flex: 1 }}>
+            {pending} alteração{pending === 1 ? '' : 'ões'} não salva{pending === 1 ? '' : 's'}
+          </span>
+          <button onClick={() => setDrafts({})} disabled={saving} style={secondaryButton}>Descartar</button>
+          <button onClick={handleSave} disabled={saving || conflict} style={primaryButton}>
+            {saving ? 'Salvando...' : 'Salvar alterações'}
+          </button>
+        </div>
+      )}
+
+      {saveError && (
+        <div style={{ marginBottom: 16, background: '#2b0d0d', border: '1px solid var(--red)', borderRadius: 10, padding: '10px 14px', fontSize: 13 }}>
+          <div style={{ color: 'var(--red)' }}>{conflict ? 'Outra pessoa salvou esta auditoria antes de você.' : saveError}</div>
+          {conflict && (
+            <button onClick={load} style={{ ...secondaryButton, marginTop: 8 }}>
+              Recarregar (suas alterações não salvas serão descartadas)
+            </button>
+          )}
+        </div>
+      )}
+
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : 'minmax(0, 1.4fr) minmax(0, 1fr)',
+        gap: 20,
+        alignItems: 'start',
+      }}>
+        <div style={{ minWidth: 0 }}>
+          <h2 style={sideTitle}>Prontuário auditado</h2>
+          {detail.audit ? (
+            <ResultCard
+              r={detail.audit}
+              isMobile={isMobile}
+              edit={{ drafts, originals, onChange: handleChange }}
+            />
+          ) : (
+            <div style={{ ...panelStyle, color: 'var(--text2)', fontSize: 13 }}>Esta auditoria não pôde ser exibida.</div>
+          )}
+        </div>
+
+        <div style={{ minWidth: 0, position: isMobile ? 'static' : 'sticky', top: 80 }}>
+          <h2 style={sideTitle}>Prontuário original</h2>
+          <div style={{ ...panelStyle, maxHeight: isMobile ? 'none' : 'calc(100vh - 160px)', overflowY: isMobile ? 'visible' : 'auto' }}>
+            <RawRecordPanel raw={detail.raw_patient_record} isMobile={isMobile} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const sideTitle = { fontSize: 13, fontWeight: 600, color: 'var(--text2)', fontFamily: 'var(--mono)', margin: '0 0 10px', textTransform: 'uppercase', letterSpacing: '0.04em' };
+
+const linkButton = { background: 'none', border: 'none', color: 'var(--accent)', cursor: 'pointer', fontSize: 13, padding: 0 };
+
+const secondaryButton = {
+  background: 'var(--bg3)', border: '1px solid var(--border2)', color: 'var(--text2)',
+  borderRadius: 8, padding: '7px 14px', fontSize: 12, cursor: 'pointer',
+};
+
+const primaryButton = {
+  background: 'var(--accent)', border: '1px solid var(--accent)', color: '#00131a',
+  borderRadius: 8, padding: '7px 14px', fontSize: 12, fontWeight: 600, cursor: 'pointer',
+};
