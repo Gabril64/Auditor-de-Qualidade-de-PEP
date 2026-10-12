@@ -3,8 +3,21 @@ import Sidebar from './presentation/components/Sidebar.jsx';
 import AuditView from './presentation/views/AuditView.jsx';
 import DashboardView from './presentation/views/DashboardView.jsx';
 import ExplanationView from './presentation/views/ExplanationView.jsx';
+import LoginView from './presentation/views/LoginView.jsx';
+import ChangePasswordView from './presentation/views/ChangePasswordView.jsx';
+import { fetchSession, logout } from './data/authClient.js';
+import { onUnauthorized } from './data/session.js';
+
+const SESSION_EXPIRED = 'Sua sessão expirou. Entre novamente.';
+const LOADING = { status: 'loading', user: null, notice: '' };
+const UNAVAILABLE = { status: 'unavailable', user: null, notice: '' };
+
+const sessionOf = (user) =>
+  user ? { status: 'ready', user, notice: '' } : { status: 'anonymous', user: null, notice: '' };
 
 export default function App() {
+  // status: 'loading' | 'anonymous' | 'unavailable' | 'ready'
+  const [session, setSession] = useState(LOADING);
   const [activeView, setActiveView] = useState('audit'); // 'audit', 'dashboard', 'explanation'
   const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 600 : false);
 
@@ -15,10 +28,61 @@ export default function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    onUnauthorized(() => setSession({ status: 'anonymous', user: null, notice: SESSION_EXPIRED }));
+
+    let active = true;
+    fetchSession()
+      .then((user) => active && setSession(sessionOf(user)))
+      .catch(() => active && setSession(UNAVAILABLE));
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const loadSession = () => {
+    setSession(LOADING);
+    fetchSession()
+      .then((user) => setSession(sessionOf(user)))
+      .catch(() => setSession(UNAVAILABLE));
+  };
+
+  const handleLogout = async () => {
+    await logout();
+    setActiveView('audit');
+    setSession({ status: 'anonymous', user: null, notice: '' });
+  };
+
   const handleSelectAuditFromDashboard = (audit) => {
     // Navigate to audit view — could be extended to display the specific audit
     setActiveView('audit');
   };
+
+  if (session.status === 'loading') {
+    return <div style={{ minHeight: '100vh', background: 'var(--bg)' }} />;
+  }
+
+  if (session.status === 'unavailable') {
+    return (
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, flexDirection: 'column' }}>
+        <div style={{ color: 'var(--text2)', fontSize: 14 }}>Não foi possível falar com o servidor.</div>
+        <button onClick={loadSession} style={{ padding: '8px 16px', cursor: 'pointer' }}>Tentar de novo</button>
+      </div>
+    );
+  }
+
+  if (session.status === 'anonymous') {
+    return (
+      <LoginView
+        notice={session.notice}
+        onLoggedIn={(user) => setSession({ status: 'ready', user, notice: '' })}
+      />
+    );
+  }
+
+  if (session.user.must_change_password) {
+    return <ChangePasswordView user={session.user} onChanged={loadSession} onLogout={handleLogout} />;
+  }
 
   return (
     <div style={{
@@ -71,6 +135,23 @@ export default function App() {
             <div style={{ fontSize: 11, color: 'var(--text2)', fontFamily: 'var(--mono)' }}>CFM · LGPD · RDC 63/2011</div>
           </div>
 
+          <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 12 }}>
+            {!isMobile && <span style={{ fontSize: 12, color: 'var(--text2)' }}>{session.user.name}</span>}
+            <button
+              onClick={handleLogout}
+              style={{
+                background: 'none',
+                border: '1px solid var(--border2)',
+                borderRadius: 8,
+                color: 'var(--text2)',
+                padding: '6px 12px',
+                fontSize: 12,
+                cursor: 'pointer',
+              }}
+            >
+              Sair
+            </button>
+          </div>
         </header>
 
         {/* View render area */}

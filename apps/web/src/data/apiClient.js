@@ -4,7 +4,7 @@
  * Handles batch submission, job polling, and dashboard data fetching.
  */
 
-const API_BASE = import.meta.env?.VITE_API_URL || "";
+import { apiFetch } from "./session.js";
 
 /**
  * Submit a batch of raw medical records to be audited.
@@ -12,7 +12,7 @@ const API_BASE = import.meta.env?.VITE_API_URL || "";
  * @returns {Promise<{batch_id: string, total_records: number, jobs: Array<{record_number: string, job_id: string}>}>}
  */
 export async function submitBatch(rawText) {
-  const res = await fetch(`${API_BASE}/batches`, {
+  const res = await apiFetch("/batches", {
     method: "POST",
     headers: { "Content-Type": "text/plain" },
     body: rawText,
@@ -45,7 +45,7 @@ export async function pollJobStatus(jobId, opts = {}) {
   const start = Date.now();
 
   while (Date.now() - start < timeoutMs) {
-    const res = await fetch(`${API_BASE}/jobs/${jobId}/status`);
+    const res = await apiFetch(`/jobs/${jobId}/status`);
     const data = await res.json();
 
     // Erro do servidor: falha na hora, em vez de repetir a consulta até o timeout.
@@ -137,7 +137,7 @@ export async function submitAndPollBatch(rawText, opts = {}) {
  * @returns {Promise<{audits: Array, total: number}>}
  */
 export async function fetchAllAudits() {
-  const res = await fetch(`${API_BASE}/api/audits`);
+  const res = await apiFetch("/api/audits");
   if (!res.ok) {
     throw new Error(`HTTP ${res.status}`);
   }
@@ -149,7 +149,7 @@ export async function fetchAllAudits() {
  * @returns {Promise<{total_audits: number, avg_conformity: number, min_conformity: object, max_conformity: object}>}
  */
 export async function fetchDashboardStats() {
-  const res = await fetch(`${API_BASE}/api/dashboard/stats`);
+  const res = await apiFetch("/api/dashboard/stats");
   if (!res.ok) {
     throw new Error(`HTTP ${res.status}`);
   }
@@ -162,7 +162,7 @@ export async function fetchDashboardStats() {
  * @returns {Promise<object>}
  */
 export async function fetchAuditById(id) {
-  const res = await fetch(`${API_BASE}/api/audits/${id}`);
+  const res = await apiFetch(`/api/audits/${id}`);
   if (!res.ok) {
     throw new Error(`HTTP ${res.status}`);
   }
