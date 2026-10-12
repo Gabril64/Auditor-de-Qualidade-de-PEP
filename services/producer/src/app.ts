@@ -18,7 +18,7 @@ export function createApp() {
     cors({
       origin: ALLOWED_ORIGINS,
       credentials: true,
-      methods: ["GET", "POST", "PATCH", "OPTIONS"],
+      methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
       allowedHeaders: ["Content-Type", "X-CSRF-Token"],
     }),
   );

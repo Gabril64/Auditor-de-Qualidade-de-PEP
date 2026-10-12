@@ -99,6 +99,12 @@ const NEGATIVE_EXACT = ["não", "nao", "false"];
 
 type FieldValue = string | number | boolean | null | undefined;
 
+/** The key of the audit JSON that holds a section letter and record type, e.g. B + evolution -> secao_b_evolucao. */
+export function sectionKeyOf(section: string, recordType: RecordType | null): string | null {
+  const spec = SECTIONS.find((candidate) => candidate.section === section && candidate.recordType === recordType);
+  return spec?.key ?? null;
+}
+
 /** Reads the status out of a field value, with the same rules the conformity score applies:
  * a plain recorded value (a date, a specialty) counts as conforme. */
 export function statusOf(value: FieldValue): FieldStatus {

@@ -15,10 +15,19 @@ interface AuditRow {
   conformity_percent: number;
   status: string;
   created_at: string;
+  original_conformity_percent?: number;
+  revised_at?: string | null;
+  revised_by?: number | null;
+  deleted_at?: string | null;
 }
 
 export interface AuditRecord extends Omit<AuditRow, "audit_data"> {
   audit_data: RawAuditResult;
+  /** The conformity of the current version: the revision's when the audit was edited. */
+  original_conformity_percent?: number;
+  revised_at?: string | null;
+  revised_by?: number | null;
+  deleted_at?: string | null;
 }
 
 interface ConformityExtreme {
@@ -61,6 +70,9 @@ function roundToTenth(value: number): number {
   return Math.round(value * 10) / 10;
 }
 
+const CURRENT_PERCENTS = `SELECT a.record_number_display, COALESCE(r.conformity_percent, a.conformity_percent) AS conformity_percent
+  FROM audit_results a LEFT JOIN audit_revisions r ON r.audit_id = a.id WHERE r.deleted_at IS NULL`;
+
 function emptyStats(): DashboardStats {
   return {
     total_audits: 0,
@@ -81,19 +93,25 @@ function toExtreme(row: ExtremeRow | undefined): ConformityExtreme {
   };
 }
 
-/** Returns every stored audit, most recent first. */
-export function getAllAudits(): AuditRecord[] {
+function currentAuditSelect(auditDataExpression: string): string {
+  return `SELECT a.id, a.batch_id, a.job_id, a.record_number, a.record_number_display,
+       a.encounter, ${auditDataExpression} AS audit_data,
+       COALESCE(r.conformity_percent, a.conformity_percent) AS conformity_percent,
+       a.conformity_percent AS original_conformity_percent, a.status, a.created_at,
+       r.updated_at AS revised_at, r.updated_by AS revised_by, r.deleted_at AS deleted_at
+  FROM audit_results a LEFT JOIN audit_revisions r ON r.audit_id = a.id`;
+}
+
+/** Returns every stored audit, most recent first, with the conformity of its current version.
+ * Deleted audits are left out unless `onlyDeleted` asks for exactly those. */
+export function getAllAudits(onlyDeleted = false): AuditRecord[] {
   const conn = getDb();
   if (!conn) return [];
 
   try {
+    const filter = onlyDeleted ? "r.deleted_at IS NOT NULL" : "r.deleted_at IS NULL";
     const rows = conn
-      .prepare(
-        `SELECT id, batch_id, job_id, record_number, record_number_display,
-                encounter, audit_data, conformity_percent, status, created_at
-         FROM audit_results
-         ORDER BY created_at DESC`,
-      )
+      .prepare(`${currentAuditSelect("COALESCE(r.audit_data, a.audit_data)")} WHERE ${filter} ORDER BY a.created_at DESC`)
       .all() as AuditRow[];
     return rows.map(parseRow);
   } catch (error) {
@@ -102,13 +120,13 @@ export function getAllAudits(): AuditRecord[] {
   }
 }
 
-/** Returns one audit by its database id, or null when it does not exist. */
+/** Returns one audit by its database id, with its original result, or null when it does not exist. */
 export function getAuditById(id: number): AuditRecord | null {
   const conn = getDb();
   if (!conn) return null;
 
   try {
-    const row = conn.prepare("SELECT * FROM audit_results WHERE id = ?").get(id) as AuditRow | undefined;
+    const row = conn.prepare(`${currentAuditSelect("a.audit_data")} WHERE a.id = ?`).get(id) as AuditRow | undefined;
     return row ? parseRow(row) : null;
   } catch (error) {
     console.error("[DB] Error fetching audit by ID:", errorMessage(error));
@@ -122,16 +140,16 @@ export function getDashboardStats(): DashboardStats {
   if (!conn) return emptyStats();
 
   try {
-    const { total } = conn.prepare("SELECT COUNT(*) AS total FROM audit_results").get() as { total: number };
+    const { total } = conn.prepare(`SELECT COUNT(*) AS total FROM (${CURRENT_PERCENTS})`).get() as { total: number };
     if (total === 0) return emptyStats();
 
-    const { average } = conn.prepare("SELECT AVG(conformity_percent) AS average FROM audit_results").get() as {
+    const { average } = conn.prepare(`SELECT AVG(conformity_percent) AS average FROM (${CURRENT_PERCENTS})`).get() as {
       average: number | null;
     };
     const extreme = (direction: "ASC" | "DESC") =>
       conn
         .prepare(
-          `SELECT record_number_display, conformity_percent FROM audit_results
+          `SELECT record_number_display, conformity_percent FROM (${CURRENT_PERCENTS})
            ORDER BY conformity_percent ${direction} LIMIT 1`,
         )
         .get() as ExtremeRow | undefined;

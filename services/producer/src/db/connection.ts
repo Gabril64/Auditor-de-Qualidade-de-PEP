@@ -28,3 +28,10 @@ export function getDb(): Database.Database | null {
     return null;
   }
 }
+
+/** Runs `work` in one transaction: it commits if `work` returns and rolls back if it throws. */
+export function inTransaction<T>(work: () => T): T {
+  const connection = getDb();
+  if (!connection) throw new Error("Database unavailable");
+  return connection.transaction(work)();
+}
