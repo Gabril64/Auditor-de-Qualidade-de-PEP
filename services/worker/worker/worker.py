@@ -6,6 +6,8 @@ client (llm_client) already retries 3 times per call on its own.
 
 The Worker holds no database: it sets the `resultado:*` keys the polling routes read, and pushes
 the finished job onto `fila:resultados`, where the Producer's results consumer persists it (F2.5).
+A job that fails for good is also announced there, without its error text (which may carry
+clinical content), so the Producer can notify the people concerned; it is not persisted as an audit.
 """
 import json
 import os
@@ -88,14 +90,18 @@ def save_result(job: dict, result: dict):
     r.set(patient_key, data)
     r.set(job_key, data)
 
-    r.lpush(RESULTS_QUEUE_KEY, json.dumps({
+    r.lpush(RESULTS_QUEUE_KEY, json.dumps(results_message(job, result)))
+
+
+def results_message(job: dict, result: dict) -> dict:
+    return {
         "batch_id": job.get("batch_id", "unknown"),
         "job_id": job.get("job_id", "unknown"),
         "record_number": job.get("record_number", "unknown"),
         "record_number_display": job.get("record_number_display", job.get("record_number", "")),
         "encounter": job.get("encounter", ""),
         "result": result,
-    }))
+    }
 
 
 def main():
@@ -142,6 +148,10 @@ def main():
                 r.set(
                     f"{RESULT_KEY_PREFIX}{job['job_id']}",
                     json.dumps({"_job_failed": True, "error": error_msg, "attempts": job["attempts"]}),
+                )
+                r.lpush(
+                    RESULTS_QUEUE_KEY,
+                    json.dumps(results_message(job, {"_job_failed": True, "attempts": job["attempts"]})),
                 )
 
 

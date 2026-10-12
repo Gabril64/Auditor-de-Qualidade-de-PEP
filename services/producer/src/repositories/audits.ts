@@ -120,6 +120,14 @@ export function getAllAudits(onlyDeleted = false): AuditRecord[] {
   }
 }
 
+/** The database id of the audit stored for a job, or null when there is none. */
+export function findAuditIdByJob(jobId: string): number | null {
+  const conn = getDb();
+  if (!conn) return null;
+  const row = conn.prepare("SELECT id FROM audit_results WHERE job_id = ?").get(jobId) as { id: number } | undefined;
+  return row?.id ?? null;
+}
+
 /** Returns one audit by its database id, with its original result, or null when it does not exist. */
 export function getAuditById(id: number): AuditRecord | null {
   const conn = getDb();

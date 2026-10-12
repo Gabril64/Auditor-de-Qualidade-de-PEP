@@ -172,3 +172,22 @@ CREATE TABLE IF NOT EXISTS access_log (
 );
 
 CREATE INDEX IF NOT EXISTS idx_access_log_user ON access_log(user_id, id);
+
+-- One row per finished audit and per recipient: whoever submitted it and every active
+-- administrator. Never carries clinical content: only ids, the record number to display and a
+-- short generic reason. read_at is NULL while unread; read ones are purged after 30 days.
+CREATE TABLE IF NOT EXISTS notifications (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL REFERENCES users(id),
+    type TEXT NOT NULL CHECK (type IN ('audit_done', 'audit_partial', 'audit_failed')),
+    job_id TEXT NOT NULL,
+    batch_id TEXT,
+    audit_id INTEGER REFERENCES audit_results(id),
+    record_number_display TEXT,
+    detail TEXT,
+    created_at TEXT NOT NULL,
+    read_at TEXT
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS idx_notifications_user_job ON notifications(user_id, job_id);
+CREATE INDEX IF NOT EXISTS idx_notifications_user_unread ON notifications(user_id, read_at, id);

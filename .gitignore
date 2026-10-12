@@ -57,3 +57,5 @@ services/worker/venv/
 
 # PIDs de processos locais
 *.pid
+# Sessao do cliente manual (scripts/api.sh)
+.api-session/

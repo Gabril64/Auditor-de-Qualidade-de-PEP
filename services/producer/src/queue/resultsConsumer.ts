@@ -1,6 +1,7 @@
 import { createClient } from "redis";
-import { upsertAuditResult, type CompletedJob } from "../repositories/audits.js";
+import type { CompletedJob } from "../repositories/audits.js";
 import { errorMessage } from "../errorMessage.js";
+import { recordJobOutcome } from "../services/results.js";
 
 const RESULTS_QUEUE_KEY = "fila:resultados";
 const RESULTS_PROCESSING_KEY = "fila:resultados:processando";
@@ -35,7 +36,7 @@ async function consumeOne(client: ReturnType<typeof createClient>): Promise<void
     return;
   }
 
-  if (upsertAuditResult(job)) {
+  if (recordJobOutcome(job)) {
     await client.lRem(RESULTS_PROCESSING_KEY, 1, popped);
   }
   // On failure, the message stays in RESULTS_PROCESSING_KEY and recoverAbandonedJobs() on the

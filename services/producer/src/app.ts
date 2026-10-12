@@ -6,6 +6,7 @@ import { authRouter, publicAuthRouter } from "./routes/auth.js";
 import { batchesRouter } from "./routes/batches.js";
 import { dashboardRouter } from "./routes/dashboard.js";
 import { jobsRouter } from "./routes/jobs.js";
+import { notificationsRouter } from "./routes/notifications.js";
 import { usersRouter } from "./routes/users.js";
 
 const ALLOWED_ORIGINS = ["http://localhost:5173", "http://localhost:5174", "http://localhost:3000"];
@@ -31,7 +32,7 @@ export function createApp() {
 
   app.use(publicAuthRouter);
   app.use(authenticate);
-  app.use(authRouter, batchesRouter, jobsRouter, auditsRouter, dashboardRouter, usersRouter);
+  app.use(authRouter, batchesRouter, jobsRouter, auditsRouter, dashboardRouter, usersRouter, notificationsRouter);
 
   return app;
 }

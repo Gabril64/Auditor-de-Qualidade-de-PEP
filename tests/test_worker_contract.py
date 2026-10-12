@@ -84,8 +84,9 @@ def test_partial_result_is_saved_normally_not_sent_to_dlq(redis_fake, monkeypatc
 
 def test_failing_job_is_retried_once_then_goes_to_dlq(redis_fake, monkeypatch):
     """2 runs total (1 retry). The failure is published under the job-id key, for whoever polls
-    the job, but never under the record-number key — that one stays reserved for a real result —
-    nor queued in `fila:resultados`, which only ever carries results to persist."""
+    the job, but never under the record-number key — that one stays reserved for a real result.
+    It is also announced in `fila:resultados` so the Producer can notify, but without the error
+    text, which may carry clinical content."""
     attempts_seen = []
 
     def fail(j):
@@ -103,7 +104,10 @@ def test_failing_job_is_retried_once_then_goes_to_dlq(redis_fake, monkeypatch):
     published_failure = json.loads(redis_fake.get(f"{PREFIX}job-1"))
     assert published_failure["_job_failed"] is True and published_failure["attempts"] == 2
     assert redis_fake.get(f"{PREFIX}1") is None
-    assert redis_fake.llen(RESULTS_QUEUE) == 0
+    announced = [json.loads(m) for m in redis_fake.lrange(RESULTS_QUEUE, 0, -1)]
+    assert len(announced) == 1
+    assert announced[0]["job_id"] == "job-1"
+    assert announced[0]["result"] == {"_job_failed": True, "attempts": 2}
 
 
 def test_job_that_recovers_on_second_attempt_is_saved(redis_fake, monkeypatch):
