@@ -1,5 +1,8 @@
 import assert from "node:assert/strict";
+import { mkdtempSync } from "node:fs";
 import net from "node:net";
+import { tmpdir } from "node:os";
+import path from "node:path";
 import { before, mock, test } from "node:test";
 
 interface PushedMessage {
@@ -58,6 +61,7 @@ const port = await new Promise<number>((resolve) => {
     probe.close(() => resolve(freePort));
   });
 });
+process.env.SQLITE_DB_PATH = path.join(mkdtempSync(path.join(tmpdir(), "producer-contract-test-")), "auditor.db");
 process.env.PORT = String(port);
 process.env.DISABLE_BACKGROUND_JOBS = "1";
 const BASE = `http://127.0.0.1:${port}`;

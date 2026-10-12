@@ -1,0 +1,5183 @@
+[
+  {
+    "prontuario": "94.098.934",
+    "conformidade_geral": 78.6,
+    "secoes": [
+      {
+        "id": "A",
+        "titulo": "Identificação do Paciente",
+        "conformes": 8,
+        "total": 8,
+        "conformidade": 100,
+        "itens": [
+          {
+            "item": "Prontuário",
+            "valor": "94.098.934",
+            "status": "conforme"
+          },
+          {
+            "item": "Data de Nascimento",
+            "valor": "30/11/1946",
+            "status": "conforme"
+          },
+          {
+            "item": "Idade",
+            "valor": "77 ANOS",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Internação",
+            "valor": "Ortopedia",
+            "status": "conforme"
+          },
+          {
+            "item": "Período de Internação",
+            "valor": "15/03/2024, 14:30 - 19/03/2024, 10:00 (3 dias)",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico de Internação",
+            "valor": "conforme (IA: trecho[diagnostico_internacao]: Paciente feminina, 77 anos, admitida com)",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Cirurgia",
+            "valor": "Ortopedia",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "Ortopedia",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "titulo": "Anamnese / Evolução Médica",
+        "conformes": 10,
+        "total": 11,
+        "conformidade": 90.9,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Médica",
+            "itens": [
+              {
+                "item": "HDA",
+                "valor": "conforme (validado por IA)",
+                "status": "conforme"
+              },
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme (IA: trecho[ap_app]: Paciente feminina, 77 anos, admitida com)",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Médica",
+            "itens": [
+              {
+                "item": "HD / CID",
+                "valor": "não conforme (IA: null — dia 17/03)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Procedimentos / Condutas / Queixas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Frequência Diária",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "titulo": "Bloco Cirúrgico",
+        "conformes": 6,
+        "total": 8,
+        "conformidade": 75,
+        "itens": [
+          {
+            "item": "Especialidade",
+            "valor": "Ortopedia",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "BLOCO CIRURGICO",
+            "status": "conforme"
+          },
+          {
+            "item": "Início Cirurgia",
+            "valor": "17/03/2024, 08:15",
+            "status": "conforme"
+          },
+          {
+            "item": "Fim Cirurgia",
+            "valor": "17/03/2024, 10:45",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico / CID",
+            "valor": "Não registrado",
+            "status": "nao_conforme"
+          },
+          {
+            "item": "Descrição Procedimento",
+            "valor": "Osteossíntese de fêmur proximal com DHS",
+            "status": "conforme"
+          },
+          {
+            "item": "Descrição Técnica",
+            "valor": "Não registrado (IA: null)",
+            "status": "conforme"
+          },
+          {
+            "item": "Uso OPME",
+            "valor": "conforme (placa, parafuso)",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "titulo": "Enfermagem e Escalas",
+        "conformes": 9,
+        "total": 15,
+        "conformidade": 60,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (validado por IA)",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "não conforme (IA: incompleto)",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme (IA: trecho[af]: paciente feminina, 77 anos, admitida na )",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Cardiovascular, Gastrointestinal, Genitourinário, Músculo-esquelético)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "N/A",
+                "status": "nao_conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "não conforme (IA: incompleto — dia 17/03)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Respiratório, Genitourinário, Músculo-esquelético — dia 16/03, 17/03, 18/03)",
+                "status": "conforme"
+              },
+              {
+                "item": "Condutas",
+                "valor": "não conforme (IA: incompleto — dia 17/03, 18/03)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Evolução",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "não conforme (IA: incompleto — dia 17/03)",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "nao_conformidades": [
+      {
+        "secao": "C",
+        "item": "Diagnóstico / CID",
+        "descricao": "Valor: Não registrado"
+      },
+      {
+        "secao": "D",
+        "item": "Anamnese Enfermagem — Curativo",
+        "descricao": "Valor: N/A"
+      }
+    ],
+    "quantitativo": [
+      {
+        "tipo": "Anamnese Médica",
+        "total": 1,
+        "conformidade": 100,
+        "15/03": true,
+        "16/03": false,
+        "17/03": false,
+        "18/03": false
+      },
+      {
+        "tipo": "Anamnese Enfermagem",
+        "total": 1,
+        "conformidade": 100,
+        "15/03": true,
+        "16/03": false,
+        "17/03": false,
+        "18/03": false
+      },
+      {
+        "tipo": "Evolução Médica",
+        "total": 3,
+        "conformidade": 100,
+        "15/03": false,
+        "16/03": true,
+        "17/03": true,
+        "18/03": true
+      },
+      {
+        "tipo": "Evolução Enfermagem",
+        "total": 3,
+        "conformidade": 100,
+        "15/03": false,
+        "16/03": true,
+        "17/03": true,
+        "18/03": true
+      },
+      {
+        "tipo": "Serviço Social",
+        "total": 0,
+        "conformidade": 0,
+        "15/03": false,
+        "16/03": false,
+        "17/03": false,
+        "18/03": false
+      }
+    ],
+    "days": ["15/03", "16/03", "17/03", "18/03"]
+  },
+  {
+    "prontuario": "99.692.381",
+    "conformidade_geral": 78.1,
+    "secoes": [
+      {
+        "id": "A",
+        "titulo": "Identificação do Paciente",
+        "conformes": 6,
+        "total": 7,
+        "conformidade": 85.7,
+        "itens": [
+          {
+            "item": "Prontuário",
+            "valor": "99.692.381",
+            "status": "conforme"
+          },
+          {
+            "item": "Data de Nascimento",
+            "valor": "25/6/1959",
+            "status": "conforme"
+          },
+          {
+            "item": "Idade",
+            "valor": "64 ANOS",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Internação",
+            "valor": "Não registrado",
+            "status": "nao_conforme"
+          },
+          {
+            "item": "Período de Internação",
+            "valor": "02/04/2024, 22:10 - 07/04/2024, 11:30 (4 dias)",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico de Internação",
+            "valor": "conforme (validado por IA)",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Cirurgia",
+            "valor": "Não se aplica",
+            "status": "nao_se_aplica"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "Unidade Coronariana",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "titulo": "Anamnese / Evolução Médica",
+        "conformes": 9,
+        "total": 11,
+        "conformidade": 81.8,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Médica",
+            "itens": [
+              {
+                "item": "HDA",
+                "valor": "conforme (IA: trecho[hda]: paciente masculino, 64 anos, admitido na)",
+                "status": "conforme"
+              },
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "não conforme (IA: incompleto)",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Médica",
+            "itens": [
+              {
+                "item": "HD / CID",
+                "valor": "não conforme (IA: null — dia 06/04)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Procedimentos / Condutas / Queixas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Frequência Diária",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "titulo": "Enfermagem e Escalas",
+        "conformes": 10,
+        "total": 14,
+        "conformidade": 71.4,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (IA: trecho[motivo_internacao]: Paciente masculino, 64 anos, admitido na)",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Pele/Mucosas, Músculo-esquelético)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "N/A",
+                "status": "nao_conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "não conforme (IA: incompleto — dia 03/04, 05/04)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Músculo-esquelético — dia 03/04, 04/04, 05/04, 06/04)",
+                "status": "conforme"
+              },
+              {
+                "item": "Condutas",
+                "valor": "não conforme (IA: null — dia 05/04)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Evolução",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "Não se aplica",
+                "status": "nao_se_aplica"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "nao_conformidades": [
+      {
+        "secao": "A",
+        "item": "Especialidade Internação",
+        "descricao": "Valor: Não registrado"
+      },
+      {
+        "secao": "D",
+        "item": "Anamnese Enfermagem — Curativo",
+        "descricao": "Valor: N/A"
+      }
+    ],
+    "quantitativo": [
+      {
+        "tipo": "Anamnese Médica",
+        "total": 1,
+        "conformidade": 100,
+        "02/04": true,
+        "03/04": false,
+        "04/04": false,
+        "05/04": false,
+        "06/04": false
+      },
+      {
+        "tipo": "Anamnese Enfermagem",
+        "total": 1,
+        "conformidade": 100,
+        "02/04": true,
+        "03/04": false,
+        "04/04": false,
+        "05/04": false,
+        "06/04": false
+      },
+      {
+        "tipo": "Evolução Médica",
+        "total": 4,
+        "conformidade": 100,
+        "02/04": false,
+        "03/04": true,
+        "04/04": true,
+        "05/04": true,
+        "06/04": true
+      },
+      {
+        "tipo": "Evolução Enfermagem",
+        "total": 4,
+        "conformidade": 100,
+        "02/04": false,
+        "03/04": true,
+        "04/04": true,
+        "05/04": true,
+        "06/04": true
+      },
+      {
+        "tipo": "Serviço Social",
+        "total": 0,
+        "conformidade": 0,
+        "02/04": false,
+        "03/04": false,
+        "04/04": false,
+        "05/04": false,
+        "06/04": false
+      }
+    ],
+    "days": ["02/04", "03/04", "04/04", "05/04", "06/04"]
+  },
+  {
+    "prontuario": "20.981.529",
+    "conformidade_geral": 81,
+    "secoes": [
+      {
+        "id": "A",
+        "titulo": "Identificação do Paciente",
+        "conformes": 8,
+        "total": 8,
+        "conformidade": 100,
+        "itens": [
+          {
+            "item": "Prontuário",
+            "valor": "20.981.529",
+            "status": "conforme"
+          },
+          {
+            "item": "Data de Nascimento",
+            "valor": "4/3/1957",
+            "status": "conforme"
+          },
+          {
+            "item": "Idade",
+            "valor": "68 ANOS",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Internação",
+            "valor": "CARDIOLOGIA",
+            "status": "conforme"
+          },
+          {
+            "item": "Período de Internação",
+            "valor": "12/03/2025, 09:30 - 15/03/2025, 14:00 (3 dias)",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico de Internação",
+            "valor": "conforme (validado por IA)",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Cirurgia",
+            "valor": "CARDIOLOGIA",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "Unidade Coronariana",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "titulo": "Anamnese / Evolução Médica",
+        "conformes": 8,
+        "total": 11,
+        "conformidade": 72.7,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Médica",
+            "itens": [
+              {
+                "item": "HDA",
+                "valor": "Não registrado",
+                "status": "nao_conforme"
+              },
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Cardiovascular, Abdome)",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Médica",
+            "itens": [
+              {
+                "item": "HD / CID",
+                "valor": "não conforme (IA: null — dia 13/03)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Procedimentos / Condutas / Queixas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Frequência Diária",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "titulo": "Bloco Cirúrgico",
+        "conformes": 7,
+        "total": 8,
+        "conformidade": 87.5,
+        "itens": [
+          {
+            "item": "Especialidade",
+            "valor": "CARDIOLOGIA",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "BLOCO CIRURGICO",
+            "status": "conforme"
+          },
+          {
+            "item": "Início Cirurgia",
+            "valor": "13/03/2025, 10:15",
+            "status": "conforme"
+          },
+          {
+            "item": "Fim Cirurgia",
+            "valor": "13/03/2025, 11:45",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico / CID",
+            "valor": "Não registrado",
+            "status": "nao_conforme"
+          },
+          {
+            "item": "Descrição Procedimento",
+            "valor": "Cateterismo Cardíaco",
+            "status": "conforme"
+          },
+          {
+            "item": "Descrição Técnica",
+            "valor": "conforme (IA: trecho[descricao_tecnica]: Paciente em decúbito dorsal, monitorizad)",
+            "status": "conforme"
+          },
+          {
+            "item": "Uso OPME",
+            "valor": "conforme (cateter, introdutor)",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "titulo": "Enfermagem e Escalas",
+        "conformes": 11,
+        "total": 15,
+        "conformidade": 73.3,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "não conforme (IA: incompleto)",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Gastrointestinal, Genitourinário, Músculo-esquelético)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "N/A",
+                "status": "nao_conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (IA: trecho[motivo_internacao]: Paciente em pré-operatório de cateterism)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 13/03, 14/03)",
+                "status": "conforme"
+              },
+              {
+                "item": "Condutas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Evolução",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "não conforme (IA: tipo de curativo não identificado — dia 14/03)",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "nao_conformidades": [
+      {
+        "secao": "B",
+        "item": "Anamnese Médica — HDA",
+        "descricao": "Valor: Não registrado"
+      },
+      {
+        "secao": "C",
+        "item": "Diagnóstico / CID",
+        "descricao": "Valor: Não registrado"
+      },
+      {
+        "secao": "D",
+        "item": "Anamnese Enfermagem — Curativo",
+        "descricao": "Valor: N/A"
+      }
+    ],
+    "quantitativo": [
+      {
+        "tipo": "Anamnese Médica",
+        "total": 1,
+        "conformidade": 100,
+        "12/03": true,
+        "13/03": false,
+        "14/03": false
+      },
+      {
+        "tipo": "Anamnese Enfermagem",
+        "total": 1,
+        "conformidade": 100,
+        "12/03": true,
+        "13/03": false,
+        "14/03": false
+      },
+      {
+        "tipo": "Evolução Médica",
+        "total": 2,
+        "conformidade": 100,
+        "12/03": false,
+        "13/03": true,
+        "14/03": true
+      },
+      {
+        "tipo": "Evolução Enfermagem",
+        "total": 2,
+        "conformidade": 100,
+        "12/03": false,
+        "13/03": true,
+        "14/03": true
+      },
+      {
+        "tipo": "Serviço Social",
+        "total": 0,
+        "conformidade": 0,
+        "12/03": false,
+        "13/03": false,
+        "14/03": false
+      }
+    ],
+    "days": ["12/03", "13/03", "14/03"]
+  },
+  {
+    "prontuario": "75.463.740",
+    "conformidade_geral": 88.1,
+    "secoes": [
+      {
+        "id": "A",
+        "titulo": "Identificação do Paciente",
+        "conformes": 7,
+        "total": 8,
+        "conformidade": 87.5,
+        "itens": [
+          {
+            "item": "Prontuário",
+            "valor": "75.463.740",
+            "status": "conforme"
+          },
+          {
+            "item": "Data de Nascimento",
+            "valor": "12/12/1943",
+            "status": "conforme"
+          },
+          {
+            "item": "Idade",
+            "valor": "81 ANOS",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Internação",
+            "valor": "ORTOPEDIA",
+            "status": "conforme"
+          },
+          {
+            "item": "Período de Internação",
+            "valor": "20/05/2025, 16:45 - 24/05/2025, 11:00 (3 dias)",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico de Internação",
+            "valor": "não conforme (IA: incompleto)",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Cirurgia",
+            "valor": "ORTOPEDIA",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "Ortopedia",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "titulo": "Anamnese / Evolução Médica",
+        "conformes": 10,
+        "total": 11,
+        "conformidade": 90.9,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Médica",
+            "itens": [
+              {
+                "item": "HDA",
+                "valor": "conforme (IA: trecho[hda]: paciente idosa, 81 anos, admitida para c)",
+                "status": "conforme"
+              },
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme (IA: trecho[ap_app]: paciente idosa, 81 anos, admitida para c)",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme (IA: trecho[af]: paciente idosa, 81 anos, admitida para c)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Médica",
+            "itens": [
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Geral — dia 21/05)",
+                "status": "conforme"
+              },
+              {
+                "item": "Procedimentos / Condutas / Queixas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Frequência Diária",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "titulo": "Bloco Cirúrgico",
+        "conformes": 7,
+        "total": 8,
+        "conformidade": 87.5,
+        "itens": [
+          {
+            "item": "Especialidade",
+            "valor": "ORTOPEDIA",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "BLOCO CIRURGICO",
+            "status": "conforme"
+          },
+          {
+            "item": "Início Cirurgia",
+            "valor": "21/05/2025, 08:00",
+            "status": "conforme"
+          },
+          {
+            "item": "Fim Cirurgia",
+            "valor": "21/05/2025, 10:30",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico / CID",
+            "valor": "S72.1",
+            "status": "conforme"
+          },
+          {
+            "item": "Descrição Procedimento",
+            "valor": "Artroplastia Total de Quadril Direita",
+            "status": "conforme"
+          },
+          {
+            "item": "Descrição Técnica",
+            "valor": "Não registrado (IA: null)",
+            "status": "conforme"
+          },
+          {
+            "item": "Uso OPME",
+            "valor": "conforme (haste)",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "titulo": "Enfermagem e Escalas",
+        "conformes": 13,
+        "total": 15,
+        "conformidade": 86.7,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (validado por IA)",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "N/A",
+                "status": "nao_conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (IA: trecho[motivo_internacao]: paciente em pós-operatório imediato de a)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Pele/Mucosas, Respiratório — dia 21/05, 22/05, 23/05)",
+                "status": "conforme"
+              },
+              {
+                "item": "Condutas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Evolução",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "conforme (IA: trecho[curativo]: paciente em pós-operatório imediato de a)",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "nao_conformidades": [
+      {
+        "secao": "D",
+        "item": "Anamnese Enfermagem — Curativo",
+        "descricao": "Valor: N/A"
+      }
+    ],
+    "quantitativo": [
+      {
+        "tipo": "Anamnese Médica",
+        "total": 1,
+        "conformidade": 100,
+        "20/05": true,
+        "21/05": false,
+        "22/05": false,
+        "23/05": false
+      },
+      {
+        "tipo": "Anamnese Enfermagem",
+        "total": 1,
+        "conformidade": 100,
+        "20/05": true,
+        "21/05": false,
+        "22/05": false,
+        "23/05": false
+      },
+      {
+        "tipo": "Evolução Médica",
+        "total": 3,
+        "conformidade": 100,
+        "20/05": false,
+        "21/05": true,
+        "22/05": true,
+        "23/05": true
+      },
+      {
+        "tipo": "Evolução Enfermagem",
+        "total": 3,
+        "conformidade": 100,
+        "20/05": false,
+        "21/05": true,
+        "22/05": true,
+        "23/05": true
+      },
+      {
+        "tipo": "Serviço Social",
+        "total": 0,
+        "conformidade": 0,
+        "20/05": false,
+        "21/05": false,
+        "22/05": false,
+        "23/05": false
+      }
+    ],
+    "days": ["20/05", "21/05", "22/05", "23/05"]
+  },
+  {
+    "prontuario": "93.165.952",
+    "conformidade_geral": 81.8,
+    "secoes": [
+      {
+        "id": "A",
+        "titulo": "Identificação do Paciente",
+        "conformes": 5,
+        "total": 7,
+        "conformidade": 71.4,
+        "itens": [
+          {
+            "item": "Prontuário",
+            "valor": "93.165.952",
+            "status": "conforme"
+          },
+          {
+            "item": "Data de Nascimento",
+            "valor": "24/3/1980",
+            "status": "conforme"
+          },
+          {
+            "item": "Idade",
+            "valor": "45 ANOS",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Internação",
+            "valor": "Não registrado",
+            "status": "nao_conforme"
+          },
+          {
+            "item": "Período de Internação",
+            "valor": "02/06/2025, 22:10 - 07/06/2025, 10:00 (4 dias)",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico de Internação",
+            "valor": "não conforme (IA: incompleto)",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Cirurgia",
+            "valor": "Não se aplica",
+            "status": "nao_se_aplica"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "Clínica Médica",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "titulo": "Anamnese / Evolução Médica",
+        "conformes": 10,
+        "total": 11,
+        "conformidade": 90.9,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Médica",
+            "itens": [
+              {
+                "item": "HDA",
+                "valor": "conforme (IA: trecho[hda]: Paciente masculino, 45 anos, admitido em)",
+                "status": "conforme"
+              },
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Médica",
+            "itens": [
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Cardiovascular — dia 03/06, 04/06)",
+                "status": "conforme"
+              },
+              {
+                "item": "Procedimentos / Condutas / Queixas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Frequência Diária",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "titulo": "Enfermagem e Escalas",
+        "conformes": 12,
+        "total": 15,
+        "conformidade": 80,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (IA: trecho[motivo_internacao]: paciente masculino, 45 anos, admitido em)",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme (validado por IA)",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme (IA: trecho[af]: paciente masculino, 45 anos, admitido em)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Pele/Mucosas, Cardiovascular, Músculo-esquelético)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "N/A",
+                "status": "nao_conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (IA: trecho[motivo_internacao]: Paciente no 2º dia de internação por pne)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Pele/Mucosas, Genitourinário, Músculo-esquelético — dia 03/06, 04/06, 05/06, 06/06)",
+                "status": "conforme"
+              },
+              {
+                "item": "Condutas",
+                "valor": "conforme (validado por IA)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Evolução",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "não conforme (IA: tipo de curativo não identificado — dia 05/06, 06/06)",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "nao_conformidades": [
+      {
+        "secao": "A",
+        "item": "Especialidade Internação",
+        "descricao": "Valor: Não registrado"
+      },
+      {
+        "secao": "D",
+        "item": "Anamnese Enfermagem — Curativo",
+        "descricao": "Valor: N/A"
+      }
+    ],
+    "quantitativo": [
+      {
+        "tipo": "Anamnese Médica",
+        "total": 1,
+        "conformidade": 100,
+        "02/06": true,
+        "03/06": false,
+        "04/06": false,
+        "05/06": false,
+        "06/06": false
+      },
+      {
+        "tipo": "Anamnese Enfermagem",
+        "total": 1,
+        "conformidade": 100,
+        "02/06": true,
+        "03/06": false,
+        "04/06": false,
+        "05/06": false,
+        "06/06": false
+      },
+      {
+        "tipo": "Evolução Médica",
+        "total": 4,
+        "conformidade": 100,
+        "02/06": false,
+        "03/06": true,
+        "04/06": true,
+        "05/06": true,
+        "06/06": true
+      },
+      {
+        "tipo": "Evolução Enfermagem",
+        "total": 4,
+        "conformidade": 100,
+        "02/06": false,
+        "03/06": true,
+        "04/06": true,
+        "05/06": true,
+        "06/06": true
+      },
+      {
+        "tipo": "Serviço Social",
+        "total": 0,
+        "conformidade": 0,
+        "02/06": false,
+        "03/06": false,
+        "04/06": false,
+        "05/06": false,
+        "06/06": false
+      }
+    ],
+    "days": ["02/06", "03/06", "04/06", "05/06", "06/06"]
+  },
+  {
+    "prontuario": "92.822.652",
+    "conformidade_geral": 78,
+    "secoes": [
+      {
+        "id": "A",
+        "titulo": "Identificação do Paciente",
+        "conformes": 7,
+        "total": 8,
+        "conformidade": 87.5,
+        "itens": [
+          {
+            "item": "Prontuário",
+            "valor": "92.822.652",
+            "status": "conforme"
+          },
+          {
+            "item": "Data de Nascimento",
+            "valor": "29/7/1956",
+            "status": "conforme"
+          },
+          {
+            "item": "Idade",
+            "valor": "67 ANOS",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Internação",
+            "valor": "Cardiologia",
+            "status": "conforme"
+          },
+          {
+            "item": "Período de Internação",
+            "valor": "15/01/2024, 10:30 - 18/01/2024, 14:00 (3 dias)",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico de Internação",
+            "valor": "Não registrado (IA: null)",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Cirurgia",
+            "valor": "Cardiologia",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "Unidade Coronariana",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "titulo": "Anamnese / Evolução Médica",
+        "conformes": 9,
+        "total": 11,
+        "conformidade": 81.8,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Médica",
+            "itens": [
+              {
+                "item": "HDA",
+                "valor": "conforme (IA: trecho[hda]: paciente masculino, 68 anos, admitido na)",
+                "status": "conforme"
+              },
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "Não registrado",
+                "status": "nao_conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Médica",
+            "itens": [
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Geral, Cardiovascular, Respiratório, Abdome — dia 16/01, 17/01)",
+                "status": "conforme"
+              },
+              {
+                "item": "Procedimentos / Condutas / Queixas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Frequência Diária",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "titulo": "Bloco Cirúrgico",
+        "conformes": 6,
+        "total": 8,
+        "conformidade": 75,
+        "itens": [
+          {
+            "item": "Especialidade",
+            "valor": "Cardiologia",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "BLOCO CIRURGICO",
+            "status": "conforme"
+          },
+          {
+            "item": "Início Cirurgia",
+            "valor": "16/01/2024, 08:00",
+            "status": "conforme"
+          },
+          {
+            "item": "Fim Cirurgia",
+            "valor": "16/01/2024, 09:45",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico / CID",
+            "valor": "Não registrado",
+            "status": "nao_conforme"
+          },
+          {
+            "item": "Descrição Procedimento",
+            "valor": "Cateterismo Cardíaco",
+            "status": "conforme"
+          },
+          {
+            "item": "Descrição Técnica",
+            "valor": "Não registrado (IA: null)",
+            "status": "conforme"
+          },
+          {
+            "item": "Uso OPME",
+            "valor": "conforme (cateter, introdutor)",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "titulo": "Enfermagem e Escalas",
+        "conformes": 10,
+        "total": 14,
+        "conformidade": 71.4,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "não conforme (IA: incompleto)",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme (IA: trecho[escala_braden]: paciente masculino, 67 anos, internado p)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "N/A",
+                "status": "nao_conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (IA: trecho[motivo_internacao]: Paciente masculino, 67 anos, no 1º PO de)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 17/01)",
+                "status": "conforme"
+              },
+              {
+                "item": "Condutas",
+                "valor": "conforme (IA: trecho[condutas]: Paciente masculino, 67 anos, no 1º PO de)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Evolução",
+                "valor": "não conforme (sem evolução entre 16/01 10:30 e 17/01 10:30)",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "Não se aplica",
+                "status": "nao_se_aplica"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "nao_conformidades": [
+      {
+        "secao": "B",
+        "item": "Anamnese Médica — AF",
+        "descricao": "Valor: Não registrado"
+      },
+      {
+        "secao": "C",
+        "item": "Diagnóstico / CID",
+        "descricao": "Valor: Não registrado"
+      },
+      {
+        "secao": "D",
+        "item": "Anamnese Enfermagem — Curativo",
+        "descricao": "Valor: N/A"
+      }
+    ],
+    "quantitativo": [
+      {
+        "tipo": "Anamnese Médica",
+        "total": 1,
+        "conformidade": 100,
+        "15/01": true,
+        "16/01": false,
+        "17/01": false
+      },
+      {
+        "tipo": "Anamnese Enfermagem",
+        "total": 1,
+        "conformidade": 100,
+        "15/01": true,
+        "16/01": false,
+        "17/01": false
+      },
+      {
+        "tipo": "Evolução Médica",
+        "total": 2,
+        "conformidade": 100,
+        "15/01": false,
+        "16/01": true,
+        "17/01": true
+      },
+      {
+        "tipo": "Evolução Enfermagem",
+        "total": 1,
+        "conformidade": 100,
+        "15/01": false,
+        "16/01": false,
+        "17/01": true
+      },
+      {
+        "tipo": "Serviço Social",
+        "total": 0,
+        "conformidade": 0,
+        "15/01": false,
+        "16/01": false,
+        "17/01": false
+      }
+    ],
+    "days": ["15/01", "16/01", "17/01"]
+  },
+  {
+    "prontuario": "65.534.823",
+    "conformidade_geral": 90.5,
+    "secoes": [
+      {
+        "id": "A",
+        "titulo": "Identificação do Paciente",
+        "conformes": 8,
+        "total": 8,
+        "conformidade": 100,
+        "itens": [
+          {
+            "item": "Prontuário",
+            "valor": "65.534.823",
+            "status": "conforme"
+          },
+          {
+            "item": "Data de Nascimento",
+            "valor": "10/7/1942",
+            "status": "conforme"
+          },
+          {
+            "item": "Idade",
+            "valor": "81 ANOS",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Internação",
+            "valor": "Ortopedia",
+            "status": "conforme"
+          },
+          {
+            "item": "Período de Internação",
+            "valor": "20/02/2024, 18:15 - 24/02/2024, 11:30 (3 dias)",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico de Internação",
+            "valor": "conforme (validado por IA)",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Cirurgia",
+            "valor": "Ortopedia",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "Enfermaria de Ortopedia",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "titulo": "Anamnese / Evolução Médica",
+        "conformes": 10,
+        "total": 11,
+        "conformidade": 90.9,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Médica",
+            "itens": [
+              {
+                "item": "HDA",
+                "valor": "conforme (IA: trecho[hda]: paciente feminina, 81 anos, admitida par)",
+                "status": "conforme"
+              },
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Respiratório, Extremidades)",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Médica",
+            "itens": [
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Procedimentos / Condutas / Queixas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Frequência Diária",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "titulo": "Bloco Cirúrgico",
+        "conformes": 8,
+        "total": 8,
+        "conformidade": 100,
+        "itens": [
+          {
+            "item": "Especialidade",
+            "valor": "Ortopedia",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "BLOCO CIRURGICO",
+            "status": "conforme"
+          },
+          {
+            "item": "Início Cirurgia",
+            "valor": "21/02/2024, 07:30",
+            "status": "conforme"
+          },
+          {
+            "item": "Fim Cirurgia",
+            "valor": "21/02/2024, 10:15",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico / CID",
+            "valor": "S72.1",
+            "status": "conforme"
+          },
+          {
+            "item": "Descrição Procedimento",
+            "valor": "Osteossíntese de Fêmur com Haste Intramedular",
+            "status": "conforme"
+          },
+          {
+            "item": "Descrição Técnica",
+            "valor": "conforme (IA: trecho[descricao_tecnica]: paciente em decúbito dorsal, sob raquian)",
+            "status": "conforme"
+          },
+          {
+            "item": "Uso OPME",
+            "valor": "conforme (IA: trecho[uso_opme]: paciente em decúbito dorsal, sob raquian)",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "titulo": "Enfermagem e Escalas",
+        "conformes": 12,
+        "total": 15,
+        "conformidade": 80,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (IA: trecho[motivo_internacao]: Paciente feminina, 81 anos, admitida na )",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme (validado por IA)",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme (IA: trecho[af]: Paciente feminina, 81 anos, admitida na )",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Genitourinário)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "N/A",
+                "status": "nao_conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (validado por IA)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Respiratório, Genitourinário, Músculo-esquelético — dia 21/02, 22/02, 23/02)",
+                "status": "conforme"
+              },
+              {
+                "item": "Condutas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Evolução",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "não conforme (IA: tipo de curativo não identificado — dia 21/02)",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "nao_conformidades": [
+      {
+        "secao": "D",
+        "item": "Anamnese Enfermagem — Curativo",
+        "descricao": "Valor: N/A"
+      }
+    ],
+    "quantitativo": [
+      {
+        "tipo": "Anamnese Médica",
+        "total": 1,
+        "conformidade": 100,
+        "20/02": true,
+        "21/02": false,
+        "22/02": false,
+        "23/02": false
+      },
+      {
+        "tipo": "Anamnese Enfermagem",
+        "total": 1,
+        "conformidade": 100,
+        "20/02": true,
+        "21/02": false,
+        "22/02": false,
+        "23/02": false
+      },
+      {
+        "tipo": "Evolução Médica",
+        "total": 3,
+        "conformidade": 100,
+        "20/02": false,
+        "21/02": true,
+        "22/02": true,
+        "23/02": true
+      },
+      {
+        "tipo": "Evolução Enfermagem",
+        "total": 3,
+        "conformidade": 100,
+        "20/02": false,
+        "21/02": true,
+        "22/02": true,
+        "23/02": true
+      },
+      {
+        "tipo": "Serviço Social",
+        "total": 0,
+        "conformidade": 0,
+        "20/02": false,
+        "21/02": false,
+        "22/02": false,
+        "23/02": false
+      }
+    ],
+    "days": ["20/02", "21/02", "22/02", "23/02"]
+  },
+  {
+    "prontuario": "90.572.623",
+    "conformidade_geral": 71.9,
+    "secoes": [
+      {
+        "id": "A",
+        "titulo": "Identificação do Paciente",
+        "conformes": 6,
+        "total": 7,
+        "conformidade": 85.7,
+        "itens": [
+          {
+            "item": "Prontuário",
+            "valor": "90.572.623",
+            "status": "conforme"
+          },
+          {
+            "item": "Data de Nascimento",
+            "valor": "1/7/1969",
+            "status": "conforme"
+          },
+          {
+            "item": "Idade",
+            "valor": "54 ANOS",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Internação",
+            "valor": "Não registrado",
+            "status": "nao_conforme"
+          },
+          {
+            "item": "Período de Internação",
+            "valor": "05/03/2024, 22:00 - 10/03/2024, 16:45 (4 dias)",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico de Internação",
+            "valor": "conforme (IA: trecho[diagnostico_internacao]: Paciente masculino, 54 anos, admitido em)",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Cirurgia",
+            "valor": "Não se aplica",
+            "status": "nao_se_aplica"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "Enfermaria de Clínica Médica",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "titulo": "Anamnese / Evolução Médica",
+        "conformes": 8,
+        "total": 11,
+        "conformidade": 72.7,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Médica",
+            "itens": [
+              {
+                "item": "HDA",
+                "valor": "conforme (validado por IA)",
+                "status": "conforme"
+              },
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Médica",
+            "itens": [
+              {
+                "item": "HD / CID",
+                "valor": "conforme (validado por IA)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Geral, Cardiovascular — dia 06/03)",
+                "status": "conforme"
+              },
+              {
+                "item": "Procedimentos / Condutas / Queixas",
+                "valor": "não conforme (IA: incompleto — dia 08/03, 09/03)",
+                "status": "conforme"
+              },
+              {
+                "item": "Frequência Diária",
+                "valor": "não conforme (sem evolução entre 07/03 22:00 e 08/03 22:00)",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "titulo": "Enfermagem e Escalas",
+        "conformes": 9,
+        "total": 14,
+        "conformidade": 64.3,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (IA: trecho[motivo_internacao]: paciente masculino, 54 anos, internado e)",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "Não registrado",
+                "status": "nao_conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "N/A",
+                "status": "nao_conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "não conforme (IA: incompleto — dia 06/03, 07/03, 08/03)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Respiratório, Cardiovascular, Genitourinário, Músculo-esquelético — dia 06/03, 07/03, 08/03, 09/03)",
+                "status": "conforme"
+              },
+              {
+                "item": "Condutas",
+                "valor": "não conforme (IA: null — dia 06/03, 08/03)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Evolução",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "Não se aplica",
+                "status": "nao_se_aplica"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "nao_conformidades": [
+      {
+        "secao": "A",
+        "item": "Especialidade Internação",
+        "descricao": "Valor: Não registrado"
+      },
+      {
+        "secao": "D",
+        "item": "Anamnese Enfermagem — Escala Morse",
+        "descricao": "Valor: Não registrado"
+      },
+      {
+        "secao": "D",
+        "item": "Anamnese Enfermagem — Curativo",
+        "descricao": "Valor: N/A"
+      }
+    ],
+    "quantitativo": [
+      {
+        "tipo": "Anamnese Médica",
+        "total": 1,
+        "conformidade": 100,
+        "05/03": true,
+        "06/03": false,
+        "07/03": false,
+        "08/03": false,
+        "09/03": false
+      },
+      {
+        "tipo": "Anamnese Enfermagem",
+        "total": 1,
+        "conformidade": 100,
+        "05/03": true,
+        "06/03": false,
+        "07/03": false,
+        "08/03": false,
+        "09/03": false
+      },
+      {
+        "tipo": "Evolução Médica",
+        "total": 3,
+        "conformidade": 100,
+        "05/03": false,
+        "06/03": true,
+        "07/03": false,
+        "08/03": true,
+        "09/03": true
+      },
+      {
+        "tipo": "Evolução Enfermagem",
+        "total": 4,
+        "conformidade": 100,
+        "05/03": false,
+        "06/03": true,
+        "07/03": true,
+        "08/03": true,
+        "09/03": true
+      },
+      {
+        "tipo": "Serviço Social",
+        "total": 0,
+        "conformidade": 0,
+        "05/03": false,
+        "06/03": false,
+        "07/03": false,
+        "08/03": false,
+        "09/03": false
+      }
+    ],
+    "days": ["05/03", "06/03", "07/03", "08/03", "09/03"]
+  },
+  {
+    "prontuario": "50.888.322",
+    "conformidade_geral": 83.3,
+    "secoes": [
+      {
+        "id": "A",
+        "titulo": "Identificação do Paciente",
+        "conformes": 7,
+        "total": 8,
+        "conformidade": 87.5,
+        "itens": [
+          {
+            "item": "Prontuário",
+            "valor": "50.888.322",
+            "status": "conforme"
+          },
+          {
+            "item": "Data de Nascimento",
+            "valor": "11/8/1965",
+            "status": "conforme"
+          },
+          {
+            "item": "Idade",
+            "valor": "58 ANOS",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Internação",
+            "valor": "CARDIOLOGIA",
+            "status": "conforme"
+          },
+          {
+            "item": "Período de Internação",
+            "valor": "05/10/2023, 14:30 - 08/10/2023, 11:00 (2 dias)",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico de Internação",
+            "valor": "não conforme (IA: incompleto)",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Cirurgia",
+            "valor": "CARDIOLOGIA",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "Unidade Coronariana",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "titulo": "Anamnese / Evolução Médica",
+        "conformes": 11,
+        "total": 11,
+        "conformidade": 100,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Médica",
+            "itens": [
+              {
+                "item": "HDA",
+                "valor": "conforme (validado por IA)",
+                "status": "conforme"
+              },
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme (IA: trecho[af]: paciente masculino, 58 anos, admitido na)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Médica",
+            "itens": [
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Procedimentos / Condutas / Queixas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Frequência Diária",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "titulo": "Bloco Cirúrgico",
+        "conformes": 7,
+        "total": 8,
+        "conformidade": 87.5,
+        "itens": [
+          {
+            "item": "Especialidade",
+            "valor": "CARDIOLOGIA",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "BLOCO CIRURGICO",
+            "status": "conforme"
+          },
+          {
+            "item": "Início Cirurgia",
+            "valor": "06/10/2023, 10:15",
+            "status": "conforme"
+          },
+          {
+            "item": "Fim Cirurgia",
+            "valor": "06/10/2023, 11:45",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico / CID",
+            "valor": "Não registrado",
+            "status": "nao_conforme"
+          },
+          {
+            "item": "Descrição Procedimento",
+            "valor": "Cinecoronariografia",
+            "status": "conforme"
+          },
+          {
+            "item": "Descrição Técnica",
+            "valor": "conforme (IA: trecho[descricao_tecnica]: paciente submetido a cinecoronariografia)",
+            "status": "conforme"
+          },
+          {
+            "item": "Uso OPME",
+            "valor": "conforme (introdutor)",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "titulo": "Enfermagem e Escalas",
+        "conformes": 10,
+        "total": 15,
+        "conformidade": 66.7,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "Não registrado",
+                "status": "nao_conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "N/A",
+                "status": "nao_conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "não conforme (IA: null — dia 07/10)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Músculo-esquelético — dia 06/10, 07/10)",
+                "status": "conforme"
+              },
+              {
+                "item": "Condutas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Evolução",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "não conforme (IA: tipo de curativo não identificado — dia 06/10)",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "nao_conformidades": [
+      {
+        "secao": "C",
+        "item": "Diagnóstico / CID",
+        "descricao": "Valor: Não registrado"
+      },
+      {
+        "secao": "D",
+        "item": "Anamnese Enfermagem — Motivo Internação",
+        "descricao": "Valor: Não registrado"
+      },
+      {
+        "secao": "D",
+        "item": "Anamnese Enfermagem — Curativo",
+        "descricao": "Valor: N/A"
+      }
+    ],
+    "quantitativo": [
+      {
+        "tipo": "Anamnese Médica",
+        "total": 1,
+        "conformidade": 100,
+        "05/10": true,
+        "06/10": false,
+        "07/10": false
+      },
+      {
+        "tipo": "Anamnese Enfermagem",
+        "total": 1,
+        "conformidade": 100,
+        "05/10": true,
+        "06/10": false,
+        "07/10": false
+      },
+      {
+        "tipo": "Evolução Médica",
+        "total": 2,
+        "conformidade": 100,
+        "05/10": false,
+        "06/10": true,
+        "07/10": true
+      },
+      {
+        "tipo": "Evolução Enfermagem",
+        "total": 2,
+        "conformidade": 100,
+        "05/10": false,
+        "06/10": true,
+        "07/10": true
+      },
+      {
+        "tipo": "Serviço Social",
+        "total": 0,
+        "conformidade": 0,
+        "05/10": false,
+        "06/10": false,
+        "07/10": false
+      }
+    ],
+    "days": ["05/10", "06/10", "07/10"]
+  },
+  {
+    "prontuario": "60.616.859",
+    "conformidade_geral": 73.8,
+    "secoes": [
+      {
+        "id": "A",
+        "titulo": "Identificação do Paciente",
+        "conformes": 7,
+        "total": 8,
+        "conformidade": 87.5,
+        "itens": [
+          {
+            "item": "Prontuário",
+            "valor": "60.616.859",
+            "status": "conforme"
+          },
+          {
+            "item": "Data de Nascimento",
+            "valor": "11/6/1941",
+            "status": "conforme"
+          },
+          {
+            "item": "Idade",
+            "valor": "82 ANOS",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Internação",
+            "valor": "ORTOPEDIA",
+            "status": "conforme"
+          },
+          {
+            "item": "Período de Internação",
+            "valor": "12/11/2023, 09:20 - 16/11/2023, 16:45 (4 dias)",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico de Internação",
+            "valor": "não conforme (IA: incompleto)",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Cirurgia",
+            "valor": "ORTOPEDIA",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "Enfermaria de Ortopedia",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "titulo": "Anamnese / Evolução Médica",
+        "conformes": 8,
+        "total": 11,
+        "conformidade": 72.7,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Médica",
+            "itens": [
+              {
+                "item": "HDA",
+                "valor": "conforme (validado por IA)",
+                "status": "conforme"
+              },
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Cardiovascular, Respiratório)",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "não conforme (criada 13h15 após a internação; prazo de 12h)",
+                "status": "conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Médica",
+            "itens": [
+              {
+                "item": "HD / CID",
+                "valor": "conforme (IA: trecho[hd_cid]: paciente em transoperatório de artroplas)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Procedimentos / Condutas / Queixas",
+                "valor": "não conforme (IA: null — dia 14/11)",
+                "status": "conforme"
+              },
+              {
+                "item": "Frequência Diária",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "titulo": "Bloco Cirúrgico",
+        "conformes": 7,
+        "total": 8,
+        "conformidade": 87.5,
+        "itens": [
+          {
+            "item": "Especialidade",
+            "valor": "ORTOPEDIA",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "BLOCO CIRURGICO",
+            "status": "conforme"
+          },
+          {
+            "item": "Início Cirurgia",
+            "valor": "13/11/2023, 08:00",
+            "status": "conforme"
+          },
+          {
+            "item": "Fim Cirurgia",
+            "valor": "13/11/2023, 10:30",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico / CID",
+            "valor": "S72.1",
+            "status": "conforme"
+          },
+          {
+            "item": "Descrição Procedimento",
+            "valor": "Artroplastia Parcial de Quadril",
+            "status": "conforme"
+          },
+          {
+            "item": "Descrição Técnica",
+            "valor": "Não registrado (IA: null)",
+            "status": "conforme"
+          },
+          {
+            "item": "Uso OPME",
+            "valor": "conforme (haste, cimento ósseo)",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "titulo": "Enfermagem e Escalas",
+        "conformes": 9,
+        "total": 15,
+        "conformidade": 60,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (IA: trecho[motivo_internacao]: paciente idosa, 82 anos, internada para )",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "não conforme (IA: incompleto)",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme (validado por IA)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Genitourinário)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme (IA: trecho[escala_braden]: paciente idosa, 82 anos, internada para )",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "N/A",
+                "status": "nao_conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "Não registrado (IA: null)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Nervoso, Pele/Mucosas, Respiratório, Genitourinário — dia 15/11)",
+                "status": "conforme"
+              },
+              {
+                "item": "Condutas",
+                "valor": "conforme (IA: trecho[condutas]: Paciente no 1º PO de artroplastia parcia)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Evolução",
+                "valor": "não conforme (sem evolução entre 13/11 09:20 e 14/11 09:20)",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "não conforme (IA: tipo de curativo não identificado — dia 14/11)",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "nao_conformidades": [
+      {
+        "secao": "D",
+        "item": "Anamnese Enfermagem — Curativo",
+        "descricao": "Valor: N/A"
+      }
+    ],
+    "quantitativo": [
+      {
+        "tipo": "Anamnese Médica",
+        "total": 1,
+        "conformidade": 100,
+        "12/11": true,
+        "13/11": false,
+        "14/11": false,
+        "15/11": false
+      },
+      {
+        "tipo": "Anamnese Enfermagem",
+        "total": 1,
+        "conformidade": 100,
+        "12/11": true,
+        "13/11": false,
+        "14/11": false,
+        "15/11": false
+      },
+      {
+        "tipo": "Evolução Médica",
+        "total": 3,
+        "conformidade": 100,
+        "12/11": false,
+        "13/11": true,
+        "14/11": true,
+        "15/11": true
+      },
+      {
+        "tipo": "Evolução Enfermagem",
+        "total": 2,
+        "conformidade": 100,
+        "12/11": false,
+        "13/11": false,
+        "14/11": true,
+        "15/11": true
+      },
+      {
+        "tipo": "Serviço Social",
+        "total": 0,
+        "conformidade": 0,
+        "12/11": false,
+        "13/11": false,
+        "14/11": false,
+        "15/11": false
+      }
+    ],
+    "days": ["12/11", "13/11", "14/11", "15/11"]
+  },
+  {
+    "prontuario": "85.200.145",
+    "conformidade_geral": 78.8,
+    "secoes": [
+      {
+        "id": "A",
+        "titulo": "Identificação do Paciente",
+        "conformes": 6,
+        "total": 7,
+        "conformidade": 85.7,
+        "itens": [
+          {
+            "item": "Prontuário",
+            "valor": "85.200.145",
+            "status": "conforme"
+          },
+          {
+            "item": "Data de Nascimento",
+            "valor": "28/11/1978",
+            "status": "conforme"
+          },
+          {
+            "item": "Idade",
+            "valor": "44 ANOS",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Internação",
+            "valor": "Não registrado",
+            "status": "nao_conforme"
+          },
+          {
+            "item": "Período de Internação",
+            "valor": "20/11/2023, 22:10 - 25/11/2023, 10:00 (4 dias)",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico de Internação",
+            "valor": "conforme (IA: trecho[diagnostico_internacao]: Paciente masculino, 45 anos, admitido co)",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Cirurgia",
+            "valor": "Não se aplica",
+            "status": "nao_se_aplica"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "Enfermaria de Clínica Médica",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "titulo": "Anamnese / Evolução Médica",
+        "conformes": 10,
+        "total": 11,
+        "conformidade": 90.9,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Médica",
+            "itens": [
+              {
+                "item": "HDA",
+                "valor": "conforme (IA: trecho[hda]: Paciente masculino, 45 anos, admitido co)",
+                "status": "conforme"
+              },
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme (IA: trecho[ap_app]: Paciente masculino, 45 anos, admitido co)",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Médica",
+            "itens": [
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Cardiovascular — dia 24/11)",
+                "status": "conforme"
+              },
+              {
+                "item": "Procedimentos / Condutas / Queixas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Frequência Diária",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "titulo": "Enfermagem e Escalas",
+        "conformes": 10,
+        "total": 15,
+        "conformidade": 66.7,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (IA: trecho[motivo_internacao]: paciente masculino, 45 anos, admitido na)",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Cardiovascular, Genitourinário, Músculo-esquelético)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "N/A",
+                "status": "nao_conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "não conforme (IA: null — dia 22/11)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 21/11, 22/11, 23/11, 24/11)",
+                "status": "conforme"
+              },
+              {
+                "item": "Condutas",
+                "valor": "não conforme (IA: incompleto — dia 21/11)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Evolução",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "não conforme (IA: tipo de curativo não identificado — dia 21/11, 22/11)",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "nao_conformidades": [
+      {
+        "secao": "A",
+        "item": "Especialidade Internação",
+        "descricao": "Valor: Não registrado"
+      },
+      {
+        "secao": "D",
+        "item": "Anamnese Enfermagem — Curativo",
+        "descricao": "Valor: N/A"
+      }
+    ],
+    "quantitativo": [
+      {
+        "tipo": "Anamnese Médica",
+        "total": 1,
+        "conformidade": 100,
+        "20/11": true,
+        "21/11": false,
+        "22/11": false,
+        "23/11": false,
+        "24/11": false
+      },
+      {
+        "tipo": "Anamnese Enfermagem",
+        "total": 1,
+        "conformidade": 100,
+        "20/11": true,
+        "21/11": false,
+        "22/11": false,
+        "23/11": false,
+        "24/11": false
+      },
+      {
+        "tipo": "Evolução Médica",
+        "total": 4,
+        "conformidade": 100,
+        "20/11": false,
+        "21/11": true,
+        "22/11": true,
+        "23/11": true,
+        "24/11": true
+      },
+      {
+        "tipo": "Evolução Enfermagem",
+        "total": 4,
+        "conformidade": 100,
+        "20/11": false,
+        "21/11": true,
+        "22/11": true,
+        "23/11": true,
+        "24/11": true
+      },
+      {
+        "tipo": "Serviço Social",
+        "total": 0,
+        "conformidade": 0,
+        "20/11": false,
+        "21/11": false,
+        "22/11": false,
+        "23/11": false,
+        "24/11": false
+      }
+    ],
+    "days": ["20/11", "21/11", "22/11", "23/11", "24/11"]
+  },
+  {
+    "prontuario": "85.411.638",
+    "conformidade_geral": 92.9,
+    "secoes": [
+      {
+        "id": "A",
+        "titulo": "Identificação do Paciente",
+        "conformes": 8,
+        "total": 8,
+        "conformidade": 100,
+        "itens": [
+          {
+            "item": "Prontuário",
+            "valor": "85.411.638",
+            "status": "conforme"
+          },
+          {
+            "item": "Data de Nascimento",
+            "valor": "15/6/1963",
+            "status": "conforme"
+          },
+          {
+            "item": "Idade",
+            "valor": "61 ANOS",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Internação",
+            "valor": "Cardiologia",
+            "status": "conforme"
+          },
+          {
+            "item": "Período de Internação",
+            "valor": "10/01/2025, 08:00 - 13/01/2025, 10:00 (3 dias)",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico de Internação",
+            "valor": "conforme (IA: trecho[diagnostico_internacao]: paciente masculino, 61 anos, em preparo )",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Cirurgia",
+            "valor": "Cardiologia",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "Unidade de Pós-Operatório Cardíaco",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "titulo": "Anamnese / Evolução Médica",
+        "conformes": 11,
+        "total": 11,
+        "conformidade": 100,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Médica",
+            "itens": [
+              {
+                "item": "HDA",
+                "valor": "conforme (IA: trecho[hda]: paciente masculino, 61 anos, em preparo )",
+                "status": "conforme"
+              },
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Médica",
+            "itens": [
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Procedimentos / Condutas / Queixas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Frequência Diária",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "titulo": "Bloco Cirúrgico",
+        "conformes": 8,
+        "total": 8,
+        "conformidade": 100,
+        "itens": [
+          {
+            "item": "Especialidade",
+            "valor": "Cardiologia",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "BLOCO CIRURGICO",
+            "status": "conforme"
+          },
+          {
+            "item": "Início Cirurgia",
+            "valor": "11/01/2025, 09:00",
+            "status": "conforme"
+          },
+          {
+            "item": "Fim Cirurgia",
+            "valor": "11/01/2025, 12:30",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico / CID",
+            "valor": "I50.0",
+            "status": "conforme"
+          },
+          {
+            "item": "Descrição Procedimento",
+            "valor": "Revascularização do miocárdio (ponte de safena)",
+            "status": "conforme"
+          },
+          {
+            "item": "Descrição Técnica",
+            "valor": "conforme (IA: trecho[descricao_tecnica]: Revascularização do miocárdio com ponte )",
+            "status": "conforme"
+          },
+          {
+            "item": "Uso OPME",
+            "valor": "conforme (marcapasso, dreno)",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "titulo": "Enfermagem e Escalas",
+        "conformes": 12,
+        "total": 15,
+        "conformidade": 80,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (validado por IA)",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "N/A",
+                "status": "nao_conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "não conforme (IA: null — dia 12/01)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 11/01, 12/01)",
+                "status": "conforme"
+              },
+              {
+                "item": "Condutas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Evolução",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "conforme (IA: trecho[curativo]: paciente no 1º po de revascularização do)",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "nao_conformidades": [
+      {
+        "secao": "D",
+        "item": "Anamnese Enfermagem — Curativo",
+        "descricao": "Valor: N/A"
+      }
+    ],
+    "quantitativo": [
+      {
+        "tipo": "Anamnese Médica",
+        "total": 1,
+        "conformidade": 100,
+        "10/01": true,
+        "11/01": false,
+        "12/01": false
+      },
+      {
+        "tipo": "Anamnese Enfermagem",
+        "total": 1,
+        "conformidade": 100,
+        "10/01": true,
+        "11/01": false,
+        "12/01": false
+      },
+      {
+        "tipo": "Evolução Médica",
+        "total": 2,
+        "conformidade": 100,
+        "10/01": false,
+        "11/01": true,
+        "12/01": true
+      },
+      {
+        "tipo": "Evolução Enfermagem",
+        "total": 2,
+        "conformidade": 100,
+        "10/01": false,
+        "11/01": true,
+        "12/01": true
+      },
+      {
+        "tipo": "Serviço Social",
+        "total": 0,
+        "conformidade": 0,
+        "10/01": false,
+        "11/01": false,
+        "12/01": false
+      }
+    ],
+    "days": ["10/01", "11/01", "12/01"]
+  },
+  {
+    "prontuario": "72.116.418",
+    "conformidade_geral": 83.3,
+    "secoes": [
+      {
+        "id": "A",
+        "titulo": "Identificação do Paciente",
+        "conformes": 8,
+        "total": 8,
+        "conformidade": 100,
+        "itens": [
+          {
+            "item": "Prontuário",
+            "valor": "72.116.418",
+            "status": "conforme"
+          },
+          {
+            "item": "Data de Nascimento",
+            "valor": "30/5/1947",
+            "status": "conforme"
+          },
+          {
+            "item": "Idade",
+            "valor": "77 ANOS",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Internação",
+            "valor": "Ortopedia",
+            "status": "conforme"
+          },
+          {
+            "item": "Período de Internação",
+            "valor": "05/02/2025, 07:30 - 09/02/2025, 11:00 (4 dias)",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico de Internação",
+            "valor": "conforme (IA: trecho[diagnostico_internacao]: paciente feminina, 77 anos, admitida na )",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Cirurgia",
+            "valor": "Ortopedia",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "Enfermaria de Ortopedia",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "titulo": "Anamnese / Evolução Médica",
+        "conformes": 9,
+        "total": 11,
+        "conformidade": 81.8,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Médica",
+            "itens": [
+              {
+                "item": "HDA",
+                "valor": "conforme (IA: trecho[hda]: paciente feminina, 77 anos, admitida na )",
+                "status": "conforme"
+              },
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme (IA: trecho[ap_app]: paciente feminina, 77 anos, admitida na )",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme (IA: trecho[af]: paciente feminina, 77 anos, admitida na )",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Abdome, Extremidades)",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Médica",
+            "itens": [
+              {
+                "item": "HD / CID",
+                "valor": "conforme (validado por IA)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Procedimentos / Condutas / Queixas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Frequência Diária",
+                "valor": "não conforme (sem evolução entre 07/02 07:30 e 08/02 07:30)",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "titulo": "Bloco Cirúrgico",
+        "conformes": 7,
+        "total": 8,
+        "conformidade": 87.5,
+        "itens": [
+          {
+            "item": "Especialidade",
+            "valor": "Ortopedia",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "BLOCO CIRURGICO",
+            "status": "conforme"
+          },
+          {
+            "item": "Início Cirurgia",
+            "valor": "06/02/2025, 10:00",
+            "status": "conforme"
+          },
+          {
+            "item": "Fim Cirurgia",
+            "valor": "06/02/2025, 13:00",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico / CID",
+            "valor": "Não registrado",
+            "status": "nao_conforme"
+          },
+          {
+            "item": "Descrição Procedimento",
+            "valor": "Artroplastia total de quadril esquerdo",
+            "status": "conforme"
+          },
+          {
+            "item": "Descrição Técnica",
+            "valor": "conforme (IA: trecho[descricao_tecnica]: Paciente sob raquianestesia, posicionada)",
+            "status": "conforme"
+          },
+          {
+            "item": "Uso OPME",
+            "valor": "conforme (haste, prótese)",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "titulo": "Enfermagem e Escalas",
+        "conformes": 11,
+        "total": 15,
+        "conformidade": 73.3,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (IA: trecho[motivo_internacao]: paciente idosa, 77 anos, admitida na enf)",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme (IA: trecho[ap_app]: paciente idosa, 77 anos, admitida na enf)",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "não conforme (IA: incompleto)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Gastrointestinal, Genitourinário)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "N/A",
+                "status": "nao_conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (IA: trecho[motivo_internacao]: paciente idosa, 77 anos, internada para )",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 06/02, 07/02, 08/02)",
+                "status": "conforme"
+              },
+              {
+                "item": "Condutas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Evolução",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "não conforme (IA: tipo de curativo não identificado — dia 08/02)",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "nao_conformidades": [
+      {
+        "secao": "C",
+        "item": "Diagnóstico / CID",
+        "descricao": "Valor: Não registrado"
+      },
+      {
+        "secao": "D",
+        "item": "Anamnese Enfermagem — Curativo",
+        "descricao": "Valor: N/A"
+      }
+    ],
+    "quantitativo": [
+      {
+        "tipo": "Anamnese Médica",
+        "total": 1,
+        "conformidade": 100,
+        "05/02": true,
+        "06/02": false,
+        "07/02": false,
+        "08/02": false
+      },
+      {
+        "tipo": "Anamnese Enfermagem",
+        "total": 1,
+        "conformidade": 100,
+        "05/02": true,
+        "06/02": false,
+        "07/02": false,
+        "08/02": false
+      },
+      {
+        "tipo": "Evolução Médica",
+        "total": 2,
+        "conformidade": 100,
+        "05/02": false,
+        "06/02": true,
+        "07/02": false,
+        "08/02": true
+      },
+      {
+        "tipo": "Evolução Enfermagem",
+        "total": 3,
+        "conformidade": 100,
+        "05/02": false,
+        "06/02": true,
+        "07/02": true,
+        "08/02": true
+      },
+      {
+        "tipo": "Serviço Social",
+        "total": 0,
+        "conformidade": 0,
+        "05/02": false,
+        "06/02": false,
+        "07/02": false,
+        "08/02": false
+      }
+    ],
+    "days": ["05/02", "06/02", "07/02", "08/02"]
+  },
+  {
+    "prontuario": "62.407.871",
+    "conformidade_geral": 90.2,
+    "secoes": [
+      {
+        "id": "A",
+        "titulo": "Identificação do Paciente",
+        "conformes": 8,
+        "total": 8,
+        "conformidade": 100,
+        "itens": [
+          {
+            "item": "Prontuário",
+            "valor": "62.407.871",
+            "status": "conforme"
+          },
+          {
+            "item": "Data de Nascimento",
+            "valor": "3/4/1980",
+            "status": "conforme"
+          },
+          {
+            "item": "Idade",
+            "valor": "44 ANOS",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Internação",
+            "valor": "Cirurgia Geral",
+            "status": "conforme"
+          },
+          {
+            "item": "Período de Internação",
+            "valor": "20/03/2025, 14:00 - 22/03/2025, 09:30 (1 dias)",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico de Internação",
+            "valor": "conforme (IA: trecho[diagnostico_internacao]: paciente feminina, 44 anos, admitida com)",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Cirurgia",
+            "valor": "Cirurgia Geral",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "Centro Cirúrgico / Enfermaria de Cirurgia Geral",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "titulo": "Anamnese / Evolução Médica",
+        "conformes": 11,
+        "total": 11,
+        "conformidade": 100,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Médica",
+            "itens": [
+              {
+                "item": "HDA",
+                "valor": "conforme (IA: trecho[hda]: paciente feminina, 44 anos, admitida com)",
+                "status": "conforme"
+              },
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Médica",
+            "itens": [
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Procedimentos / Condutas / Queixas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Frequência Diária",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "titulo": "Bloco Cirúrgico",
+        "conformes": 6,
+        "total": 7,
+        "conformidade": 85.7,
+        "itens": [
+          {
+            "item": "Especialidade",
+            "valor": "Cirurgia Geral",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "BLOCO CIRURGICO",
+            "status": "conforme"
+          },
+          {
+            "item": "Início Cirurgia",
+            "valor": "21/03/2025, 08:30",
+            "status": "conforme"
+          },
+          {
+            "item": "Fim Cirurgia",
+            "valor": "21/03/2025, 10:00",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico / CID",
+            "valor": "K80.0",
+            "status": "conforme"
+          },
+          {
+            "item": "Descrição Procedimento",
+            "valor": "Colecistectomia videolaparoscópica",
+            "status": "conforme"
+          },
+          {
+            "item": "Descrição Técnica",
+            "valor": "não conforme (IA: incompleto)",
+            "status": "conforme"
+          },
+          {
+            "item": "Uso OPME",
+            "valor": "Não se aplica (IA: null)",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "titulo": "Enfermagem e Escalas",
+        "conformes": 12,
+        "total": 15,
+        "conformidade": 80,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (IA: trecho[motivo_internacao]: paciente feminina, 44 anos, admitida hoj)",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "N/A",
+                "status": "nao_conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (IA: trecho[motivo_internacao]: paciente em pós-operatório imediato de c)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Respiratório — dia 21/03)",
+                "status": "conforme"
+              },
+              {
+                "item": "Condutas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Evolução",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "não conforme (IA: incompleto — dia 21/03)",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "nao_conformidades": [
+      {
+        "secao": "D",
+        "item": "Anamnese Enfermagem — Curativo",
+        "descricao": "Valor: N/A"
+      }
+    ],
+    "quantitativo": [
+      {
+        "tipo": "Anamnese Médica",
+        "total": 1,
+        "conformidade": 100,
+        "20/03": true,
+        "21/03": false
+      },
+      {
+        "tipo": "Anamnese Enfermagem",
+        "total": 1,
+        "conformidade": 100,
+        "20/03": true,
+        "21/03": false
+      },
+      {
+        "tipo": "Evolução Médica",
+        "total": 1,
+        "conformidade": 100,
+        "20/03": false,
+        "21/03": true
+      },
+      {
+        "tipo": "Evolução Enfermagem",
+        "total": 1,
+        "conformidade": 100,
+        "20/03": false,
+        "21/03": true
+      },
+      {
+        "tipo": "Serviço Social",
+        "total": 0,
+        "conformidade": 0,
+        "20/03": false,
+        "21/03": false
+      }
+    ],
+    "days": ["20/03", "21/03"]
+  },
+  {
+    "prontuario": "26.696.588",
+    "conformidade_geral": 83.3,
+    "secoes": [
+      {
+        "id": "A",
+        "titulo": "Identificação do Paciente",
+        "conformes": 8,
+        "total": 8,
+        "conformidade": 100,
+        "itens": [
+          {
+            "item": "Prontuário",
+            "valor": "26.696.588",
+            "status": "conforme"
+          },
+          {
+            "item": "Data de Nascimento",
+            "valor": "3/9/1946",
+            "status": "conforme"
+          },
+          {
+            "item": "Idade",
+            "valor": "77 ANOS",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Internação",
+            "valor": "Ortopedia",
+            "status": "conforme"
+          },
+          {
+            "item": "Período de Internação",
+            "valor": "10/03/2024, 08:30 - 13/03/2024, 10:00 (3 dias)",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico de Internação",
+            "valor": "conforme (IA: trecho[diagnostico_internacao]: Paciente idosa, 77 anos, admitida na enf)",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Cirurgia",
+            "valor": "Ortopedia",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "Enfermaria Ortopédica",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "titulo": "Anamnese / Evolução Médica",
+        "conformes": 7,
+        "total": 11,
+        "conformidade": 63.6,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Médica",
+            "itens": [
+              {
+                "item": "HDA",
+                "valor": "conforme (validado por IA)",
+                "status": "conforme"
+              },
+              {
+                "item": "HD / CID",
+                "valor": "Não registrado",
+                "status": "nao_conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "Não registrado",
+                "status": "nao_conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Cardiovascular)",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Médica",
+            "itens": [
+              {
+                "item": "HD / CID",
+                "valor": "Não registrado (IA: null)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Procedimentos / Condutas / Queixas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Frequência Diária",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "titulo": "Bloco Cirúrgico",
+        "conformes": 7,
+        "total": 8,
+        "conformidade": 87.5,
+        "itens": [
+          {
+            "item": "Especialidade",
+            "valor": "Ortopedia",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "BLOCO CIRURGICO",
+            "status": "conforme"
+          },
+          {
+            "item": "Início Cirurgia",
+            "valor": "11/03/2024, 09:00",
+            "status": "conforme"
+          },
+          {
+            "item": "Fim Cirurgia",
+            "valor": "11/03/2024, 11:30",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico / CID",
+            "valor": "Não registrado",
+            "status": "nao_conforme"
+          },
+          {
+            "item": "Descrição Procedimento",
+            "valor": "Artroplastia parcial do quadril",
+            "status": "conforme"
+          },
+          {
+            "item": "Descrição Técnica",
+            "valor": "conforme (validado por IA)",
+            "status": "conforme"
+          },
+          {
+            "item": "Uso OPME",
+            "valor": "conforme (prótese)",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "titulo": "Enfermagem e Escalas",
+        "conformes": 13,
+        "total": 15,
+        "conformidade": 86.7,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (IA: trecho[motivo_internacao]: paciente idosa, 77 anos, internada para )",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Respiratório, Genitourinário)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme (IA: trecho[cd]: paciente idosa, 77 anos, internada para )",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "N/A",
+                "status": "nao_conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (validado por IA)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 11/03, 12/03)",
+                "status": "conforme"
+              },
+              {
+                "item": "Condutas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Evolução",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "conforme (IA: trecho[curativo]: paciente no 1º PO de artroplastia parcia)",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "nao_conformidades": [
+      {
+        "secao": "B",
+        "item": "Anamnese Médica — HD / CID",
+        "descricao": "Valor: Não registrado"
+      },
+      {
+        "secao": "B",
+        "item": "Anamnese Médica — AP / APP",
+        "descricao": "Valor: Não registrado"
+      },
+      {
+        "secao": "C",
+        "item": "Diagnóstico / CID",
+        "descricao": "Valor: Não registrado"
+      },
+      {
+        "secao": "D",
+        "item": "Anamnese Enfermagem — Curativo",
+        "descricao": "Valor: N/A"
+      }
+    ],
+    "quantitativo": [
+      {
+        "tipo": "Anamnese Médica",
+        "total": 1,
+        "conformidade": 100,
+        "10/03": true,
+        "11/03": false,
+        "12/03": false
+      },
+      {
+        "tipo": "Anamnese Enfermagem",
+        "total": 1,
+        "conformidade": 100,
+        "10/03": true,
+        "11/03": false,
+        "12/03": false
+      },
+      {
+        "tipo": "Evolução Médica",
+        "total": 2,
+        "conformidade": 100,
+        "10/03": false,
+        "11/03": true,
+        "12/03": true
+      },
+      {
+        "tipo": "Evolução Enfermagem",
+        "total": 2,
+        "conformidade": 100,
+        "10/03": false,
+        "11/03": true,
+        "12/03": true
+      },
+      {
+        "tipo": "Serviço Social",
+        "total": 0,
+        "conformidade": 0,
+        "10/03": false,
+        "11/03": false,
+        "12/03": false
+      }
+    ],
+    "days": ["10/03", "11/03", "12/03"]
+  },
+  {
+    "prontuario": "55.357.130",
+    "conformidade_geral": 78.6,
+    "secoes": [
+      {
+        "id": "A",
+        "titulo": "Identificação do Paciente",
+        "conformes": 8,
+        "total": 8,
+        "conformidade": 100,
+        "itens": [
+          {
+            "item": "Prontuário",
+            "valor": "55.357.130",
+            "status": "conforme"
+          },
+          {
+            "item": "Data de Nascimento",
+            "valor": "20/8/1969",
+            "status": "conforme"
+          },
+          {
+            "item": "Idade",
+            "valor": "54 ANOS",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Internação",
+            "valor": "Cirurgia Geral",
+            "status": "conforme"
+          },
+          {
+            "item": "Período de Internação",
+            "valor": "22/05/2024, 14:00 - 25/05/2024, 09:00 (2 dias)",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico de Internação",
+            "valor": "conforme (IA: trecho[diagnostico_internacao]: Paciente masculino, 54 anos, admitido na)",
+            "status": "conforme"
+          },
+          {
+            "item": "Especialidade Cirurgia",
+            "valor": "Cirurgia Geral",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "Enfermaria de Cirurgia Geral",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "titulo": "Anamnese / Evolução Médica",
+        "conformes": 7,
+        "total": 11,
+        "conformidade": 63.6,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Médica",
+            "itens": [
+              {
+                "item": "HDA",
+                "valor": "Não registrado",
+                "status": "nao_conforme"
+              },
+              {
+                "item": "HD / CID",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme (IA: trecho[ap_app]: Paciente masculino, 54 anos, admitido na)",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme (validado por IA)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Cardiovascular, Respiratório)",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Médica",
+            "itens": [
+              {
+                "item": "HD / CID",
+                "valor": "Não registrado (IA: null)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Procedimentos / Condutas / Queixas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Frequência Diária",
+                "valor": "não conforme (sem evolução entre 23/05 14:00 e 24/05 14:00)",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "titulo": "Bloco Cirúrgico",
+        "conformes": 7,
+        "total": 8,
+        "conformidade": 87.5,
+        "itens": [
+          {
+            "item": "Especialidade",
+            "valor": "Cirurgia Geral",
+            "status": "conforme"
+          },
+          {
+            "item": "Unidade Funcional",
+            "valor": "BLOCO CIRURGICO",
+            "status": "conforme"
+          },
+          {
+            "item": "Início Cirurgia",
+            "valor": "23/05/2024, 10:00",
+            "status": "conforme"
+          },
+          {
+            "item": "Fim Cirurgia",
+            "valor": "23/05/2024, 12:00",
+            "status": "conforme"
+          },
+          {
+            "item": "Diagnóstico / CID",
+            "valor": "K80.0",
+            "status": "conforme"
+          },
+          {
+            "item": "Descrição Procedimento",
+            "valor": "Colecistectomia videolaparoscópica",
+            "status": "conforme"
+          },
+          {
+            "item": "Descrição Técnica",
+            "valor": "Não registrado (IA: null)",
+            "status": "conforme"
+          },
+          {
+            "item": "Uso OPME",
+            "valor": "conforme (validado por IA)",
+            "status": "conforme"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "titulo": "Enfermagem e Escalas",
+        "conformes": 11,
+        "total": 15,
+        "conformidade": 73.3,
+        "subgrupos": [
+          {
+            "titulo": "Anamnese Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (IA: trecho[motivo_internacao]: paciente masculino, 54 anos, admitido na)",
+                "status": "conforme"
+              },
+              {
+                "item": "AP / APP",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "AF",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Gastrointestinal, Genitourinário, Músculo-esquelético)",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Conduta",
+                "valor": "não conforme (IA: incompleto)",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Anamnese",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "N/A",
+                "status": "nao_conforme"
+              }
+            ]
+          },
+          {
+            "titulo": "Evolução Enfermagem",
+            "itens": [
+              {
+                "item": "Motivo Internação",
+                "valor": "conforme (IA: trecho[motivo_internacao]: paciente em pós-operatório imediato de c)",
+                "status": "conforme"
+              },
+              {
+                "item": "Exame Físico",
+                "valor": "não conforme (Faltam: Genitourinário — dia 23/05, 24/05)",
+                "status": "conforme"
+              },
+              {
+                "item": "Condutas",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Braden",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Escala Morse",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Criação Evolução",
+                "valor": "conforme",
+                "status": "conforme"
+              },
+              {
+                "item": "Curativo",
+                "valor": "não conforme (IA: tipo de curativo não identificado — dia 23/05, 24/05)",
+                "status": "conforme"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "nao_conformidades": [
+      {
+        "secao": "B",
+        "item": "Anamnese Médica — HDA",
+        "descricao": "Valor: Não registrado"
+      },
+      {
+        "secao": "D",
+        "item": "Anamnese Enfermagem — Curativo",
+        "descricao": "Valor: N/A"
+      }
+    ],
+    "quantitativo": [
+      {
+        "tipo": "Anamnese Médica",
+        "total": 1,
+        "conformidade": 100,
+        "22/05": true,
+        "23/05": false,
+        "24/05": false
+      },
+      {
+        "tipo": "Anamnese Enfermagem",
+        "total": 1,
+        "conformidade": 100,
+        "22/05": true,
+        "23/05": false,
+        "24/05": false
+      },
+      {
+        "tipo": "Evolução Médica",
+        "total": 1,
+        "conformidade": 100,
+        "22/05": false,
+        "23/05": false,
+        "24/05": true
+      },
+      {
+        "tipo": "Evolução Enfermagem",
+        "total": 2,
+        "conformidade": 100,
+        "22/05": false,
+        "23/05": true,
+        "24/05": true
+      },
+      {
+        "tipo": "Serviço Social",
+        "total": 0,
+        "conformidade": 0,
+        "22/05": false,
+        "23/05": false,
+        "24/05": false
+      }
+    ],
+    "days": ["22/05", "23/05", "24/05"]
+  }
+]

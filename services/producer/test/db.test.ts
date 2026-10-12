@@ -30,10 +30,12 @@ test("upsertAuditResult inserts a new row readable through getAllAudits", () => 
 
 test("upsertAuditResult updates the same row on a repeated job_id, instead of duplicating it", () => {
   upsertAuditResult(completedJob({ job_id: "job-2" }));
-  upsertAuditResult(completedJob({
-    job_id: "job-2",
-    result: { record_id: "123", audit_data: { conformity_global: { valid: 10, total: 10, percent: 100 } } },
-  }));
+  upsertAuditResult(
+    completedJob({
+      job_id: "job-2",
+      result: { record_id: "123", audit_data: { conformity_global: { valid: 10, total: 10, percent: 100 } } },
+    }),
+  );
   const audits = getAllAudits().filter((a) => a.job_id === "job-2");
   assert.equal(audits.length, 1);
   assert.equal(audits[0].conformity_percent, 100);

@@ -6,6 +6,7 @@
     "dev": "npm --prefix apps/web run dev",
     "test": "npm --prefix apps/web test && npm --prefix services/producer test",
     "test:front": "npm --prefix apps/web test",
-    "test:producer": "npm --prefix services/producer test"
+    "test:producer": "npm --prefix services/producer test",
+    "check:producer": "npm --prefix services/producer run typecheck && npm --prefix services/producer run lint"
   }
 }
