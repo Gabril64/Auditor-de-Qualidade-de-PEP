@@ -35,7 +35,11 @@ function parseSeed(rawSeed: unknown): number | undefined {
 
 /** Validates the whole batch, stores the submitted records, then queues one job per patient
  * record number. One invalid record rejects the batch, and nothing is queued if it cannot be stored. */
-export async function submitBatch(rawText: string, query: SubmissionQuery): Promise<PublishResult> {
+export async function submitBatch(
+  rawText: string,
+  query: SubmissionQuery,
+  submittedBy: number | null,
+): Promise<PublishResult> {
   const modelName = typeof query.model === "string" ? query.model : undefined;
   const source = RECORD_SOURCES.find((candidate) => candidate === query.source) ?? "api";
   const seed = parseSeed(query.seed);
@@ -58,7 +62,7 @@ export async function submitBatch(rawText: string, query: SubmissionQuery): Prom
       recordNumberDisplay: job.record_number_display,
       records: job.records,
     })),
-    { source, submittedBy: null, submittedAt: new Date().toISOString() },
+    { source, submittedBy, submittedAt: new Date().toISOString() },
   );
 
   await enqueueJobs(jobs);

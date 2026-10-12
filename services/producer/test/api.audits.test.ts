@@ -1,11 +1,10 @@
 import assert from "node:assert/strict";
-import { mkdtempSync, readFileSync } from "node:fs";
-import net from "node:net";
-import { tmpdir } from "node:os";
+import { readFileSync } from "node:fs";
 import path from "node:path";
-import { before, mock, test } from "node:test";
+import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import type { RawAuditResult } from "../src/transformer.js";
+import { startHarness } from "./helpers/harness.js";
 
 interface AuditSummary {
   id: number;
@@ -40,49 +39,16 @@ function roundToTenth(value: number): number {
   return Math.round(value * 10) / 10;
 }
 
-process.env.SQLITE_DB_PATH = path.join(mkdtempSync(path.join(tmpdir(), "producer-api-test-")), "auditor.db");
+const harness = await startHarness();
+const auditorId = await harness.addUser("auditor@test.local", "password-auditor", "auditor");
+const session = await harness.login("auditor@test.local", "password-auditor");
 
-mock.module("redis", {
-  namedExports: {
-    createClient: () => ({
-      on() {},
-      async connect() {},
-      async lPush() {},
-      async get() {
-        return null;
-      },
-    }),
-  },
-});
-
-const port = await new Promise<number>((resolve) => {
-  const probe = net.createServer().listen(0, () => {
-    const { port: freePort } = probe.address() as net.AddressInfo;
-    probe.close(() => resolve(freePort));
-  });
-});
-process.env.PORT = String(port);
-process.env.DISABLE_BACKGROUND_JOBS = "1";
-const BASE = `http://127.0.0.1:${port}`;
-
-await import("../src/server.js");
 const { upsertAuditResult } = await import("../src/repositories/audits.js");
 
 async function getJson<T>(route: string): Promise<JsonResponse<T>> {
-  const response = await fetch(`${BASE}${route}`);
+  const response = await harness.fetchAs(session, route);
   return { status: response.status, body: (await response.json()) as T };
 }
-
-before(async () => {
-  for (let attempt = 0; attempt < 50; attempt++) {
-    try {
-      if ((await fetch(`${BASE}/health`)).ok) return;
-    } catch {
-      await new Promise((resolve) => setTimeout(resolve, 50));
-    }
-  }
-  throw new Error("Producer did not start");
-});
 
 function save(jobId: string, result: RawAuditResult): void {
   const saved = upsertAuditResult({
@@ -152,7 +118,7 @@ test("GET /api/audits/:id returns the transformed audit and the raw result", asy
 });
 
 test("a batch posted to /batches is stored raw and shows up in the audit detail", async () => {
-  const response = await fetch(`${BASE}/batches?source=upload`, {
+  const response = await harness.fetchAs(session, "/batches?source=upload", {
     method: "POST",
     body: JSON.stringify([{ Prontuário: "11.222", Atendimento: "5", Sexo: "F" }]),
   });
@@ -165,9 +131,10 @@ test("a batch posted to /batches is stored raw and shows up in the audit detail"
   assert.ok(audit);
 
   const { body } = await getJson<{
-    raw_patient_record: { source: string; record_number: string; entries: { fields: Record<string, string> }[] } | null;
+    raw_patient_record: { source: string; submitted_by: number | null; record_number: string; entries: { fields: Record<string, string> }[] } | null;
   }>(`/api/audits/${audit.id}`);
   assert.equal(body.raw_patient_record?.source, "upload");
+  assert.equal(body.raw_patient_record?.submitted_by, auditorId);
   assert.equal(body.raw_patient_record?.record_number, "11222");
   assert.equal(body.raw_patient_record?.entries[0].fields.sex, "F");
 });

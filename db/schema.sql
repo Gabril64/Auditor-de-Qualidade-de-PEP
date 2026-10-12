@@ -158,3 +158,17 @@ CREATE TABLE IF NOT EXISTS audit_history (
 
 CREATE INDEX IF NOT EXISTS idx_audit_history_audit ON audit_history(audit_id, id);
 CREATE INDEX IF NOT EXISTS idx_audit_history_user ON audit_history(user_id, id);
+
+-- Who did what in the system, without any clinical content. user_id is NULL for events with no
+-- authenticated user (a failed login); email is then the address that was tried.
+CREATE TABLE IF NOT EXISTS access_log (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    event TEXT NOT NULL,
+    user_id INTEGER REFERENCES users(id),
+    email TEXT,
+    detail TEXT,
+    ip TEXT,
+    created_at TEXT NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_access_log_user ON access_log(user_id, id);

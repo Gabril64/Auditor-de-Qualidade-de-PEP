@@ -1,14 +1,6 @@
 import assert from "node:assert/strict";
-import { mkdtempSync } from "node:fs";
-import net from "node:net";
-import { tmpdir } from "node:os";
-import path from "node:path";
-import { before, mock, test } from "node:test";
-
-interface PushedMessage {
-  key: string;
-  value: string;
-}
+import { test } from "node:test";
+import { startHarness } from "./helpers/harness.js";
 
 interface ErrorBody {
   error: string;
@@ -38,56 +30,16 @@ interface StatusResponse {
   body: { status?: string; raw?: { audit_data?: { observacao_ia?: string } } };
 }
 
-const store = new Map<string, string>();
-const pushed: PushedMessage[] = [];
+const harness = await startHarness();
+const { store, pushed } = harness;
 
-const fakeClient = {
-  on() {},
-  async connect() {},
-  async lPush(key: string, value: string) {
-    pushed.push({ key, value });
-    return pushed.length;
-  },
-  async get(key: string) {
-    return store.has(key) ? store.get(key) : null;
-  },
-};
+await harness.addUser("auditor@test.local", "password-auditor", "auditor");
+const session = await harness.login("auditor@test.local", "password-auditor");
 
-mock.module("redis", { namedExports: { createClient: () => fakeClient } });
-
-const port = await new Promise<number>((resolve) => {
-  const probe = net.createServer().listen(0, () => {
-    const { port: freePort } = probe.address() as net.AddressInfo;
-    probe.close(() => resolve(freePort));
-  });
-});
-process.env.SQLITE_DB_PATH = path.join(mkdtempSync(path.join(tmpdir(), "producer-contract-test-")), "auditor.db");
-process.env.PORT = String(port);
-process.env.DISABLE_BACKGROUND_JOBS = "1";
-const BASE = `http://127.0.0.1:${port}`;
-
-await import("../src/server.js");
-
-async function isHealthy(): Promise<boolean> {
-  try {
-    return (await fetch(`${BASE}/health`)).ok;
-  } catch {
-    return false;
-  }
-}
-
-before(async () => {
-  for (let attempt = 0; attempt < 50; attempt++) {
-    if (await isHealthy()) return;
-    await new Promise((resolve) => setTimeout(resolve, 50));
-  }
-  throw new Error("Producer did not start");
-});
-
-const post = (path: string, body: string) => fetch(`${BASE}${path}`, { method: "POST", body });
+const post = (path: string, body: string) => harness.fetchAs(session, path, { method: "POST", body });
 
 async function getJson(path: string): Promise<StatusResponse> {
-  const response = await fetch(`${BASE}${path}`);
+  const response = await harness.fetchAs(session, path);
   return { status: response.status, body: (await response.json()) as StatusResponse["body"] };
 }
 
@@ -100,8 +52,7 @@ function pushedJob(index: number): QueuedJobPayload {
 }
 
 function reset(): void {
-  store.clear();
-  pushed.length = 0;
+  harness.reset();
 }
 
 test("GET /health", async () => {

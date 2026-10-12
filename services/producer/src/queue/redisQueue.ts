@@ -1,5 +1,5 @@
-import { createClient } from "redis";
 import type { QueuedJob } from "../domain/payload.js";
+import { redis } from "./redisClient.js";
 import type { RawAuditResult } from "../transformer.js";
 
 export interface StoredResult extends RawAuditResult {
@@ -11,10 +11,6 @@ export interface StoredResult extends RawAuditResult {
 
 const QUEUE_KEY = "fila:prontuarios";
 const RESULT_KEY_PREFIX = "resultado:";
-
-const redis = createClient({ url: process.env.REDIS_URL || "redis://localhost:6379" });
-redis.on("error", (error) => console.error("Redis Client Error", error));
-await redis.connect();
 
 /** Pushes the jobs onto the audit queue, in order. */
 export async function enqueueJobs(jobs: QueuedJob[]): Promise<void> {

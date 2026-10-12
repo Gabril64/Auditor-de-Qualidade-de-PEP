@@ -1,13 +1,8 @@
-import argon2 from "argon2";
-import { randomBytes } from "node:crypto";
+import { generatePassword, hashPassword } from "./auth/passwords.js";
 import { getDb } from "./db/connection.js";
 import { errorMessage } from "./errorMessage.js";
 
 const DEFAULT_ADMIN_EMAIL = "admin@auditor.local";
-
-function generatePassword(): string {
-  return randomBytes(15).toString("base64url");
-}
 
 /** Creates the first administrator if no user with this email exists yet; otherwise a no-op.
  * Returns the password only when it just created the account — never for one that already
@@ -20,7 +15,7 @@ async function ensureAdmin(email: string, password: string | undefined): Promise
   if (existing) return null;
 
   const plainPassword = password || generatePassword();
-  const passwordHash = await argon2.hash(plainPassword, { type: argon2.argon2id });
+  const passwordHash = await hashPassword(plainPassword);
   db.prepare(
     "INSERT INTO users (email, name, password_hash, role, created_by, created_at) VALUES (?, ?, ?, 'admin', NULL, ?)",
   ).run(email, "Administrador", passwordHash, new Date().toISOString());
