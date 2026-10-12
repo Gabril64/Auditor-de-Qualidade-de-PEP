@@ -2,6 +2,8 @@ import type Database from "better-sqlite3";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { extractAuditFields } from "../domain/auditFields.js";
+import type { RawAuditResult } from "../transformer.js";
 
 const moduleDir = path.dirname(fileURLToPath(import.meta.url));
 
@@ -85,10 +87,33 @@ function renameLegacyUserColumns(db: Database.Database): void {
   db.exec("COMMIT;");
 }
 
+/** Audits stored before `audit_fields` existed have no field rows. Fills them from the stored
+ * audit JSON; a no-op once every audit has its fields. */
+function backfillAuditFields(db: Database.Database): void {
+  const pending = db
+    .prepare("SELECT id, audit_data FROM audit_results WHERE id NOT IN (SELECT DISTINCT audit_id FROM audit_fields)")
+    .all() as Array<{ id: number; audit_data: string }>;
+  if (pending.length === 0) return;
+
+  const insert = db.prepare(
+    `INSERT INTO audit_fields (audit_id, section, record_type, field, value, status, source)
+     VALUES (?, ?, ?, ?, ?, ?, ?)`,
+  );
+  db.transaction(() => {
+    for (const audit of pending) {
+      const rows = extractAuditFields(JSON.parse(audit.audit_data) as RawAuditResult);
+      for (const row of rows) {
+        insert.run(audit.id, row.section, row.record_type, row.field, row.value, row.status, row.source);
+      }
+    }
+  })();
+}
+
 /** Applies db/schema.sql (idempotent: CREATE TABLE/INDEX IF NOT EXISTS), then the one-time fixes
  * a database created by the old Python schema needs. Safe to call on every startup. */
 export function migrate(db: Database.Database): void {
   dropBatchesForeignKey(db);
   db.exec(fs.readFileSync(findSchemaPath(), "utf-8"));
   renameLegacyUserColumns(db);
+  backfillAuditFields(db);
 }

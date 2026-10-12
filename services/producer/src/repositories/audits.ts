@@ -1,4 +1,6 @@
+import type Database from "better-sqlite3";
 import { getDb } from "../db/connection.js";
+import { extractAuditFields, type AuditFieldRow } from "../domain/auditFields.js";
 import { errorMessage } from "../errorMessage.js";
 import type { RawAuditResult } from "../transformer.js";
 
@@ -43,6 +45,16 @@ export interface CompletedJob {
   record_number_display?: string;
   encounter?: string;
   result: RawAuditResult;
+}
+
+function insertAuditFields(conn: Database.Database, auditId: number, rows: AuditFieldRow[]): void {
+  const insert = conn.prepare(
+    `INSERT INTO audit_fields (audit_id, section, record_type, field, value, status, source)
+     VALUES (?, ?, ?, ?, ?, ?, ?)`,
+  );
+  for (const row of rows) {
+    insert.run(auditId, row.section, row.record_type, row.field, row.value, row.status, row.source);
+  }
 }
 
 function roundToTenth(value: number): number {
@@ -136,8 +148,27 @@ export function getDashboardStats(): DashboardStats {
   }
 }
 
-/** Inserts a finished audit, or updates it in place if the same job_id was already saved.
- * Returns false when the database is unavailable or the write fails (logged either way). */
+/** Returns the original audit field by field, in the order they were stored. */
+export function getAuditFields(auditId: number): AuditFieldRow[] {
+  const conn = getDb();
+  if (!conn) return [];
+
+  try {
+    return conn
+      .prepare(
+        `SELECT section, record_type, field, value, status, source
+         FROM audit_fields WHERE audit_id = ? ORDER BY id`,
+      )
+      .all(auditId) as AuditFieldRow[];
+  } catch (error) {
+    console.error("[DB] Error fetching audit fields:", errorMessage(error));
+    return [];
+  }
+}
+
+/** Inserts a finished audit and its fields in one transaction, or updates both in place if the
+ * same job_id was already saved. Returns false when the database is unavailable or the write
+ * fails (logged either way). */
 export function upsertAuditResult(job: CompletedJob): boolean {
   const conn = getDb();
   if (!conn) return false;
@@ -148,29 +179,40 @@ export function upsertAuditResult(job: CompletedJob): boolean {
     const auditDataJson = JSON.stringify(job.result);
     const jobId = job.job_id ?? "unknown";
 
-    const existing = conn.prepare("SELECT id FROM audit_results WHERE job_id = ?").get(jobId);
-    if (existing) {
-      conn
-        .prepare("UPDATE audit_results SET audit_data = ?, conformity_percent = ?, status = 'done' WHERE job_id = ?")
-        .run(auditDataJson, conformityPercent, jobId);
-    } else {
-      conn
-        .prepare(
-          `INSERT INTO audit_results
-           (batch_id, job_id, record_number, record_number_display, encounter, audit_data, conformity_percent, status, created_at)
-           VALUES (?, ?, ?, ?, ?, ?, ?, 'done', ?)`,
-        )
-        .run(
-          job.batch_id ?? "unknown",
-          jobId,
-          job.record_number ?? "unknown",
-          job.record_number_display ?? job.record_number ?? "",
-          job.encounter ?? "",
-          auditDataJson,
-          conformityPercent,
-          new Date().toISOString(),
-        );
-    }
+    conn.transaction(() => {
+      const existing = conn.prepare("SELECT id FROM audit_results WHERE job_id = ?").get(jobId) as
+        | { id: number }
+        | undefined;
+      let auditId: number;
+
+      if (existing) {
+        conn
+          .prepare("UPDATE audit_results SET audit_data = ?, conformity_percent = ?, status = 'done' WHERE job_id = ?")
+          .run(auditDataJson, conformityPercent, jobId);
+        conn.prepare("DELETE FROM audit_fields WHERE audit_id = ?").run(existing.id);
+        auditId = existing.id;
+      } else {
+        const inserted = conn
+          .prepare(
+            `INSERT INTO audit_results
+             (batch_id, job_id, record_number, record_number_display, encounter, audit_data, conformity_percent, status, created_at)
+             VALUES (?, ?, ?, ?, ?, ?, ?, 'done', ?)`,
+          )
+          .run(
+            job.batch_id ?? "unknown",
+            jobId,
+            job.record_number ?? "unknown",
+            job.record_number_display ?? job.record_number ?? "",
+            job.encounter ?? "",
+            auditDataJson,
+            conformityPercent,
+            new Date().toISOString(),
+          );
+        auditId = Number(inserted.lastInsertRowid);
+      }
+
+      insertAuditFields(conn, auditId, extractAuditFields(job.result));
+    })();
     return true;
   } catch (error) {
     console.error(`[DB] Error saving result for job ${job.job_id}:`, errorMessage(error));

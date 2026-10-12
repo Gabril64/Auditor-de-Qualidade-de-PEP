@@ -1,5 +1,5 @@
 import { errorMessage } from "../errorMessage.js";
-import { getAllAudits, getAuditById, type AuditRecord } from "../repositories/audits.js";
+import { getAllAudits, getAuditById, getAuditFields, type AuditRecord } from "../repositories/audits.js";
 import { getRawPatientRecordByJobId } from "../repositories/rawRecords.js";
 import { transformAuditResult } from "../transformer.js";
 
@@ -46,6 +46,7 @@ export function getAuditDetail(id: number) {
     created_at: audit.created_at,
     audit: transformAuditResult(audit.audit_data),
     raw: audit.audit_data,
+    fields: getAuditFields(audit.id),
     raw_patient_record: getRawPatientRecordByJobId(audit.job_id),
   };
 }

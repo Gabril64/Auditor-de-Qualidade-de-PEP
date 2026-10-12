@@ -138,6 +138,7 @@ test("GET /api/audits/:id returns the transformed audit and the raw result", asy
     conformity_percent: number;
     audit: { prontuario: string };
     raw: RawAuditResult;
+    fields: { section: string; field: string }[];
   }>(`/api/audits/${high.id}`);
 
   assert.equal(status, 200);
@@ -146,6 +147,8 @@ test("GET /api/audits/:id returns the transformed audit and the raw result", asy
   assert.equal(body.conformity_percent, percentOf(HIGHEST));
   assert.equal(body.audit.prontuario, HIGHEST.record_id);
   assert.deepEqual(body.raw, HIGHEST);
+  assert.ok(body.fields.length > 0);
+  assert.ok(body.fields.some((field) => field.section === "A" && field.field === "prontuario"));
 });
 
 test("a batch posted to /batches is stored raw and shows up in the audit detail", async () => {

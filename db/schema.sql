@@ -86,3 +86,75 @@ CREATE TABLE IF NOT EXISTS raw_record_entries (
     extra_keys TEXT,
     UNIQUE (raw_patient_record_id, position)
 );
+
+-- The original audit result, one row per audited field. Only the fields that count toward
+-- conformity are stored (section C only when there was surgery, section E only when there are
+-- other professional categories). record_type is NULL in sections A, C and E.
+-- status: conforme | nao_conforme | nao_registrado | nao_se_aplica
+-- source: rule | ai | ai_null | ai_failed | human (human only in audit_revision_fields)
+CREATE TABLE IF NOT EXISTS audit_fields (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    audit_id INTEGER NOT NULL REFERENCES audit_results(id),
+    section TEXT NOT NULL CHECK (length(section) = 1),
+    record_type TEXT CHECK (record_type IN ('anamnesis', 'evolution')),
+    field TEXT NOT NULL,
+    value TEXT,
+    status TEXT NOT NULL CHECK (status IN ('conforme', 'nao_conforme', 'nao_registrado', 'nao_se_aplica')),
+    source TEXT NOT NULL CHECK (source IN ('rule', 'ai', 'ai_null', 'ai_failed'))
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS idx_audit_fields_unique
+    ON audit_fields(audit_id, section, IFNULL(record_type, ''), field);
+CREATE INDEX IF NOT EXISTS idx_audit_fields_status ON audit_fields(field, status);
+
+-- The current version the user sees, created on the first edit. One row per audit.
+-- Logical delete: deleted_at set by an admin hides the submission, nothing leaves the database.
+CREATE TABLE IF NOT EXISTS audit_revisions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    audit_id INTEGER NOT NULL UNIQUE REFERENCES audit_results(id),
+    audit_data TEXT NOT NULL,
+    conformity_percent REAL NOT NULL DEFAULT 0,
+    created_at TEXT NOT NULL,
+    updated_at TEXT NOT NULL,
+    updated_by INTEGER REFERENCES users(id),
+    deleted_at TEXT,
+    deleted_by INTEGER REFERENCES users(id)
+);
+
+-- The current version, field by field. source is 'human' for a field the auditor changed.
+CREATE TABLE IF NOT EXISTS audit_revision_fields (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    audit_id INTEGER NOT NULL REFERENCES audit_results(id),
+    section TEXT NOT NULL CHECK (length(section) = 1),
+    record_type TEXT CHECK (record_type IN ('anamnesis', 'evolution')),
+    field TEXT NOT NULL,
+    value TEXT,
+    status TEXT NOT NULL CHECK (status IN ('conforme', 'nao_conforme', 'nao_registrado', 'nao_se_aplica')),
+    source TEXT NOT NULL CHECK (source IN ('rule', 'ai', 'ai_null', 'ai_failed', 'human')),
+    updated_at TEXT,
+    updated_by INTEGER REFERENCES users(id)
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS idx_audit_revision_fields_unique
+    ON audit_revision_fields(audit_id, section, IFNULL(record_type, ''), field);
+
+-- Append-only log of what people did: edits, approvals, revoked approvals, deletes and restores.
+-- Approval state is derived from this table, never stored.
+CREATE TABLE IF NOT EXISTS audit_history (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    audit_id INTEGER NOT NULL REFERENCES audit_results(id),
+    action TEXT NOT NULL CHECK (action IN ('field_edit', 'approve', 'revoke_approval', 'delete', 'restore')),
+    user_id INTEGER NOT NULL REFERENCES users(id),
+    created_at TEXT NOT NULL,
+    section TEXT,
+    record_type TEXT,
+    field TEXT,
+    old_value TEXT,
+    new_value TEXT,
+    old_status TEXT,
+    new_status TEXT,
+    revision_version TEXT
+);
+
+CREATE INDEX IF NOT EXISTS idx_audit_history_audit ON audit_history(audit_id, id);
+CREATE INDEX IF NOT EXISTS idx_audit_history_user ON audit_history(user_id, id);

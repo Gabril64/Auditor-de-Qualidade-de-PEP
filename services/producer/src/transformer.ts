@@ -1,3 +1,4 @@
+import { statusOf } from "./domain/auditFields.js";
 import {
   DOCUMENT_ROWS,
   IDENTIFICATION_ITEMS,
@@ -107,8 +108,6 @@ export interface TransformedAudit {
 
 const NOT_AVAILABLE = "N/A";
 const UNKNOWN_RECORD = "Desconhecido";
-const NOT_APPLICABLE_TEXTS = new Set(["não se aplica", "nao se aplica", "n/a"]);
-const NON_CONFORMING_TEXTS = new Set(["false", "não", "nao", "não registrado", "nao registrado"]);
 
 /** Converts one `data_extract` result into the structure the front end renders. */
 export function transformAuditResult(rawResult: RawAuditResult): TransformedAudit {
@@ -186,14 +185,12 @@ function buildItems(fields: Fields | undefined, specs: ItemSpec[]): AuditItem[] 
   });
 }
 
+/** The front end shows three statuses: "não registrado" is shown as não conforme. */
 function toStatus(value: FieldValue | null | undefined): Status {
   if (!value || value === NOT_AVAILABLE) return "nao_conforme";
 
-  const text = String(value).toLowerCase().trim();
-  if (text.startsWith("conforme")) return "conforme";
-  if (NOT_APPLICABLE_TEXTS.has(text)) return "nao_se_aplica";
-  if (text.length === 0 || NON_CONFORMING_TEXTS.has(text)) return "nao_conforme";
-  return "conforme";
+  const status = statusOf(value);
+  return status === "nao_registrado" ? "nao_conforme" : status;
 }
 
 function readCounts(count: ConformityCount | undefined): Counts {

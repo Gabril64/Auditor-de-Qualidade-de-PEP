@@ -31,3 +31,28 @@ for (const fixture of FIXTURES) {
     assert.deepEqual(actual, JSON.parse(readFileSync(snapshotPath, "utf8")));
   });
 }
+
+test("the front end gets three statuses: não conforme and não registrado both show as nao_conforme", () => {
+  const result = transformAuditResult({
+    record_id: "1",
+    audit_data: {
+      secao_a: {
+        idade: "não conforme (Faltam: algo)",
+        data_nascimento: "Não registrado (IA: null)",
+        unidade_funcional: "Não se aplica",
+        periodo_internacao: "conforme (IA: trecho)",
+        diagnostico_internacao: "Ortopedia",
+      },
+    },
+  });
+
+  const items = "itens" in result.secoes[0] ? result.secoes[0].itens : [];
+  const statusOf = (label: string) => items.find((item) => item.item === label)?.status;
+
+  assert.equal(statusOf("Idade"), "nao_conforme");
+  assert.equal(statusOf("Data de Nascimento"), "nao_conforme");
+  assert.equal(statusOf("Unidade Funcional"), "nao_se_aplica");
+  assert.equal(statusOf("Período de Internação"), "conforme");
+  assert.equal(statusOf("Diagnóstico de Internação"), "conforme");
+  assert.ok(result.nao_conformidades.some((nc) => nc.item === "Idade"));
+});
