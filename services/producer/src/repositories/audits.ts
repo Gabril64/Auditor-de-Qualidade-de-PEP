@@ -1,6 +1,6 @@
-import { getDb } from "./db/connection.js";
-import { errorMessage } from "./errorMessage.js";
-import type { RawAuditResult } from "./transformer.js";
+import { getDb } from "../db/connection.js";
+import { errorMessage } from "../errorMessage.js";
+import type { RawAuditResult } from "../transformer.js";
 
 interface AuditRow {
   id: number;

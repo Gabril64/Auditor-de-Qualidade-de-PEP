@@ -6,7 +6,7 @@ import { test } from "node:test";
 
 process.env.SQLITE_DB_PATH = path.join(mkdtempSync(path.join(tmpdir(), "producer-db-test-")), "auditor.db");
 
-const { getAllAudits, getDashboardStats, upsertAuditResult } = await import("../src/db.js");
+const { getAllAudits, getDashboardStats, upsertAuditResult } = await import("../src/repositories/audits.js");
 
 function completedJob(overrides: Record<string, unknown> = {}) {
   return {

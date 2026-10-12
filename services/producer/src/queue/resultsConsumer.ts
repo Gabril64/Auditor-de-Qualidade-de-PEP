@@ -1,5 +1,5 @@
 import { createClient } from "redis";
-import { upsertAuditResult, type CompletedJob } from "../db.js";
+import { upsertAuditResult, type CompletedJob } from "../repositories/audits.js";
 import { errorMessage } from "../errorMessage.js";
 
 const RESULTS_QUEUE_KEY = "fila:resultados";

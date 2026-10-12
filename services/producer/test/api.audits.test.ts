@@ -66,7 +66,7 @@ process.env.DISABLE_BACKGROUND_JOBS = "1";
 const BASE = `http://127.0.0.1:${port}`;
 
 await import("../src/server.js");
-const { upsertAuditResult } = await import("../src/db.js");
+const { upsertAuditResult } = await import("../src/repositories/audits.js");
 
 async function getJson<T>(route: string): Promise<JsonResponse<T>> {
   const response = await fetch(`${BASE}${route}`);
