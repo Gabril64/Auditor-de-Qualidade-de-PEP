@@ -74,13 +74,18 @@ def snapshot():
     return check
 
 
+def _user_turn(payload):
+    """The record's text as the client now sends it: the user turn of a chat-completions payload."""
+    return next(m["content"] for m in payload["messages"] if m["role"] == "user")
+
+
 def _bucket(field, text):
     return int(hashlib.sha1(f"{field}|{text}".encode("utf-8")).hexdigest(), 16) % 10
 
 
 def scenario_ok_mix(payload, fields):
     """Deterministic mix of: snippet, null, 'não conforme (incompleto)' and a non-string value."""
-    text = payload["input"].split("TEXTO DO REGISTRO:\n", 1)[-1]
+    text = _user_turn(payload).split("TEXTO DO REGISTRO:\n", 1)[-1]
     out = {}
     for field in fields:
         bucket = _bucket(field, text)
@@ -130,8 +135,9 @@ def audit_env(monkeypatch, tmp_path):
 
     monkeypatch.setattr(llm_client, "AI_MAX_ATTEMPTS", 3)
     monkeypatch.setattr(llm_client, "AI_RETRY_DELAY_SECONDS", 0)
+    monkeypatch.setattr(llm_client, "AI_SEED", None)
     monkeypatch.setattr(auditor, "MODEL_NAME", "modelo-de-teste")
-    monkeypatch.setattr(auditor, "SEED_REQUESTED", None)
+    monkeypatch.setattr(auditor, "AI_SEED", None)
     (tmp_path / "core").mkdir()
     monkeypatch.setattr(auditor, "__file__", str(tmp_path / "core" / "auditor.py"))
 
@@ -140,7 +146,7 @@ def audit_env(monkeypatch, tmp_path):
         fn = SCENARIOS[scenario] if isinstance(scenario, str) else scenario
 
         def fake(payload, fields):
-            calls.append({"fields": list(fields), "input": payload["input"]})
+            calls.append({"fields": list(fields), "input": _user_turn(payload)})
             return fn(payload, fields)
 
         monkeypatch.setattr(llm_client, "_single_attempt", fake)

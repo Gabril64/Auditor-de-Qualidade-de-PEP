@@ -1,4 +1,3 @@
-import os
 import re
 import sys
 import time
@@ -8,6 +7,7 @@ from data_extract.core.llm_client import (
     AI_MAX_CONTEXT_CHARS,
     AI_MISSING_FIELDS,
     AI_OK,
+    AI_SEED,
     AI_TEMPERATURE,
     AI_TOP_K,
     AI_TOP_P,
@@ -26,11 +26,6 @@ from data_extract.utils.helpers import (
 )
 from data_extract.utils.text_match import find_words, normalize
 
-# The seed the evaluation asked for (notebook -> Producer -> Worker -> env LLM_SEED). It is only
-# recorded: the endpoint rejects a "seed" key, so it is never sent. See _new_ai_meta.
-_seed_env = os.environ.get("LLM_SEED", "").strip()
-SEED_REQUESTED = int(_seed_env) if _seed_env.lstrip("-").isdigit() else None
-
 FIELDS_WITHOUT_AI = frozenset({"criacao_anamnese", "criacao_evolucao", "frequencia_diaria"})
 """Fields computed from date/time: there is no text snippet for the AI to look for."""
 
@@ -44,19 +39,19 @@ def has_diagnostic_hypothesis(text):
 
 
 def _new_ai_meta():
-    """The signature every audit carries: which model answered, with which decoding, and what the
-    AI was asked. `decodificacao` is "greedy" when either temperature is 0 or top_k is 1 — then the
-    most likely token is always taken and the run is reproducible. `seed_aplicada` is never True:
-    the endpoint answers 400 "Unrecognized key(s) in object: 'seed'", so the seed is recorded as
-    requested and reproducibility rests on the decoding instead."""
+    """The signature every audit carries: which model answered, with which decoding and which seed.
+    `decodificacao` is "greedy" when either temperature is 0 or top_k is 1 — then the most likely
+    token is always taken, which is what makes the run repeatable. The seed goes in every request
+    and is recorded here; a server refusing it fails the call, so the affected field lands in
+    `campos_erro` instead of passing silently as unseeded."""
     return {
         "model": MODEL_NAME,
         "temperature": AI_TEMPERATURE,
         "top_k": AI_TOP_K,
         "top_p": AI_TOP_P,
         "decodificacao": "greedy" if AI_TEMPERATURE == 0 or AI_TOP_K == 1 else "amostragem",
-        "seed": SEED_REQUESTED,
-        "seed_aplicada": None if SEED_REQUESTED is None else False,
+        "seed": AI_SEED,
+        "seed_aplicada": None if AI_SEED is None else True,
         "chamadas": 0,
         "chamadas_ok": 0,
         "tentativas_total": 0,

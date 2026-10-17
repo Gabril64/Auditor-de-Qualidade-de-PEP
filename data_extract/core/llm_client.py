@@ -2,9 +2,10 @@
 
 AI_TEMPERATURE/AI_TOP_K/AI_TOP_P pin the decoding so two runs of the same record produce the same
 audit. The defaults (0, 1, 1) are greedy decoding: the most likely token is always taken, which
-removes sampling from the result. The endpoint does NOT accept a "seed" (it answers
-400 "Unrecognized key(s) in object: 'seed'"), so reproducibility here comes from greedy decoding
-and not from a seed; the seed the notebook asks for is only recorded, by auditor._new_ai_meta.
+removes sampling from the result. AI_SEED (notebook -> Producer -> Worker -> env LLM_SEED) is sent
+alongside it and recorded in the audit's signature, so the run is documented as well as repeatable.
+This is why LMSTUDIO_URL points at the OpenAI-compatible route: LMStudio's own /api/v1/chat answers
+400 "Unrecognized key(s) in object: 'seed'" and cannot carry a seed at all.
 AI_MAX_CONTEXT_CHARS caps a record's text sent to the AI so small models' context does not
 overflow. AI_OK/AI_TIMEOUT/AI_HTTP_ERROR/AI_INVALID_JSON/AI_EMPTY_RESPONSE/AI_MISSING_FIELDS are
 the possible outcomes of one AI call; query_ai_fields()'s docstring lists them with "status".
@@ -17,8 +18,10 @@ import time
 import urllib.error
 import urllib.request
 
-LMSTUDIO_URL = os.environ.get("LMSTUDIO_URL", "http://localhost:1234/api/v1/chat")
+LMSTUDIO_URL = os.environ.get("LMSTUDIO_URL", "http://localhost:1234/v1/chat/completions")
 MODEL_NAME = os.environ.get("LLM_MODEL", "qwen2.5-3b-instruct")
+_seed_env = os.environ.get("LLM_SEED", "").strip()
+AI_SEED = int(_seed_env) if _seed_env.lstrip("-").isdigit() else None
 AI_TEMPERATURE = float(os.environ.get("AI_TEMPERATURE", "0"))
 AI_TOP_K = int(os.environ.get("AI_TOP_K", "1"))
 AI_TOP_P = float(os.environ.get("AI_TOP_P", "1"))
@@ -163,7 +166,7 @@ def query_ai_fields(text, missing_fields, record_type):
       "error": str | None,              # reason for the last failure
       "attempts": int,
       "latency": float,                 # seconds summed across every attempt
-      "sampling": dict,                 # the decoding actually sent (temperature, top_k, top_p)
+      "sampling": dict,                 # the decoding actually sent (seed, temperature, top_k, top_p)
     }
     status is "ok" only when EVERY requested key came back in the JSON
     (a null value is a valid answer: the AI looked and found nothing).
@@ -172,16 +175,21 @@ def query_ai_fields(text, missing_fields, record_type):
         return {"status": AI_OK, "fields": {}, "error": None, "attempts": 0, "latency": 0.0}
 
     system_prompt, input_text = _build_prompts(text, missing_fields, record_type)
-    # The decoding goes in every request: without it the server applies its own default
-    # temperature, which is what made earlier runs non-reproducible.
+    # Chat-completions shape: the two prompts become the system and user turns. The decoding goes
+    # in every request — without it the server applies its own default temperature, which is what
+    # made earlier runs non-reproducible — and the seed travels with it.
     payload = {
         "model": MODEL_NAME,
-        "system_prompt": system_prompt,
-        "input": input_text,
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": input_text},
+        ],
         "temperature": AI_TEMPERATURE,
         "top_k": AI_TOP_K,
         "top_p": AI_TOP_P,
     }
+    if AI_SEED is not None:
+        payload["seed"] = AI_SEED
 
     started_at = time.time()
     status, fields, error = AI_HTTP_ERROR, {}, None
@@ -201,7 +209,12 @@ def query_ai_fields(text, missing_fields, record_type):
         "error": error,
         "attempts": attempts,
         "latency": time.time() - started_at,
-        "sampling": {"temperature": AI_TEMPERATURE, "top_k": AI_TOP_K, "top_p": AI_TOP_P},
+        "sampling": {
+            "seed": AI_SEED,
+            "temperature": AI_TEMPERATURE,
+            "top_k": AI_TOP_K,
+            "top_p": AI_TOP_P,
+        },
     }
 
 

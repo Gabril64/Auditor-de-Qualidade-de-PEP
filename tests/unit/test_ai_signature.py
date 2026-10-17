@@ -131,37 +131,57 @@ def _server(handler_fn):
     return srv
 
 
-def test_decoding_is_pinned_in_every_request(monkeypatch):
-    """Greedy decoding is what makes a run reproducible, so it travels in every payload."""
+def test_request_is_chat_completions_shaped(monkeypatch):
+    """The client talks to the OpenAI-compatible route, the only one that carries a seed."""
     seen = []
 
     def handler(body):
-        seen.append({k: body.get(k) for k in ("temperature", "top_k", "top_p")})
+        seen.append(body)
         return 200, {"choices": [{"message": {"content": '{"hda": "x"}'}}]}
 
     srv = _server(handler)
     monkeypatch.setattr(llm_client, "LMSTUDIO_URL", f"http://127.0.0.1:{srv.server_port}/")
-    r = llm_client.query_ai_fields("texto", ["hda"], "x")
+    r = llm_client.query_ai_fields("texto do prontuário", ["hda"], "Anamnese")
     srv.shutdown()
-    assert seen == [{"temperature": 0.0, "top_k": 1, "top_p": 1.0}]
-    assert r["sampling"] == {"temperature": 0.0, "top_k": 1, "top_p": 1.0}
-
-
-def test_seed_is_never_sent_because_the_endpoint_rejects_it(monkeypatch):
-    """LMStudio's /api/v1/chat answers 400 "Unrecognized key(s) in object: 'seed'". Sending it
-    would cost a rejected request on every call, so the seed is recorded, never requested."""
-    seen = []
-
-    def handler(body):
-        seen.append(sorted(body))
-        return 200, {"choices": [{"message": {"content": '{"hda": "x"}'}}]}
-
-    srv = _server(handler)
-    monkeypatch.setattr(llm_client, "LMSTUDIO_URL", f"http://127.0.0.1:{srv.server_port}/")
-    r = llm_client.query_ai_fields("texto", ["hda"], "x")
-    srv.shutdown()
-    assert seen == [["input", "model", "system_prompt", "temperature", "top_k", "top_p"]]
+    body = seen[0]
+    assert [m["role"] for m in body["messages"]] == ["system", "user"]
+    assert "- hda:" in body["messages"][0]["content"], "the field rules go in the system turn"
+    assert "texto do prontuário" in body["messages"][1]["content"], "the record goes in the user turn"
     assert r["status"] == "ok"
+
+
+def test_decoding_and_seed_are_pinned_in_every_request(monkeypatch):
+    """Greedy decoding is what makes a run reproducible; the seed documents it. Both travel in
+    every payload, and both come back in the outcome so the audit can record them."""
+    seen = []
+
+    def handler(body):
+        seen.append({k: body.get(k) for k in ("seed", "temperature", "top_k", "top_p")})
+        return 200, {"choices": [{"message": {"content": '{"hda": "x"}'}}]}
+
+    srv = _server(handler)
+    monkeypatch.setattr(llm_client, "LMSTUDIO_URL", f"http://127.0.0.1:{srv.server_port}/")
+    monkeypatch.setattr(llm_client, "AI_SEED", 42)
+    r = llm_client.query_ai_fields("texto", ["hda"], "x")
+    srv.shutdown()
+    assert seen == [{"seed": 42, "temperature": 0.0, "top_k": 1, "top_p": 1.0}]
+    assert r["sampling"] == {"seed": 42, "temperature": 0.0, "top_k": 1, "top_p": 1.0}
+
+
+def test_without_a_seed_configured_the_key_is_absent(monkeypatch):
+    """A missing seed is left out of the payload, never sent as null."""
+    seen = []
+
+    def handler(body):
+        seen.append("seed" in body)
+        return 200, {"choices": [{"message": {"content": '{"hda": "x"}'}}]}
+
+    srv = _server(handler)
+    monkeypatch.setattr(llm_client, "LMSTUDIO_URL", f"http://127.0.0.1:{srv.server_port}/")
+    monkeypatch.setattr(llm_client, "AI_SEED", None)
+    r = llm_client.query_ai_fields("texto", ["hda"], "x")
+    srv.shutdown()
+    assert seen == [False] and r["sampling"]["seed"] is None
 
 
 def test_a_rejected_request_is_reported_not_retried_silently(monkeypatch):

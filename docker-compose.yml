@@ -19,9 +19,10 @@ services:
     environment:
       - REDIS_HOST=redis
       - PYTHONUNBUFFERED=1
-      - LMSTUDIO_URL=http://host.docker.internal:1234/api/v1/chat
-      # Greedy decoding: what makes an audit reproducible. The endpoint rejects a "seed",
-      # so these three are the whole determinism contract. Do not change them mid-study.
+      # The OpenAI-compatible route: LMStudio's own /api/v1/chat answers 400 to a "seed".
+      - LMSTUDIO_URL=http://host.docker.internal:1234/v1/chat/completions
+      # Greedy decoding is what makes an audit reproducible; the seed (sent by the evaluation
+      # notebook per batch) documents it. Do not change these mid-study.
       - AI_TEMPERATURE=${AI_TEMPERATURE:-0}
       - AI_TOP_K=${AI_TOP_K:-1}
       - AI_TOP_P=${AI_TOP_P:-1}

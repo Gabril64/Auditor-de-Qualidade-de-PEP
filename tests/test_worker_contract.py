@@ -187,7 +187,8 @@ class _FakeLLM(BaseHTTPRequestHandler):
             self.send_header("Content-Length", "0")
             self.end_headers()
             return
-        fields = re.findall(r"^- (\w+):", body["system_prompt"], flags=re.M)
+        system_turn = next(m["content"] for m in body["messages"] if m["role"] == "system")
+        fields = re.findall(r"^- (\w+):", system_turn, flags=re.M)
         payload = json.dumps({"choices": [{"message": {"content": json.dumps({f: None for f in fields})}}]}).encode()
         self.send_response(200)
         self.send_header("Content-Length", str(len(payload)))

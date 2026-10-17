@@ -14,6 +14,17 @@ O corpo da requisição **não é um JSON Array válido**. O formato esperado é
 {"Prontuário":"22.111.222", "Tipo do registro":"Anamnese", "Atendimento": "456"}
 ```
 
+## Parâmetros de Query
+
+| Parâmetro | Obrigatório | Efeito |
+| --- | --- | --- |
+| `model` | não | Nome do modelo no servidor de inferência (ex: `phi-4-mini-instruct`). Chega ao *Worker* como `LLM_MODEL` e é gravado em `_ia_meta.model`. Sem ele, vale o default do `llm_client`. |
+| `seed` | não | Semente enviada ao modelo em toda chamada e gravada em `_ia_meta.seed`. Só funciona porque o `LMSTUDIO_URL` aponta para a rota compatível com OpenAI — a rota própria do LM Studio (`/api/v1/chat`) responde `400 Unrecognized key(s) in object: 'seed'`. |
+| `source` | não | Origem do envio, para o registro do lote. Um valor fora da lista conhecida é tratado como `api`. |
+
+> [!IMPORTANT]
+> A semente **não basta** para reprodutibilidade: medimos que, com `temperature = 1.0`, duas chamadas com a mesma semente produzem saídas diferentes. O que garante a repetição é a decodificação gulosa que o *Worker* aplica (`AI_TEMPERATURE=0`, `AI_TOP_K=1`, `AI_TOP_P=1`); a semente documenta a execução. As duas coisas são gravadas em `_ia_meta` de cada auditoria.
+
 ## Formato da Resposta
 - **Status de Sucesso:** `202 Accepted`
 - **Body:**
