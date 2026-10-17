@@ -45,3 +45,22 @@ Quando a auditoria finaliza, os resultados estruturados são retornados na chave
 
 ## Erros Comuns
 - `500 Internal Server Error`: Falha ao comunicar com o Redis na hora de buscar a chave de resultado.
+
+## Autenticação
+
+Todas as rotas, exceto `GET /health` e `POST /api/auth/login`, exigem autenticação. Há dois caminhos:
+
+| Caminho | Como | Para quem |
+| --- | --- | --- |
+| Sessão | Cookie `session` obtido em `POST /api/auth/login`, mais o header `X-CSRF-Token` nos métodos que alteram estado (`POST`, `PUT`, `PATCH`, `DELETE`) | A interface web e qualquer uso interativo |
+| Token de serviço | Header `X-Api-Token` com o valor de `EVAL_API_TOKEN`. Sem cookie e sem CSRF | Scripts e programas não interativos (o notebook de avaliação de modelos) |
+
+O token de serviço só existe enquanto `EVAL_API_TOKEN` estiver definido no ambiente do Producer — sem essa variável, o header não autentica nada. As requisições feitas com ele agem como a conta `evaluation@auditor.local`, criada no *seed* e com perfil de **auditor**: pode enviar lotes e ler resultados, mas não apagar nem restaurar auditorias. Os lotes continuam atribuídos a ela no `access_log`.
+
+```bash
+curl -X POST "http://localhost:3001/batches?model=phi-4&seed=42" \
+  -H "X-Api-Token: $EVAL_API_TOKEN" \
+  --data-binary @registros.txt
+```
+
+**Respostas de falha:** `401` sem credencial, com token inválido ou com a conta de serviço inexistente/inativa; `403` com CSRF inválido, com senha de primeiro acesso pendente, ou quando a rota exige perfil de administrador.

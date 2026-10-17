@@ -60,16 +60,17 @@ function ItemEditor({ item, draft, onChange, isMobile }) {
 }
 
 /**
- * One audited item. With `edit`, an item that has a `ref` can be changed: `edit.drafts` holds the
- * unsaved changes by `refKey`, `edit.originals` what the automatic audit produced, and
- * `edit.onChange(ref, draft | null)` records a draft (null drops it).
+ * One audited item. `edit.originals` is what the automatic audit produced, shown next to anything
+ * an auditor changed. With `edit.editing`, an item that has a `ref` can be changed as well:
+ * `edit.drafts` holds the unsaved changes by `refKey` and `edit.onChange(ref, draft | null)`
+ * records a draft (null drops it).
  */
 function ItemRow({ it, isMobile, edit }) {
   const key = it.ref ? refKey(it.ref) : null;
   const draft = key && edit ? edit.drafts[key] : undefined;
   const original = key && edit ? edit.originals[key] : undefined;
   const changedFromOriginal = original !== undefined && original !== null && String(it.valor) !== String(original.value ?? 'N/A');
-  const editable = Boolean(edit && it.ref);
+  const editable = Boolean(edit?.editing && it.ref);
   const color = draft ? statusCfg[draft.status].color : statusCfg[it.status]?.color || '#00e676';
 
   function handleChange(patch) {

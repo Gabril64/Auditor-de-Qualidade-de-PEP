@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { fetchAuditById, saveAuditRevision } from '../../data/apiClient.js';
 import { changesFromDrafts, refKey } from '../../domain/auditValue.js';
 import { ResultCard } from '../components/AuditReport.jsx';
+import ChangeHistory from '../components/ChangeHistory.jsx';
 
 const SUBMITTED_AT = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' };
 
@@ -50,6 +51,27 @@ function RawRecordPanel({ raw, isMobile }) {
   );
 }
 
+/** The edit symbol: a pencil, on the button that turns the audited items into fields. */
+function PencilIcon({ size = 14 }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M12 20h9" />
+      <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+    </svg>
+  );
+}
+
 const panelStyle = { background: 'var(--bg2)', border: '1px solid var(--border)', borderRadius: 12, padding: 16, minWidth: 0 };
 
 export default function AuditDetailView({ auditId, onBack, isMobile }) {
@@ -60,6 +82,7 @@ export default function AuditDetailView({ auditId, onBack, isMobile }) {
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState(null);
   const [conflict, setConflict] = useState(false);
+  const [editing, setEditing] = useState(false);
 
   async function load() {
     setLoading(true);
@@ -69,6 +92,7 @@ export default function AuditDetailView({ auditId, onBack, isMobile }) {
       setDrafts({});
       setSaveError(null);
       setConflict(false);
+      setEditing(false);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -81,7 +105,6 @@ export default function AuditDetailView({ auditId, onBack, isMobile }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auditId]);
 
-  // What the automatic audit produced, by item, to show next to anything an auditor changed.
   const originals = useMemo(() => {
     const byKey = {};
     for (const row of detail?.fields ?? []) byKey[refKey(row)] = row;
@@ -114,6 +137,13 @@ export default function AuditDetailView({ auditId, onBack, isMobile }) {
     }
   }
 
+  /** Turns editing on and off; leaving it drops whatever was not saved, after asking. */
+  function toggleEditing() {
+    if (editing && pending > 0 && !window.confirm('Há alterações não salvas. Sair da edição e descartá-las?')) return;
+    if (editing) setDrafts({});
+    setEditing((on) => !on);
+  }
+
   function handleBack() {
     if (pending > 0 && !window.confirm('Há alterações não salvas. Sair mesmo assim?')) return;
     onBack();
@@ -142,16 +172,31 @@ export default function AuditDetailView({ auditId, onBack, isMobile }) {
     <div style={{ padding: pad }}>
       <button onClick={handleBack} style={linkButton}>← Voltar ao dashboard</button>
 
-      <div style={{ margin: '16px 0 20px' }}>
-        <h1 style={{ fontSize: isMobile ? 20 : 26, fontWeight: 700, letterSpacing: '-0.03em' }}>
-          Prontuário {detail.record_number_display || detail.record_number}
-        </h1>
-        <p style={{ color: 'var(--text2)', fontSize: 12, fontFamily: 'var(--mono)', marginTop: 6 }}>
-          {detail.encounter ? `Atendimento ${detail.encounter} · ` : ''}
-          {edited
-            ? `editado em ${new Date(detail.updated_at).toLocaleString('pt-BR', SUBMITTED_AT)}${typeof original === 'number' ? ` · original da auditoria: ${original}%` : ''}`
-            : 'como saiu da auditoria automática'}
-        </p>
+      <div style={{ margin: '16px 0 20px', display: 'flex', alignItems: 'flex-start', gap: 12, flexWrap: 'wrap' }}>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <h1 style={{ fontSize: isMobile ? 20 : 26, fontWeight: 700, letterSpacing: '-0.03em' }}>
+            Prontuário {detail.record_number_display || detail.record_number}
+          </h1>
+          <p style={{ color: 'var(--text2)', fontSize: 12, fontFamily: 'var(--mono)', marginTop: 6 }}>
+            {detail.encounter ? `Atendimento ${detail.encounter} · ` : ''}
+            {edited
+              ? `editado em ${new Date(detail.updated_at).toLocaleString('pt-BR', SUBMITTED_AT)}${typeof original === 'number' ? ` · original da auditoria: ${original}%` : ''}`
+              : 'como saiu da auditoria automática'}
+          </p>
+        </div>
+
+        {!detail.deleted_at && (
+          <button
+            onClick={toggleEditing}
+            aria-pressed={editing}
+            aria-label={editing ? 'Concluir a edição desta auditoria' : 'Editar esta auditoria'}
+            title={editing ? 'Concluir edição' : 'Editar auditoria'}
+            style={editing ? { ...primaryButton, ...editButton } : { ...secondaryButton, ...editButton }}
+          >
+            <PencilIcon />
+            {editing ? 'Concluir edição' : 'Editar'}
+          </button>
+        )}
       </div>
 
       {pending > 0 && (
@@ -193,7 +238,7 @@ export default function AuditDetailView({ auditId, onBack, isMobile }) {
             <ResultCard
               r={detail.audit}
               isMobile={isMobile}
-              edit={{ drafts, originals, onChange: handleChange }}
+              edit={{ drafts, originals, onChange: handleChange, editing }}
             />
           ) : (
             <div style={{ ...panelStyle, color: 'var(--text2)', fontSize: 13 }}>Esta auditoria não pôde ser exibida.</div>
@@ -207,6 +252,13 @@ export default function AuditDetailView({ auditId, onBack, isMobile }) {
           </div>
         </div>
       </div>
+
+      {(editing || (detail.history ?? []).length > 0) && (
+        <section style={{ marginTop: 24 }}>
+          <h2 style={sideTitle}>Histórico de alterações</h2>
+          <ChangeHistory history={detail.history} audit={detail.audit} isMobile={isMobile} />
+        </section>
+      )}
     </div>
   );
 }
@@ -219,6 +271,8 @@ const secondaryButton = {
   background: 'var(--bg3)', border: '1px solid var(--border2)', color: 'var(--text2)',
   borderRadius: 8, padding: '7px 14px', fontSize: 12, cursor: 'pointer',
 };
+
+const editButton = { display: 'inline-flex', alignItems: 'center', gap: 6, flexShrink: 0 };
 
 const primaryButton = {
   background: 'var(--accent)', border: '1px solid var(--accent)', color: '#00131a',

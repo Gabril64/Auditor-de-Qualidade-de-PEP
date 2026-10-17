@@ -44,11 +44,15 @@
     "campos_ok": [],
     "chamadas": 9,
     "chamadas_ok": 9,
+    "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
-    "tentativas_total": 9
+    "temperature": 0.0,
+    "tentativas_total": 9,
+    "top_k": 1,
+    "top_p": 1.0
    },
    "conformity_a": {
     "percent": 87.5,
@@ -221,11 +225,15 @@
     "campos_ok": [],
     "chamadas": 9,
     "chamadas_ok": 9,
+    "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
-    "tentativas_total": 9
+    "temperature": 0.0,
+    "tentativas_total": 9,
+    "top_k": 1,
+    "top_p": 1.0
    },
    "conformity_a": {
     "percent": 71.42857142857143,
@@ -391,11 +399,15 @@
     "campos_ok": [],
     "chamadas": 7,
     "chamadas_ok": 7,
+    "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
-    "tentativas_total": 7
+    "temperature": 0.0,
+    "tentativas_total": 7,
+    "top_k": 1,
+    "top_p": 1.0
    },
    "conformity_a": {
     "percent": 87.5,
@@ -563,11 +575,15 @@
     "campos_ok": [],
     "chamadas": 7,
     "chamadas_ok": 7,
+    "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
-    "tentativas_total": 7
+    "temperature": 0.0,
+    "tentativas_total": 7,
+    "top_k": 1,
+    "top_p": 1.0
    },
    "conformity_a": {
     "percent": 87.5,
@@ -746,11 +762,15 @@
     "campos_ok": [],
     "chamadas": 8,
     "chamadas_ok": 8,
+    "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
-    "tentativas_total": 8
+    "temperature": 0.0,
+    "tentativas_total": 8,
+    "top_k": 1,
+    "top_p": 1.0
    },
    "conformity_a": {
     "percent": 71.42857142857143,
@@ -916,11 +936,15 @@
     "campos_ok": [],
     "chamadas": 5,
     "chamadas_ok": 5,
+    "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
-    "tentativas_total": 5
+    "temperature": 0.0,
+    "tentativas_total": 5,
+    "top_k": 1,
+    "top_p": 1.0
    },
    "conformity_a": {
     "percent": 87.5,
@@ -1089,11 +1113,15 @@
     "campos_ok": [],
     "chamadas": 7,
     "chamadas_ok": 7,
+    "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
-    "tentativas_total": 7
+    "temperature": 0.0,
+    "tentativas_total": 7,
+    "top_k": 1,
+    "top_p": 1.0
    },
    "conformity_a": {
     "percent": 87.5,
@@ -1272,11 +1300,15 @@
     "campos_ok": [],
     "chamadas": 10,
     "chamadas_ok": 10,
+    "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
-    "tentativas_total": 10
+    "temperature": 0.0,
+    "tentativas_total": 10,
+    "top_k": 1,
+    "top_p": 1.0
    },
    "conformity_a": {
     "percent": 71.42857142857143,
@@ -1445,11 +1477,15 @@
     "campos_ok": [],
     "chamadas": 6,
     "chamadas_ok": 6,
+    "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
-    "tentativas_total": 6
+    "temperature": 0.0,
+    "tentativas_total": 6,
+    "top_k": 1,
+    "top_p": 1.0
    },
    "conformity_a": {
     "percent": 87.5,
@@ -1621,11 +1657,15 @@
     "campos_ok": [],
     "chamadas": 8,
     "chamadas_ok": 8,
+    "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
-    "tentativas_total": 8
+    "temperature": 0.0,
+    "tentativas_total": 8,
+    "top_k": 1,
+    "top_p": 1.0
    },
    "conformity_a": {
     "percent": 87.5,
@@ -1801,11 +1841,15 @@
     "campos_ok": [],
     "chamadas": 7,
     "chamadas_ok": 7,
+    "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
-    "tentativas_total": 7
+    "temperature": 0.0,
+    "tentativas_total": 7,
+    "top_k": 1,
+    "top_p": 1.0
    },
    "conformity_a": {
     "percent": 71.42857142857143,
@@ -1971,11 +2015,15 @@
     "campos_ok": [],
     "chamadas": 6,
     "chamadas_ok": 6,
+    "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
-    "tentativas_total": 6
+    "temperature": 0.0,
+    "tentativas_total": 6,
+    "top_k": 1,
+    "top_p": 1.0
    },
    "conformity_a": {
     "percent": 87.5,
@@ -2151,11 +2199,15 @@
     "campos_ok": [],
     "chamadas": 9,
     "chamadas_ok": 9,
+    "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
-    "tentativas_total": 9
+    "temperature": 0.0,
+    "tentativas_total": 9,
+    "top_k": 1,
+    "top_p": 1.0
    },
    "conformity_a": {
     "percent": 87.5,
@@ -2315,11 +2367,15 @@
     "campos_ok": [],
     "chamadas": 5,
     "chamadas_ok": 5,
+    "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
-    "tentativas_total": 5
+    "temperature": 0.0,
+    "tentativas_total": 5,
+    "top_k": 1,
+    "top_p": 1.0
    },
    "conformity_a": {
     "percent": 87.5,
@@ -2484,11 +2540,15 @@
     "campos_ok": [],
     "chamadas": 8,
     "chamadas_ok": 8,
+    "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
-    "tentativas_total": 8
+    "temperature": 0.0,
+    "tentativas_total": 8,
+    "top_k": 1,
+    "top_p": 1.0
    },
    "conformity_a": {
     "percent": 87.5,
@@ -2658,11 +2718,15 @@
     "campos_ok": [],
     "chamadas": 7,
     "chamadas_ok": 7,
+    "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
-    "tentativas_total": 7
+    "temperature": 0.0,
+    "tentativas_total": 7,
+    "top_k": 1,
+    "top_p": 1.0
    },
    "conformity_a": {
     "percent": 87.5,

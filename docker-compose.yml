@@ -20,6 +20,11 @@ services:
       - REDIS_HOST=redis
       - PYTHONUNBUFFERED=1
       - LMSTUDIO_URL=http://host.docker.internal:1234/api/v1/chat
+      # Greedy decoding: what makes an audit reproducible. The endpoint rejects a "seed",
+      # so these three are the whole determinism contract. Do not change them mid-study.
+      - AI_TEMPERATURE=${AI_TEMPERATURE:-0}
+      - AI_TOP_K=${AI_TOP_K:-1}
+      - AI_TOP_P=${AI_TOP_P:-1}
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
@@ -40,6 +45,7 @@ services:
       - SQLITE_DB_PATH=/app/data/auditor.db
       - ADMIN_EMAIL=${ADMIN_EMAIL:-admin@auditor.local}
       - ADMIN_PASSWORD=${ADMIN_PASSWORD:-}
+      - EVAL_API_TOKEN=${EVAL_API_TOKEN:-}
     volumes:
       - audit-data:/app/data
     restart: unless-stopped

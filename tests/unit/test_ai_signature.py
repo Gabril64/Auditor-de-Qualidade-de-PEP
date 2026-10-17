@@ -131,48 +131,54 @@ def _server(handler_fn):
     return srv
 
 
-def test_seed_is_sent_to_the_model(monkeypatch):
+def test_decoding_is_pinned_in_every_request(monkeypatch):
+    """Greedy decoding is what makes a run reproducible, so it travels in every payload."""
     seen = []
 
     def handler(body):
-        seen.append(body.get("seed"))
+        seen.append({k: body.get(k) for k in ("temperature", "top_k", "top_p")})
         return 200, {"choices": [{"message": {"content": '{"hda": "x"}'}}]}
 
     srv = _server(handler)
     monkeypatch.setattr(llm_client, "LMSTUDIO_URL", f"http://127.0.0.1:{srv.server_port}/")
-    monkeypatch.setattr(llm_client, "AI_SEED", 42)
     r = llm_client.query_ai_fields("texto", ["hda"], "x")
     srv.shutdown()
-    assert seen == [42] and r["status"] == "ok" and r["seed_applied"] is True
+    assert seen == [{"temperature": 0.0, "top_k": 1, "top_p": 1.0}]
+    assert r["sampling"] == {"temperature": 0.0, "top_k": 1, "top_p": 1.0}
 
 
-def test_no_seed_configured_sends_none(monkeypatch):
+def test_seed_is_never_sent_because_the_endpoint_rejects_it(monkeypatch):
+    """LMStudio's /api/v1/chat answers 400 "Unrecognized key(s) in object: 'seed'". Sending it
+    would cost a rejected request on every call, so the seed is recorded, never requested."""
     seen = []
 
     def handler(body):
-        seen.append("seed" in body)
+        seen.append(sorted(body))
         return 200, {"choices": [{"message": {"content": '{"hda": "x"}'}}]}
 
     srv = _server(handler)
     monkeypatch.setattr(llm_client, "LMSTUDIO_URL", f"http://127.0.0.1:{srv.server_port}/")
-    monkeypatch.setattr(llm_client, "AI_SEED", None)
     r = llm_client.query_ai_fields("texto", ["hda"], "x")
     srv.shutdown()
-    assert seen == [False] and r["seed_applied"] is None
+    assert seen == [["input", "model", "system_prompt", "temperature", "top_k", "top_p"]]
+    assert r["status"] == "ok"
 
 
-def test_server_rejecting_seed_is_reported_not_silent(monkeypatch):
+def test_a_rejected_request_is_reported_not_retried_silently(monkeypatch):
+    calls = []
+
     def handler(body):
-        if "seed" in body:
-            return 400, {"error": "Unrecognized key 'seed'"}
-        return 200, {"choices": [{"message": {"content": '{"hda": "x"}'}}]}
+        calls.append(1)
+        return 400, {"error": "Unrecognized key(s) in object: 'foo'"}
 
     srv = _server(handler)
     monkeypatch.setattr(llm_client, "LMSTUDIO_URL", f"http://127.0.0.1:{srv.server_port}/")
-    monkeypatch.setattr(llm_client, "AI_SEED", 42)
+    monkeypatch.setattr(llm_client, "AI_MAX_ATTEMPTS", 2)
+    monkeypatch.setattr(llm_client, "AI_RETRY_DELAY_SECONDS", 0)
     r = llm_client.query_ai_fields("texto", ["hda"], "x")
     srv.shutdown()
-    assert r["status"] == "ok" and r["seed_applied"] is False
+    assert r["status"] == "http_error" and "400" in r["error"]
+    assert len(calls) == 2, "each attempt is one request: no hidden extra call"
 
 
 def test_hd_cid_does_not_match_flacido():

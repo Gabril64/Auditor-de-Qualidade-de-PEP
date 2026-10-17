@@ -1,7 +1,11 @@
 """Talks to the LMStudio endpoint to fill in fields the keyword rules left as "Não registrado".
 
-AI_SEED comes from the evaluation notebook (Producer -> Worker -> env LLM_SEED), for reproducible
-runs. AI_MAX_CONTEXT_CHARS caps a record's text sent to the AI so small models' context does not
+AI_TEMPERATURE/AI_TOP_K/AI_TOP_P pin the decoding so two runs of the same record produce the same
+audit. The defaults (0, 1, 1) are greedy decoding: the most likely token is always taken, which
+removes sampling from the result. The endpoint does NOT accept a "seed" (it answers
+400 "Unrecognized key(s) in object: 'seed'"), so reproducibility here comes from greedy decoding
+and not from a seed; the seed the notebook asks for is only recorded, by auditor._new_ai_meta.
+AI_MAX_CONTEXT_CHARS caps a record's text sent to the AI so small models' context does not
 overflow. AI_OK/AI_TIMEOUT/AI_HTTP_ERROR/AI_INVALID_JSON/AI_EMPTY_RESPONSE/AI_MISSING_FIELDS are
 the possible outcomes of one AI call; query_ai_fields()'s docstring lists them with "status".
 """
@@ -15,8 +19,9 @@ import urllib.request
 
 LMSTUDIO_URL = os.environ.get("LMSTUDIO_URL", "http://localhost:1234/api/v1/chat")
 MODEL_NAME = os.environ.get("LLM_MODEL", "qwen2.5-3b-instruct")
-_seed_env = os.environ.get("LLM_SEED", "").strip()
-AI_SEED = int(_seed_env) if _seed_env.lstrip("-").isdigit() else None
+AI_TEMPERATURE = float(os.environ.get("AI_TEMPERATURE", "0"))
+AI_TOP_K = int(os.environ.get("AI_TOP_K", "1"))
+AI_TOP_P = float(os.environ.get("AI_TOP_P", "1"))
 AI_MAX_CONTEXT_CHARS = int(os.environ.get("AI_MAX_CONTEXT_CHARS", "6000"))
 AI_MAX_ATTEMPTS = int(os.environ.get("AI_MAX_ATTEMPTS", "3"))
 AI_TIMEOUT_SECONDS = int(os.environ.get("AI_TIMEOUT_SECONDS", "300"))
@@ -105,19 +110,13 @@ def _post(payload):
 
 
 def _single_attempt(payload, missing_fields):
-    """One call to LMStudio. Returns (status, fields, error). If the server rejects the "seed"
-    field, retries once without it; `seed_applied` below is what records that it was NOT applied."""
+    """One call to LMStudio. Returns (status, fields, error)."""
     try:
         try:
             response_data = _post(payload)
         except urllib.error.HTTPError as e:
             body = e.read().decode("utf-8", errors="replace")
-            if e.code in (400, 422) and "seed" in payload and "seed" in body.lower():
-                sys.stderr.write(f"  [AI Fallback] Servidor rejeitou 'seed' ({e.code}); repetindo sem seed.\n")
-                payload.pop("seed")
-                response_data = _post(payload)
-            else:
-                return AI_HTTP_ERROR, {}, f"HTTP {e.code}: {body[:200]}"
+            return AI_HTTP_ERROR, {}, f"HTTP {e.code}: {body[:200]}"
         result_json = json.loads(response_data)
     except (socket.timeout, TimeoutError) as e:
         return AI_TIMEOUT, {}, f"timeout após {AI_TIMEOUT_SECONDS}s: {e}"
@@ -164,7 +163,7 @@ def query_ai_fields(text, missing_fields, record_type):
       "error": str | None,              # reason for the last failure
       "attempts": int,
       "latency": float,                 # seconds summed across every attempt
-      "seed_applied": None | bool,      # None = no seed configured; False = server rejected the seed
+      "sampling": dict,                 # the decoding actually sent (temperature, top_k, top_p)
     }
     status is "ok" only when EVERY requested key came back in the JSON
     (a null value is a valid answer: the AI looked and found nothing).
@@ -173,9 +172,16 @@ def query_ai_fields(text, missing_fields, record_type):
         return {"status": AI_OK, "fields": {}, "error": None, "attempts": 0, "latency": 0.0}
 
     system_prompt, input_text = _build_prompts(text, missing_fields, record_type)
-    payload = {"model": MODEL_NAME, "system_prompt": system_prompt, "input": input_text}
-    if AI_SEED is not None:
-        payload["seed"] = AI_SEED
+    # The decoding goes in every request: without it the server applies its own default
+    # temperature, which is what made earlier runs non-reproducible.
+    payload = {
+        "model": MODEL_NAME,
+        "system_prompt": system_prompt,
+        "input": input_text,
+        "temperature": AI_TEMPERATURE,
+        "top_k": AI_TOP_K,
+        "top_p": AI_TOP_P,
+    }
 
     started_at = time.time()
     status, fields, error = AI_HTTP_ERROR, {}, None
@@ -195,7 +201,7 @@ def query_ai_fields(text, missing_fields, record_type):
         "error": error,
         "attempts": attempts,
         "latency": time.time() - started_at,
-        "seed_applied": None if AI_SEED is None else ("seed" in payload),
+        "sampling": {"temperature": AI_TEMPERATURE, "top_k": AI_TOP_K, "top_p": AI_TOP_P},
     }
 
 

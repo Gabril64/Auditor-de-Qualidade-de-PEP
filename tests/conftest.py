@@ -130,9 +130,8 @@ def audit_env(monkeypatch, tmp_path):
 
     monkeypatch.setattr(llm_client, "AI_MAX_ATTEMPTS", 3)
     monkeypatch.setattr(llm_client, "AI_RETRY_DELAY_SECONDS", 0)
-    monkeypatch.setattr(llm_client, "AI_SEED", None)
     monkeypatch.setattr(auditor, "MODEL_NAME", "modelo-de-teste")
-    monkeypatch.setattr(auditor, "AI_SEED", None)
+    monkeypatch.setattr(auditor, "SEED_REQUESTED", None)
     (tmp_path / "core").mkdir()
     monkeypatch.setattr(auditor, "__file__", str(tmp_path / "core" / "auditor.py"))
 

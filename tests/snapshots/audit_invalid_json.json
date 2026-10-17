@@ -112,11 +112,15 @@
     "campos_ok": [],
     "chamadas": 9,
     "chamadas_ok": 0,
+    "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
-    "tentativas_total": 27
+    "temperature": 0.0,
+    "tentativas_total": 27,
+    "top_k": 1,
+    "top_p": 1.0
    },
    "conformity_a": {
     "percent": 87.5,
@@ -348,11 +352,15 @@
     "campos_ok": [],
     "chamadas": 8,
     "chamadas_ok": 0,
+    "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
-    "tentativas_total": 24
+    "temperature": 0.0,
+    "tentativas_total": 24,
+    "top_k": 1,
+    "top_p": 1.0
    },
    "conformity_a": {
     "percent": 87.5,
@@ -541,11 +549,15 @@
     "campos_ok": [],
     "chamadas": 5,
     "chamadas_ok": 0,
+    "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
-    "tentativas_total": 15
+    "temperature": 0.0,
+    "tentativas_total": 15,
+    "top_k": 1,
+    "top_p": 1.0
    },
    "conformity_a": {
     "percent": 87.5,

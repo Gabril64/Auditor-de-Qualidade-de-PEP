@@ -1,4 +1,5 @@
 import { generatePassword, hashPassword } from "./auth/passwords.js";
+import { configuredServiceToken, ensureServiceUser, serviceUserEmail } from "./auth/serviceToken.js";
 import { getDb } from "./db/connection.js";
 import { errorMessage } from "./errorMessage.js";
 
@@ -37,5 +38,17 @@ export async function runSeed(): Promise<void> {
     }
   } catch (error) {
     console.error("[Seed] Failed to seed the administrator:", errorMessage(error));
+  }
+
+  if (!configuredServiceToken()) return;
+  try {
+    const outcome = await ensureServiceUser();
+    console.log(
+      outcome === "created"
+        ? `[Seed] Service account created for EVAL_API_TOKEN: ${serviceUserEmail()}`
+        : `[Seed] Service account already exists: ${serviceUserEmail()}`,
+    );
+  } catch (error) {
+    console.error("[Seed] Failed to seed the service account:", errorMessage(error));
   }
 }

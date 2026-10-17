@@ -1,12 +1,20 @@
 import type { NextFunction, Request, RequestHandler, Response } from "express";
 import { findUserById, type Role, type UserRow } from "../repositories/users.js";
 import { parseCookies, SESSION_COOKIE } from "./cookies.js";
+import {
+  configuredServiceToken,
+  findServiceUser,
+  matchesServiceToken,
+  SERVICE_TOKEN_HEADER,
+  serviceUserEmail,
+} from "./serviceToken.js";
 import { readSession } from "./sessions.js";
 
 export interface AuthContext {
   user: UserRow;
-  sessionId: string;
-  csrfToken: string;
+  /** Null when the request authenticated with the service token, which has no session. */
+  sessionId: string | null;
+  csrfToken: string | null;
 }
 
 const UNSAFE_METHODS = new Set(["POST", "PUT", "PATCH", "DELETE"]);
@@ -18,8 +26,34 @@ export function authContext(res: Response): AuthContext {
 }
 
 /** Requires a valid session of an active user, a matching CSRF token on requests that change
- * state, and a completed first-login password change. Everything mounted after it is protected. */
+ * state, and a completed first-login password change. Everything mounted after it is protected.
+ *
+ * Non-interactive callers (the model-evaluation notebook, other local programs) may instead send
+ * the service token in `X-Api-Token`. That path exists only while `EVAL_API_TOKEN` is set, needs
+ * no CSRF token since it carries no cookie, and acts as the service account — an auditor, so it
+ * can submit batches and read results, but not delete or restore audits. */
 export const authenticate: RequestHandler = async (req: Request, res: Response, next: NextFunction) => {
+  const presentedToken = req.get(SERVICE_TOKEN_HEADER);
+  if (presentedToken !== undefined) {
+    if (!matchesServiceToken(presentedToken)) {
+      const reason = configuredServiceToken() ? "Invalid service token" : "Service token authentication is disabled";
+      res.status(401).json({ error: reason });
+      return;
+    }
+
+    const serviceUser = findServiceUser();
+    if (!serviceUser || serviceUser.active !== 1) {
+      res.status(401).json({
+        error: `The service account ${serviceUserEmail()} does not exist or is inactive. Restart the Producer to recreate it.`,
+      });
+      return;
+    }
+
+    res.locals.auth = { user: serviceUser, sessionId: null, csrfToken: null } satisfies AuthContext;
+    next();
+    return;
+  }
+
   const sessionId = parseCookies(req.headers.cookie)[SESSION_COOKIE];
   const session = sessionId ? await readSession(sessionId) : null;
   const user = session ? findUserById(session.userId) : null;

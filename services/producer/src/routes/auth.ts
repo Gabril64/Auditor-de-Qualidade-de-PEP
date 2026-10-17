@@ -31,6 +31,10 @@ authRouter.get("/api/auth/me", (_req, res) => {
 authRouter.post("/api/auth/logout", async (_req, res) => {
   try {
     const { user, sessionId } = authContext(res);
+    if (!sessionId) {
+      res.status(400).json({ error: "A service-token request has no session to end" });
+      return;
+    }
     await logout(user.id, user.email, sessionId);
     res.setHeader("Set-Cookie", clearedSessionCookie());
     res.status(204).end();
