@@ -45,6 +45,7 @@
     ],
     "chamadas": 9,
     "chamadas_ok": 9,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -227,6 +228,7 @@
     ],
     "chamadas": 9,
     "chamadas_ok": 9,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -402,6 +404,7 @@
     ],
     "chamadas": 7,
     "chamadas_ok": 7,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -497,7 +500,7 @@
     "criacao_anamnese": "conforme",
     "exame_fisico": "não conforme (Faltam: Cardiovascular, Abdome)",
     "hd_cid": "conforme",
-    "hda": "Não registrado"
+    "hda": "Não registrado (IA: null)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "conforme",
@@ -579,6 +582,7 @@
     ],
     "chamadas": 7,
     "chamadas_ok": 7,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -767,6 +771,7 @@
     ],
     "chamadas": 8,
     "chamadas_ok": 8,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -942,6 +947,7 @@
     ],
     "chamadas": 5,
     "chamadas_ok": 5,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -1030,7 +1036,7 @@
     "unidade_funcional": "Unidade Coronariana"
    },
    "secao_b_anamnese": {
-    "af": "Não registrado",
+    "af": "Não registrado (IA: null)",
     "ap_app": "conforme",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
@@ -1120,6 +1126,7 @@
     ],
     "chamadas": 7,
     "chamadas_ok": 7,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -1308,6 +1315,7 @@
     ],
     "chamadas": 10,
     "chamadas_ok": 10,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -1433,7 +1441,7 @@
     "cd": "conforme",
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme",
-    "escala_morse": "Não registrado",
+    "escala_morse": "Não registrado (IA: null)",
     "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
     "motivo_internacao": "conforme (IA: trecho[motivo_internacao]: paciente masculino, 54 anos, internado e)"
    },
@@ -1486,6 +1494,7 @@
     ],
     "chamadas": 6,
     "chamadas_ok": 6,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -1608,7 +1617,7 @@
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
-    "motivo_internacao": "Não registrado"
+    "motivo_internacao": "Não registrado (IA: null)"
    },
    "secao_d_evolucao": {
     "condutas": "conforme",
@@ -1667,6 +1676,7 @@
     ],
     "chamadas": 8,
     "chamadas_ok": 8,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -1852,6 +1862,7 @@
     ],
     "chamadas": 7,
     "chamadas_ok": 7,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -2027,6 +2038,7 @@
     ],
     "chamadas": 6,
     "chamadas_ok": 6,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -2212,6 +2224,7 @@
     ],
     "chamadas": 9,
     "chamadas_ok": 9,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -2381,6 +2394,7 @@
     ],
     "chamadas": 5,
     "chamadas_ok": 5,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -2555,6 +2569,7 @@
     ],
     "chamadas": 8,
     "chamadas_ok": 8,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -2645,11 +2660,11 @@
    },
    "secao_b_anamnese": {
     "af": "conforme",
-    "ap_app": "Não registrado",
+    "ap_app": "Não registrado (IA: null)",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
     "exame_fisico": "não conforme (Faltam: Cardiovascular)",
-    "hd_cid": "Não registrado",
+    "hd_cid": "Não registrado (IA: null)",
     "hda": "conforme (validado por IA)"
    },
    "secao_b_evolucao": {
@@ -2734,6 +2749,7 @@
     ],
     "chamadas": 7,
     "chamadas_ok": 7,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -2828,7 +2844,7 @@
     "criacao_anamnese": "conforme",
     "exame_fisico": "não conforme (Faltam: Cardiovascular, Respiratório)",
     "hd_cid": "conforme",
-    "hda": "Não registrado"
+    "hda": "Não registrado (IA: null)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "conforme",

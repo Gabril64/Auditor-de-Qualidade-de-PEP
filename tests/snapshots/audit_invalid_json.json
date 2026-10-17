@@ -112,13 +112,14 @@
     "campos_ok": [],
     "chamadas": 9,
     "chamadas_ok": 0,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
     "temperature": 0.0,
-    "tentativas_total": 27,
+    "tentativas_total": 9,
     "top_k": 1,
     "top_p": 1.0
    },
@@ -206,12 +207,12 @@
    },
    "secao_b_anamnese": {
     "af": "conforme",
-    "ap_app": "Não registrado",
+    "ap_app": "Não registrado (IA_NAO_EXECUTADA: invalid_json)",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
     "exame_fisico": "conforme",
     "hd_cid": "conforme",
-    "hda": "Não registrado"
+    "hda": "Não registrado (IA_NAO_EXECUTADA: invalid_json)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "conforme",
@@ -231,14 +232,14 @@
     "uso_opme": "conforme (placa, parafuso)"
    },
    "secao_d_anamnese": {
-    "af": "Não registrado",
-    "ap_app": "Não registrado",
+    "af": "Não registrado (IA_NAO_EXECUTADA: invalid_json)",
+    "ap_app": "Não registrado (IA_NAO_EXECUTADA: invalid_json)",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Cardiovascular, Gastrointestinal, Genitourinário, Músculo-esquelético)",
-    "motivo_internacao": "Não registrado"
+    "motivo_internacao": "Não registrado (IA_NAO_EXECUTADA: invalid_json)"
    },
    "secao_d_evolucao": {
     "condutas": "Não registrado (IA_NAO_EXECUTADA: invalid_json — dia 16/03, 17/03, 18/03)",
@@ -352,13 +353,14 @@
     "campos_ok": [],
     "chamadas": 8,
     "chamadas_ok": 0,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
     "temperature": 0.0,
-    "tentativas_total": 24,
+    "tentativas_total": 8,
     "top_k": 1,
     "top_p": 1.0
    },
@@ -450,7 +452,7 @@
     "criacao_anamnese": "não conforme (criada 13h15 após a internação; prazo de 12h)",
     "exame_fisico": "não conforme (Faltam: Cardiovascular, Respiratório)",
     "hd_cid": "conforme",
-    "hda": "Não registrado"
+    "hda": "Não registrado (IA_NAO_EXECUTADA: invalid_json)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "conforme",
@@ -470,14 +472,14 @@
     "uso_opme": "conforme (haste, cimento ósseo)"
    },
    "secao_d_anamnese": {
-    "af": "Não registrado",
-    "ap_app": "Não registrado",
+    "af": "Não registrado (IA_NAO_EXECUTADA: invalid_json)",
+    "ap_app": "Não registrado (IA_NAO_EXECUTADA: invalid_json)",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
-    "escala_braden": "Não registrado",
+    "escala_braden": "Não registrado (IA_NAO_EXECUTADA: invalid_json)",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Genitourinário)",
-    "motivo_internacao": "Não registrado"
+    "motivo_internacao": "Não registrado (IA_NAO_EXECUTADA: invalid_json)"
    },
    "secao_d_evolucao": {
     "condutas": "Não registrado (IA_NAO_EXECUTADA: invalid_json — dia 14/11)",
@@ -549,13 +551,14 @@
     "campos_ok": [],
     "chamadas": 5,
     "chamadas_ok": 0,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
     "seed": null,
     "seed_aplicada": null,
     "temperature": 0.0,
-    "tentativas_total": 15,
+    "tentativas_total": 5,
     "top_k": 1,
     "top_p": 1.0
    },
@@ -642,7 +645,7 @@
     "criacao_anamnese": "conforme",
     "exame_fisico": "conforme",
     "hd_cid": "conforme",
-    "hda": "Não registrado"
+    "hda": "Não registrado (IA_NAO_EXECUTADA: invalid_json)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "conforme",
@@ -669,7 +672,7 @@
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
-    "motivo_internacao": "Não registrado"
+    "motivo_internacao": "Não registrado (IA_NAO_EXECUTADA: invalid_json)"
    },
    "secao_d_evolucao": {
     "condutas": "conforme",

@@ -12,11 +12,14 @@ the possible outcomes of one AI call; query_ai_fields()'s docstring lists them w
 """
 import json
 import os
+import re
 import socket
 import sys
 import time
 import urllib.error
 import urllib.request
+
+from data_extract.utils.text_match import normalize
 
 LMSTUDIO_URL = os.environ.get("LMSTUDIO_URL", "http://localhost:1234/v1/chat/completions")
 MODEL_NAME = os.environ.get("LLM_MODEL", "qwen2.5-3b-instruct")
@@ -36,6 +39,11 @@ AI_HTTP_ERROR = "http_error"
 AI_INVALID_JSON = "invalid_json"
 AI_EMPTY_RESPONSE = "empty_response"
 AI_MISSING_FIELDS = "campos_ausentes"
+
+# Repeating a call only helps when the environment hiccuped. A format failure — missing keys,
+# invalid JSON, empty answer — is deterministic under greedy decoding: the same payload gives the
+# same answer, so retrying it burns time and still fails. It is a property of the model, not luck.
+RETRYABLE = {AI_TIMEOUT, AI_HTTP_ERROR}
 
 FIELD_RULES = {
     "curativo": "Curativo (ITEM NÃO OBRIGATÓRIO — só avalie se houver menção explícita a curativo). Classifique o TIPO em uma de 3 categorias: 'simples' (feridas simples), 'especial' (feridas complexas, coberturas especiais, drenos) ou 'grau II' (lesões abertas extensas, com exposição de tecido). O curativo só está CONFORME se o TIPO foi identificado E o texto descreve TAMANHO, EXSUDATO e NECROSE. Respostas: se tudo estiver presente, retorne 'Curativo <tipo>'. Se o tipo foi identificado mas falta algo, retorne 'não conforme: Curativo <tipo>; faltou: <itens que faltam>'. Se há menção a curativo mas NÃO é possível identificar o tipo, retorne 'não conforme: tipo de curativo não identificado'. Se não houver NENHUMA menção a curativo, retorne null.",
@@ -88,6 +96,29 @@ def _extract_response_text(result_json):
         if key in result_json:
             return result_json[key]
     return str(result_json)
+
+
+def _comparable(name):
+    """Comparison form of a field name: no case, no accents, no separators."""
+    return re.sub(r"[^a-z0-9]", "", normalize(name))
+
+
+def _match_requested_keys(parsed, missing_fields):
+    """Renames answer keys that are orthographic variants of the requested field names. A model
+    answering in Portuguese often "fixes" the spelling of an unaccented key — phi-4-mini-instruct
+    answered `"diagnóstico_internacao"` for the requested `diagnostico_internacao`, with the right
+    content. The field is the same, so the variant must not be counted as an unanswered field;
+    counting it would measure spelling instead of audit quality. An exact answer always wins, and
+    a key that matches no requested field is left untouched. Returns {field: key the model used}.
+    """
+    wanted = {_comparable(field): field for field in missing_fields}
+    renamed = {}
+    for key in [k for k in parsed if k not in missing_fields]:
+        field = wanted.get(_comparable(key))
+        if field and field not in parsed:
+            parsed[field] = parsed.pop(key)
+            renamed[field] = key
+    return renamed
 
 
 def _strip_markdown(text):
@@ -157,6 +188,21 @@ def _single_attempt(payload, missing_fields):
     return AI_OK, parsed, None
 
 
+def _attempt(payload, missing_fields):
+    """One attempt with the answer's keys reconciled against the requested field names. A rename
+    can turn a "missing keys" outcome into a complete answer, which is the whole point: the content
+    was there, only the spelling of the key differed. Returns (status, fields, error, renamed)."""
+    status, fields, error = _single_attempt(payload, missing_fields)
+    renamed = _match_requested_keys(fields, missing_fields) if isinstance(fields, dict) else {}
+    for field, key in renamed.items():
+        sys.stderr.write(f"  [AI Fallback] chave '{key}' reconhecida como '{field}' (variante ortográfica).\n")
+
+    if renamed and status == AI_MISSING_FIELDS:
+        still_missing = [f for f in missing_fields if f not in fields]
+        status, error = (AI_OK, None) if not still_missing else (status, f"chaves ausentes na resposta: {still_missing}")
+    return status, fields, error, renamed
+
+
 def query_ai_fields(text, missing_fields, record_type):
     """
     Queries the LLM up to AI_MAX_ATTEMPTS times and returns a structured outcome:
@@ -167,6 +213,7 @@ def query_ai_fields(text, missing_fields, record_type):
       "attempts": int,
       "latency": float,                 # seconds summed across every attempt
       "sampling": dict,                 # the decoding actually sent (seed, temperature, top_k, top_p)
+      "renamed_keys": dict,             # {field: key the model used} for orthographic variants
     }
     status is "ok" only when EVERY requested key came back in the JSON
     (a null value is a valid answer: the AI looked and found nothing).
@@ -193,13 +240,18 @@ def query_ai_fields(text, missing_fields, record_type):
 
     started_at = time.time()
     status, fields, error = AI_HTTP_ERROR, {}, None
+    renamed = {}
     attempts = 0
     for attempts in range(1, AI_MAX_ATTEMPTS + 1):
         sys.stderr.write(f"  [AI Fallback] Chamando LMStudio para os campos: {missing_fields} (tentativa {attempts}/{AI_MAX_ATTEMPTS})...\n")
-        status, fields, error = _single_attempt(payload, missing_fields)
+        status, fields, error, attempt_renamed = _attempt(payload, missing_fields)
+        renamed.update(attempt_renamed)
         if status == AI_OK:
             break
         sys.stderr.write(f"  [AI Fallback Error] tentativa {attempts}/{AI_MAX_ATTEMPTS} falhou ({status}): {error}\n")
+        if status not in RETRYABLE:
+            sys.stderr.write(f"  [AI Fallback] {status} se repetiria igual (decodificação determinística): não insiste.\n")
+            break
         if attempts < AI_MAX_ATTEMPTS:
             time.sleep(AI_RETRY_DELAY_SECONDS)
 
@@ -209,6 +261,7 @@ def query_ai_fields(text, missing_fields, record_type):
         "error": error,
         "attempts": attempts,
         "latency": time.time() - started_at,
+        "renamed_keys": renamed,
         "sampling": {
             "seed": AI_SEED,
             "temperature": AI_TEMPERATURE,

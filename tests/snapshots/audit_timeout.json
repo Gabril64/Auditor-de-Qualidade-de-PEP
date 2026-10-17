@@ -112,6 +112,7 @@
     "campos_ok": [],
     "chamadas": 9,
     "chamadas_ok": 0,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -206,12 +207,12 @@
    },
    "secao_b_anamnese": {
     "af": "conforme",
-    "ap_app": "Não registrado",
+    "ap_app": "Não registrado (IA_NAO_EXECUTADA: timeout)",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
     "exame_fisico": "conforme",
     "hd_cid": "conforme",
-    "hda": "Não registrado"
+    "hda": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "conforme",
@@ -231,14 +232,14 @@
     "uso_opme": "conforme (placa, parafuso)"
    },
    "secao_d_anamnese": {
-    "af": "Não registrado",
-    "ap_app": "Não registrado",
+    "af": "Não registrado (IA_NAO_EXECUTADA: timeout)",
+    "ap_app": "Não registrado (IA_NAO_EXECUTADA: timeout)",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Cardiovascular, Gastrointestinal, Genitourinário, Músculo-esquelético)",
-    "motivo_internacao": "Não registrado"
+    "motivo_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_d_evolucao": {
     "condutas": "Não registrado (IA_NAO_EXECUTADA: timeout — dia 16/03, 17/03, 18/03)",
@@ -346,6 +347,7 @@
     "campos_ok": [],
     "chamadas": 9,
     "chamadas_ok": 0,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -443,12 +445,12 @@
    },
    "secao_b_anamnese": {
     "af": "conforme",
-    "ap_app": "Não registrado",
+    "ap_app": "Não registrado (IA_NAO_EXECUTADA: timeout)",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
     "exame_fisico": "conforme",
     "hd_cid": "conforme",
-    "hda": "Não registrado"
+    "hda": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "conforme",
@@ -475,7 +477,7 @@
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Pele/Mucosas, Músculo-esquelético)",
-    "motivo_internacao": "Não registrado"
+    "motivo_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_d_evolucao": {
     "condutas": "Não registrado (IA_NAO_EXECUTADA: timeout — dia 03/04, 04/04, 05/04)",
@@ -553,6 +555,7 @@
     "campos_ok": [],
     "chamadas": 7,
     "chamadas_ok": 0,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -649,7 +652,7 @@
     "criacao_anamnese": "conforme",
     "exame_fisico": "não conforme (Faltam: Cardiovascular, Abdome)",
     "hd_cid": "conforme",
-    "hda": "Não registrado"
+    "hda": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "conforme",
@@ -676,7 +679,7 @@
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Gastrointestinal, Genitourinário, Músculo-esquelético)",
-    "motivo_internacao": "Não registrado"
+    "motivo_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_d_evolucao": {
     "condutas": "conforme",
@@ -778,6 +781,7 @@
     "campos_ok": [],
     "chamadas": 7,
     "chamadas_ok": 0,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -871,13 +875,13 @@
     "unidade_funcional": "Ortopedia"
    },
    "secao_b_anamnese": {
-    "af": "Não registrado",
-    "ap_app": "Não registrado",
+    "af": "Não registrado (IA_NAO_EXECUTADA: timeout)",
+    "ap_app": "Não registrado (IA_NAO_EXECUTADA: timeout)",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
     "exame_fisico": "conforme",
     "hd_cid": "conforme",
-    "hda": "Não registrado"
+    "hda": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "não conforme (Faltam: Geral — dia 21/05)",
@@ -904,7 +908,7 @@
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
-    "motivo_internacao": "Não registrado"
+    "motivo_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_d_evolucao": {
     "condutas": "conforme",
@@ -1030,6 +1034,7 @@
     "campos_ok": [],
     "chamadas": 8,
     "chamadas_ok": 0,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -1132,7 +1137,7 @@
     "criacao_anamnese": "conforme",
     "exame_fisico": "conforme",
     "hd_cid": "conforme",
-    "hda": "Não registrado"
+    "hda": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "não conforme (Faltam: Cardiovascular — dia 03/06, 04/06)",
@@ -1152,14 +1157,14 @@
     "uso_opme": "Não se aplica"
    },
    "secao_d_anamnese": {
-    "af": "Não registrado",
-    "ap_app": "Não registrado",
+    "af": "Não registrado (IA_NAO_EXECUTADA: timeout)",
+    "ap_app": "Não registrado (IA_NAO_EXECUTADA: timeout)",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Pele/Mucosas, Cardiovascular, Músculo-esquelético)",
-    "motivo_internacao": "Não registrado"
+    "motivo_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_d_evolucao": {
     "condutas": "Não registrado (IA_NAO_EXECUTADA: timeout — dia 03/06, 04/06)",
@@ -1237,6 +1242,7 @@
     "campos_ok": [],
     "chamadas": 5,
     "chamadas_ok": 0,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -1326,13 +1332,13 @@
     "unidade_funcional": "Unidade Coronariana"
    },
    "secao_b_anamnese": {
-    "af": "Não registrado",
+    "af": "Não registrado (IA_NAO_EXECUTADA: timeout)",
     "ap_app": "conforme",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
     "exame_fisico": "conforme",
     "hd_cid": "conforme",
-    "hda": "Não registrado"
+    "hda": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "não conforme (Faltam: Geral, Cardiovascular, Respiratório, Abdome — dia 16/01, 17/01)",
@@ -1356,10 +1362,10 @@
     "ap_app": "conforme",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
-    "escala_braden": "Não registrado",
+    "escala_braden": "Não registrado (IA_NAO_EXECUTADA: timeout)",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
-    "motivo_internacao": "Não registrado"
+    "motivo_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_d_evolucao": {
     "condutas": "Não registrado (IA_NAO_EXECUTADA: timeout — dia 17/01)",
@@ -1467,6 +1473,7 @@
     "campos_ok": [],
     "chamadas": 7,
     "chamadas_ok": 0,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -1566,7 +1573,7 @@
     "criacao_anamnese": "conforme",
     "exame_fisico": "não conforme (Faltam: Respiratório, Extremidades)",
     "hd_cid": "conforme",
-    "hda": "Não registrado"
+    "hda": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "conforme",
@@ -1586,14 +1593,14 @@
     "uso_opme": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_d_anamnese": {
-    "af": "Não registrado",
-    "ap_app": "Não registrado",
+    "af": "Não registrado (IA_NAO_EXECUTADA: timeout)",
+    "ap_app": "Não registrado (IA_NAO_EXECUTADA: timeout)",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Genitourinário)",
-    "motivo_internacao": "Não registrado"
+    "motivo_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_d_evolucao": {
     "condutas": "conforme",
@@ -1719,6 +1726,7 @@
     "campos_ok": [],
     "chamadas": 10,
     "chamadas_ok": 0,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -1820,7 +1828,7 @@
     "criacao_anamnese": "conforme",
     "exame_fisico": "conforme",
     "hd_cid": "conforme",
-    "hda": "Não registrado"
+    "hda": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "não conforme (Faltam: Geral, Cardiovascular — dia 06/03)",
@@ -1845,9 +1853,9 @@
     "cd": "conforme",
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme",
-    "escala_morse": "Não registrado",
+    "escala_morse": "Não registrado (IA_NAO_EXECUTADA: timeout)",
     "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
-    "motivo_internacao": "Não registrado"
+    "motivo_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_d_evolucao": {
     "condutas": "Não registrado (IA_NAO_EXECUTADA: timeout — dia 06/03, 08/03, 09/03)",
@@ -1937,6 +1945,7 @@
     "campos_ok": [],
     "chamadas": 6,
     "chamadas_ok": 0,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -2027,13 +2036,13 @@
     "unidade_funcional": "Unidade Coronariana"
    },
    "secao_b_anamnese": {
-    "af": "Não registrado",
+    "af": "Não registrado (IA_NAO_EXECUTADA: timeout)",
     "ap_app": "conforme",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
     "exame_fisico": "conforme",
     "hd_cid": "conforme",
-    "hda": "Não registrado"
+    "hda": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "conforme",
@@ -2060,7 +2069,7 @@
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
-    "motivo_internacao": "Não registrado"
+    "motivo_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_d_evolucao": {
     "condutas": "Não registrado (IA_NAO_EXECUTADA: timeout — dia 07/10)",
@@ -2174,6 +2183,7 @@
     "campos_ok": [],
     "chamadas": 8,
     "chamadas_ok": 0,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -2272,7 +2282,7 @@
     "criacao_anamnese": "não conforme (criada 13h15 após a internação; prazo de 12h)",
     "exame_fisico": "não conforme (Faltam: Cardiovascular, Respiratório)",
     "hd_cid": "conforme",
-    "hda": "Não registrado"
+    "hda": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "conforme",
@@ -2292,14 +2302,14 @@
     "uso_opme": "conforme (haste, cimento ósseo)"
    },
    "secao_d_anamnese": {
-    "af": "Não registrado",
-    "ap_app": "Não registrado",
+    "af": "Não registrado (IA_NAO_EXECUTADA: timeout)",
+    "ap_app": "Não registrado (IA_NAO_EXECUTADA: timeout)",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
-    "escala_braden": "Não registrado",
+    "escala_braden": "Não registrado (IA_NAO_EXECUTADA: timeout)",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Genitourinário)",
-    "motivo_internacao": "Não registrado"
+    "motivo_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_d_evolucao": {
     "condutas": "Não registrado (IA_NAO_EXECUTADA: timeout — dia 14/11)",
@@ -2419,6 +2429,7 @@
     "campos_ok": [],
     "chamadas": 7,
     "chamadas_ok": 0,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -2516,12 +2527,12 @@
    },
    "secao_b_anamnese": {
     "af": "conforme",
-    "ap_app": "Não registrado",
+    "ap_app": "Não registrado (IA_NAO_EXECUTADA: timeout)",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
     "exame_fisico": "conforme",
     "hd_cid": "conforme",
-    "hda": "Não registrado"
+    "hda": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "não conforme (Faltam: Cardiovascular — dia 24/11)",
@@ -2548,7 +2559,7 @@
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Cardiovascular, Genitourinário, Músculo-esquelético)",
-    "motivo_internacao": "Não registrado"
+    "motivo_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_d_evolucao": {
     "condutas": "Não registrado (IA_NAO_EXECUTADA: timeout — dia 21/11, 22/11, 23/11)",
@@ -2626,6 +2637,7 @@
     "campos_ok": [],
     "chamadas": 6,
     "chamadas_ok": 0,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -2722,7 +2734,7 @@
     "criacao_anamnese": "conforme",
     "exame_fisico": "conforme",
     "hd_cid": "conforme",
-    "hda": "Não registrado"
+    "hda": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "conforme",
@@ -2749,7 +2761,7 @@
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
-    "motivo_internacao": "Não registrado"
+    "motivo_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_d_evolucao": {
     "condutas": "Não registrado (IA_NAO_EXECUTADA: timeout — dia 12/01)",
@@ -2875,6 +2887,7 @@
     "campos_ok": [],
     "chamadas": 9,
     "chamadas_ok": 0,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -2967,13 +2980,13 @@
     "unidade_funcional": "Enfermaria de Ortopedia"
    },
    "secao_b_anamnese": {
-    "af": "Não registrado",
-    "ap_app": "Não registrado",
+    "af": "Não registrado (IA_NAO_EXECUTADA: timeout)",
+    "ap_app": "Não registrado (IA_NAO_EXECUTADA: timeout)",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
     "exame_fisico": "não conforme (Faltam: Abdome, Extremidades)",
     "hd_cid": "conforme",
-    "hda": "Não registrado"
+    "hda": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "conforme",
@@ -2993,14 +3006,14 @@
     "uso_opme": "conforme (haste, prótese)"
    },
    "secao_d_anamnese": {
-    "af": "Não registrado",
-    "ap_app": "Não registrado",
+    "af": "Não registrado (IA_NAO_EXECUTADA: timeout)",
+    "ap_app": "Não registrado (IA_NAO_EXECUTADA: timeout)",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Gastrointestinal, Genitourinário)",
-    "motivo_internacao": "Não registrado"
+    "motivo_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_d_evolucao": {
     "condutas": "Não registrado (IA_NAO_EXECUTADA: timeout — dia 08/02)",
@@ -3072,6 +3085,7 @@
     "campos_ok": [],
     "chamadas": 5,
     "chamadas_ok": 0,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -3165,7 +3179,7 @@
     "criacao_anamnese": "conforme",
     "exame_fisico": "conforme",
     "hd_cid": "conforme",
-    "hda": "Não registrado"
+    "hda": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "conforme",
@@ -3192,7 +3206,7 @@
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
-    "motivo_internacao": "Não registrado"
+    "motivo_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_d_evolucao": {
     "condutas": "conforme",
@@ -3294,6 +3308,7 @@
     "campos_ok": [],
     "chamadas": 8,
     "chamadas_ok": 0,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -3385,12 +3400,12 @@
    },
    "secao_b_anamnese": {
     "af": "conforme",
-    "ap_app": "Não registrado",
+    "ap_app": "Não registrado (IA_NAO_EXECUTADA: timeout)",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
     "exame_fisico": "não conforme (Faltam: Cardiovascular)",
-    "hd_cid": "Não registrado",
-    "hda": "Não registrado"
+    "hd_cid": "Não registrado (IA_NAO_EXECUTADA: timeout)",
+    "hda": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "conforme",
@@ -3412,12 +3427,12 @@
    "secao_d_anamnese": {
     "af": "conforme",
     "ap_app": "conforme",
-    "cd": "Não registrado",
+    "cd": "Não registrado (IA_NAO_EXECUTADA: timeout)",
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Respiratório, Genitourinário)",
-    "motivo_internacao": "Não registrado"
+    "motivo_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_d_evolucao": {
     "condutas": "conforme",
@@ -3525,6 +3540,7 @@
     "campos_ok": [],
     "chamadas": 7,
     "chamadas_ok": 0,
+    "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
     "model": "modelo-de-teste",
@@ -3614,13 +3630,13 @@
     "unidade_funcional": "Enfermaria de Cirurgia Geral"
    },
    "secao_b_anamnese": {
-    "af": "Não registrado",
-    "ap_app": "Não registrado",
+    "af": "Não registrado (IA_NAO_EXECUTADA: timeout)",
+    "ap_app": "Não registrado (IA_NAO_EXECUTADA: timeout)",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
     "exame_fisico": "não conforme (Faltam: Cardiovascular, Respiratório)",
     "hd_cid": "conforme",
-    "hda": "Não registrado"
+    "hda": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_b_evolucao": {
     "exame_fisico": "conforme",
@@ -3642,12 +3658,12 @@
    "secao_d_anamnese": {
     "af": "conforme",
     "ap_app": "conforme",
-    "cd": "Não registrado",
+    "cd": "Não registrado (IA_NAO_EXECUTADA: timeout)",
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Gastrointestinal, Genitourinário, Músculo-esquelético)",
-    "motivo_internacao": "Não registrado"
+    "motivo_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    "secao_d_evolucao": {
     "condutas": "conforme",

@@ -26,11 +26,20 @@ def no_sleep(monkeypatch):
     monkeypatch.setattr(llm_client, "AI_RETRY_DELAY_SECONDS", 0)
 
 
-def test_retry_until_success(monkeypatch):
-    fake = _fake([("timeout", {}, "t"), ("invalid_json", {}, "j"), ("ok", {"hda": "x"}, None)])
+def test_retries_an_environment_failure_until_success(monkeypatch):
+    fake = _fake([("timeout", {}, "t"), ("http_error", {}, "h"), ("ok", {"hda": "x"}, None)])
     monkeypatch.setattr(llm_client, "_single_attempt", fake)
     r = llm_client.query_ai_fields("texto", ["hda"], "MEDICINA - anamnese")
     assert r["status"] == "ok" and r["attempts"] == 3 and r["fields"] == {"hda": "x"}
+
+
+def test_does_not_retry_a_format_failure(monkeypatch):
+    """Under greedy decoding the same payload gives the same answer, so a model that answered
+    without the requested keys would answer the same way again: insisting only burns time."""
+    fake = _fake([("campos_ausentes", {"outro": "x"}, "chaves ausentes"), ("ok", {"hda": "x"}, None)])
+    monkeypatch.setattr(llm_client, "_single_attempt", fake)
+    r = llm_client.query_ai_fields("texto", ["hda"], "x")
+    assert r["status"] == "campos_ausentes" and r["attempts"] == 1 and len(fake.calls) == 1
 
 
 def test_gives_up_after_three_attempts(monkeypatch):
@@ -109,7 +118,8 @@ def test_real_http_timeout_and_invalid_json(monkeypatch):
     monkeypatch.setattr(llm_client, "LMSTUDIO_URL", f"http://127.0.0.1:{srv.server_port}/")
     r = llm_client.query_ai_fields("texto", ["hda"], "x")
     srv.shutdown()
-    assert r["status"] == "invalid_json" and r["attempts"] == 3
+    # An answer that is not JSON is deterministic, so it is reported after a single attempt.
+    assert r["status"] == "invalid_json" and r["attempts"] == 1
 
 
 def _server(handler_fn):
@@ -182,6 +192,106 @@ def test_without_a_seed_configured_the_key_is_absent(monkeypatch):
     r = llm_client.query_ai_fields("texto", ["hda"], "x")
     srv.shutdown()
     assert seen == [False] and r["sampling"]["seed"] is None
+
+
+def test_merge_keeps_the_ai_signature_of_a_null_answer():
+    """The bug behind the evaluation's uneven denominators: the section starts as a plain
+    "Não registrado", and the merge dropped "Não registrado (IA: null)", so a model that answered
+    null looked like a model that was never asked."""
+    from data_extract.core.auditor import merge_section
+
+    section = {"af": "Não registrado", "ap_app": "Não registrado"}
+    merge_section(section, {"af": "Não registrado (IA: null)", "ap_app": "Não registrado (IA_NAO_EXECUTADA: timeout)"})
+    assert section == {"af": "Não registrado (IA: null)", "ap_app": "Não registrado (IA_NAO_EXECUTADA: timeout)"}
+
+
+def test_merge_never_changes_the_verdict_when_adding_a_signature():
+    """Only provenance is added. "Não registrado" must not become "Não se aplica", which would
+    take the field out of the conformity total."""
+    from data_extract.core.auditor import merge_section
+
+    section = {"uso_opme": "Não registrado"}
+    merge_section(section, {"uso_opme": "Não se aplica (IA: null)"})
+    assert section["uso_opme"] == "Não registrado"
+
+
+def test_merge_does_not_overwrite_a_signature_already_recorded():
+    from data_extract.core.auditor import merge_section
+
+    section = {"af": "Não registrado (IA: null)"}
+    merge_section(section, {"af": "Não registrado (IA_NAO_EXECUTADA: timeout)"})
+    assert section["af"] == "Não registrado (IA: null)"
+
+
+def test_merge_still_prefers_conforme():
+    from data_extract.core.auditor import merge_section
+
+    section = {"af": "Não registrado (IA: null)"}
+    merge_section(section, {"af": "conforme (IA: mãe hipertensa)"})
+    assert section["af"] == "conforme (IA: mãe hipertensa)"
+
+
+def test_a_renamed_key_is_counted_in_the_signature(monkeypatch):
+    """The leniency is auditable: every reconciled key is recorded, so the evaluation can report
+    how closely each model followed the requested format."""
+    fake = _fake([("campos_ausentes", {"diagnóstico_internacao": "fratura"}, "chaves ausentes")])
+    monkeypatch.setattr(llm_client, "_single_attempt", fake)
+    meta, target = _new_ai_meta(), {}
+    call_ai_and_apply(target, ["diagnostico_internacao"], "texto", "x", "secao_a", meta)
+    assert meta["chaves_normalizadas"] == [
+        {"campo": "secao_a.diagnostico_internacao", "chave_recebida": "diagnóstico_internacao"}
+    ]
+    assert meta["campos_ok"] == ["secao_a.diagnostico_internacao"], "it counts as answered, not failed"
+    assert meta["campos_erro"] == []
+    assert target["diagnostico_internacao"] == "conforme (IA: fratura)"
+
+
+def test_a_clean_answer_records_no_normalisation(monkeypatch):
+    fake = _fake([("ok", {"diagnostico_internacao": "fratura"}, None)])
+    monkeypatch.setattr(llm_client, "_single_attempt", fake)
+    meta = _new_ai_meta()
+    call_ai_and_apply({}, ["diagnostico_internacao"], "texto", "x", "secao_a", meta)
+    assert meta["chaves_normalizadas"] == []
+
+
+def test_accented_key_counts_as_the_requested_field(monkeypatch):
+    """The real case: phi-4-mini-instruct answered `diagnóstico_internacao` with the right content
+    for the requested `diagnostico_internacao`. Spelling is not audit quality."""
+    def handler(body):
+        answer = {"diagnóstico_internacao": "Hipótese diagnóstica: fratura transtrocantérica"}
+        return 200, {"choices": [{"message": {"content": json.dumps(answer, ensure_ascii=False)}}]}
+
+    srv = _server(handler)
+    monkeypatch.setattr(llm_client, "LMSTUDIO_URL", f"http://127.0.0.1:{srv.server_port}/")
+    r = llm_client.query_ai_fields("texto", ["diagnostico_internacao"], "x")
+    srv.shutdown()
+    assert r["status"] == "ok"
+    assert r["fields"]["diagnostico_internacao"].startswith("Hipótese diagnóstica")
+
+
+def test_an_exact_answer_is_never_overwritten_by_a_variant(monkeypatch):
+    def handler(body):
+        answer = {"diagnostico_internacao": "certo", "diagnóstico_internacao": "variante"}
+        return 200, {"choices": [{"message": {"content": json.dumps(answer, ensure_ascii=False)}}]}
+
+    srv = _server(handler)
+    monkeypatch.setattr(llm_client, "LMSTUDIO_URL", f"http://127.0.0.1:{srv.server_port}/")
+    r = llm_client.query_ai_fields("texto", ["diagnostico_internacao"], "x")
+    srv.shutdown()
+    assert r["fields"]["diagnostico_internacao"] == "certo"
+
+
+def test_a_key_for_another_field_is_still_a_missing_field(monkeypatch):
+    """Normalisation forgives spelling, not a different answer: the model has to answer what was
+    asked, otherwise `campos_ausentes` still reports it."""
+    def handler(body):
+        return 200, {"choices": [{"message": {"content": json.dumps({"outro_campo": "x"})}}]}
+
+    srv = _server(handler)
+    monkeypatch.setattr(llm_client, "LMSTUDIO_URL", f"http://127.0.0.1:{srv.server_port}/")
+    r = llm_client.query_ai_fields("texto", ["diagnostico_internacao"], "x")
+    srv.shutdown()
+    assert r["status"] == "campos_ausentes" and "diagnostico_internacao" in r["error"]
 
 
 def test_a_rejected_request_is_reported_not_retried_silently(monkeypatch):

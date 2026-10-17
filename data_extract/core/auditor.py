@@ -60,6 +60,7 @@ def _new_ai_meta():
         "campos_ok": [],
         "campos_null": [],
         "campos_erro": [],
+        "chaves_normalizadas": [],
     }
 
 
@@ -95,6 +96,10 @@ def call_ai_and_apply(target, fields, text, record_type, section_key, ai_meta, n
     ai_meta["chamadas"] += 1
     ai_meta["tentativas_total"] += resp["attempts"]
     ai_meta["latencia_ia_s"] += resp["latency"]
+    # How many answers only matched after their key's spelling was reconciled: a measure of how
+    # closely a model follows the requested output format, and the audit trail of that leniency.
+    for field, key in (resp.get("renamed_keys") or {}).items():
+        ai_meta["chaves_normalizadas"].append({"campo": f"{section_key}.{field}", "chave_recebida": key})
     if resp["status"] == AI_OK:
         ai_meta["chamadas_ok"] += 1
 
@@ -141,8 +146,29 @@ def finalize_ai_meta(audit_data, ai_meta):
         sys.stderr.write(f"  [Auditor] WARNING: partial result — {audit_data['observacao_ia']}\n")
 
 
+_AI_SIGNATURE = re.compile(r"\((?:IA|IA_NAO_EXECUTADA):")
+
+# Verdicts that a merge treats as "nothing found", and whose values a signature can enrich.
+_NOT_FOUND_VERDICTS = ("Não registrado", "Não se aplica")
+
+
+def _only_new_records_what_the_ai_did(current_text, new_text):
+    """True when both values carry the SAME verdict but only the new one says what the AI did.
+    "Não registrado (IA: null)" means the AI looked and found nothing; a plain "Não registrado"
+    means the keyword rules found nothing and is silent about the AI. The verdict prefix has to
+    match, so this never turns a "Não registrado" into a "Não se aplica" (which would leave the
+    field out of the conformity total) — it only adds provenance."""
+    for verdict in _NOT_FOUND_VERDICTS:
+        if current_text.startswith(verdict) and new_text.startswith(verdict):
+            return _AI_SIGNATURE.search(new_text) is not None and _AI_SIGNATURE.search(current_text) is None
+    return False
+
+
 def merge_section(current, new_data):
-    """Merges new conformity data, keeping 'conforme' when it is already present."""
+    """Merges new conformity data, keeping 'conforme' when it is already present. Between two
+    values with the same verdict, the one carrying the AI's signature wins: dropping it made a
+    model that answered null indistinguishable from a model that was never asked, which silently
+    removed those fields from the model's score in the evaluation."""
     for key, value in new_data.items():
         current_text = str(current.get(key))
         new_text = str(value)
@@ -151,6 +177,8 @@ def merge_section(current, new_data):
         elif (current_text.startswith("Não registrado") or current_text.startswith("Não se aplica")) and not (
             new_text.startswith("Não registrado") or new_text.startswith("Não se aplica")
         ):
+            current[key] = value
+        elif _only_new_records_what_the_ai_did(current_text, new_text):
             current[key] = value
 
 
