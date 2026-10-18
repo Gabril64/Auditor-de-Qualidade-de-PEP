@@ -1,0 +1,52 @@
+# Stack isolada para rodar o notebook de avaliação de modelos (docs/avaliacao_modelos.md).
+#
+# Por que existe: a avaliação audita o mesmo prontuário várias vezes (N_REPETITIONS x modelos),
+# e cada auditoria vira uma linha em audit_results, com notificação para os administradores. O
+# banco não distingue "qual modelo gerou esta linha" em nenhuma coluna, e a comparação entre
+# modelos só existe no notebook, então esses resultados não têm lugar no banco real.
+#
+# Esta stack tem Redis, Worker, Producer e volume PRÓPRIOS, em outra porta, e some com um comando:
+#
+#   docker compose -f docker-compose.evaluation.yml up -d --build
+#   docker compose -f docker-compose.evaluation.yml down -v      # apaga o banco de avaliação
+#
+# Pode rodar ao lado da stack normal: nada é compartilhado (nem a fila, nem o banco, nem a porta).
+# O Worker é herdado do docker-compose.yml, de modo que a decodificação determinística e a rota do
+# LM Studio continuam definidas num lugar só.
+
+name: auditor-pep-eval
+
+services:
+  redis:
+    container_name: auditor-pep-eval-redis
+    image: redis:7-alpine
+    # Sem porta publicada e sem persistência: a fila de avaliação não precisa sobreviver a nada.
+
+  worker:
+    extends:
+      file: docker-compose.yml
+      service: worker
+    container_name: auditor-pep-eval-worker
+    depends_on:
+      - redis
+
+  producer:
+    container_name: auditor-pep-eval-producer
+    build:
+      context: .
+      dockerfile: services/producer/Dockerfile
+    ports:
+      - "3002:3001"
+    depends_on:
+      - redis
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - SQLITE_DB_PATH=/app/data/auditor.db
+      - ADMIN_EMAIL=${ADMIN_EMAIL:-admin@auditor.local}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-}
+      - EVAL_API_TOKEN=${EVAL_API_TOKEN:-}
+    volumes:
+      - eval-data:/app/data
+
+volumes:
+  eval-data:

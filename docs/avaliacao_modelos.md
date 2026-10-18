@@ -5,10 +5,16 @@ Guia para executar o notebook [`evaluation/notebooks/avaliacao_modelos.ipynb`](.
 O notebook não fala direto com o modelo. Ele envia os prontuários ao Producer, que os enfileira para o Worker, e o Worker audita cada um chamando o LM Studio:
 
 ```text
-notebook ──► Producer :3001 ──► Redis ──► Worker ──► LM Studio :1234
+notebook ──► Producer :3002 ──► Redis ──► Worker ──► LM Studio :1234
    ▲                                                       │
    └───────────── consulta o resultado de cada job ◄───────┘
 ```
+
+### A avaliação usa uma stack própria, nunca o banco real
+
+Cada auditoria enviada vira uma linha em `audit_results` e uma notificação para todo administrador. A avaliação audita o mesmo prontuário várias vezes (`N_REPETITIONS` × modelos) e o banco não registra, em nenhuma coluna, qual modelo gerou cada linha, porque a comparação entre modelos só existe no notebook. Esses resultados não têm lugar no banco de uso real.
+
+Por isso a avaliação roda em [`docker-compose.evaluation.yml`](../docker-compose.evaluation.yml): Redis, Worker, Producer e volume **próprios**, na porta `3002`, que se apagam com um comando (ver a seção 10). Ela pode rodar ao lado da stack normal, porque nada é compartilhado: nem a fila, nem o banco, nem a porta. O Worker é herdado do `docker-compose.yml`, então a decodificação e a rota do LM Studio continuam definidas num lugar só.
 
 ## 1. Pré-requisitos
 
@@ -16,7 +22,7 @@ notebook ──► Producer :3001 ──► Redis ──► Worker ──► LM 
 | --- | --- |
 | **LM Studio** | Instalado, com o **servidor local ligado** na porta `1234` (aba *Developer* → *Start Server*, ou `lms server start`). |
 | **Modelos** | Baixados e **carregados** no LM Studio, com os mesmos identificadores da lista `ALL_MODELS` do notebook (hoje `qwen2.5-3b-instruct`, `phi-4-mini-instruct` e `llama-3.2-3b-instruct`). Confira com `lms ps`. |
-| **Docker** | Docker Desktop (no Windows) **em execução**, com o comando `docker compose` disponível. |
+| **Docker** | Docker Desktop (no Windows) **em execução**, com o comando `docker compose` disponível e a porta `3002` livre. |
 | **Python 3.13** | Para o kernel do notebook. Pode ser um venv na raiz do repositório. |
 | **Jupyter / VS Code** | Com a extensão de notebooks e o kernel do venv selecionado. |
 | **Repositório clonado** | Os dados de entrada (`data/prontuarios.json` e `data/gabarito.csv`) já vêm versionados. |
@@ -54,13 +60,15 @@ Escreva o valor **sem aspas**. O mesmo arquivo é lido por dois lados: pelo `doc
 
 > **Atenção:** quem tem o token consegue enviar lotes e ler resultados do Producer. Não o versione e não o cole em mensagens.
 
-## 3. Subir a stack
+**Opcional: `EVAL_PRODUCER_URL`.** O notebook envia os lotes para `http://localhost:3002`, a stack de avaliação. Só defina essa variável no `.env` se o Producer de avaliação estiver em outro endereço. Nunca aponte para a porta `3001`: é o banco real, e o notebook avisa quando isso acontece.
+
+## 3. Subir a stack de avaliação
 
 Na raiz do repositório:
 
 ```powershell
-docker compose up -d --build
-docker compose ps
+docker compose -f docker-compose.evaluation.yml up -d --build
+docker compose -f docker-compose.evaluation.yml ps
 ```
 
 Devem aparecer três serviços em execução: `redis`, `worker` e `producer`.
@@ -68,15 +76,15 @@ Devem aparecer três serviços em execução: `redis`, `worker` e `producer`.
 Confirme que o Producer reconheceu o token:
 
 ```powershell
-docker compose logs producer | Select-String "Seed"
+docker compose -f docker-compose.evaluation.yml logs producer | Select-String "Seed"
 ```
 
-A saída esperada contém `Service account created for EVAL_API_TOKEN: evaluation@auditor.local` (na primeira vez) ou `Service account already exists` (nas seguintes). Se não aparecer nenhuma das duas, o Producer subiu sem o token. Confira o `.env` e rode `docker compose up -d producer` de novo.
+A saída esperada contém `Service account created for EVAL_API_TOKEN: evaluation@auditor.local` (na primeira vez) ou `Service account already exists` (nas seguintes). Se não aparecer nenhuma das duas, o Producer subiu sem o token. Confira o `.env` e rode `docker compose -f docker-compose.evaluation.yml up -d producer` de novo.
 
 Depois, confirme que o Worker **enxerga o LM Studio** de dentro do container:
 
 ```powershell
-docker compose exec worker python -c "import urllib.request as u; print(u.urlopen('http://host.docker.internal:1234/v1/models').status)"
+docker compose -f docker-compose.evaluation.yml exec worker python -c "import urllib.request as u; print(u.urlopen('http://host.docker.internal:1234/v1/models').status)"
 ```
 
 Deve imprimir `200`. Se falhar, ligue a opção *Serve on Local Network* nas configurações do servidor do LM Studio e tente de novo.
@@ -111,7 +119,7 @@ Com `N_REPETITIONS` maior que 1, o notebook compara as repetições de cada pron
 
 Pontos de controle durante a execução:
 
-- A célula de login (seção 4) imprime `Authenticated as evaluation@auditor.local`. Se ela falhar, o problema é o token, ver a seção 8.
+- A célula de login (seção 4) imprime `Producer: http://localhost:3002` e, em seguida, `Authenticated as evaluation@auditor.local`. Se aparecer um aviso sobre a porta `3001`, o notebook está apontando para o banco real. Pare e confira o `EVAL_PRODUCER_URL`. Se a célula falhar, o problema é o token ou a stack, ver a seção 8.
 - A seção 5 mostra o progresso de cada modelo e de cada lote.
 - Um aviso `[!] ... did not answer N field(s)` **não é erro**: o modelo respondeu fora do formato pedido, e isso é registrado como resultado dele.
 - Um aviso `[~] ... differently spelled key` também não é erro: a chave da resposta só diferia por acento ou caixa e foi reconhecida.
@@ -132,12 +140,13 @@ O script lê só configuração, nunca prontuários, e grava em `evaluation/note
 - `ambiente.json`: o registro completo, incluindo a saída bruta de cada comando.
 - `ambiente.md`: a tabela pronta para a metodologia.
 
-Ele coleta a versão do LM Studio; o motor de inferência em uso (o `llama.cpp-...@versão`); para cada modelo carregado, o arquivo GGUF, a quantização, o contexto e o **SHA-256 dos pesos**; CPU, memória, GPU e driver; sistema operacional; versão do Docker; commit do repositório; e a decodificação que o Worker está usando.
+Ele coleta a versão do LM Studio; o motor de inferência em uso (o `llama.cpp-...@versão`); para cada modelo carregado, o arquivo GGUF, a quantização, o contexto e o **SHA-256 dos pesos**; CPU, memória, GPU e driver; sistema operacional; versão do Docker; commit do repositório; e a decodificação que o Worker da stack de avaliação está usando.
 
 Opções:
 
 - `-SkipHash` pula o SHA-256, que lê o arquivo de pesos inteiro (alguns GB por modelo).
 - `-OutDir <pasta>` muda onde os arquivos são gravados.
+- `-ComposeFile <arquivo>` escolhe de qual stack ler a decodificação do Worker. O padrão é `docker-compose.evaluation.yml`, a stack da avaliação.
 
 Dois itens o script **não consegue ver** e você precisa anotar à mão:
 
@@ -165,15 +174,15 @@ Em `evaluation/notebooks/data/results/`:
 | Mensagem | Causa e solução |
 | --- | --- |
 | `EVAL_API_TOKEN is in neither the environment nor ...` | O `.env` não existe na raiz do repositório ou não tem a chave `EVAL_API_TOKEN`. Refaça o passo 2. |
-| `The Producer rejected the service token (401)` com `Service token authentication is disabled` | O Producer subiu sem o token. Confira o `.env` e rode `docker compose up -d producer`. |
-| `... (401)` com `Invalid service token` | O token do `.env` é diferente do que o Producer recebeu. Recrie o Producer com `docker compose up -d --force-recreate producer`. |
+| `The Producer rejected the service token (401)` com `Service token authentication is disabled` | O Producer subiu sem o token. Confira o `.env` e rode `docker compose -f docker-compose.evaluation.yml up -d producer`. |
+| `... (401)` com `Invalid service token` | O token do `.env` é diferente do que o Producer recebeu. Recrie o Producer com `docker compose -f docker-compose.evaluation.yml up -d --force-recreate producer`. |
 | `... does not exist or is inactive` | A conta de serviço sumiu ou foi desativada. Reinicie o Producer para recriá-la. |
-| `Connection refused` em `localhost:3001` | O Docker não está de pé. Rode `docker compose up -d`. |
-| `the seed was not applied` | O Worker está apontando para a rota errada do LM Studio. Veja a nota do passo 3 e recrie o Worker com `docker compose up -d --force-recreate worker`. |
+| `Could not reach the Producer at http://localhost:3002` | A stack de avaliação não está de pé. Rode `docker compose -f docker-compose.evaluation.yml up -d --build`. |
+| `the seed was not applied` | O Worker está apontando para a rota errada do LM Studio. Veja a nota do passo 3 e recrie o Worker com `docker compose -f docker-compose.evaluation.yml up -d --force-recreate worker`. |
 | `decoding is 'amostragem' ... NOT reproducible` | `AI_TEMPERATURE`, `AI_TOP_K` ou `AI_TOP_P` foram alterados no ambiente. Remova a alteração; o padrão é `0`, `1` e `1`. |
 | `the AI could not be reached for [...]` | `timeout` ou `http_error`: o LM Studio está desligado, sem o modelo carregado ou sobrecarregado. Nada foi medido sobre o modelo, então a execução aborta. Corrija o LM Studio e rode de novo. |
 | `the same records produced DIFFERENT audits across repetitions` | A reprodutibilidade falhou. Verifique se algo mudou no LM Studio entre as repetições (modelo, contexto, camadas em GPU, motor) e compare com `ambiente.json`. |
-| A seção 5 fica esperando e não termina | O job não está sendo consumido. Veja `docker compose logs worker`. |
+| A seção 5 fica esperando e não termina | O job não está sendo consumido. Veja `docker compose -f docker-compose.evaluation.yml logs worker`. |
 
 ## 9. Como a reprodutibilidade é garantida
 
@@ -182,3 +191,15 @@ A semente (`SEED = 42`) é enviada ao modelo em toda requisição e gravada na a
 O notebook recusa qualquer auditoria em que a semente não tenha sido aplicada ou a decodificação não seja gulosa, e o `fingerprint` do `ia_meta.csv` permite comparar auditorias byte a byte.
 
 O determinismo é propriedade do ambiente, não só dos parâmetros. Mudar o modelo, a quantização, o motor de inferência, o contexto ou as camadas em GPU invalida a comparação entre execuções. É por isso que o passo 6 existe.
+
+## 10. Limpar o banco de avaliação
+
+Quando terminar uma rodada, ou quando quiser recomeçar do zero:
+
+```powershell
+docker compose -f docker-compose.evaluation.yml down -v
+```
+
+O `-v` apaga o volume com o banco da avaliação: as auditorias, as cópias dos prontuários e as notificações geradas pelo notebook. Os CSVs e gráficos em `evaluation/notebooks/data/results/` **não** são apagados, e a stack normal e o banco real também não são tocados.
+
+Os resultados que importam para o estudo já estão nesses CSVs. O `ia_meta.csv` guarda, por auditoria, o modelo, a decodificação e o `fingerprint`, de modo que nada se perde ao descartar o banco.

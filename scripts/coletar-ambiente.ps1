@@ -9,6 +9,7 @@ Rode na máquina que vai executar a avaliação, com o LM Studio aberto e o serv
   ... -SkipHash                      # pula o SHA-256 dos pesos (lê ~2 GB por modelo carregado)
   ... -OutDir caminho\de\saida       # padrão: evaluation\notebooks\data\results
   ... -ServerUrl http://localhost:1234
+  ... -ComposeFile docker-compose.yml   # padrão: docker-compose.evaluation.yml (a stack da avaliação)
 
 Escreve ambiente.json (registro completo) e ambiente.md (tabela pronta para o texto) no OutDir,
 e imprime a tabela no terminal. Nenhum dado de prontuário é lido ou gravado: só configuração.
@@ -17,6 +18,7 @@ Item que o script não consegue ver sai como "não detectado" — ele nunca inte
 param(
     [string]$OutDir = "evaluation\notebooks\data\results",
     [string]$ServerUrl = "http://localhost:1234",
+    [string]$ComposeFile = "docker-compose.evaluation.yml",
     [switch]$SkipHash
 )
 
@@ -137,7 +139,7 @@ $os = Probe {
 $commit = Probe { (& git rev-parse --short HEAD 2>&1) | Select-Object -First 1 }
 $dockerVersion = Probe { (& docker version --format '{{.Server.Version}}' 2>&1) | Select-Object -First 1 }
 $workerDecoding = Probe {
-    $out = & docker compose exec -T worker printenv AI_TEMPERATURE AI_TOP_K AI_TOP_P LMSTUDIO_URL LLM_SEED 2>&1
+    $out = & docker compose -f $ComposeFile exec -T worker printenv AI_TEMPERATURE AI_TOP_K AI_TOP_P LMSTUDIO_URL LLM_SEED 2>&1
     if ($LASTEXITCODE -ne 0) { return $null }
     ($out | Where-Object { $_ }) -join " | "
 }

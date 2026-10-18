@@ -1,94 +1,94 @@
 model,repetition,record,section,field,raw_value,status,from_ai,ai_excerpt,time_seconds,execution_error,ai_outcome
-qwen2.5-3b-instruct,0,94098934,secao_a,diagnostico_internacao,conforme (IA: fratura transtrocantérica do fêmur direito),conforme,True,fratura transtrocantérica do fêmur direito,55.12624955177307,,answered
-qwen2.5-3b-instruct,0,94098934,secao_b_anamnese,hda,"conforme (IA: paciente iniciou quadro há 2 dias com queda da própria altura, dor intensa em quadril direito e incapacidade de deambular.)",conforme,True,"paciente iniciou quadro há 2 dias com queda da própria altura, dor intensa em quadril direito e incapacidade de deambular.",55.12624955177307,,answered
-qwen2.5-3b-instruct,0,94098934,secao_b_anamnese,hd_cid,conforme,conforme,False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_b_anamnese,ap_app,conforme (IA: REFERE ALERGIA A DIPIRONA),conforme,True,REFERE ALERGIA A DIPIRONA,55.12624955177307,,answered
-qwen2.5-3b-instruct,0,94098934,secao_b_anamnese,af,conforme,conforme,False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_b_anamnese,exame_fisico,conforme,conforme,False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_b_anamnese,cd,conforme,conforme,False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_b_anamnese,criacao_anamnese,conforme,conforme,False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_b_evolucao,hd_cid,conforme,conforme,False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_b_evolucao,exame_fisico,conforme,conforme,False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_b_evolucao,procedimentos_condutas_queixas,conforme,conforme,False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_b_evolucao,frequencia_diaria,conforme,conforme,False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_c,diagnostico_cid,Não registrado,Não registrado,False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_c,descricao_procedimento,Osteossíntese de fêmur proximal com DHS,Osteossíntese de fêmur proximal com DHS,False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_c,descricao_tecnica,"conforme (IA: Paciente em decúbito dorsal, sob raquianestesia. Realizada incisão lateral sobre o trocânter maior, dissecção por planos, visualização da fratura transtrocantérica. Redução da fratura sob controle fluoroscópico, fixação com placa DHS e parafuso deslizante. Verificação de estabilidade e hemostasia. Síntese por planos, curativo oclusivo. Paciente tolerou bem o procedimento.)",conforme,True,"Paciente em decúbito dorsal, sob raquianestesia. Realizada incisão lateral sobre o trocânter maior, dissecção por planos, visualização da fratura transtrocantérica. Redução da fratura sob controle fluoroscópico, fixação com placa DHS e parafuso deslizante. Verificação de estabilidade e hemostasia. Síntese por planos, curativo oclusivo. Paciente tolerou bem o procedimento.",55.12624955177307,,answered
-qwen2.5-3b-instruct,0,94098934,secao_c,uso_opme,"conforme (placa, parafuso)","conforme (placa, parafuso)",False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_d_anamnese,motivo_internacao,conforme (IA: internação para realização de sinusectomia bilateral),conforme,True,internação para realização de sinusectomia bilateral,55.12624955177307,,answered
-qwen2.5-3b-instruct,0,94098934,secao_d_anamnese,ap_app,Não registrado (IA: null),Não registrado,True,,55.12624955177307,,null
-qwen2.5-3b-instruct,0,94098934,secao_d_anamnese,af,Não registrado (IA: null),Não registrado,True,,55.12624955177307,,null
-qwen2.5-3b-instruct,0,94098934,secao_d_anamnese,exame_fisico,conforme,conforme,False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_d_anamnese,escala_braden,conforme,conforme,False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_d_anamnese,escala_morse,conforme,conforme,False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_d_anamnese,cd,conforme,conforme,False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_d_anamnese,criacao_anamnese,conforme,conforme,False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_d_evolucao,motivo_internacao,Não registrado (IA: null),Não registrado,True,,55.12624955177307,,null
-qwen2.5-3b-instruct,0,94098934,secao_d_evolucao,exame_fisico,conforme,conforme,False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_d_evolucao,condutas,"conforme (IA: orientações de pré-operatório realizadas. segue em cuidados de enfermagem. exame físico complementar: sistema respiratório: murmúrio vesicular presente, sem ruídos adventícios; sistema genitourinário: diurese espontânea presente; sistema músculo-esquelético: mobilidade no leito preservada.)",conforme,True,"orientações de pré-operatório realizadas. segue em cuidados de enfermagem. exame físico complementar: sistema respiratório: murmúrio vesicular presente, sem ruídos adventícios; sistema genitourinário: diurese espontânea presente; sistema músculo-esquelético: mobilidade no leito preservada.",55.12624955177307,,answered
-qwen2.5-3b-instruct,0,94098934,secao_d_evolucao,escala_braden,conforme,conforme,False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_d_evolucao,escala_morse,conforme,conforme,False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_d_evolucao,curativo,conforme (Curativo simples),conforme (Curativo simples),False,,55.12624955177307,,not_sent
-qwen2.5-3b-instruct,0,94098934,secao_d_evolucao,criacao_evolucao,conforme,conforme,False,,55.12624955177307,,not_sent
-phi-4-mini-instruct,0,94098934,secao_a,diagnostico_internacao,conforme (IA: Hipótese diagnóstica: fratura transtrocantérica do fêmur direito),conforme,True,Hipótese diagnóstica: fratura transtrocantérica do fêmur direito,165.13488698005676,,answered
-phi-4-mini-instruct,0,94098934,secao_b_anamnese,hda,"conforme (IA: paciente feminina, 77 anos, admitida com história de queda da própria altura há 2 dias, dor intensa em quadril direito, incapacidade de deambular)",conforme,True,"paciente feminina, 77 anos, admitida com história de queda da própria altura há 2 dias, dor intensa em quadril direito, incapacidade de deambular",165.13488698005676,,answered
-phi-4-mini-instruct,0,94098934,secao_b_anamnese,hd_cid,conforme,conforme,False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_b_anamnese,ap_app,conforme (IA: Refere HAS e DM2 em uso de metformina e losartana. Nega outras comorbidades.),conforme,True,Refere HAS e DM2 em uso de metformina e losartana. Nega outras comorbidades.,165.13488698005676,,answered
-phi-4-mini-instruct,0,94098934,secao_b_anamnese,af,conforme,conforme,False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_b_anamnese,exame_fisico,conforme,conforme,False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_b_anamnese,cd,conforme,conforme,False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_b_anamnese,criacao_anamnese,conforme,conforme,False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_b_evolucao,hd_cid,conforme,conforme,False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_b_evolucao,exame_fisico,conforme,conforme,False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_b_evolucao,procedimentos_condutas_queixas,conforme,conforme,False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_b_evolucao,frequencia_diaria,conforme,conforme,False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_c,diagnostico_cid,Não registrado,Não registrado,False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_c,descricao_procedimento,Osteossíntese de fêmur proximal com DHS,Osteossíntese de fêmur proximal com DHS,False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_c,descricao_tecnica,"conforme (IA: Pacente em decúbito dorsal, sob raquianestesia. Realizada incisão lateral sobre o trocânter maior, dissecção por planos, visualização da fratura transtrocantérica. Redução da fratura sob controle fluoroscópico, fixação com placa DHS e parafuso deslizante. Verificação de estabilidade e hemostasia. Síntese por planos, curativo oclusivo.)",conforme,True,"Pacente em decúbito dorsal, sob raquianestesia. Realizada incisão lateral sobre o trocânter maior, dissecção por planos, visualização da fratura transtrocantérica. Redução da fratura sob controle fluoroscópico, fixação com placa DHS e parafuso deslizante. Verificação de estabilidade e hemostasia. Síntese por planos, curativo oclusivo.",165.13488698005676,,answered
-phi-4-mini-instruct,0,94098934,secao_c,uso_opme,"conforme (placa, parafuso)","conforme (placa, parafuso)",False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_d_anamnese,motivo_internacao,conforme (IA: internação para realização de sinusectomia bilateral),conforme,True,internação para realização de sinusectomia bilateral,165.13488698005676,,answered
-phi-4-mini-instruct,0,94098934,secao_d_anamnese,ap_app,"conforme (IA: hipertensão arterial, diabetes mellitus em uso de medicação)",conforme,True,"hipertensão arterial, diabetes mellitus em uso de medicação",165.13488698005676,,answered
-phi-4-mini-instruct,0,94098934,secao_d_anamnese,af,"conforme (IA: mãe hipertensa, pai diabético)",conforme,True,"mãe hipertensa, pai diabético",165.13488698005676,,answered
-phi-4-mini-instruct,0,94098934,secao_d_anamnese,exame_fisico,conforme,conforme,False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_d_anamnese,escala_braden,conforme,conforme,False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_d_anamnese,escala_morse,conforme,conforme,False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_d_anamnese,cd,conforme,conforme,False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_d_anamnese,criacao_anamnese,conforme,conforme,False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_d_evolucao,motivo_internacao,conforme (IA: pre-operatório de osteossíntese de fêmur proximal),conforme,True,pre-operatório de osteossíntese de fêmur proximal,165.13488698005676,,answered
-phi-4-mini-instruct,0,94098934,secao_d_evolucao,exame_fisico,conforme,conforme,False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_d_evolucao,condutas,"conforme (IA: paciente reflete dor leve no membro afetado, controlada com analgésico; aceitou dieta, sem náuseas; exame físico: consciente, orientada, corada, hidratada, afebril; ritmo cardíaco regular, sem sopros; murmúrios vesiculares presentes, sem ruídos adventícios; abdome flácido, indolor, ruídos hidroaéreos presentes; extremidades: perfusão preservada, pulsos presentes, sem edema; membro direito com dor à mobilização, sem sinais flogísticos; sistema respiratório: murmurio vesicular presente, sem ruídos adventícios; sistema genitourinário: diurese espontânea presente; sistema músculo-esquelético: mobilidade no leito preservada)",conforme,True,"paciente reflete dor leve no membro afetado, controlada com analgésico; aceitou dieta, sem náuseas; exame físico: consciente, orientada, corada, hidratada, afebril; ritmo cardíaco regular, sem sopros; murmúrios vesiculares presentes, sem ruídos adventícios; abdome flácido, indolor, ruídos hidroaéreos presentes; extremidades: perfusão preservada, pulsos presentes, sem edema; membro direito com dor à mobilização, sem sinais flogísticos; sistema respiratório: murmurio vesicular presente, sem ruídos adventícios; sistema genitourinário: diurese espontânea presente; sistema músculo-esquelético: mobilidade no leito preservada",165.13488698005676,,answered
-phi-4-mini-instruct,0,94098934,secao_d_evolucao,escala_braden,conforme,conforme,False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_d_evolucao,escala_morse,conforme,conforme,False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_d_evolucao,curativo,conforme (Curativo simples),conforme (Curativo simples),False,,165.13488698005676,,not_sent
-phi-4-mini-instruct,0,94098934,secao_d_evolucao,criacao_evolucao,conforme,conforme,False,,165.13488698005676,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_a,diagnostico_internacao,conforme (IA: fratura transtrocantérica do fêmur direito),conforme,True,fratura transtrocantérica do fêmur direito,200.15528655052185,,answered
-llama-3.2-3b-instruct,0,94098934,secao_b_anamnese,hda,"conforme (IA: Paciente iniciou quadro há 2 dias com dor intensa em quadril direito, incapacidade de deambular.)",conforme,True,"Paciente iniciou quadro há 2 dias com dor intensa em quadril direito, incapacidade de deambular.",200.15528655052185,,answered
-llama-3.2-3b-instruct,0,94098934,secao_b_anamnese,hd_cid,conforme,conforme,False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_b_anamnese,ap_app,conforme (IA: REFERE ALERGIA A DIPIRONA.),conforme,True,REFERE ALERGIA A DIPIRONA.,200.15528655052185,,answered
-llama-3.2-3b-instruct,0,94098934,secao_b_anamnese,af,conforme,conforme,False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_b_anamnese,exame_fisico,conforme,conforme,False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_b_anamnese,cd,conforme,conforme,False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_b_anamnese,criacao_anamnese,conforme,conforme,False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_b_evolucao,hd_cid,conforme,conforme,False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_b_evolucao,exame_fisico,conforme,conforme,False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_b_evolucao,procedimentos_condutas_queixas,conforme,conforme,False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_b_evolucao,frequencia_diaria,conforme,conforme,False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_c,diagnostico_cid,Não registrado,Não registrado,False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_c,descricao_procedimento,Osteossíntese de fêmur proximal com DHS,Osteossíntese de fêmur proximal com DHS,False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_c,descricao_tecnica,"conforme (IA: 1. Paciente em dec¼ulido dorsal, sob raquianestesia. 2. Realizada incisão lateral sobre o trocánter maior, dissecção por planos, visualização da fratura transtrocantérica. 3. Reduçó da fratura sob controle fluoroscópico, fixação com placa DHS e parafuso deslizante. 4. Verificação de estabilidade e hemostasia. 5. Síntese por planos, curativo oclusivo. Paciente tolerou bem o procedimento.)",conforme,True,"1. Paciente em dec¼ulido dorsal, sob raquianestesia. 2. Realizada incisão lateral sobre o trocánter maior, dissecção por planos, visualização da fratura transtrocantérica. 3. Reduçó da fratura sob controle fluoroscópico, fixação com placa DHS e parafuso deslizante. 4. Verificação de estabilidade e hemostasia. 5. Síntese por planos, curativo oclusivo. Paciente tolerou bem o procedimento.",200.15528655052185,,answered
-llama-3.2-3b-instruct,0,94098934,secao_c,uso_opme,"conforme (placa, parafuso)","conforme (placa, parafuso)",False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_d_anamnese,motivo_internacao,conforme (IA: internação para realização de sinusectomia bilateral),conforme,True,internação para realização de sinusectomia bilateral,200.15528655052185,,answered
-llama-3.2-3b-instruct,0,94098934,secao_d_anamnese,ap_app,Não registrado (IA: null),Não registrado,True,,200.15528655052185,,null
-llama-3.2-3b-instruct,0,94098934,secao_d_anamnese,af,Não registrado (IA: null),Não registrado,True,,200.15528655052185,,null
-llama-3.2-3b-instruct,0,94098934,secao_d_anamnese,exame_fisico,conforme,conforme,False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_d_anamnese,escala_braden,conforme,conforme,False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_d_anamnese,escala_morse,conforme,conforme,False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_d_anamnese,cd,conforme,conforme,False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_d_anamnese,criacao_anamnese,conforme,conforme,False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_d_evolucao,motivo_internacao,conforme (IA: internação para realização de sinossitecomia bilateral),conforme,True,internação para realização de sinossitecomia bilateral,200.15528655052185,,answered
-llama-3.2-3b-instruct,0,94098934,secao_d_evolucao,exame_fisico,conforme,conforme,False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_d_evolucao,condutas,"não conforme (IA: falta de informações sobre conduta específica de enfermagem, como 'CONDUTAS:' não foi mencionado no texto — dia 16/03, 18/03)",não conforme,True,"falta de informações sobre conduta específica de enfermagem, como 'CONDUTAS:' não foi mencionado no texto — dia 16/03, 18/03",200.15528655052185,,answered
-llama-3.2-3b-instruct,0,94098934,secao_d_evolucao,escala_braden,conforme,conforme,False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_d_evolucao,escala_morse,conforme,conforme,False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_d_evolucao,curativo,conforme (Curativo simples),conforme (Curativo simples),False,,200.15528655052185,,not_sent
-llama-3.2-3b-instruct,0,94098934,secao_d_evolucao,criacao_evolucao,conforme,conforme,False,,200.15528655052185,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_a,diagnostico_internacao,conforme (IA: fratura transtrocantérica do fêmur direito),conforme,True,fratura transtrocantérica do fêmur direito,105.08745050430298,,answered
+qwen2.5-3b-instruct,0,94098934,secao_b_anamnese,hda,"conforme (IA: paciente iniciou quadro há 2 dias com queda da própria altura, dor intensa em quadril direito e incapacidade de deambular.)",conforme,True,"paciente iniciou quadro há 2 dias com queda da própria altura, dor intensa em quadril direito e incapacidade de deambular.",105.08745050430298,,answered
+qwen2.5-3b-instruct,0,94098934,secao_b_anamnese,hd_cid,conforme,conforme,False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_b_anamnese,ap_app,conforme (IA: REFERE ALERGIA A DIPIRONA),conforme,True,REFERE ALERGIA A DIPIRONA,105.08745050430298,,answered
+qwen2.5-3b-instruct,0,94098934,secao_b_anamnese,af,conforme,conforme,False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_b_anamnese,exame_fisico,conforme,conforme,False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_b_anamnese,cd,conforme,conforme,False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_b_anamnese,criacao_anamnese,conforme,conforme,False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_b_evolucao,hd_cid,conforme,conforme,False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_b_evolucao,exame_fisico,conforme,conforme,False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_b_evolucao,procedimentos_condutas_queixas,conforme,conforme,False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_b_evolucao,frequencia_diaria,conforme,conforme,False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_c,diagnostico_cid,Não registrado,Não registrado,False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_c,descricao_procedimento,Osteossíntese de fêmur proximal com DHS,Osteossíntese de fêmur proximal com DHS,False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_c,descricao_tecnica,"conforme (IA: Paciente em decúbito dorsal, sob raquianestesia. Realizada incisão lateral sobre o trocânter maior, dissecção por planos, visualização da fratura transtrocantérica. Redução da fratura sob controle fluoroscópico, fixação com placa DHS e parafuso deslizante. Verificação de estabilidade e hemostasia. Síntese por planos, curativo oclusivo. Paciente tolerou bem o procedimento.)",conforme,True,"Paciente em decúbito dorsal, sob raquianestesia. Realizada incisão lateral sobre o trocânter maior, dissecção por planos, visualização da fratura transtrocantérica. Redução da fratura sob controle fluoroscópico, fixação com placa DHS e parafuso deslizante. Verificação de estabilidade e hemostasia. Síntese por planos, curativo oclusivo. Paciente tolerou bem o procedimento.",105.08745050430298,,answered
+qwen2.5-3b-instruct,0,94098934,secao_c,uso_opme,"conforme (placa, parafuso)","conforme (placa, parafuso)",False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_d_anamnese,motivo_internacao,conforme (IA: internação para realização de sinusectomia bilateral),conforme,True,internação para realização de sinusectomia bilateral,105.08745050430298,,answered
+qwen2.5-3b-instruct,0,94098934,secao_d_anamnese,ap_app,Não registrado (IA: null),Não registrado,True,,105.08745050430298,,null
+qwen2.5-3b-instruct,0,94098934,secao_d_anamnese,af,Não registrado (IA: null),Não registrado,True,,105.08745050430298,,null
+qwen2.5-3b-instruct,0,94098934,secao_d_anamnese,exame_fisico,conforme,conforme,False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_d_anamnese,escala_braden,conforme,conforme,False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_d_anamnese,escala_morse,conforme,conforme,False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_d_anamnese,cd,conforme,conforme,False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_d_anamnese,criacao_anamnese,conforme,conforme,False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_d_evolucao,motivo_internacao,Não registrado (IA: null),Não registrado,True,,105.08745050430298,,null
+qwen2.5-3b-instruct,0,94098934,secao_d_evolucao,exame_fisico,conforme,conforme,False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_d_evolucao,condutas,"conforme (IA: orientações de pré-operatório realizadas. segue em cuidados de enfermagem. exame físico complementar: sistema respiratório: murmúrio vesicular presente, sem ruídos adventícios; sistema genitourinário: diurese espontânea presente; sistema músculo-esquelético: mobilidade no leito preservada.)",conforme,True,"orientações de pré-operatório realizadas. segue em cuidados de enfermagem. exame físico complementar: sistema respiratório: murmúrio vesicular presente, sem ruídos adventícios; sistema genitourinário: diurese espontânea presente; sistema músculo-esquelético: mobilidade no leito preservada.",105.08745050430298,,answered
+qwen2.5-3b-instruct,0,94098934,secao_d_evolucao,escala_braden,conforme,conforme,False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_d_evolucao,escala_morse,conforme,conforme,False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_d_evolucao,curativo,conforme (Curativo simples),conforme (Curativo simples),False,,105.08745050430298,,not_sent
+qwen2.5-3b-instruct,0,94098934,secao_d_evolucao,criacao_evolucao,conforme,conforme,False,,105.08745050430298,,not_sent
+phi-4-mini-instruct,0,94098934,secao_a,diagnostico_internacao,conforme (IA: Hipótese diagnóstica: fratura transtrocantérica do fêmur direito),conforme,True,Hipótese diagnóstica: fratura transtrocantérica do fêmur direito,160.12624764442444,,answered
+phi-4-mini-instruct,0,94098934,secao_b_anamnese,hda,"conforme (IA: paciente feminina, 77 anos, admitida com história de queda da própria altura há 2 dias, dor intensa em quadril direito, incapacidade de deambular)",conforme,True,"paciente feminina, 77 anos, admitida com história de queda da própria altura há 2 dias, dor intensa em quadril direito, incapacidade de deambular",160.12624764442444,,answered
+phi-4-mini-instruct,0,94098934,secao_b_anamnese,hd_cid,conforme,conforme,False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_b_anamnese,ap_app,conforme (IA: Refere HAS e DM2 em uso de metformina e losartana. Nega outras comorbidades.),conforme,True,Refere HAS e DM2 em uso de metformina e losartana. Nega outras comorbidades.,160.12624764442444,,answered
+phi-4-mini-instruct,0,94098934,secao_b_anamnese,af,conforme,conforme,False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_b_anamnese,exame_fisico,conforme,conforme,False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_b_anamnese,cd,conforme,conforme,False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_b_anamnese,criacao_anamnese,conforme,conforme,False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_b_evolucao,hd_cid,conforme,conforme,False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_b_evolucao,exame_fisico,conforme,conforme,False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_b_evolucao,procedimentos_condutas_queixas,conforme,conforme,False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_b_evolucao,frequencia_diaria,conforme,conforme,False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_c,diagnostico_cid,Não registrado,Não registrado,False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_c,descricao_procedimento,Osteossíntese de fêmur proximal com DHS,Osteossíntese de fêmur proximal com DHS,False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_c,descricao_tecnica,"conforme (IA: Pacente em decúbito dorsal, sob raquianestesia. Realizada incisão lateral sobre o trocânter maior, dissecção por planos, visualização da fratura transtrocantérica. Redução da fratura sob controle fluoroscópico, fixação com placa DHS e parafuso deslizante. Verificação de estabilidade e hemostasia. Síntese por planos, curativo oclusivo.)",conforme,True,"Pacente em decúbito dorsal, sob raquianestesia. Realizada incisão lateral sobre o trocânter maior, dissecção por planos, visualização da fratura transtrocantérica. Redução da fratura sob controle fluoroscópico, fixação com placa DHS e parafuso deslizante. Verificação de estabilidade e hemostasia. Síntese por planos, curativo oclusivo.",160.12624764442444,,answered
+phi-4-mini-instruct,0,94098934,secao_c,uso_opme,"conforme (placa, parafuso)","conforme (placa, parafuso)",False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_d_anamnese,motivo_internacao,conforme (IA: internação para realização de sinusectomia bilateral),conforme,True,internação para realização de sinusectomia bilateral,160.12624764442444,,answered
+phi-4-mini-instruct,0,94098934,secao_d_anamnese,ap_app,"conforme (IA: hipertensão arterial, diabetes mellitus em uso de medicação)",conforme,True,"hipertensão arterial, diabetes mellitus em uso de medicação",160.12624764442444,,answered
+phi-4-mini-instruct,0,94098934,secao_d_anamnese,af,"conforme (IA: mãe hipertensa, pai diabético)",conforme,True,"mãe hipertensa, pai diabético",160.12624764442444,,answered
+phi-4-mini-instruct,0,94098934,secao_d_anamnese,exame_fisico,conforme,conforme,False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_d_anamnese,escala_braden,conforme,conforme,False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_d_anamnese,escala_morse,conforme,conforme,False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_d_anamnese,cd,conforme,conforme,False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_d_anamnese,criacao_anamnese,conforme,conforme,False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_d_evolucao,motivo_internacao,conforme (IA: pre-operatório de osteossíntese de fêmur proximal),conforme,True,pre-operatório de osteossíntese de fêmur proximal,160.12624764442444,,answered
+phi-4-mini-instruct,0,94098934,secao_d_evolucao,exame_fisico,conforme,conforme,False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_d_evolucao,condutas,"conforme (IA: paciente reflete dor leve no membro afetado, controlada com analgésico; aceitou dieta, sem náuseas; exame físico: consciente, orientada, corada, hidratada, afebril; ritmo cardíaco regular, sem sopros; murmúrios vesiculares presentes, sem ruídos adventícios; abdome flácido, indolor, ruídos hidroaéreos presentes; extremidades: perfusão preservada, pulsos presentes, sem edema; membro direito com dor à mobilização, sem sinais flogísticos; sistema respiratório: murmurio vesicular presente, sem ruídos adventícios; sistema genitourinário: diurese espontânea presente; sistema músculo-esquelético: mobilidade no leito preservada)",conforme,True,"paciente reflete dor leve no membro afetado, controlada com analgésico; aceitou dieta, sem náuseas; exame físico: consciente, orientada, corada, hidratada, afebril; ritmo cardíaco regular, sem sopros; murmúrios vesiculares presentes, sem ruídos adventícios; abdome flácido, indolor, ruídos hidroaéreos presentes; extremidades: perfusão preservada, pulsos presentes, sem edema; membro direito com dor à mobilização, sem sinais flogísticos; sistema respiratório: murmurio vesicular presente, sem ruídos adventícios; sistema genitourinário: diurese espontânea presente; sistema músculo-esquelético: mobilidade no leito preservada",160.12624764442444,,answered
+phi-4-mini-instruct,0,94098934,secao_d_evolucao,escala_braden,conforme,conforme,False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_d_evolucao,escala_morse,conforme,conforme,False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_d_evolucao,curativo,conforme (Curativo simples),conforme (Curativo simples),False,,160.12624764442444,,not_sent
+phi-4-mini-instruct,0,94098934,secao_d_evolucao,criacao_evolucao,conforme,conforme,False,,160.12624764442444,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_a,diagnostico_internacao,conforme (IA: fratura transtrocantérica do fêmur direito),conforme,True,fratura transtrocantérica do fêmur direito,235.1659951210022,,answered
+llama-3.2-3b-instruct,0,94098934,secao_b_anamnese,hda,"conforme (IA: Paciente iniciou quadro há 2 dias com dor intensa em quadril direito, incapacidade de deambular.)",conforme,True,"Paciente iniciou quadro há 2 dias com dor intensa em quadril direito, incapacidade de deambular.",235.1659951210022,,answered
+llama-3.2-3b-instruct,0,94098934,secao_b_anamnese,hd_cid,conforme,conforme,False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_b_anamnese,ap_app,conforme (IA: REFERE ALERGIA A DIPIRONA.),conforme,True,REFERE ALERGIA A DIPIRONA.,235.1659951210022,,answered
+llama-3.2-3b-instruct,0,94098934,secao_b_anamnese,af,conforme,conforme,False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_b_anamnese,exame_fisico,conforme,conforme,False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_b_anamnese,cd,conforme,conforme,False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_b_anamnese,criacao_anamnese,conforme,conforme,False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_b_evolucao,hd_cid,conforme,conforme,False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_b_evolucao,exame_fisico,conforme,conforme,False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_b_evolucao,procedimentos_condutas_queixas,conforme,conforme,False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_b_evolucao,frequencia_diaria,conforme,conforme,False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_c,diagnostico_cid,Não registrado,Não registrado,False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_c,descricao_procedimento,Osteossíntese de fêmur proximal com DHS,Osteossíntese de fêmur proximal com DHS,False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_c,descricao_tecnica,"conforme (IA: 1. Paciente em dec¼ulido dorsal, sob raquianestesia. 2. Realizada incisão lateral sobre o trocánter maior, dissecção por planos, visualização da fratura transtrocantérica. 3. Reduçó da fratura sob controle fluoroscópico, fixação com placa DHS e parafuso deslizante. 4. Verificação de estabilidade e hemostasia. 5. Síntese por planos, curativo oclusivo. Paciente tolerou bem o procedimento.)",conforme,True,"1. Paciente em dec¼ulido dorsal, sob raquianestesia. 2. Realizada incisão lateral sobre o trocánter maior, dissecção por planos, visualização da fratura transtrocantérica. 3. Reduçó da fratura sob controle fluoroscópico, fixação com placa DHS e parafuso deslizante. 4. Verificação de estabilidade e hemostasia. 5. Síntese por planos, curativo oclusivo. Paciente tolerou bem o procedimento.",235.1659951210022,,answered
+llama-3.2-3b-instruct,0,94098934,secao_c,uso_opme,"conforme (placa, parafuso)","conforme (placa, parafuso)",False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_d_anamnese,motivo_internacao,conforme (IA: internação para realização de sinusectomia bilateral),conforme,True,internação para realização de sinusectomia bilateral,235.1659951210022,,answered
+llama-3.2-3b-instruct,0,94098934,secao_d_anamnese,ap_app,Não registrado (IA: null),Não registrado,True,,235.1659951210022,,null
+llama-3.2-3b-instruct,0,94098934,secao_d_anamnese,af,Não registrado (IA: null),Não registrado,True,,235.1659951210022,,null
+llama-3.2-3b-instruct,0,94098934,secao_d_anamnese,exame_fisico,conforme,conforme,False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_d_anamnese,escala_braden,conforme,conforme,False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_d_anamnese,escala_morse,conforme,conforme,False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_d_anamnese,cd,conforme,conforme,False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_d_anamnese,criacao_anamnese,conforme,conforme,False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_d_evolucao,motivo_internacao,conforme (IA: internação para realização de sinossitecomia bilateral),conforme,True,internação para realização de sinossitecomia bilateral,235.1659951210022,,answered
+llama-3.2-3b-instruct,0,94098934,secao_d_evolucao,exame_fisico,conforme,conforme,False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_d_evolucao,condutas,"não conforme (IA: falta de informações sobre conduta específica de enfermagem, como 'CONDUTAS:' não foi mencionado no texto — dia 16/03, 18/03)",não conforme,True,"falta de informações sobre conduta específica de enfermagem, como 'CONDUTAS:' não foi mencionado no texto — dia 16/03, 18/03",235.1659951210022,,answered
+llama-3.2-3b-instruct,0,94098934,secao_d_evolucao,escala_braden,conforme,conforme,False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_d_evolucao,escala_morse,conforme,conforme,False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_d_evolucao,curativo,conforme (Curativo simples),conforme (Curativo simples),False,,235.1659951210022,,not_sent
+llama-3.2-3b-instruct,0,94098934,secao_d_evolucao,criacao_evolucao,conforme,conforme,False,,235.1659951210022,,not_sent

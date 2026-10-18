@@ -5,7 +5,7 @@
 import assert from "node:assert/strict";
 import { afterEach, test } from "node:test";
 
-import { pollJobStatus, submitAndPollBatch } from "./apiClient.js";
+import { deleteAudit, pollJobStatus, submitAndPollBatch } from "./apiClient.js";
 
 const fetchOriginal = globalThis.fetch;
 afterEach(() => {
@@ -120,4 +120,22 @@ test("lote misto: cada job termina do seu jeito, e a falha de um não derruba os
   assert.equal(resultados[1]._parcial, true);
   assert.equal(resultados[2].error, true);
   assert.match(resultados[2].message, /boom/);
+});
+
+test("deleteAudit: manda DELETE para a auditoria e aceita o 204", async () => {
+  let metodo;
+  const chamadas = mockFetch({
+    "/api/audits/7": (url, opts) => {
+      metodo = opts.method;
+      return resposta(204, null);
+    },
+  });
+  await deleteAudit(7);
+  assert.equal(metodo, "DELETE");
+  assert.equal(chamadas.length, 1);
+});
+
+test("deleteAudit: 403 vira ApiError com o status e a mensagem do servidor", async () => {
+  mockFetch({ "/api/audits/7": resposta(403, { error: "Forbidden" }) });
+  await assert.rejects(deleteAudit(7), (err) => err.status === 403 && /Forbidden/.test(err.message));
 });

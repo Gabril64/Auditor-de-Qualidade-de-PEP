@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { fetchAuditById, saveAuditRevision } from '../../data/apiClient.js';
+import { deleteAudit, fetchAuditById, saveAuditRevision } from '../../data/apiClient.js';
 import { changesFromDrafts, refKey } from '../../domain/auditValue.js';
 import { ResultCard } from '../components/AuditReport.jsx';
 import ChangeHistory from '../components/ChangeHistory.jsx';
@@ -74,7 +74,7 @@ function PencilIcon({ size = 14 }) {
 
 const panelStyle = { background: 'var(--bg2)', border: '1px solid var(--border)', borderRadius: 12, padding: 16, minWidth: 0 };
 
-export default function AuditDetailView({ auditId, onBack, isMobile }) {
+export default function AuditDetailView({ auditId, user, onBack, isMobile }) {
   const [detail, setDetail] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -83,6 +83,7 @@ export default function AuditDetailView({ auditId, onBack, isMobile }) {
   const [saveError, setSaveError] = useState(null);
   const [conflict, setConflict] = useState(false);
   const [editing, setEditing] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   async function load() {
     setLoading(true);
@@ -144,6 +145,21 @@ export default function AuditDetailView({ auditId, onBack, isMobile }) {
     setEditing((on) => !on);
   }
 
+  async function handleDelete() {
+    const number = detail.record_number_display || detail.record_number;
+    if (!window.confirm(`Excluir o prontuário ${number}? Ele sai das listas e do dashboard; só um administrador pode restaurá-lo.`)) return;
+    setDeleting(true);
+    setSaveError(null);
+    try {
+      await deleteAudit(detail.id);
+      setDrafts({});
+      onBack();
+    } catch (err) {
+      setSaveError(err.message);
+      setDeleting(false);
+    }
+  }
+
   function handleBack() {
     if (pending > 0 && !window.confirm('Há alterações não salvas. Sair mesmo assim?')) return;
     onBack();
@@ -184,6 +200,18 @@ export default function AuditDetailView({ auditId, onBack, isMobile }) {
               : 'como saiu da auditoria automática'}
           </p>
         </div>
+
+        {!detail.deleted_at && user?.role === 'admin' && (
+          <button
+            onClick={handleDelete}
+            disabled={deleting || saving}
+            aria-label="Excluir este prontuário"
+            title="Excluir prontuário"
+            style={{ ...dangerButton, ...editButton }}
+          >
+            {deleting ? 'Excluindo...' : 'Excluir'}
+          </button>
+        )}
 
         {!detail.deleted_at && (
           <button
@@ -273,6 +301,11 @@ const secondaryButton = {
 };
 
 const editButton = { display: 'inline-flex', alignItems: 'center', gap: 6, flexShrink: 0 };
+
+const dangerButton = {
+  background: 'var(--bg3)', border: '1px solid var(--red)', color: 'var(--red)',
+  borderRadius: 8, padding: '7px 14px', fontSize: 12, cursor: 'pointer',
+};
 
 const primaryButton = {
   background: 'var(--accent)', border: '1px solid var(--accent)', color: '#00131a',

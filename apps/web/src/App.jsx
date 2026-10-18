@@ -172,6 +172,7 @@ export default function App() {
           {activeView === 'details' && selectedAuditId !== null && (
             <AuditDetailView
               auditId={selectedAuditId}
+              user={session.user}
               onBack={() => setActiveView('dashboard')}
               isMobile={isMobile}
             />

@@ -191,3 +191,17 @@ export async function saveAuditRevision(id, seenVersion, changes) {
 
   return res.json();
 }
+
+/**
+ * Delete an audit (logical delete: it leaves the lists, and an administrator can restore it).
+ * @param {number} id - Audit ID
+ * @throws {ApiError} status 403 when the user is not an administrator
+ */
+export async function deleteAudit(id) {
+  const res = await apiFetch(`/api/audits/${id}`, { method: "DELETE" });
+
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ error: res.statusText }));
+    throw new ApiError(err.error || `HTTP ${res.status}`, { status: res.status });
+  }
+}
