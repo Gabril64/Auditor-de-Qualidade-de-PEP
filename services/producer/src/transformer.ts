@@ -158,7 +158,7 @@ function buildSurgery(data: AuditData): FlatSection {
 
 function buildNursing(data: AuditData): GroupedSection {
   const counts = sumCounts(data.conformity_d_anamnese, data.conformity_d_evolucao);
-  return buildGroupedSection("D", "Enfermagem e Escalas", counts, [
+  return buildGroupedSection("D", "Anamnese / Evoluções de Enfermagem", counts, [
     { titulo: "Anamnese Enfermagem", itens: buildItems(data.secao_d_anamnese, NURSING_ANAMNESIS_ITEMS) },
     { titulo: "Evolução Enfermagem", itens: buildItems(data.secao_d_evolucao, NURSING_EVOLUTION_ITEMS) },
   ]);

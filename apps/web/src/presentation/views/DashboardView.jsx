@@ -78,7 +78,7 @@ export default function DashboardView({ onSelectAudit, user, isMobile }) {
       name: id === 'A' ? 'Identificação' :
             id === 'B' ? 'Anamnese/Evolução Médica' :
             id === 'C' ? 'Bloco Cirúrgico' :
-            id === 'D' ? 'Enfermagem e Escalas' :
+            id === 'D' ? 'Anamnese / Evoluções de Enfermagem' :
             'Equipe Multiprofissional',
       value: count > 0 ? Math.round(totalScore / count * 10) / 10 : 100
     };
