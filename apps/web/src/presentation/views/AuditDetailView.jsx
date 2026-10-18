@@ -5,11 +5,46 @@ import { ResultCard } from '../components/AuditReport.jsx';
 import ChangeHistory from '../components/ChangeHistory.jsx';
 import ApprovalSeal from '../components/ApprovalSeal.jsx';
 import { lastEdit } from '../../domain/auditHistory.js';
+import { filterTags, matchesFilters } from '../../domain/rawRecordFilters.js';
 
 const SUBMITTED_AT = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' };
 
+const NO_FILTERS = { day: null, kind: null, category: null };
+
+/** One row of filter tags: click a tag to keep only its entries, click it again to let them all back. */
+function TagRow({ label, tags, selected, onToggle }) {
+  if (tags.length === 0) return null;
+
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+      <span style={{ fontSize: 10, color: 'var(--text3)', fontFamily: 'var(--mono)', minWidth: 60 }}>{label}</span>
+      {tags.map((tag) => {
+        const active = selected === tag.key;
+        return (
+          <button
+            key={tag.key}
+            type="button"
+            aria-pressed={active}
+            onClick={() => onToggle(tag.key)}
+            style={{
+              background: active ? 'var(--accent-bg)' : 'transparent',
+              border: `1px solid ${active ? 'var(--accent)' : 'var(--border2)'}`,
+              color: active ? 'var(--accent)' : 'var(--text2)',
+              borderRadius: 20, padding: '3px 11px', fontSize: 11, cursor: 'pointer',
+            }}
+          >
+            {tag.label}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
 /** The submitted record, read only: one block per entry, each key under its own label. */
 function RawRecordPanel({ raw, isMobile }) {
+  const [filters, setFilters] = useState(NO_FILTERS);
+
   if (!raw) {
     return (
       <div style={{ color: 'var(--text2)', fontSize: 13, padding: 20 }}>
@@ -19,14 +54,35 @@ function RawRecordPanel({ raw, isMobile }) {
   }
 
   const when = raw.submitted_at ? new Date(raw.submitted_at).toLocaleString('pt-BR', SUBMITTED_AT) : '';
+  const tags = filterTags(raw.entries);
+  const shown = raw.entries.filter((entry) => matchesFilters(entry, filters));
+  const filtered = filters.day || filters.kind || filters.category;
+  const toggle = (group, key) => setFilters((current) => ({ ...current, [group]: current[group] === key ? null : key }));
 
   return (
     <div>
       <div style={{ fontSize: 11, color: 'var(--text3)', fontFamily: 'var(--mono)', marginBottom: 12 }}>
-        Enviado em {when} · {raw.entries.length} registro{raw.entries.length === 1 ? '' : 's'}
+        Enviado em {when} · {filtered ? `${shown.length} de ` : ''}{raw.entries.length} registro{raw.entries.length === 1 ? '' : 's'}
       </div>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 14 }}>
+        <TagRow label="Dia" tags={tags.days} selected={filters.day} onToggle={(key) => toggle('day', key)} />
+        <TagRow label="Tipo" tags={tags.kinds} selected={filters.kind} onToggle={(key) => toggle('kind', key)} />
+        <TagRow label="Categoria" tags={tags.categories} selected={filters.category} onToggle={(key) => toggle('category', key)} />
+        {filtered && (
+          <button onClick={() => setFilters(NO_FILTERS)} style={{ ...linkButton, alignSelf: 'flex-start', fontSize: 11 }}>
+            Limpar filtros
+          </button>
+        )}
+      </div>
+
+      {shown.length === 0 && (
+        <div style={{ color: 'var(--text3)', fontSize: 12, fontFamily: 'var(--mono)', padding: '8px 0' }}>
+          Nenhum registro com essa combinação.
+        </div>
+      )}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-        {raw.entries.map((entry) => {
+        {shown.map((entry) => {
           const values = Object.entries(entry.original).filter(([, v]) => v !== null && v !== '');
           return (
             <div key={entry.position} style={{ background: 'var(--bg3)', border: '1px solid var(--border)', borderRadius: 10, padding: isMobile ? 10 : 14 }}>
