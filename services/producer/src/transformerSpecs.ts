@@ -60,6 +60,14 @@ export const NURSING_EVOLUTION_ITEMS: ItemSpec[] = [
   ["Curativo", "curativo"],
 ];
 
+/** Section E, per other professional category: the two record types, as the audit JSON names them
+ * (`secao_e.categorias[category][jsonKey]`) and as the field rows name them (`record_type`). */
+export const TEAM_RECORD_KINDS = [
+  { label: "Anamnese", jsonKey: "anamnese", recordType: "anamnesis" },
+  { label: "Evolução", jsonKey: "evolucao", recordType: "evolution" },
+] as const;
+
+/** Audits stored before section E was split by category: one flat item per audit. */
 export const TEAM_ITEMS: ItemSpec[] = [
   ["Categoria", "categoria"],
   ["Descrição", "descricao"],
@@ -73,12 +81,10 @@ export const DOCUMENT_ROWS: ReadonlyArray<
   ["Anamnese Enfermagem", "ENFERMAGEM - Anamnese", "conformity_d_anamnese"],
   ["Evolução Médica", "MEDICINA - Evolução", "conformity_b_evolucao"],
   ["Evolução Enfermagem", "ENFERMAGEM - Evolução", "conformity_d_evolucao"],
-  ["Serviço Social", "SERVIÇO SOCIAL - Evolução", "conformity_e"],
 ];
 
 export type DocumentCountsKey =
   | "conformity_b_anamnese"
   | "conformity_d_anamnese"
   | "conformity_b_evolucao"
-  | "conformity_d_evolucao"
-  | "conformity_e";
+  | "conformity_d_evolucao";

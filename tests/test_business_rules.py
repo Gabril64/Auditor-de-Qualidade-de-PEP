@@ -313,16 +313,56 @@ def test_item09_empty_structured_surgery_fields_stay_not_registered_without_ai(a
     assert calls
 
 
-def test_item10_secao_e_keeps_all_categories_and_checks_only_presence(audit_env):
+NOT_APPLICABLE = {"anamnese": "Não se aplica", "evolucao": "Não se aplica"}
+TEAM_LISTED = ["Fisioterapia/Terapia Ocupacional", "Nutrição", "Psicologia", "Fonoaudiologia", "Serviço Social", "Farmácia"]
+
+
+def test_item10_secao_e_always_lists_the_six_categories_even_without_records(audit_env):
     audit_env("all_null")
-    d = audit([rec("FISIOTERAPIA", "Evolução", "f"), rec("NUTRICAO", "Evolução", "n"), rec("FISIOTERAPIA", "Anamnese", "g")])
-    assert d["secao_e"] == {"tem_outras_categorias": True, "categoria": "FISIOTERAPIA, NUTRICAO", "descricao": "conforme"}
+    d = audit([rec("MEDICINA", "Anamnese", "texto")])
+    assert d["secao_e"] == {"tem_outras_categorias": False, "categorias": {name: NOT_APPLICABLE for name in TEAM_LISTED}}
+    assert list(d["secao_e"]["categorias"]) == TEAM_LISTED
+    assert d["conformity_e"]["total"] == 0 and d["conformity_e"]["applies"] is False
 
 
-def test_item10_category_without_description_is_not_registered(audit_env):
+def test_item10_secao_e_has_anamnese_and_evolucao_per_category_and_checks_only_presence(audit_env):
+    audit_env("all_null")
+    d = audit([rec("SERVIÇO SOCIAL", "Anamnese", "s"), rec("PSICOLOGIA", "Registro", "p"),
+               rec("FISIOTERAPIA", "Evolução", "f"), rec("FISIOTERAPIA", "Anamnese", "g")])
+    categories = d["secao_e"]["categorias"]
+    assert d["secao_e"]["tem_outras_categorias"] is True
+    assert categories["Serviço Social"] == {"anamnese": "conforme", "evolucao": "Não se aplica"}
+    assert categories["Psicologia"] == NOT_APPLICABLE
+    assert categories["Fisioterapia/Terapia Ocupacional"] == {"anamnese": "conforme", "evolucao": "conforme"}
+    assert categories["Nutrição"] == NOT_APPLICABLE
+    assert d["conformity_e"]["total"] == 3 and d["conformity_e"]["valid"] == 3
+
+
+@pytest.mark.parametrize("name,listed", [
+    ("Servico Social", "Serviço Social"), ("NUTRICAO", "Nutrição"), ("Terapia Ocupacional", "Fisioterapia/Terapia Ocupacional"),
+    ("Terapeuta Ocupacional", "Fisioterapia/Terapia Ocupacional"), ("Fisioterapeuta", "Fisioterapia/Terapia Ocupacional"),
+    ("NUTRICIONISTA", "Nutrição"), ("PSICÓLOGO", "Psicologia"), ("Fonoaudiólogo", "Fonoaudiologia"), ("FARMACÊUTICO", "Farmácia"),
+    ("FONOAUDIOLOGIA", "Fonoaudiologia"), ("FARMACIA", "Farmácia"),
+])
+def test_item10_category_names_are_matched_to_the_listed_ones_without_accents_or_case(audit_env, name, listed):
+    audit_env("all_null")
+    d = audit([rec(name, "Anamnese", "texto")])
+    assert d["secao_e"]["categorias"][listed]["anamnese"] == "conforme"
+    assert list(d["secao_e"]["categorias"]) == TEAM_LISTED
+
+
+def test_item10_a_category_not_on_the_list_is_added_after_them(audit_env):
+    audit_env("all_null")
+    d = audit([rec("ODONTOLOGIA", "Evolução", "o")])
+    assert list(d["secao_e"]["categorias"]) == [*TEAM_LISTED, "ODONTOLOGIA"]
+    assert d["secao_e"]["categorias"]["ODONTOLOGIA"]["evolucao"] == "conforme"
+
+
+def test_item10_record_without_description_is_not_registered_and_counts_against(audit_env):
     audit_env("all_null")
     d = audit([rec("FISIOTERAPIA", "Evolução", "f"), rec("NUTRICAO", "Evolução", "")])
-    assert d["secao_e"]["descricao"] == "Não registrado"
+    assert d["secao_e"]["categorias"]["Nutrição"] == {"anamnese": "Não se aplica", "evolucao": "Não registrado"}
+    assert d["conformity_e"]["total"] == 2 and d["conformity_e"]["valid"] == 1
 
 
 def diagnosis_calls(calls):
@@ -446,6 +486,14 @@ def test_item03_the_discharge_day_itself_is_not_required():
 def test_item03_several_missing_days_are_all_named():
     r = check_daily_evolution("10/03/2024, 08:30", "15/03/2024, 10:00", ["10/03/2024, 08:30"], ["12/03/2024, 08:30"])
     assert r == "não conforme (sem evolução em 11/03, 13/03, 14/03)"
+
+
+def test_item10_document_matrix_uses_the_listed_category_names_for_other_categories(audit_env):
+    audit_env("all_null")
+    d = audit([rec("MEDICINA", "Anamnese", "m"), rec("FISIOTERAPIA", "Evolução", "f", created_at="11/01/2025, 10:00"),
+               rec("SERVICO SOCIAL", "Anamnese", "s")])
+    assert sorted(d["matriz_documentos"]["matriz"]) == [
+        "Fisioterapia/Terapia Ocupacional - Evolução", "MEDICINA - Anamnese", "Serviço Social - Anamnese"]
 
 
 def test_item03_dates_without_zero_padding_keep_each_day_in_the_document_matrix(audit_env):

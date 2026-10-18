@@ -1,4 +1,5 @@
 import type { RawAuditResult } from "../transformer.js";
+import { TEAM_RECORD_KINDS } from "../transformerSpecs.js";
 
 export type FieldStatus = "conforme" | "nao_conforme" | "nao_registrado" | "nao_se_aplica";
 export type FieldSource = "rule" | "ai" | "ai_null" | "ai_failed";
@@ -101,6 +102,7 @@ type FieldValue = string | number | boolean | null | undefined;
 
 /** The key of the audit JSON that holds a section letter and record type, e.g. B + evolution -> secao_b_evolucao. */
 export function sectionKeyOf(section: string, recordType: RecordType | null): string | null {
+  if (section === "E") return "secao_e";
   const spec = SECTIONS.find((candidate) => candidate.section === section && candidate.recordType === recordType);
   return spec?.key ?? null;
 }
@@ -139,6 +141,47 @@ function sourceOf(path: string, meta: AiMeta | undefined): FieldSource {
   return "ai";
 }
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+/** Section E: one row per other professional category and record type; the category is the field. */
+function teamRows(categories: Record<string, unknown>): AuditFieldRow[] {
+  const rows: AuditFieldRow[] = [];
+  for (const [category, kinds] of Object.entries(categories)) {
+    if (!isRecord(kinds)) continue;
+    for (const kind of TEAM_RECORD_KINDS) {
+      const value = kinds[kind.jsonKey] as FieldValue;
+      rows.push({
+        section: "E",
+        record_type: kind.recordType,
+        field: category,
+        value: value === null || value === undefined ? null : String(value),
+        status: statusOf(value),
+        source: "rule",
+      });
+    }
+  }
+  return rows;
+}
+
+/** Writes a field's text back into the audit JSON, where {@link extractAuditFields} read it from. */
+export function writeFieldText(audit: Record<string, unknown>, section: string, recordType: RecordType | null, field: string, text: string): void {
+  const key = sectionKeyOf(section, recordType);
+  const target = key ? (audit[key] as Record<string, unknown> | undefined) : undefined;
+  if (!key || !target) throw new Error(`No section for ${section}/${field}`);
+
+  const categories = target["categorias"];
+  if (section === "E" && isRecord(categories)) {
+    const kind = TEAM_RECORD_KINDS.find((candidate) => candidate.recordType === recordType);
+    const entry = categories[field];
+    if (!kind || !isRecord(entry)) throw new Error(`No category ${field} in section E`);
+    entry[kind.jsonKey] = text;
+    return;
+  }
+  target[field] = text;
+}
+
 /** Splits an audit result into one row per audited field, with status and source. */
 export function extractAuditFields(result: RawAuditResult): AuditFieldRow[] {
   const data = (result.audit_data ?? result) as unknown as Record<string, unknown>;
@@ -148,6 +191,11 @@ export function extractAuditFields(result: RawAuditResult): AuditFieldRow[] {
   for (const spec of SECTIONS) {
     const values = data[spec.key] as Record<string, FieldValue> | undefined;
     if (!values) continue;
+    if (spec.section === "E" && isRecord(values["categorias"])) {
+      rows.push(...teamRows(values["categorias"]));
+      continue;
+    }
+
     if (spec.onlyWhen && !values[spec.onlyWhen]) continue;
 
     for (const field of spec.fields) {

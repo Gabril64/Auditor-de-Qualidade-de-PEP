@@ -7,6 +7,7 @@ import {
   NURSING_EVOLUTION_ITEMS,
   SURGERY_ITEMS,
   TEAM_ITEMS,
+  TEAM_RECORD_KINDS,
   type ItemSpec,
 } from "../transformerSpecs.js";
 import { extractAuditFields, type RecordType } from "./auditFields.js";
@@ -39,6 +40,21 @@ const SECTION_GROUPS: Record<string, ItemGroupSpec[]> = {
 const keyOf = (section: string, recordType: RecordType | null, field: string) =>
   `${section}:${recordType ?? ""}:${field}`;
 
+/** Section E: one group per other category (in the order of the audit JSON), anamnesis and evolution inside. */
+function annotateTeam(groups: Array<{ itens: AuditItem[] }>, source: RawAuditResult, editable: Set<string>): void {
+  const data = (source.audit_data ?? source) as { secao_e?: { categorias?: Record<string, unknown> } };
+  const categories = Object.keys(data.secao_e?.categorias ?? {});
+
+  groups.forEach((group, groupIndex) => {
+    group.itens.forEach((item, kindIndex) => {
+      const category = categories[groupIndex];
+      const kind = TEAM_RECORD_KINDS[kindIndex];
+      const known = category !== undefined && kind !== undefined && editable.has(keyOf("E", kind.recordType, category));
+      item.ref = known ? { section: "E", record_type: kind.recordType, field: category } : null;
+    });
+  });
+}
+
 /** Marks each item of a transformed audit with its `ref`, or null when the field is not one of the
  * audited fields (so it cannot be edited). `source` is the audit JSON the items were built from. */
 export function annotateItemRefs(audit: TransformedAudit, source: RawAuditResult): TransformedAudit {
@@ -47,6 +63,11 @@ export function annotateItemRefs(audit: TransformedAudit, source: RawAuditResult
   for (const section of audit.secoes) {
     const groups = SECTION_GROUPS[section.id] ?? [];
     const itemLists: AuditItem[][] = "subgrupos" in section ? section.subgrupos.map((g) => g.itens) : [section.itens];
+
+    if (section.id === "E" && "subgrupos" in section) {
+      annotateTeam(section.subgrupos, source, editable);
+      continue;
+    }
 
     itemLists.forEach((items, groupIndex) => {
       const group = groups[groupIndex];

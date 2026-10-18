@@ -243,6 +243,8 @@ def _build_document_matrix(patient_records):
     all_dates = set()
     for info in patient_records:
         category = info.get("categoria_profissional", "Outros")
+        if (category or "").upper() not in ("MEDICINA", "ENFERMAGEM"):
+            category = _team_category_name(category)
         record_type = info.get("tipo_registro", "Registro")
         doc_name = f"{category} - {record_type}"
 
@@ -291,8 +293,7 @@ def _new_audit_data(base_info, matrix, all_dates):
         "secao_d_evolucao": dict({k: "Não registrado" for k in ["motivo_internacao", "exame_fisico", "condutas", "escala_braden", "escala_morse", "criacao_evolucao"]}, curativo="Não se aplica"),
         "secao_e": {
             "tem_outras_categorias": False,
-            "categoria": "Não se aplica",
-            "descricao": "Não se aplica",
+            "categorias": {name: _not_applicable_kinds() for name in TEAM_CATEGORIES},
         },
     }
 
@@ -357,6 +358,45 @@ def _apply_daily_evolution_rule(audit_data, patient_records, base_info):
 def _is_incomplete_physical_exam(value):
     """The keywords found the exam but some body systems are missing ("não conforme (Faltam: ...)")."""
     return isinstance(value, str) and value.startswith("não conforme (Faltam:")
+
+
+TEAM_CATEGORIES = (
+    "Fisioterapia/Terapia Ocupacional", "Nutrição", "Psicologia", "Fonoaudiologia", "Serviço Social", "Farmácia",
+)
+# Stems of the normalized category name -> the listed category it belongs to.
+_TEAM_CATEGORY_STEMS = (
+    ("fisioterap", TEAM_CATEGORIES[0]), ("terapia ocupacional", TEAM_CATEGORIES[0]),
+    ("terapeuta ocupacional", TEAM_CATEGORIES[0]),
+    ("nutri", TEAM_CATEGORIES[1]), ("psicolog", TEAM_CATEGORIES[2]), ("fonoaudio", TEAM_CATEGORIES[3]),
+    ("servico social", TEAM_CATEGORIES[4]), ("farmac", TEAM_CATEGORIES[5]),
+)
+
+
+def _not_applicable_kinds():
+    return {"anamnese": "Não se aplica", "evolucao": "Não se aplica"}
+
+
+def _team_category_name(category):
+    """The listed category a record's category belongs to ("SERVICO SOCIAL" -> "Serviço Social",
+    "FISIOTERAPIA" -> "Fisioterapia/Terapia Ocupacional"); a category not on the list keeps its own name."""
+    normalized = normalize(category)
+    return next((name for stem, name in _TEAM_CATEGORY_STEMS if stem in normalized), category)
+
+
+def _note_other_category_record(other_categories, category, record_type, description):
+    """Section E: the six multiprofessional categories are always listed, and any other category found
+    joins them; each one gets an
+    "anamnese" and an "evolucao" verdict, like medicine and nursing, but only presence is checked
+    (never the content): "conforme" when a record of that type has a description, "Não registrado"
+    when the records of that type are all empty, "Não se aplica" when there is no record of that type."""
+    entry = other_categories.setdefault(_team_category_name(category), _not_applicable_kinds())
+    kind = "anamnese" if "anamnese" in record_type else "evolucao" if "evolução" in record_type else None
+    if kind is None:
+        return
+    if description:
+        entry[kind] = "conforme"
+    elif entry[kind] == "Não se aplica":
+        entry[kind] = "Não registrado"
 
 
 def _local_findings(category, record_type, normalized_description, description):
@@ -438,7 +478,7 @@ def audit_medical_records(records):
         total_ai_time = 0.0
         ai_meta = _new_ai_meta()
 
-        other_categories: dict[str, bool] = {}
+        other_categories = audit_data["secao_e"]["categorias"]
         evolutions: dict[str, list[tuple[str, dict]]] = {}
 
         for info in patient_records:
@@ -456,7 +496,7 @@ def audit_medical_records(records):
                 local_values["criacao_anamnese"] = check_anamnesis_creation(info["periodo_internacao"], info["data_criacao"])
             elif category and category not in ("MEDICINA", "ENFERMAGEM"):
                 audit_data["secao_e"]["tem_outras_categorias"] = True
-                other_categories[category] = other_categories.get(category, False) or bool(info["descricao"])
+                _note_other_category_record(other_categories, category, record_type, info["descricao"])
 
             if local_values and target_key is not None:
                 target_section = audit_data[target_key]
@@ -494,9 +534,6 @@ def audit_medical_records(records):
 
         _apply_daily_evolution_rule(audit_data, patient_records, base_info)
 
-        if other_categories:
-            audit_data["secao_e"]["categoria"] = ", ".join(other_categories)
-            audit_data["secao_e"]["descricao"] = "conforme" if all(other_categories.values()) else "Não registrado"
 
         if audit_data["secao_a"]["diagnostico_internacao"] == "Não registrado":
             doctors = [r for r in patient_records if (r["categoria_profissional"] or "").upper() == "MEDICINA" and r.get("descricao")]
@@ -612,21 +649,21 @@ def calculate_conformity(data):
     data["conformity_d_evolucao"] = _score(d_e_valid, d_e_total)
 
     section_e = data.get("secao_e", {})
-    has_other_categories = section_e.get("tem_outras_categorias", False)
-    if has_other_categories:
-        e_valid = 1 if _is_valid(section_e.get("descricao")) else 0
-        data["conformity_e"] = {**_score(e_valid, 1), "applies": True, "categoria": section_e.get("categoria", "Outras")}
+    e_values = [value for kinds in section_e.get("categorias", {}).values() for value in kinds.values()]
+    e_applicable = [value for value in e_values if not _is_not_applicable(value)]
+    if e_applicable:
+        e_valid = sum(1 for value in e_applicable if _is_valid(value))
+        data["conformity_e"] = {**_score(e_valid, len(e_applicable)), "applies": True, "categoria": ", ".join(section_e["categorias"])}
     else:
-        data["conformity_e"] = {"total": 0, "valid": 0, "percent": 100, "applies": False, "categoria": "Outras"}
+        data["conformity_e"] = {"total": 0, "valid": 0, "percent": 100, "applies": False, "categoria": ", ".join(section_e.get("categorias", {})) or "Outras"}
 
     global_total = a_total + len(b_a_items) + len(b_e_items) + d_a_total + d_e_total
     global_valid = a_valid + b_a_valid + b_e_valid + d_a_valid + d_e_valid
     if has_surgery:
         global_total += data["conformity_c"]["total"]
         global_valid += data["conformity_c"]["valid"]
-    if has_other_categories:
-        global_total += data["conformity_e"]["total"]
-        global_valid += data["conformity_e"]["valid"]
+    global_total += data["conformity_e"]["total"]
+    global_valid += data["conformity_e"]["valid"]
 
     data["conformity_global"] = {
         "total": global_total,

@@ -18,7 +18,7 @@ export function countsOf(rows: CountableRow[]): Counts {
 
   for (const row of rows) {
     const notApplicable = row.status === "nao_se_aplica";
-    if (notApplicable && OPTIONAL_ITEMS.has(`${row.section}:${row.field}`)) continue;
+    if (notApplicable && (row.section === "E" || OPTIONAL_ITEMS.has(`${row.section}:${row.field}`))) continue;
     total++;
     if (row.status === "conforme" || notApplicable) valid++;
   }
@@ -42,7 +42,7 @@ const SECTION_COUNTERS: Array<[key: string, section: string, recordType: string 
  * properties of each counter (`applies`, `categoria`). Returns the global counts. */
 export function applyConformity(audit: Json, rows: CountableRow[]): Counts {
   for (const [key, section, recordType] of SECTION_COUNTERS) {
-    const sectionRows = rows.filter((row) => row.section === section && row.record_type === recordType);
+    const sectionRows = rows.filter((row) => row.section === section && (section === "E" || row.record_type === recordType));
     if (sectionRows.length === 0) continue;
     audit[key] = { ...(audit[key] as Json | undefined), ...countsOf(sectionRows) };
   }

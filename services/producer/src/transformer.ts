@@ -8,6 +8,7 @@ import {
   NURSING_EVOLUTION_ITEMS,
   SURGERY_ITEMS,
   TEAM_ITEMS,
+  TEAM_RECORD_KINDS,
   type ItemSpec,
 } from "./transformerSpecs.js";
 
@@ -133,7 +134,7 @@ function buildSections(auditData: AuditData): Section[] {
   const sections: Section[] = [buildIdentification(auditData), buildMedical(auditData)];
   if (auditData.secao_c?.tem_cirurgia) sections.push(buildSurgery(auditData));
   sections.push(buildNursing(auditData));
-  if (auditData.secao_e?.tem_outras_categorias) sections.push(buildTeam(auditData));
+  if (auditData.secao_e?.["categorias"] || auditData.secao_e?.tem_outras_categorias) sections.push(buildTeam(auditData));
   return sections;
 }
 
@@ -163,9 +164,28 @@ function buildNursing(data: AuditData): GroupedSection {
   ]);
 }
 
-function buildTeam(data: AuditData): FlatSection {
-  const items = buildItems(data.secao_e, TEAM_ITEMS);
-  return buildFlatSection("E", "Equipe Multiprofissional", readCounts(data.conformity_e), items);
+function buildTeam(data: AuditData): Section {
+  const title = "Equipe Multiprofissional";
+  const categories = data.secao_e?.["categorias"];
+  if (typeof categories !== "object" || categories === null) {
+    return buildFlatSection("E", title, readCounts(data.conformity_e), buildItems(data.secao_e, TEAM_ITEMS));
+  }
+
+  const groups = Object.entries(categories as Record<string, Fields>).map(([category, kinds]) => ({
+    titulo: displayName(category),
+    itens: TEAM_RECORD_KINDS.map(({ label, jsonKey }) => {
+      const value = kinds?.[jsonKey];
+      return { item: label, valor: value || NOT_AVAILABLE, status: toStatus(value) };
+    }),
+  }));
+  return buildGroupedSection("E", title, readCounts(data.conformity_e), groups);
+}
+
+/** The way a category is titled on screen: names the auditor already writes as titles are kept, and an
+ * all-capitals one ("SERVIÇO SOCIAL") becomes "Serviço Social". */
+export function displayName(category: string): string {
+  if (category !== category.toUpperCase()) return category;
+  return category.toLowerCase().replace(/(^|\s)(\S)/g, (_, space: string, letter: string) => space + letter.toUpperCase());
 }
 
 function buildFlatSection(id: string, title: string, counts: Counts, items: AuditItem[]): FlatSection {
@@ -224,23 +244,31 @@ function collectNonConformities(sections: Section[]): NonConformity[] {
   });
 }
 
+/** "3/12/2023" -> "03/12/2023": audits stored before the auditor padded the dates still line up. */
+function paddedDate(date: string): string {
+  const match = date.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+  return match ? `${match[1]!.padStart(2, "0")}/${match[2]!.padStart(2, "0")}/${match[3]}` : date;
+}
+
 function extractDays(dates: string[]): string[] {
   return dates.map((date) => {
-    const match = date.match(/(\d{2})\/(\d{2})/);
+    const match = paddedDate(date).match(/(\d{2})\/(\d{2})/);
     return match ? `${match[1]}/${match[2]}` : date;
   });
 }
 
 /** One row per document type: the days it exists on, how many, and how conforming its fields are. A day
- * is matched by the full date from the matrix, so the same day and month in another year does not count. */
+ * is matched by the full date from the matrix, so the same day and month in another year does not count.
+ * Medicine and nursing always have their rows; each other professional category (physiotherapy,
+ * psychology...) adds one per record type, only when it has records. */
 function buildDocumentCountRows(auditData: AuditData, days: string[]): DocumentCountRow[] {
   const matrix = auditData.matriz_documentos;
   const entriesByDocument = matrix?.matriz ?? {};
-  const fullDates = matrix?.datas ?? [];
+  const fullDates = (matrix?.datas ?? []).map(paddedDate);
 
-  return DOCUMENT_ROWS.map(([label, matrixKey, countsKey]) => {
-    const documentDates = new Set(Object.keys(entriesByDocument[matrixKey] ?? {}));
-    const row: DocumentCountRow = { tipo: label, total: 0, conformidade: 0 };
+  const buildRow = (label: string, matrixKey: string, conformity: number): DocumentCountRow => {
+    const documentDates = new Set(Object.keys(entriesByDocument[matrixKey] ?? {}).map(paddedDate));
+    const row: DocumentCountRow = { tipo: label, total: 0, conformidade: conformity };
     let presentCount = 0;
 
     days.forEach((day, index) => {
@@ -250,7 +278,21 @@ function buildDocumentCountRows(auditData: AuditData, days: string[]): DocumentC
     });
 
     row.total = presentCount;
-    row.conformidade = percentage(readCounts(auditData[countsKey]));
     return row;
-  });
+  };
+
+  const rows = DOCUMENT_ROWS.map(([label, matrixKey, countsKey]) =>
+    buildRow(label, matrixKey, percentage(readCounts(auditData[countsKey]))),
+  );
+
+  const categories = (auditData.secao_e?.["categorias"] ?? {}) as Record<string, Fields>;
+  for (const [category, kinds] of Object.entries(categories)) {
+    for (const { label, jsonKey } of TEAM_RECORD_KINDS) {
+      const matrixKey = `${category} - ${label}`;
+      if (!(matrixKey in entriesByDocument)) continue;
+      rows.push(buildRow(`${label} ${displayName(category)}`, matrixKey, toStatus(kinds?.[jsonKey]) === "conforme" ? 100 : 0));
+    }
+  }
+
+  return rows;
 }

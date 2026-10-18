@@ -134,8 +134,14 @@ O script retorna um **Array de Objetos JSON** impresso no console (`sys.stdout`)
 
       "secao_e": {
         "tem_outras_categorias": true,
-        "categoria": "SERVIÇO SOCIAL",
-        "descricao": "conforme"
+        "categorias": {
+          "Fisioterapia/Terapia Ocupacional": { "anamnese": "Não se aplica", "evolucao": "Não se aplica" },
+          "Nutrição": { "anamnese": "Não se aplica", "evolucao": "Não se aplica" },
+          "Psicologia": { "anamnese": "Não se aplica", "evolucao": "Não se aplica" },
+          "Fonoaudiologia": { "anamnese": "Não se aplica", "evolucao": "Não se aplica" },
+          "Serviço Social": { "anamnese": "conforme", "evolucao": "Não se aplica" },
+          "Farmácia": { "anamnese": "Não se aplica", "evolucao": "Não se aplica" }
+        }
       },
 
       "conformity_a": {
@@ -148,7 +154,7 @@ O script retorna um **Array de Objetos JSON** impresso no console (`sys.stdout`)
       "conformity_c": { "total": 8, "valid": 7, "percent": 87.5, "applies": true },
       "conformity_d_anamnese": { "total": 8, "valid": 7, "percent": 87.5 },
       "conformity_d_evolucao": { "total": 6, "valid": 6, "percent": 100.0 },
-      "conformity_e": { "total": 1, "valid": 1, "percent": 100.0, "applies": true, "categoria": "SERVIÇO SOCIAL" },
+      "conformity_e": { "total": 1, "valid": 1, "percent": 100.0, "applies": true, "categoria": "Fisioterapia/Terapia Ocupacional, Nutrição, Psicologia, Fonoaudiologia, Serviço Social, Farmácia" },
 
       "conformity_global": {
         "total": 42,

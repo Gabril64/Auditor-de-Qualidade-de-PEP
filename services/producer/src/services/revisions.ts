@@ -1,7 +1,7 @@
 import { inTransaction } from "../db/connection.js";
 import { approvalStateOf, type ApprovalState } from "../domain/approvals.js";
 import { applyConformity, textFor } from "../domain/conformity.js";
-import { sectionKeyOf, statusOf, type RecordType } from "../domain/auditFields.js";
+import { sectionKeyOf, statusOf, writeFieldText, type RecordType } from "../domain/auditFields.js";
 import { HttpError } from "../errors.js";
 import { getAuditById } from "../repositories/audits.js";
 import { addHistory, listApprovalEvents } from "../repositories/history.js";
@@ -134,7 +134,7 @@ export function editAudit(auditId: number, seenVersion: unknown, changesInput: u
         newStatus: change.status,
       });
 
-      (audit[key] as Json)[change.field] = text;
+      writeFieldText(audit, change.section, change.record_type, change.field, text);
       field.value = text;
       field.status = statusOf(text);
       updateRevisionField(auditId, field, version, user.id);

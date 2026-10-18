@@ -149,7 +149,7 @@
    },
    "conformity_e": {
     "applies": false,
-    "categoria": "Outras",
+    "categoria": "Fisioterapia/Terapia Ocupacional, Nutrição, Psicologia, Fonoaudiologia, Serviço Social, Farmácia",
     "percent": 100,
     "total": 0,
     "valid": 0
@@ -244,8 +244,32 @@
     "motivo_internacao": "conforme (IA: trecho[motivo_internacao])"
    },
    "secao_e": {
-    "categoria": "Não se aplica",
-    "descricao": "Não se aplica",
+    "categorias": {
+     "Farmácia": {
+      "anamnese": "Não se aplica",
+      "evolucao": "Não se aplica"
+     },
+     "Fisioterapia/Terapia Ocupacional": {
+      "anamnese": "Não se aplica",
+      "evolucao": "Não se aplica"
+     },
+     "Fonoaudiologia": {
+      "anamnese": "Não se aplica",
+      "evolucao": "Não se aplica"
+     },
+     "Nutrição": {
+      "anamnese": "Não se aplica",
+      "evolucao": "Não se aplica"
+     },
+     "Psicologia": {
+      "anamnese": "Não se aplica",
+      "evolucao": "Não se aplica"
+     },
+     "Serviço Social": {
+      "anamnese": "Não se aplica",
+      "evolucao": "Não se aplica"
+     }
+    },
     "tem_outras_categorias": false
    }
   },
@@ -389,7 +413,7 @@
    },
    "conformity_e": {
     "applies": false,
-    "categoria": "Outras",
+    "categoria": "Fisioterapia/Terapia Ocupacional, Nutrição, Psicologia, Fonoaudiologia, Serviço Social, Farmácia",
     "percent": 100,
     "total": 0,
     "valid": 0
@@ -483,8 +507,32 @@
     "motivo_internacao": "conforme (IA: trecho[motivo_internacao])"
    },
    "secao_e": {
-    "categoria": "Não se aplica",
-    "descricao": "Não se aplica",
+    "categorias": {
+     "Farmácia": {
+      "anamnese": "Não se aplica",
+      "evolucao": "Não se aplica"
+     },
+     "Fisioterapia/Terapia Ocupacional": {
+      "anamnese": "Não se aplica",
+      "evolucao": "Não se aplica"
+     },
+     "Fonoaudiologia": {
+      "anamnese": "Não se aplica",
+      "evolucao": "Não se aplica"
+     },
+     "Nutrição": {
+      "anamnese": "Não se aplica",
+      "evolucao": "Não se aplica"
+     },
+     "Psicologia": {
+      "anamnese": "Não se aplica",
+      "evolucao": "Não se aplica"
+     },
+     "Serviço Social": {
+      "anamnese": "Não se aplica",
+      "evolucao": "Não se aplica"
+     }
+    },
     "tem_outras_categorias": false
    }
   },
@@ -588,7 +636,7 @@
    },
    "conformity_e": {
     "applies": false,
-    "categoria": "Outras",
+    "categoria": "Fisioterapia/Terapia Ocupacional, Nutrição, Psicologia, Fonoaudiologia, Serviço Social, Farmácia",
     "percent": 100,
     "total": 0,
     "valid": 0
@@ -677,8 +725,32 @@
     "motivo_internacao": "conforme (IA: trecho[motivo_internacao])"
    },
    "secao_e": {
-    "categoria": "Não se aplica",
-    "descricao": "Não se aplica",
+    "categorias": {
+     "Farmácia": {
+      "anamnese": "Não se aplica",
+      "evolucao": "Não se aplica"
+     },
+     "Fisioterapia/Terapia Ocupacional": {
+      "anamnese": "Não se aplica",
+      "evolucao": "Não se aplica"
+     },
+     "Fonoaudiologia": {
+      "anamnese": "Não se aplica",
+      "evolucao": "Não se aplica"
+     },
+     "Nutrição": {
+      "anamnese": "Não se aplica",
+      "evolucao": "Não se aplica"
+     },
+     "Psicologia": {
+      "anamnese": "Não se aplica",
+      "evolucao": "Não se aplica"
+     },
+     "Serviço Social": {
+      "anamnese": "Não se aplica",
+      "evolucao": "Não se aplica"
+     }
+    },
     "tem_outras_categorias": false
    }
   },

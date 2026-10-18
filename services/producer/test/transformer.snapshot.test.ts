@@ -75,8 +75,7 @@ test("quantitativo: each document type is scored by its own conformity count, no
   assert.equal(byType["Anamnese Médica"]?.conformidade, 75);
   assert.equal(byType["Evolução Enfermagem"]?.conformidade, 42.9);
   assert.equal(byType["Anamnese Médica"]?.total, 1);
-  assert.equal(byType["Serviço Social"]?.conformidade, 100, "a category with nothing to score is not 0%");
-  assert.equal(byType["Serviço Social"]?.total, 0);
+  assert.equal(byType["Serviço Social"], undefined, "a category without records has no row");
 });
 
 test("quantitativo: the same day and month in another year is not the same day", () => {

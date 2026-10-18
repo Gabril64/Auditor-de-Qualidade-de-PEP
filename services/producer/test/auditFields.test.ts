@@ -89,7 +89,7 @@ test("fields reproduce the conformity score of the system, on every fixture reco
   assert.equal(checked, 48);
 });
 
-test("section C and E are left out when they do not apply to the record", () => {
+test("section C is left out when there was no surgery, and E is always listed, with every item not applicable", () => {
   const records = fixture("audit_ok_mix");
   const withoutSurgery = records.find((record) => record.audit_data?.secao_c?.tem_cirurgia === false);
   assert.ok(withoutSurgery);
@@ -97,7 +97,9 @@ test("section C and E are left out when they do not apply to the record", () => 
 
   const withoutTeam = records.find((record) => record.audit_data?.secao_e?.tem_outras_categorias === false);
   assert.ok(withoutTeam);
-  assert.equal(extractAuditFields(withoutTeam).filter((row) => row.section === "E").length, 0);
+  const teamRows = extractAuditFields(withoutTeam).filter((row) => row.section === "E");
+  assert.equal(teamRows.length, 12);
+  assert.ok(teamRows.every((row) => row.status === "nao_se_aplica"));
 });
 
 test("upsertAuditResult stores the fields with the audit, and a repeated job_id replaces them", () => {
