@@ -102,6 +102,7 @@ export default function AuditView({ isMobile }) {
     setProgress({ completed: 0, total: 0 });
 
     try {
+      // Each prontuário appears as soon as its job ends; only the failures wait for the end of the batch.
       const results = await submitAndPollBatch(text, {
         onJobStarted: (batchInfo) => {
           setProgress({ completed: 0, total: batchInfo.total_records });
@@ -109,27 +110,20 @@ export default function AuditView({ isMobile }) {
         onProgress: (completed, total) => {
           setProgress({ completed, total });
         },
+        onJobComplete: (result) => {
+          setMessages(prev => [...prev, { role: 'assistant', type: 'result', content: result }]);
+        },
       });
 
-      // Render each result individually
-      const resultMessages = [];
-      for (const result of results) {
-        if (result.error) {
-          resultMessages.push({
-            role: 'assistant',
-            type: 'error',
-            content: result.message || 'Erro ao processar prontuário'
-          });
-        } else {
-          resultMessages.push({
-            role: 'assistant',
-            type: 'result',
-            content: result
-          });
-        }
-      }
+      const failures = results
+        .filter((result) => result.error)
+        .map((result) => ({
+          role: 'assistant',
+          type: 'error',
+          content: result.message || 'Erro ao processar prontuário'
+        }));
 
-      setMessages(prev => [...prev, ...resultMessages]);
+      if (failures.length > 0) setMessages(prev => [...prev, ...failures]);
     } catch (err) {
       setMessages(prev => [...prev, {
         role: 'assistant',
@@ -227,7 +221,18 @@ export default function AuditView({ isMobile }) {
             </div>
           );
           if (msg.type === 'result') return (
-            <div key={i} style={{ marginBottom: 24 }}><ResultCard r={msg.content} isMobile={isMobile} /></div>
+            <div key={i} style={{ marginBottom: 24 }}>
+              {msg.content._parcial && (
+                <div role="alert" style={{
+                  background: '#2b2410', border: '1px solid #ffd74060', borderRadius: 10,
+                  padding: '10px 14px', marginBottom: 10, fontSize: 12, color: '#ffd740'
+                }}>
+                  <b>Auditoria incompleta.</b> A IA falhou em alguns campos deste prontuário; os itens que dependiam dela podem aparecer como não registrados.
+                  {msg.content._aviso_ia && <div style={{ marginTop: 4, color: 'var(--text2)', fontFamily: 'var(--mono)', wordBreak: 'break-word' }}>{msg.content._aviso_ia}</div>}
+                </div>
+              )}
+              <ResultCard r={msg.content} isMobile={isMobile} />
+            </div>
           );
           return null;
         })}

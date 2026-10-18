@@ -1,8 +1,10 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { deleteAudit, fetchAuditById, saveAuditRevision } from '../../data/apiClient.js';
+import { approveAudit, deleteAudit, fetchAuditById, revokeAuditApproval, saveAuditRevision } from '../../data/apiClient.js';
 import { changesFromDrafts, refKey } from '../../domain/auditValue.js';
 import { ResultCard } from '../components/AuditReport.jsx';
 import ChangeHistory from '../components/ChangeHistory.jsx';
+import ApprovalSeal from '../components/ApprovalSeal.jsx';
+import { lastEdit } from '../../domain/auditHistory.js';
 
 const SUBMITTED_AT = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' };
 
@@ -84,6 +86,7 @@ export default function AuditDetailView({ auditId, user, onBack, isMobile }) {
   const [conflict, setConflict] = useState(false);
   const [editing, setEditing] = useState(false);
   const [deleting, setDeleting] = useState(false);
+  const [approving, setApproving] = useState(false);
 
   async function load() {
     setLoading(true);
@@ -145,6 +148,21 @@ export default function AuditDetailView({ auditId, user, onBack, isMobile }) {
     setEditing((on) => !on);
   }
 
+  /** Approves the saved version, or withdraws the user's own approval when they already gave it. */
+  async function handleApproval() {
+    setApproving(true);
+    setSaveError(null);
+    try {
+      if (detail.approved_by_me) await revokeAuditApproval(detail.id);
+      else await approveAudit(detail.id);
+      setDetail(await fetchAuditById(auditId));
+    } catch (err) {
+      setSaveError(err.message);
+    } finally {
+      setApproving(false);
+    }
+  }
+
   async function handleDelete() {
     const number = detail.record_number_display || detail.record_number;
     if (!window.confirm(`Excluir o prontuário ${number}? Ele sai das listas e do dashboard; só um administrador pode restaurá-lo.`)) return;
@@ -183,6 +201,7 @@ export default function AuditDetailView({ auditId, user, onBack, isMobile }) {
 
   const original = detail.original_conformity_percent;
   const edited = detail.updated_at !== null && detail.updated_at !== undefined;
+  const editor = lastEdit(detail.history);
 
   return (
     <div style={{ padding: pad }}>
@@ -196,10 +215,29 @@ export default function AuditDetailView({ auditId, user, onBack, isMobile }) {
           <p style={{ color: 'var(--text2)', fontSize: 12, fontFamily: 'var(--mono)', marginTop: 6 }}>
             {detail.encounter ? `Atendimento ${detail.encounter} · ` : ''}
             {edited
-              ? `editado em ${new Date(detail.updated_at).toLocaleString('pt-BR', SUBMITTED_AT)}${typeof original === 'number' ? ` · original da auditoria: ${original}%` : ''}`
+              ? `editado${editor ? ` por ${editor.user}` : ''} em ${new Date(detail.updated_at).toLocaleString('pt-BR', SUBMITTED_AT)}${typeof original === 'number' ? ` · original da auditoria: ${original}%` : ''}`
               : 'como saiu da auditoria automática'}
           </p>
+          <div style={{ marginTop: 10, display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+            <ApprovalSeal audit={detail} />
+            {detail.deleted_at && (
+              <span style={{ fontSize: 11, color: 'var(--red)', fontFamily: 'var(--mono)' }}>
+                excluído em {new Date(detail.deleted_at).toLocaleString('pt-BR', SUBMITTED_AT)}
+              </span>
+            )}
+          </div>
         </div>
+
+        {!detail.deleted_at && (
+          <button
+            onClick={handleApproval}
+            disabled={approving || pending > 0}
+            title={pending > 0 ? 'Salve ou descarte as alterações antes de aprovar' : undefined}
+            style={detail.approved_by_me ? secondaryButton : primaryButton}
+          >
+            {approving ? 'Aguarde...' : detail.approved_by_me ? 'Retirar minha aprovação' : 'Aprovar'}
+          </button>
+        )}
 
         {!detail.deleted_at && user?.role === 'admin' && (
           <button

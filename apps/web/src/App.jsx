@@ -6,6 +6,8 @@ import ExplanationView from './presentation/views/ExplanationView.jsx';
 import AuditDetailView from './presentation/views/AuditDetailView.jsx';
 import LoginView from './presentation/views/LoginView.jsx';
 import ChangePasswordView from './presentation/views/ChangePasswordView.jsx';
+import UsersView from './presentation/views/UsersView.jsx';
+import NotificationBell from './presentation/components/NotificationBell.jsx';
 import { fetchSession, logout } from './data/authClient.js';
 import { onUnauthorized } from './data/session.js';
 
@@ -19,7 +21,7 @@ const sessionOf = (user) =>
 export default function App() {
   // status: 'loading' | 'anonymous' | 'unavailable' | 'ready'
   const [session, setSession] = useState(LOADING);
-  const [activeView, setActiveView] = useState('audit'); // 'audit', 'dashboard', 'details', 'explanation'
+  const [activeView, setActiveView] = useState('audit'); // 'audit', 'dashboard', 'details', 'explanation', 'users'
   const [selectedAuditId, setSelectedAuditId] = useState(null);
   const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 600 : false);
 
@@ -95,7 +97,7 @@ export default function App() {
       color: 'var(--text)'
     }}>
       {/* Sidebar Navigation */}
-      <Sidebar activeView={activeView === 'details' ? 'dashboard' : activeView} setActiveView={setActiveView} isMobile={isMobile} />
+      <Sidebar activeView={activeView === 'details' ? 'dashboard' : activeView} setActiveView={setActiveView} isMobile={isMobile} isAdmin={session.user.role === 'admin'} />
 
       {/* Main View Container */}
       <div style={{
@@ -138,6 +140,7 @@ export default function App() {
           </div>
 
           <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 12 }}>
+            <NotificationBell onOpenAudit={handleSelectAuditFromDashboard} />
             {!isMobile && <span style={{ fontSize: 12, color: 'var(--text2)' }}>{session.user.name}</span>}
             <button
               onClick={handleLogout}
@@ -158,14 +161,16 @@ export default function App() {
 
         {/* View render area */}
         <main style={{ flex: 1 }}>
-          {activeView === 'audit' && (
+          {/* Stays mounted when hidden, so a batch in progress and its results survive a change of screen. */}
+          <div style={{ display: activeView === 'audit' ? 'block' : 'none' }}>
             <AuditView
               isMobile={isMobile}
             />
-          )}
+          </div>
           {activeView === 'dashboard' && (
             <DashboardView
               onSelectAudit={handleSelectAuditFromDashboard}
+              user={session.user}
               isMobile={isMobile}
             />
           )}
@@ -176,6 +181,9 @@ export default function App() {
               onBack={() => setActiveView('dashboard')}
               isMobile={isMobile}
             />
+          )}
+          {activeView === 'users' && session.user.role === 'admin' && (
+            <UsersView currentUser={session.user} isMobile={isMobile} />
           )}
           {activeView === 'explanation' && (
             <ExplanationView

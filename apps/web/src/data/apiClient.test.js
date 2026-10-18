@@ -5,7 +5,7 @@
 import assert from "node:assert/strict";
 import { afterEach, test } from "node:test";
 
-import { deleteAudit, pollJobStatus, submitAndPollBatch } from "./apiClient.js";
+import { approveAudit, deleteAudit, fetchDeletedAudits, pollJobStatus, restoreAudit, revokeAuditApproval, submitAndPollBatch } from "./apiClient.js";
 
 const fetchOriginal = globalThis.fetch;
 afterEach(() => {
@@ -138,4 +138,28 @@ test("deleteAudit: manda DELETE para a auditoria e aceita o 204", async () => {
 test("deleteAudit: 403 vira ApiError com o status e a mensagem do servidor", async () => {
   mockFetch({ "/api/audits/7": resposta(403, { error: "Forbidden" }) });
   await assert.rejects(deleteAudit(7), (err) => err.status === 403 && /Forbidden/.test(err.message));
+});
+
+test("approveAudit e revokeAuditApproval: POST e DELETE na mesma rota de aprovação", async () => {
+  const metodos = [];
+  mockFetch({
+    "/api/audits/7/approve": (url, opts) => {
+      metodos.push(opts.method);
+      return resposta(204, null);
+    },
+  });
+  await approveAudit(7);
+  await revokeAuditApproval(7);
+  assert.deepEqual(metodos, ["POST", "DELETE"]);
+});
+
+test("restoreAudit e fetchDeletedAudits: restaura por POST e lista os excluídos com ?deleted=1", async () => {
+  const chamadas = mockFetch({
+    "/api/audits/7/restore": resposta(204, null),
+    "/api/audits?deleted=1": resposta(200, { audits: [{ id: 7 }], total: 1 }),
+  });
+  await restoreAudit(7);
+  const { audits } = await fetchDeletedAudits();
+  assert.equal(audits[0].id, 7);
+  assert.equal(chamadas.length, 2);
 });

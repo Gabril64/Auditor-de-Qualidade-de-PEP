@@ -86,3 +86,10 @@ export function historyGroups(history, labels = {}) {
 
   return groups.reverse();
 }
+
+/** Who saved the last field edit, and when; null when nobody edited. */
+export function lastEdit(history) {
+  const edits = (history ?? []).filter((row) => row.action === 'field_edit');
+  const row = edits.at(-1);
+  return row ? { user: row.user_name, at: row.created_at } : null;
+}

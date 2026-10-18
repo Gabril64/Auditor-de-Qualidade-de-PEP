@@ -1,11 +1,14 @@
 import React from 'react';
 
-export default function Sidebar({ activeView, setActiveView, isMobile }) {
+export default function Sidebar({ activeView, setActiveView, isMobile, isAdmin = false }) {
   const menuItems = [
     { id: 'audit', label: 'Auditoria de PEP', mobileLabel: 'Auditoria', icon: '📋', desc: 'Análise ativa de registros' },
     { id: 'dashboard', label: 'Dashboard Geral', mobileLabel: 'Dashboard', icon: '📊', desc: 'Métricas e relatórios gerais' },
     { id: 'explanation', label: 'Como Funciona', mobileLabel: 'Como Funciona', icon: '⚕', desc: 'Regras CFM e LGPD' }
   ];
+  if (isAdmin) {
+    menuItems.push({ id: 'users', label: 'Usuários', mobileLabel: 'Usuários', icon: '👥', desc: 'Contas e papéis' });
+  }
 
   if (isMobile) {
     return (

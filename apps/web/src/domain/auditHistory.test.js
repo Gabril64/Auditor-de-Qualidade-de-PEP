@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { actionLabel, historyGroups, itemLabels, placeLabel } from './auditHistory.js';
+import { actionLabel, historyGroups, itemLabels, lastEdit, placeLabel } from './auditHistory.js';
 
 const edit = (over) => ({
   id: 1,
@@ -79,4 +79,14 @@ test('labels for actions and places are the ones the screen shows', () => {
   assert.equal(actionLabel('whatever'), 'whatever');
   assert.equal(placeLabel('A', null), 'Seção A');
   assert.equal(placeLabel('D', 'evolution'), 'Seção D · evolução');
+});
+
+test('lastEdit: quem salvou a última edição de campo, ignorando aprovações', () => {
+  const history = [
+    edit({ id: 1, user_name: 'Ana', created_at: '2026-10-12T10:00:00.000Z' }),
+    edit({ id: 2, user_name: 'João', created_at: '2026-10-12T11:00:00.000Z' }),
+    { id: 3, action: 'approve', user_name: 'Maria', created_at: '2026-10-12T12:00:00.000Z' },
+  ];
+  assert.deepEqual(lastEdit(history), { user: 'João', at: '2026-10-12T11:00:00.000Z' });
+  assert.equal(lastEdit([]), null);
 });

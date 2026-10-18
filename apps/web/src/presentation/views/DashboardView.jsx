@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { fetchAllAudits, fetchDashboardStats } from '../../data/apiClient.js';
+import { fetchAllAudits, fetchDashboardStats, fetchDeletedAudits, restoreAudit } from '../../data/apiClient.js';
+import { needsApproval } from '../../domain/approvals.js';
+import ApprovalSeal from '../components/ApprovalSeal.jsx';
 
-export default function DashboardView({ onSelectAudit, isMobile }) {
+export default function DashboardView({ onSelectAudit, user, isMobile }) {
+  const isAdmin = user?.role === 'admin';
   const [audits, setAudits] = useState([]);
+  const [listMode, setListMode] = useState('all'); // 'all' | 'needs_approval' | 'deleted'
+  const [deleted, setDeleted] = useState([]);
+  const [listError, setListError] = useState(null);
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -26,6 +32,30 @@ export default function DashboardView({ onSelectAudit, isMobile }) {
       setError(err.message);
     } finally {
       setLoading(false);
+    }
+  }
+
+  async function loadDeleted() {
+    setListError(null);
+    try {
+      setDeleted((await fetchDeletedAudits()).audits || []);
+    } catch (err) {
+      setListError(err.message);
+    }
+  }
+
+  function chooseMode(mode) {
+    setListMode(mode);
+    if (mode === 'deleted') loadDeleted();
+  }
+
+  async function handleRestore(audit) {
+    setListError(null);
+    try {
+      await restoreAudit(audit.id);
+      await Promise.all([loadDeleted(), loadData()]);
+    } catch (err) {
+      setListError(err.message);
     }
   }
 
@@ -74,6 +104,12 @@ export default function DashboardView({ onSelectAudit, isMobile }) {
   const recurrentIssues = Object.values(nonConformityCounts)
     .sort((a, b) => b.count - a.count)
     .slice(0, 5);
+
+  const shownAudits = listMode === 'deleted'
+    ? deleted
+    : listMode === 'needs_approval'
+      ? audits.filter(needsApproval)
+      : audits;
 
   const totalCharts = stats?.total_audits || audits.length;
   const avgCompliance = stats?.avg_conformity || 0;
@@ -385,9 +421,38 @@ export default function DashboardView({ onSelectAudit, isMobile }) {
           borderRadius: 12,
           padding: 20
         }}>
-          <h3 style={{ fontSize: 15, fontWeight: 600, color: 'var(--text)', marginBottom: 16 }}>Prontuários Auditados</h3>
+          <h3 style={{ fontSize: 15, fontWeight: 600, color: 'var(--text)', marginBottom: 12 }}>Prontuários Auditados</h3>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 16 }}>
+            {[
+              ['all', `Todos (${audits.length})`],
+              ['needs_approval', `Precisa de aprovação (${audits.filter(needsApproval).length})`],
+              ...(isAdmin ? [['deleted', 'Excluídos']] : []),
+            ].map(([mode, label]) => (
+              <button
+                key={mode}
+                onClick={() => chooseMode(mode)}
+                aria-pressed={listMode === mode}
+                style={{
+                  background: listMode === mode ? 'var(--bg4)' : 'transparent',
+                  border: `1px solid ${listMode === mode ? 'var(--accent)' : 'var(--border2)'}`,
+                  color: listMode === mode ? 'var(--accent)' : 'var(--text2)',
+                  borderRadius: 20, padding: '4px 12px', fontSize: 11, cursor: 'pointer'
+                }}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          {listError && (
+            <div style={{ color: 'var(--red)', fontSize: 12, marginBottom: 12 }}>{listError}</div>
+          )}
+          {shownAudits.length === 0 && (
+            <div style={{ color: 'var(--text3)', fontSize: 12, fontFamily: 'var(--mono)', padding: '8px 0' }}>
+              {listMode === 'deleted' ? 'Nenhum prontuário excluído.' : listMode === 'needs_approval' ? 'Nada pendente de aprovação.' : 'Nenhum prontuário.'}
+            </div>
+          )}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            {audits.map((audit) => {
+            {shownAudits.map((audit) => {
               const score = audit.audit?.conformidade_geral ?? audit.conformity_percent ?? 0;
               const color = score >= 90 ? 'var(--green)' : score >= 75 ? 'var(--yellow)' : 'var(--red)';
               const dateStr = audit.created_at
@@ -434,6 +499,21 @@ export default function DashboardView({ onSelectAudit, isMobile }) {
                     }}>
                       {typeof score === 'number' ? `${Math.round(score * 10) / 10}%` : 'N/A'}
                     </span>
+                  </div>
+
+                  <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+                    {listMode !== 'deleted' && <ApprovalSeal audit={audit} />}
+                    {audit.edited && (
+                      <span style={{ fontSize: 10, color: 'var(--text2)', fontFamily: 'var(--mono)' }}>editado</span>
+                    )}
+                    {listMode === 'deleted' && isAdmin && (
+                      <button
+                        onClick={() => handleRestore(audit)}
+                        style={{ background: 'var(--bg4)', border: '1px solid var(--border2)', color: 'var(--accent)', borderRadius: 8, padding: '5px 12px', fontSize: 11, cursor: 'pointer' }}
+                      >
+                        Restaurar
+                      </button>
+                    )}
                   </div>
 
                   {onSelectAudit && audit.audit && (

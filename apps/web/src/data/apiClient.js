@@ -205,3 +205,36 @@ export async function deleteAudit(id) {
     throw new ApiError(err.error || `HTTP ${res.status}`, { status: res.status });
   }
 }
+
+async function failedRequest(res) {
+  const err = await res.json().catch(() => ({ error: res.statusText }));
+  return new ApiError(err.error || `HTTP ${res.status}`, { status: res.status });
+}
+
+/** Approve the current version of an audit as the signed-in user. Approving twice is harmless. */
+export async function approveAudit(id) {
+  const res = await apiFetch(`/api/audits/${id}/approve`, { method: "POST" });
+  if (!res.ok) throw await failedRequest(res);
+}
+
+/** Withdraw the signed-in user's own approval. */
+export async function revokeAuditApproval(id) {
+  const res = await apiFetch(`/api/audits/${id}/approve`, { method: "DELETE" });
+  if (!res.ok) throw await failedRequest(res);
+}
+
+/** Bring a deleted audit back (administrators only). */
+export async function restoreAudit(id) {
+  const res = await apiFetch(`/api/audits/${id}/restore`, { method: "POST" });
+  if (!res.ok) throw await failedRequest(res);
+}
+
+/**
+ * The deleted audits (administrators only).
+ * @returns {Promise<{audits: Array, total: number}>}
+ */
+export async function fetchDeletedAudits() {
+  const res = await apiFetch("/api/audits?deleted=1");
+  if (!res.ok) throw await failedRequest(res);
+  return res.json();
+}
