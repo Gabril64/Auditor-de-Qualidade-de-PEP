@@ -357,14 +357,14 @@
     "procedimentos_condutas_queixas": "conforme"
    },
    "secao_c": {
-    "descricao_procedimento": "Não registrado",
-    "descricao_tecnica": "Não registrado",
-    "diagnostico_cid": "I50.9",
-    "especialidade": "Não registrado",
-    "fim": "Não registrado",
-    "inicio": "Não registrado",
+    "descricao_procedimento": "Não se aplica",
+    "descricao_tecnica": "Não se aplica",
+    "diagnostico_cid": "Não se aplica",
+    "especialidade": "Não se aplica",
+    "fim": "Não se aplica",
+    "inicio": "Não se aplica",
     "tem_cirurgia": false,
-    "unidade_funcional": "Não registrado",
+    "unidade_funcional": "Não se aplica",
     "uso_opme": "Não se aplica"
    },
    "secao_d_anamnese": {
@@ -932,14 +932,14 @@
     "procedimentos_condutas_queixas": "conforme"
    },
    "secao_c": {
-    "descricao_procedimento": "Não registrado",
-    "descricao_tecnica": "Não registrado",
-    "diagnostico_cid": "J18.9",
-    "especialidade": "Não registrado",
-    "fim": "Não registrado",
-    "inicio": "Não registrado",
+    "descricao_procedimento": "Não se aplica",
+    "descricao_tecnica": "Não se aplica",
+    "diagnostico_cid": "Não se aplica",
+    "especialidade": "Não se aplica",
+    "fim": "Não se aplica",
+    "inicio": "Não se aplica",
     "tem_cirurgia": false,
-    "unidade_funcional": "Não registrado",
+    "unidade_funcional": "Não se aplica",
     "uso_opme": "Não se aplica"
    },
    "secao_d_anamnese": {
@@ -1505,14 +1505,14 @@
     "procedimentos_condutas_queixas": "não conforme (IA: incompleto — dia 08/03, 09/03)"
    },
    "secao_c": {
-    "descricao_procedimento": "Não registrado",
-    "descricao_tecnica": "Não registrado",
-    "diagnostico_cid": "J15.9",
-    "especialidade": "Não registrado",
-    "fim": "Não registrado",
-    "inicio": "Não registrado",
+    "descricao_procedimento": "Não se aplica",
+    "descricao_tecnica": "Não se aplica",
+    "diagnostico_cid": "Não se aplica",
+    "especialidade": "Não se aplica",
+    "fim": "Não se aplica",
+    "inicio": "Não se aplica",
     "tem_cirurgia": false,
-    "unidade_funcional": "Não registrado",
+    "unidade_funcional": "Não se aplica",
     "uso_opme": "Não se aplica"
    },
    "secao_d_anamnese": {
@@ -2077,14 +2077,14 @@
     "procedimentos_condutas_queixas": "conforme"
    },
    "secao_c": {
-    "descricao_procedimento": "Não registrado",
-    "descricao_tecnica": "Não registrado",
-    "diagnostico_cid": "J18.9",
-    "especialidade": "Não registrado",
-    "fim": "Não registrado",
-    "inicio": "Não registrado",
+    "descricao_procedimento": "Não se aplica",
+    "descricao_tecnica": "Não se aplica",
+    "diagnostico_cid": "Não se aplica",
+    "especialidade": "Não se aplica",
+    "fim": "Não se aplica",
+    "inicio": "Não se aplica",
     "tem_cirurgia": false,
-    "unidade_funcional": "Não registrado",
+    "unidade_funcional": "Não se aplica",
     "uso_opme": "Não se aplica"
    },
    "secao_d_anamnese": {

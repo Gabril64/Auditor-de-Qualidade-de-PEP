@@ -383,6 +383,22 @@ def test_complete_physical_exam_is_not_sent_to_the_ai(audit_env):
     assert d["secao_b_anamnese"]["exame_fisico"] == "conforme"
 
 
+def test_no_surgical_description_means_no_surgery_and_the_whole_section_c_is_not_applicable(audit_env):
+    calls = audit_env("all_null")
+    d = audit([{**rec("MEDICINA", "Anamnese", "texto"), **SURGERY, "Descrição Cirurgica": ""}])
+    assert d["secao_c"]["tem_cirurgia"] is False
+    assert {v for k, v in d["secao_c"].items() if k != "tem_cirurgia"} == {"Não se aplica"}
+    assert d["conformity_c"]["applies"] is False and d["conformity_c"]["total"] == 0
+    assert not any(f.startswith("uso_opme") or f == "descricao_tecnica" for c in calls for f in c["fields"])
+
+
+def test_a_surgical_description_means_surgery_even_without_the_specialty_column(audit_env):
+    audit_env("all_null")
+    d = audit([{**rec("MEDICINA", "Anamnese", "texto"), "Descrição Cirurgica": SURGICAL_DESCRIPTION}])
+    assert d["secao_c"]["tem_cirurgia"] is True
+    assert d["conformity_c"]["applies"] is True
+
+
 def test_item03_daily_evolution_counts_calendar_days_not_24h_windows():
     """Evolutions at 07:53 on the 4th and 09:16 on the 5th, admission 08:08 on the 3rd, anamnesis on the 3rd:
     each day has its evolution, even though the second 24h window (from 08:08) holds none."""

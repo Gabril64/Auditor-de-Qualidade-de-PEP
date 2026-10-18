@@ -297,6 +297,17 @@ def _new_audit_data(base_info, matrix, all_dates):
     }
 
 
+def _apply_surgery_presence(audit_data, surgical_description):
+    """A patient with no surgical description had no surgery: the whole of section C is "Não se
+    aplica", whatever the structured columns say, and it stays out of the score."""
+    section_c = audit_data["secao_c"]
+    section_c["tem_cirurgia"] = bool(surgical_description)
+    if not section_c["tem_cirurgia"]:
+        for key in section_c:
+            if key != "tem_cirurgia":
+                section_c[key] = "Não se aplica"
+
+
 def _audit_surgery_section(audit_data, description, ai_meta, meta_lines):
     """OPME: a matching term found in the surgical description -> conforme; no term -> the AI decides
     (null -> "Não se aplica"). Only the OPEN fields go to the AI: structured columns that come back
@@ -412,6 +423,8 @@ def audit_medical_records(records):
         unique_surgical_description = next(
             (r["descricao_cirurgica"] for r in patient_records if r.get("descricao_cirurgica")), None
         )
+
+        _apply_surgery_presence(audit_data, unique_surgical_description)
 
         patient_started_at = time.time()
         meta_lines = [f"\nProntuario {record_number}", f"Modelo IA: {MODEL_NAME}"]
