@@ -81,7 +81,7 @@ test('labels for actions and places are the ones the screen shows', () => {
   assert.equal(placeLabel('D', 'evolution'), 'Seção D · evolução');
 });
 
-test('lastEdit: quem salvou a última edição de campo, ignorando aprovações', () => {
+test('lastEdit: who saved the last field edit, ignoring approvals', () => {
   const history = [
     edit({ id: 1, user_name: 'Ana', created_at: '2026-10-12T10:00:00.000Z' }),
     edit({ id: 2, user_name: 'João', created_at: '2026-10-12T11:00:00.000Z' }),

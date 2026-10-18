@@ -29,13 +29,13 @@ function mockFetch(rotas) {
 
 const RAPIDO = { intervalMs: 1, timeoutMs: 500 };
 
-test("done: devolve o resultado e não marca como parcial", async () => {
+test("done: returns the result and does not mark it as partial", async () => {
   mockFetch({ "/jobs/j1/status": resposta(200, { status: "done", result: { prontuario: "1" } }) });
   const r = await pollJobStatus("j1", RAPIDO);
   assert.deepEqual(r, { prontuario: "1" });
 });
 
-test("processing -> done: continua consultando até terminar", async () => {
+test("processing -> done: keeps polling until it finishes", async () => {
   let n = 0;
   const chamadas = mockFetch({
     "/jobs/j1/status": () =>
@@ -45,7 +45,7 @@ test("processing -> done: continua consultando até terminar", async () => {
   assert.equal(chamadas.length, 3);
 });
 
-test("partial: entrega o resultado na primeira consulta, com o aviso da IA", async () => {
+test("partial: hands over the result on the first poll, with the AI warning", async () => {
   const chamadas = mockFetch({
     "/jobs/j1/status": resposta(200, {
       status: "partial",
@@ -60,14 +60,14 @@ test("partial: entrega o resultado na primeira consulta, com o aviso da IA", asy
   assert.equal(chamadas.length, 1, "não pode esperar o timeout");
 });
 
-test("partial sem observação da IA: o aviso vem nulo, sem quebrar", async () => {
+test("partial without an AI note: the warning is null, without breaking", async () => {
   mockFetch({ "/jobs/j1/status": resposta(200, { status: "partial", result: { prontuario: "1" }, raw: {} }) });
   const r = await pollJobStatus("j1", RAPIDO);
   assert.equal(r._parcial, true);
   assert.equal(r._aviso_ia, null);
 });
 
-test("failed: rejeita na hora com o motivo do servidor", async () => {
+test("failed: rejects at once with the server reason", async () => {
   const chamadas = mockFetch({
     "/jobs/j1/status": resposta(200, { status: "failed", job_id: "j1", error: "boom", attempts: 2 }),
   });
@@ -75,7 +75,7 @@ test("failed: rejeita na hora com o motivo do servidor", async () => {
   assert.equal(chamadas.length, 1, "não pode esperar o timeout");
 });
 
-test("failed sem motivo: mensagem genérica, sem 'undefined'", async () => {
+test("failed without a reason: generic message, no 'undefined'", async () => {
   mockFetch({ "/jobs/j1/status": resposta(200, { status: "failed", job_id: "j1" }) });
   await assert.rejects(pollJobStatus("j1", RAPIDO), (err) => {
     assert.match(err.message, /falhou/);
@@ -84,18 +84,18 @@ test("failed sem motivo: mensagem genérica, sem 'undefined'", async () => {
   });
 });
 
-test("erro HTTP do servidor: rejeita com a mensagem dele em vez de consultar até o timeout", async () => {
+test("server HTTP error: rejects with its message instead of polling until the timeout", async () => {
   const chamadas = mockFetch({ "/jobs/j1/status": resposta(500, { error: "Erro interno" }) });
   await assert.rejects(pollJobStatus("j1", RAPIDO), /Erro interno/);
   assert.equal(chamadas.length, 1);
 });
 
-test("job que nunca termina: estoura o timeout", async () => {
+test("a job that never finishes: times out", async () => {
   mockFetch({ "/jobs/j1/status": resposta(202, { status: "processing" }) });
   await assert.rejects(pollJobStatus("j1", { intervalMs: 2, timeoutMs: 30 }), /timed out/);
 });
 
-test("lote misto: cada job termina do seu jeito, e a falha de um não derruba os outros", async () => {
+test("mixed batch: each job ends its own way, and one failure does not take down the others", async () => {
   mockFetch({
     "/batches": resposta(202, {
       batch_id: "b1",
@@ -122,7 +122,7 @@ test("lote misto: cada job termina do seu jeito, e a falha de um não derruba os
   assert.match(resultados[2].message, /boom/);
 });
 
-test("deleteAudit: manda DELETE para a auditoria e aceita o 204", async () => {
+test("deleteAudit: sends DELETE for the audit and accepts the 204", async () => {
   let metodo;
   const chamadas = mockFetch({
     "/api/audits/7": (url, opts) => {
@@ -135,12 +135,12 @@ test("deleteAudit: manda DELETE para a auditoria e aceita o 204", async () => {
   assert.equal(chamadas.length, 1);
 });
 
-test("deleteAudit: 403 vira ApiError com o status e a mensagem do servidor", async () => {
+test("deleteAudit: 403 becomes an ApiError with the status and the server message", async () => {
   mockFetch({ "/api/audits/7": resposta(403, { error: "Forbidden" }) });
   await assert.rejects(deleteAudit(7), (err) => err.status === 403 && /Forbidden/.test(err.message));
 });
 
-test("approveAudit e revokeAuditApproval: POST e DELETE na mesma rota de aprovação", async () => {
+test("approveAudit and revokeAuditApproval: POST and DELETE on the same approval route", async () => {
   const metodos = [];
   mockFetch({
     "/api/audits/7/approve": (url, opts) => {
@@ -153,7 +153,7 @@ test("approveAudit e revokeAuditApproval: POST e DELETE na mesma rota de aprova�
   assert.deepEqual(metodos, ["POST", "DELETE"]);
 });
 
-test("restoreAudit e fetchDeletedAudits: restaura por POST e lista os excluídos com ?deleted=1", async () => {
+test("restoreAudit and fetchDeletedAudits: restores by POST and lists the deleted ones with ?deleted=1", async () => {
   const chamadas = mockFetch({
     "/api/audits/7/restore": resposta(204, null),
     "/api/audits?deleted=1": resposta(200, { audits: [{ id: 7 }], total: 1 }),

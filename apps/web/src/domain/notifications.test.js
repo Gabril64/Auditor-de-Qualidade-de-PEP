@@ -3,12 +3,12 @@ import { test } from 'node:test';
 
 import { lastNotificationId, mergeNotifications, notificationText, pollDelayMs } from './notifications.js';
 
-test('o intervalo é 10 s com a aba aberta e 60 s em segundo plano', () => {
+test('the interval is 10 s with the tab open and 60 s in the background', () => {
   assert.equal(pollDelayMs(false), 10_000);
   assert.equal(pollDelayMs(true), 60_000);
 });
 
-test('cada desfecho tem o seu texto', () => {
+test('each outcome has its own text', () => {
   const base = { record_number_display: '12.345', detail: null };
   assert.deepEqual(notificationText({ ...base, type: 'audit_done' }), { title: 'Prontuário 12.345: auditoria concluída', detail: null, tone: 'ok' });
   assert.equal(notificationText({ ...base, type: 'audit_partial' }).tone, 'warn');
@@ -16,7 +16,7 @@ test('cada desfecho tem o seu texto', () => {
   assert.match(notificationText({ type: 'audit_done', record_number_display: null }).title, /^Prontuário:/);
 });
 
-test('mescla sem repetir, mais nova primeiro, e limita a 50', () => {
+test('merges without repeating, newest first, and keeps 50 at most', () => {
   const merged = mergeNotifications([{ id: 1 }, { id: 2 }], [{ id: 2 }, { id: 3 }]);
   assert.deepEqual(merged.map((n) => n.id), [3, 2, 1]);
 
@@ -25,7 +25,7 @@ test('mescla sem repetir, mais nova primeiro, e limita a 50', () => {
   assert.equal(mergeNotifications([], many)[0].id, 60);
 });
 
-test('o último id serve de "after"; lista vazia pede a primeira página', () => {
+test('the last id serves as "after"; an empty list asks for the first page', () => {
   assert.equal(lastNotificationId([]), null);
   assert.equal(lastNotificationId([{ id: 4 }, { id: 9 }, { id: 6 }]), 9);
 });

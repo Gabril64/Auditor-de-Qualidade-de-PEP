@@ -6,19 +6,19 @@ import { passwordFormProblem } from "./password.js";
 
 const OK = { current: "provisoria-123", next: "uma-senha-nova-longa", confirmation: "uma-senha-nova-longa" };
 
-test("senha válida: nenhum problema", () => {
+test("valid password: no problem", () => {
   assert.equal(passwordFormProblem(OK), "");
 });
 
-test("nova senha curta demais", () => {
+test("new password too short", () => {
   assert.match(passwordFormProblem({ ...OK, next: "curta", confirmation: "curta" }), /pelo menos 10/);
 });
 
-test("nova senha igual à atual", () => {
+test("new password equal to the current one", () => {
   const same = "mesma-senha-longa";
   assert.match(passwordFormProblem({ current: same, next: same, confirmation: same }), /diferente/);
 });
 
-test("confirmação diferente", () => {
+test("confirmation does not match", () => {
   assert.match(passwordFormProblem({ ...OK, confirmation: "outra-coisa-longa" }), /confirmação/);
 });

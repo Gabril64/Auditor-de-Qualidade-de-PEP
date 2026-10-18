@@ -37,7 +37,7 @@ function mockFetch(responder) {
 
 const USUARIO = { id: 1, email: "maria@teste.local", name: "Maria", role: "auditor", must_change_password: false };
 
-test("login: guarda o token do CSRF e o manda nas chamadas que mudam estado, não nas de leitura", async () => {
+test("login: keeps the CSRF token and sends it on state-changing calls, not on reads", async () => {
   const chamadas = mockFetch((url) =>
     url.endsWith("/api/auth/login") ? resposta(200, { user: USUARIO, csrf_token: "tok-1" }) : resposta(200, {}),
   );
@@ -50,7 +50,7 @@ test("login: guarda o token do CSRF e o manda nas chamadas que mudam estado, nã
   assert.equal(chamadas[2].headers["X-CSRF-Token"], undefined);
 });
 
-test("login: o corpo vai em JSON e o cookie de sessão segue com a requisição", async () => {
+test("login: the body goes as JSON and the session cookie travels with the request", async () => {
   let enviado;
   globalThis.fetch = async (url, opts) => {
     enviado = opts;
@@ -62,7 +62,7 @@ test("login: o corpo vai em JSON e o cookie de sessão segue com a requisição"
   assert.equal(enviado.credentials, "same-origin");
 });
 
-test("login com senha errada: mensagem em português, sem guardar token e sem acionar o 'sessão expirou'", async () => {
+test("login with a wrong password: message in Portuguese, no token stored and no 'session expired' trigger'", async () => {
   let expirou = 0;
   onUnauthorized(() => expirou++);
   mockFetch(() => resposta(401, { error: "Invalid e-mail or password" }));
@@ -71,7 +71,7 @@ test("login com senha errada: mensagem em português, sem guardar token e sem ac
   assert.equal(expirou, 0);
 });
 
-test("login bloqueado (429): devolve o tempo de espera do cabeçalho Retry-After", async () => {
+test("locked login (429): returns the wait time from the Retry-After header", async () => {
   mockFetch(() => resposta(429, { error: "Too many attempts" }, { "retry-after": "540" }));
 
   await assert.rejects(login("a@b.c", "x"), (error) => {
@@ -81,7 +81,7 @@ test("login bloqueado (429): devolve o tempo de espera do cabeçalho Retry-After
   });
 });
 
-test("fetchSession: 401 é 'sem sessão' (null), 200 devolve o usuário e recupera o token", async () => {
+test("fetchSession: 401 means 'no session' (null), 200 returns the user and recovers the token", async () => {
   mockFetch(() => resposta(401, { error: "Authentication required" }));
   assert.equal(await fetchSession(), null);
 
@@ -93,7 +93,7 @@ test("fetchSession: 401 é 'sem sessão' (null), 200 devolve o usuário e recupe
   assert.equal(chamadas[1].headers["X-CSRF-Token"], "tok-2");
 });
 
-test("401 no meio do uso: limpa o token e avisa uma vez, para voltar ao login", async () => {
+test("401 in the middle of use: clears the token and notifies once, to return to login", async () => {
   let expirou = 0;
   onUnauthorized(() => expirou++);
   setCsrfToken("tok-3");
@@ -106,7 +106,7 @@ test("401 no meio do uso: limpa o token e avisa uma vez, para voltar ao login", 
   assert.equal(chamadas[1].headers["X-CSRF-Token"], undefined, "o token antigo não pode ficar valendo");
 });
 
-test("changePassword: manda as duas senhas, e traduz o erro de senha atual incorreta", async () => {
+test("changePassword: sends both passwords, and translates the wrong-current-password error", async () => {
   const chamadas = mockFetch(() => resposta(204, null));
   await changePassword("provisoria-123", "uma-senha-nova-longa");
   assert.deepEqual(JSON.parse(chamadas[0].body), {
@@ -120,12 +120,12 @@ test("changePassword: manda as duas senhas, e traduz o erro de senha atual incor
   });
 });
 
-test("changePassword: erro desconhecido do servidor vira uma mensagem genérica, sem vazar o texto", async () => {
+test("changePassword: an unknown server error becomes a generic message, without leaking its text", async () => {
   mockFetch(() => resposta(500, { error: "SQLITE_ERROR: no such table" }));
   await assert.rejects(changePassword("a", "b"), { message: "Não foi possível trocar a senha." });
 });
 
-test("logout: apaga o token mesmo que o servidor falhe", async () => {
+test("logout: clears the token even if the server fails", async () => {
   setCsrfToken("tok-4");
   const chamadas = mockFetch(() => resposta(500, {}));
   await logout();

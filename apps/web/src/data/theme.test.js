@@ -9,13 +9,13 @@ const fakeStorage = (initial = {}) => {
 };
 const fakeRoot = () => ({ attrs: {}, setAttribute(k, v) { this.attrs[k] = v; } });
 
-test('o padrão é o escuro; só "light" guardado vale como claro', () => {
+test('the default is dark; only a stored "light" counts as light', () => {
   assert.equal(readTheme(fakeStorage()), 'dark');
   assert.equal(readTheme(fakeStorage({ theme: 'light' })), 'light');
   assert.equal(readTheme(fakeStorage({ theme: 'qualquer' })), 'dark');
 });
 
-test('armazenamento que falha não derruba nada', () => {
+test('storage that fails does not break anything', () => {
   const quebrado = { getItem() { throw new Error('bloqueado'); }, setItem() { throw new Error('bloqueado'); } };
   assert.equal(readTheme(quebrado), 'dark');
   const root = fakeRoot();
@@ -23,7 +23,7 @@ test('armazenamento que falha não derruba nada', () => {
   assert.equal(root.attrs['data-theme'], 'light');
 });
 
-test('applyTheme marca a página e guarda a escolha', () => {
+test('applyTheme marks the page and stores the choice', () => {
   const root = fakeRoot();
   const storage = fakeStorage();
   applyTheme('light', root, storage);
