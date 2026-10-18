@@ -26,7 +26,7 @@ O script espera receber um **Array de Objetos JSON**, onde cada objeto represent
     
     "Categoria Profissional": "MEDICINA",
     "Tipo do registro": "Anamnese",
-    "criacao_anamnsese": "19/11/2023, 10:47",
+    "criacao_registro": "19/11/2023, 10:47",
     "Descricao do registro": "TEXTO LIVRE DA ANAMNESE OU EVOLUÇÃO AQUI...",
     
     "Descrição Cirurgica": "TEXTO DA DESCRIÇÃO CIRÚRGICA...",
@@ -41,7 +41,7 @@ O script espera receber um **Array de Objetos JSON**, onde cada objeto represent
 
 > [!IMPORTANT]
 > - O script consolida automaticamente registros com o mesmo número de `"Prontuário"`.
-> - A data do documento é extraída da chave `"criacao_anamnsese"`.
+> - A data do documento é extraída da chave `"criacao_registro"`.
 > - As chaves não mapeadas no parser serão ignoradas.
 
 ---

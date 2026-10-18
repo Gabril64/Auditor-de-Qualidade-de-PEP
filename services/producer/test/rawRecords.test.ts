@@ -48,7 +48,7 @@ test("saves each entry with one column per key and the original JSON untouched",
     assert.deepEqual(entry.original, records[index]);
     assert.equal(entry.extra_keys, null);
     assert.equal(entry.fields.entry_description, records[index]["Descricao do registro"] ?? null);
-    assert.equal(entry.fields.anamnesis_created_at, records[index]["criacao_anamnsese"] ?? null);
+    assert.equal(entry.fields.anamnesis_created_at, records[index]["criacao_registro"] ?? null);
   });
 });
 

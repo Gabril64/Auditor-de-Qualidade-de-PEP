@@ -20,6 +20,6 @@ def extract_record_info(record):
         "procedimento_realizado": record.get("Procedimento cirurgico Realizado", ""),
         "opme": record.get("OPME", ""),
         "categoria_profissional": record.get("Categoria Profissional", ""),
-        "data_criacao": record.get("criacao_anamnsese", ""),
+        "data_criacao": record.get("criacao_registro", ""),
     }
     return info

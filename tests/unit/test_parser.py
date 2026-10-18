@@ -24,7 +24,7 @@ class TestExtractRecordInfo:
             "Procedimento cirurgico Realizado": "Osteossíntese",
             "OPME": "Sim",
             "Categoria Profissional": "Medicina",
-            "criacao_anamnsese": "10/05/2020, 14:00"
+            "criacao_registro": "10/05/2020, 14:00"
         }
 
         expected = {

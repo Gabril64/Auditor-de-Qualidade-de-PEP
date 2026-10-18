@@ -1,5 +1,5 @@
 /** Maps each key of a submitted patient record to its column in `raw_record_entries`. Keys keep
- * their original spelling (including the source typo `criacao_anamnsese`); `original_json`
+ * their original spelling; `original_json`
  * preserves the untouched entry. */
 export const RAW_RECORD_COLUMNS: ReadonlyArray<readonly [key: string, column: string]> = [
   ["Atendimento", "encounter"],
@@ -25,5 +25,5 @@ export const RAW_RECORD_COLUMNS: ReadonlyArray<readonly [key: string, column: st
   ["Unidade Funcional Internaçao", "admission_functional_unit"],
   ["Usou Antibiótico Profilático?", "used_prophylactic_antibiotic"],
   ["Utilizou O2?", "used_oxygen"],
-  ["criacao_anamnsese", "anamnesis_created_at"],
+  ["criacao_registro", "anamnesis_created_at"],
 ];

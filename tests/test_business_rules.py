@@ -25,7 +25,7 @@ NURSING_EXAM = ("consciente e orientada, pele corada, eupneica, pulsos presentes
 
 def rec(category, record_type, description, created_at="10/01/2025, 10:00", **extra):
     return {**BASE, "Categoria Profissional": category, "Tipo do registro": record_type,
-            "Descricao do registro": description, "criacao_anamnsese": created_at, **extra}
+            "Descricao do registro": description, "criacao_registro": created_at, **extra}
 
 
 def audit(records):
