@@ -1,7 +1,7 @@
 [
  {
   "prontuario": "94.098.934",
-  "conformidade_geral": 78.6,
+  "conformidade_geral": 81,
   "secoes": [
    {
     "id": "A",
@@ -178,9 +178,9 @@
    {
     "id": "D",
     "titulo": "Enfermagem e Escalas",
-    "conformes": 9,
+    "conformes": 10,
     "total": 15,
-    "conformidade": 60,
+    "conformidade": 66.7,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -202,8 +202,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Cardiovascular, Gastrointestinal, Genitourinário, Músculo-esquelético)",
-        "status": "nao_conforme"
+        "valor": "conforme (validado por IA)",
+        "status": "conforme"
        },
        {
         "item": "Escala Braden",
@@ -242,7 +242,7 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Respiratório, Genitourinário, Músculo-esquelético — dia 16/03, 17/03, 18/03)",
+        "valor": "não conforme (Faltam: Respiratório, Genitourinário, Músculo-esquelético — dia 16/03, 17/03)",
         "status": "nao_conforme"
        },
        {
@@ -298,11 +298,6 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Cardiovascular, Gastrointestinal, Genitourinário, Músculo-esquelético)"
-   },
-   {
-    "secao": "D",
     "item": "Anamnese Enfermagem — Curativo",
     "descricao": "Valor: N/A"
    },
@@ -314,7 +309,7 @@
    {
     "secao": "D",
     "item": "Evolução Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Respiratório, Genitourinário, Músculo-esquelético — dia 16/03, 17/03, 18/03)"
+    "descricao": "Valor: não conforme (Faltam: Respiratório, Genitourinário, Músculo-esquelético — dia 16/03, 17/03)"
    },
    {
     "secao": "D",
@@ -340,7 +335,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 87.5,
     "15/03": true,
     "16/03": false,
     "17/03": false,
@@ -349,7 +344,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 3,
-    "conformidade": 100,
+    "conformidade": 75,
     "15/03": false,
     "16/03": true,
     "17/03": true,
@@ -358,7 +353,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 3,
-    "conformidade": 100,
+    "conformidade": 42.9,
     "15/03": false,
     "16/03": true,
     "17/03": true,
@@ -367,7 +362,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "15/03": false,
     "16/03": false,
     "17/03": false,
@@ -575,7 +570,7 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Músculo-esquelético — dia 03/04, 04/04, 05/04, 06/04)",
+        "valor": "não conforme (Faltam: Músculo-esquelético — dia 03/04, 04/04)",
         "status": "nao_conforme"
        },
        {
@@ -642,7 +637,7 @@
    {
     "secao": "D",
     "item": "Evolução Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Músculo-esquelético — dia 03/04, 04/04, 05/04, 06/04)"
+    "descricao": "Valor: não conforme (Faltam: Músculo-esquelético — dia 03/04, 04/04)"
    },
    {
     "secao": "D",
@@ -654,7 +649,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 85.7,
     "02/04": true,
     "03/04": false,
     "04/04": false,
@@ -664,7 +659,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 87.5,
     "02/04": true,
     "03/04": false,
     "04/04": false,
@@ -674,7 +669,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 4,
-    "conformidade": 100,
+    "conformidade": 75,
     "02/04": false,
     "03/04": true,
     "04/04": true,
@@ -684,7 +679,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 4,
-    "conformidade": 100,
+    "conformidade": 50,
     "02/04": false,
     "03/04": true,
     "04/04": true,
@@ -694,7 +689,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "02/04": false,
     "03/04": false,
     "04/04": false,
@@ -712,7 +707,7 @@
  },
  {
   "prontuario": "20.981.529",
-  "conformidade_geral": 81,
+  "conformidade_geral": 83.3,
   "secoes": [
    {
     "id": "A",
@@ -775,7 +770,7 @@
       "itens": [
        {
         "item": "HDA",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA: null)",
         "status": "nao_conforme"
        },
        {
@@ -889,9 +884,9 @@
    {
     "id": "D",
     "titulo": "Enfermagem e Escalas",
-    "conformes": 11,
+    "conformes": 12,
     "total": 15,
-    "conformidade": 73.3,
+    "conformidade": 80,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -953,8 +948,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 13/03, 14/03)",
-        "status": "nao_conforme"
+        "valor": "conforme (validado por IA)",
+        "status": "conforme"
        },
        {
         "item": "Condutas",
@@ -990,7 +985,7 @@
    {
     "secao": "B",
     "item": "Anamnese Médica — HDA",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA: null)"
    },
    {
     "secao": "B",
@@ -1024,11 +1019,6 @@
    },
    {
     "secao": "D",
-    "item": "Evolução Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 13/03, 14/03)"
-   },
-   {
-    "secao": "D",
     "item": "Evolução Enfermagem — Curativo",
     "descricao": "Valor: não conforme (IA: tipo de curativo não identificado — dia 14/03)"
    }
@@ -1037,7 +1027,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 71.4,
     "12/03": true,
     "13/03": false,
     "14/03": false
@@ -1045,7 +1035,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 75,
     "12/03": true,
     "13/03": false,
     "14/03": false
@@ -1053,7 +1043,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 2,
-    "conformidade": 100,
+    "conformidade": 75,
     "12/03": false,
     "13/03": true,
     "14/03": true
@@ -1061,7 +1051,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 2,
-    "conformidade": 100,
+    "conformidade": 85.7,
     "12/03": false,
     "13/03": true,
     "14/03": true
@@ -1069,7 +1059,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "12/03": false,
     "13/03": false,
     "14/03": false
@@ -1083,7 +1073,7 @@
  },
  {
   "prontuario": "75.463.740",
-  "conformidade_geral": 88.1,
+  "conformidade_geral": 90.5,
   "secoes": [
    {
     "id": "A",
@@ -1137,9 +1127,9 @@
    {
     "id": "B",
     "titulo": "Anamnese / Evolução Médica",
-    "conformes": 10,
+    "conformes": 11,
     "total": 11,
-    "conformidade": 90.9,
+    "conformidade": 100,
     "subgrupos": [
      {
       "titulo": "Anamnese Médica",
@@ -1191,8 +1181,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Geral — dia 21/05)",
-        "status": "nao_conforme"
+        "valor": "conforme (validado por IA)",
+        "status": "conforme"
        },
        {
         "item": "Procedimentos / Condutas / Queixas",
@@ -1324,7 +1314,7 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Pele/Mucosas, Respiratório — dia 21/05, 22/05, 23/05)",
+        "valor": "não conforme (Faltam: Nervoso, Pele/Mucosas, Respiratório, Músculo-esquelético — dia 22/05, 23/05)",
         "status": "nao_conforme"
        },
        {
@@ -1364,11 +1354,6 @@
     "descricao": "Valor: não conforme (IA: incompleto)"
    },
    {
-    "secao": "B",
-    "item": "Evolução Médica — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Geral — dia 21/05)"
-   },
-   {
     "secao": "C",
     "item": "Descrição Técnica",
     "descricao": "Valor: Não registrado (IA: null)"
@@ -1386,7 +1371,7 @@
    {
     "secao": "D",
     "item": "Evolução Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Pele/Mucosas, Respiratório — dia 21/05, 22/05, 23/05)"
+    "descricao": "Valor: não conforme (Faltam: Nervoso, Pele/Mucosas, Respiratório, Músculo-esquelético — dia 22/05, 23/05)"
    }
   ],
   "quantitativo": [
@@ -1402,7 +1387,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 87.5,
     "20/05": true,
     "21/05": false,
     "22/05": false,
@@ -1420,7 +1405,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 3,
-    "conformidade": 100,
+    "conformidade": 85.7,
     "20/05": false,
     "21/05": true,
     "22/05": true,
@@ -1429,7 +1414,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "20/05": false,
     "21/05": false,
     "22/05": false,
@@ -1445,7 +1430,7 @@
  },
  {
   "prontuario": "93.165.952",
-  "conformidade_geral": 81.8,
+  "conformidade_geral": 84.8,
   "secoes": [
    {
     "id": "A",
@@ -1553,7 +1538,7 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Cardiovascular — dia 03/06, 04/06)",
+        "valor": "não conforme (Faltam: Cardiovascular — dia 04/06)",
         "status": "nao_conforme"
        },
        {
@@ -1573,9 +1558,9 @@
    {
     "id": "D",
     "titulo": "Enfermagem e Escalas",
-    "conformes": 12,
+    "conformes": 13,
     "total": 15,
-    "conformidade": 80,
+    "conformidade": 86.7,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -1597,8 +1582,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Pele/Mucosas, Cardiovascular, Músculo-esquelético)",
-        "status": "nao_conforme"
+        "valor": "conforme (IA: trecho[exame_fisico]: paciente masculino, 45 anos, admitido em)",
+        "status": "conforme"
        },
        {
         "item": "Escala Braden",
@@ -1637,7 +1622,7 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Pele/Mucosas, Genitourinário, Músculo-esquelético — dia 03/06, 04/06, 05/06, 06/06)",
+        "valor": "não conforme (Faltam: Cardiovascular, Músculo-esquelético — dia 05/06)",
         "status": "nao_conforme"
        },
        {
@@ -1684,12 +1669,7 @@
    {
     "secao": "B",
     "item": "Evolução Médica — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Cardiovascular — dia 03/06, 04/06)"
-   },
-   {
-    "secao": "D",
-    "item": "Anamnese Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Pele/Mucosas, Cardiovascular, Músculo-esquelético)"
+    "descricao": "Valor: não conforme (Faltam: Cardiovascular — dia 04/06)"
    },
    {
     "secao": "D",
@@ -1699,7 +1679,7 @@
    {
     "secao": "D",
     "item": "Evolução Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Pele/Mucosas, Genitourinário, Músculo-esquelético — dia 03/06, 04/06, 05/06, 06/06)"
+    "descricao": "Valor: não conforme (Faltam: Cardiovascular, Músculo-esquelético — dia 05/06)"
    },
    {
     "secao": "D",
@@ -1731,7 +1711,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 4,
-    "conformidade": 100,
+    "conformidade": 75,
     "02/06": false,
     "03/06": true,
     "04/06": true,
@@ -1741,7 +1721,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 4,
-    "conformidade": 100,
+    "conformidade": 71.4,
     "02/06": false,
     "03/06": true,
     "04/06": true,
@@ -1751,7 +1731,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "02/06": false,
     "03/06": false,
     "04/06": false,
@@ -1769,7 +1749,7 @@
  },
  {
   "prontuario": "92.822.652",
-  "conformidade_geral": 78,
+  "conformidade_geral": 85.4,
   "secoes": [
    {
     "id": "A",
@@ -1823,9 +1803,9 @@
    {
     "id": "B",
     "titulo": "Anamnese / Evolução Médica",
-    "conformes": 9,
+    "conformes": 10,
     "total": 11,
-    "conformidade": 81.8,
+    "conformidade": 90.9,
     "subgrupos": [
      {
       "titulo": "Anamnese Médica",
@@ -1847,7 +1827,7 @@
        },
        {
         "item": "AF",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA: null)",
         "status": "nao_conforme"
        },
        {
@@ -1877,8 +1857,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Geral, Cardiovascular, Respiratório, Abdome — dia 16/01, 17/01)",
-        "status": "nao_conforme"
+        "valor": "conforme (IA: trecho[exame_fisico]: Paciente no pós-operatório imediato de c)",
+        "status": "conforme"
        },
        {
         "item": "Procedimentos / Condutas / Queixas",
@@ -1946,9 +1926,9 @@
    {
     "id": "D",
     "titulo": "Enfermagem e Escalas",
-    "conformes": 10,
+    "conformes": 12,
     "total": 14,
-    "conformidade": 71.4,
+    "conformidade": 85.7,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -1970,8 +1950,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
-        "status": "nao_conforme"
+        "valor": "conforme (IA: trecho[exame_fisico]: paciente masculino, 67 anos, internado p)",
+        "status": "conforme"
        },
        {
         "item": "Escala Braden",
@@ -2010,8 +1990,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 17/01)",
-        "status": "nao_conforme"
+        "valor": "conforme (IA: trecho[exame_fisico]: Paciente masculino, 67 anos, no 1º PO de)",
+        "status": "conforme"
        },
        {
         "item": "Condutas",
@@ -2052,12 +2032,7 @@
    {
     "secao": "B",
     "item": "Anamnese Médica — AF",
-    "descricao": "Valor: Não registrado"
-   },
-   {
-    "secao": "B",
-    "item": "Evolução Médica — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Geral, Cardiovascular, Respiratório, Abdome — dia 16/01, 17/01)"
+    "descricao": "Valor: Não registrado (IA: null)"
    },
    {
     "secao": "C",
@@ -2076,18 +2051,8 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Genitourinário, Músculo-esquelético)"
-   },
-   {
-    "secao": "D",
     "item": "Anamnese Enfermagem — Curativo",
     "descricao": "Valor: N/A"
-   },
-   {
-    "secao": "D",
-    "item": "Evolução Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 17/01)"
    },
    {
     "secao": "D",
@@ -2099,7 +2064,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 85.7,
     "15/01": true,
     "16/01": false,
     "17/01": false
@@ -2107,7 +2072,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 87.5,
     "15/01": true,
     "16/01": false,
     "17/01": false
@@ -2123,7 +2088,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 83.3,
     "15/01": false,
     "16/01": false,
     "17/01": true
@@ -2131,7 +2096,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "15/01": false,
     "16/01": false,
     "17/01": false
@@ -2145,7 +2110,7 @@
  },
  {
   "prontuario": "65.534.823",
-  "conformidade_geral": 90.5,
+  "conformidade_geral": 92.9,
   "secoes": [
    {
     "id": "A",
@@ -2322,9 +2287,9 @@
    {
     "id": "D",
     "titulo": "Enfermagem e Escalas",
-    "conformes": 12,
+    "conformes": 13,
     "total": 15,
-    "conformidade": 80,
+    "conformidade": 86.7,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -2346,8 +2311,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Genitourinário)",
-        "status": "nao_conforme"
+        "valor": "conforme (validado por IA)",
+        "status": "conforme"
        },
        {
         "item": "Escala Braden",
@@ -2386,7 +2351,7 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Respiratório, Genitourinário, Músculo-esquelético — dia 21/02, 22/02, 23/02)",
+        "valor": "não conforme (Faltam: Nervoso, Pele/Mucosas, Respiratório, Genitourinário, Músculo-esquelético — dia 23/02)",
         "status": "nao_conforme"
        },
        {
@@ -2427,18 +2392,13 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Genitourinário)"
-   },
-   {
-    "secao": "D",
     "item": "Anamnese Enfermagem — Curativo",
     "descricao": "Valor: N/A"
    },
    {
     "secao": "D",
     "item": "Evolução Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Respiratório, Genitourinário, Músculo-esquelético — dia 21/02, 22/02, 23/02)"
+    "descricao": "Valor: não conforme (Faltam: Nervoso, Pele/Mucosas, Respiratório, Genitourinário, Músculo-esquelético — dia 23/02)"
    },
    {
     "secao": "D",
@@ -2450,7 +2410,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 85.7,
     "20/02": true,
     "21/02": false,
     "22/02": false,
@@ -2477,7 +2437,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 3,
-    "conformidade": 100,
+    "conformidade": 71.4,
     "20/02": false,
     "21/02": true,
     "22/02": true,
@@ -2486,7 +2446,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "20/02": false,
     "21/02": false,
     "22/02": false,
@@ -2502,7 +2462,7 @@
  },
  {
   "prontuario": "90.572.623",
-  "conformidade_geral": 71.9,
+  "conformidade_geral": 75,
   "secoes": [
    {
     "id": "A",
@@ -2630,9 +2590,9 @@
    {
     "id": "D",
     "titulo": "Enfermagem e Escalas",
-    "conformes": 9,
+    "conformes": 10,
     "total": 14,
-    "conformidade": 64.3,
+    "conformidade": 71.4,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -2654,8 +2614,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
-        "status": "nao_conforme"
+        "valor": "conforme (IA: trecho[exame_fisico]: paciente masculino, 54 anos, internado e)",
+        "status": "conforme"
        },
        {
         "item": "Escala Braden",
@@ -2664,7 +2624,7 @@
        },
        {
         "item": "Escala Morse",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA: null)",
         "status": "nao_conforme"
        },
        {
@@ -2694,7 +2654,7 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Respiratório, Cardiovascular, Genitourinário, Músculo-esquelético — dia 06/03, 07/03, 08/03, 09/03)",
+        "valor": "não conforme (Faltam: Respiratório, Cardiovascular, Genitourinário, Músculo-esquelético — dia 06/03)",
         "status": "nao_conforme"
        },
        {
@@ -2750,13 +2710,8 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Genitourinário, Músculo-esquelético)"
-   },
-   {
-    "secao": "D",
     "item": "Anamnese Enfermagem — Escala Morse",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA: null)"
    },
    {
     "secao": "D",
@@ -2771,7 +2726,7 @@
    {
     "secao": "D",
     "item": "Evolução Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Respiratório, Cardiovascular, Genitourinário, Músculo-esquelético — dia 06/03, 07/03, 08/03, 09/03)"
+    "descricao": "Valor: não conforme (Faltam: Respiratório, Cardiovascular, Genitourinário, Músculo-esquelético — dia 06/03)"
    },
    {
     "secao": "D",
@@ -2793,7 +2748,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 87.5,
     "05/03": true,
     "06/03": false,
     "07/03": false,
@@ -2803,7 +2758,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 3,
-    "conformidade": 100,
+    "conformidade": 25,
     "05/03": false,
     "06/03": true,
     "07/03": false,
@@ -2813,7 +2768,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 4,
-    "conformidade": 100,
+    "conformidade": 50,
     "05/03": false,
     "06/03": true,
     "07/03": true,
@@ -2823,7 +2778,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "05/03": false,
     "06/03": false,
     "07/03": false,
@@ -2841,7 +2796,7 @@
  },
  {
   "prontuario": "50.888.322",
-  "conformidade_geral": 83.3,
+  "conformidade_geral": 85.7,
   "secoes": [
    {
     "id": "A",
@@ -3018,16 +2973,16 @@
    {
     "id": "D",
     "titulo": "Enfermagem e Escalas",
-    "conformes": 10,
+    "conformes": 11,
     "total": 15,
-    "conformidade": 66.7,
+    "conformidade": 73.3,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
       "itens": [
        {
         "item": "Motivo Internação",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA: null)",
         "status": "nao_conforme"
        },
        {
@@ -3042,8 +2997,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
-        "status": "nao_conforme"
+        "valor": "conforme (IA: trecho[exame_fisico]: Paciente masculino, 58 anos, admitido ne)",
+        "status": "conforme"
        },
        {
         "item": "Escala Braden",
@@ -3082,7 +3037,7 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Músculo-esquelético — dia 06/10, 07/10)",
+        "valor": "não conforme (Faltam: Músculo-esquelético — dia 07/10)",
         "status": "nao_conforme"
        },
        {
@@ -3129,12 +3084,7 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Motivo Internação",
-    "descricao": "Valor: Não registrado"
-   },
-   {
-    "secao": "D",
-    "item": "Anamnese Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Genitourinário, Músculo-esquelético)"
+    "descricao": "Valor: Não registrado (IA: null)"
    },
    {
     "secao": "D",
@@ -3149,7 +3099,7 @@
    {
     "secao": "D",
     "item": "Evolução Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Músculo-esquelético — dia 06/10, 07/10)"
+    "descricao": "Valor: não conforme (Faltam: Músculo-esquelético — dia 07/10)"
    },
    {
     "secao": "D",
@@ -3169,7 +3119,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 87.5,
     "05/10": true,
     "06/10": false,
     "07/10": false
@@ -3185,7 +3135,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 2,
-    "conformidade": 100,
+    "conformidade": 57.1,
     "05/10": false,
     "06/10": true,
     "07/10": true
@@ -3193,7 +3143,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "05/10": false,
     "06/10": false,
     "07/10": false
@@ -3207,7 +3157,7 @@
  },
  {
   "prontuario": "60.616.859",
-  "conformidade_geral": 73.8,
+  "conformidade_geral": 81,
   "secoes": [
    {
     "id": "A",
@@ -3261,9 +3211,9 @@
    {
     "id": "B",
     "titulo": "Anamnese / Evolução Médica",
-    "conformes": 8,
+    "conformes": 9,
     "total": 11,
-    "conformidade": 72.7,
+    "conformidade": 81.8,
     "subgrupos": [
      {
       "titulo": "Anamnese Médica",
@@ -3290,8 +3240,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Cardiovascular, Respiratório)",
-        "status": "nao_conforme"
+        "valor": "conforme (validado por IA)",
+        "status": "conforme"
        },
        {
         "item": "Conduta",
@@ -3384,9 +3334,9 @@
    {
     "id": "D",
     "titulo": "Enfermagem e Escalas",
-    "conformes": 9,
+    "conformes": 11,
     "total": 15,
-    "conformidade": 60,
+    "conformidade": 73.3,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -3408,8 +3358,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Genitourinário)",
-        "status": "nao_conforme"
+        "valor": "conforme (validado por IA)",
+        "status": "conforme"
        },
        {
         "item": "Escala Braden",
@@ -3448,8 +3398,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Nervoso, Pele/Mucosas, Respiratório, Genitourinário — dia 15/11)",
-        "status": "nao_conforme"
+        "valor": "conforme",
+        "status": "conforme"
        },
        {
         "item": "Condutas",
@@ -3489,11 +3439,6 @@
    },
    {
     "secao": "B",
-    "item": "Anamnese Médica — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Cardiovascular, Respiratório)"
-   },
-   {
-    "secao": "B",
     "item": "Anamnese Médica — Criação Anamnese",
     "descricao": "Valor: não conforme (criada 13h15 após a internação; prazo de 12h)"
    },
@@ -3514,11 +3459,6 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Genitourinário)"
-   },
-   {
-    "secao": "D",
     "item": "Anamnese Enfermagem — Curativo",
     "descricao": "Valor: N/A"
    },
@@ -3526,11 +3466,6 @@
     "secao": "D",
     "item": "Evolução Enfermagem — Motivo Internação",
     "descricao": "Valor: Não registrado (IA: null)"
-   },
-   {
-    "secao": "D",
-    "item": "Evolução Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Nervoso, Pele/Mucosas, Respiratório, Genitourinário — dia 15/11)"
    },
    {
     "secao": "D",
@@ -3547,7 +3482,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 85.7,
     "12/11": true,
     "13/11": false,
     "14/11": false,
@@ -3556,7 +3491,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 87.5,
     "12/11": true,
     "13/11": false,
     "14/11": false,
@@ -3565,7 +3500,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 3,
-    "conformidade": 100,
+    "conformidade": 75,
     "12/11": false,
     "13/11": true,
     "14/11": true,
@@ -3574,7 +3509,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 2,
-    "conformidade": 100,
+    "conformidade": 57.1,
     "12/11": false,
     "13/11": false,
     "14/11": true,
@@ -3583,7 +3518,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "12/11": false,
     "13/11": false,
     "14/11": false,
@@ -3599,7 +3534,7 @@
  },
  {
   "prontuario": "85.200.145",
-  "conformidade_geral": 78.8,
+  "conformidade_geral": 84.8,
   "secoes": [
    {
     "id": "A",
@@ -3653,9 +3588,9 @@
    {
     "id": "B",
     "titulo": "Anamnese / Evolução Médica",
-    "conformes": 10,
+    "conformes": 11,
     "total": 11,
-    "conformidade": 90.9,
+    "conformidade": 100,
     "subgrupos": [
      {
       "titulo": "Anamnese Médica",
@@ -3707,8 +3642,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Cardiovascular — dia 24/11)",
-        "status": "nao_conforme"
+        "valor": "conforme",
+        "status": "conforme"
        },
        {
         "item": "Procedimentos / Condutas / Queixas",
@@ -3727,9 +3662,9 @@
    {
     "id": "D",
     "titulo": "Enfermagem e Escalas",
-    "conformes": 10,
+    "conformes": 11,
     "total": 15,
-    "conformidade": 66.7,
+    "conformidade": 73.3,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -3751,8 +3686,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Cardiovascular, Genitourinário, Músculo-esquelético)",
-        "status": "nao_conforme"
+        "valor": "conforme (IA: trecho[exame_fisico]: paciente masculino, 45 anos, admitido na)",
+        "status": "conforme"
        },
        {
         "item": "Escala Braden",
@@ -3791,7 +3726,7 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 21/11, 22/11, 23/11, 24/11)",
+        "valor": "não conforme (Faltam: Respiratório, Genitourinário, Músculo-esquelético — dia 23/11)",
         "status": "nao_conforme"
        },
        {
@@ -3831,16 +3766,6 @@
     "descricao": "Valor: Não registrado"
    },
    {
-    "secao": "B",
-    "item": "Evolução Médica — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Cardiovascular — dia 24/11)"
-   },
-   {
-    "secao": "D",
-    "item": "Anamnese Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Cardiovascular, Genitourinário, Músculo-esquelético)"
-   },
-   {
     "secao": "D",
     "item": "Anamnese Enfermagem — Curativo",
     "descricao": "Valor: N/A"
@@ -3853,7 +3778,7 @@
    {
     "secao": "D",
     "item": "Evolução Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 21/11, 22/11, 23/11, 24/11)"
+    "descricao": "Valor: não conforme (Faltam: Respiratório, Genitourinário, Músculo-esquelético — dia 23/11)"
    },
    {
     "secao": "D",
@@ -3900,7 +3825,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 4,
-    "conformidade": 100,
+    "conformidade": 42.9,
     "20/11": false,
     "21/11": true,
     "22/11": true,
@@ -3910,7 +3835,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "20/11": false,
     "21/11": false,
     "22/11": false,
@@ -3928,7 +3853,7 @@
  },
  {
   "prontuario": "85.411.638",
-  "conformidade_geral": 92.9,
+  "conformidade_geral": 97.6,
   "secoes": [
    {
     "id": "A",
@@ -4105,9 +4030,9 @@
    {
     "id": "D",
     "titulo": "Enfermagem e Escalas",
-    "conformes": 12,
+    "conformes": 14,
     "total": 15,
-    "conformidade": 80,
+    "conformidade": 93.3,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -4129,8 +4054,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
-        "status": "nao_conforme"
+        "valor": "conforme (IA: trecho[exame_fisico]: paciente, 61 anos, admitido na unidade p)",
+        "status": "conforme"
        },
        {
         "item": "Escala Braden",
@@ -4169,8 +4094,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 11/01, 12/01)",
-        "status": "nao_conforme"
+        "valor": "conforme (validado por IA)",
+        "status": "conforme"
        },
        {
         "item": "Condutas",
@@ -4205,11 +4130,6 @@
   "nao_conformidades": [
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Genitourinário, Músculo-esquelético)"
-   },
-   {
-    "secao": "D",
     "item": "Anamnese Enfermagem — Curativo",
     "descricao": "Valor: N/A"
    },
@@ -4217,11 +4137,6 @@
     "secao": "D",
     "item": "Evolução Enfermagem — Motivo Internação",
     "descricao": "Valor: não conforme (IA: null — dia 12/01)"
-   },
-   {
-    "secao": "D",
-    "item": "Evolução Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 11/01, 12/01)"
    }
   ],
   "quantitativo": [
@@ -4252,7 +4167,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 2,
-    "conformidade": 100,
+    "conformidade": 85.7,
     "10/01": false,
     "11/01": true,
     "12/01": true
@@ -4260,7 +4175,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "10/01": false,
     "11/01": false,
     "12/01": false
@@ -4274,7 +4189,7 @@
  },
  {
   "prontuario": "72.116.418",
-  "conformidade_geral": 83.3,
+  "conformidade_geral": 90.5,
   "secoes": [
    {
     "id": "A",
@@ -4328,9 +4243,9 @@
    {
     "id": "B",
     "titulo": "Anamnese / Evolução Médica",
-    "conformes": 9,
+    "conformes": 10,
     "total": 11,
-    "conformidade": 81.8,
+    "conformidade": 90.9,
     "subgrupos": [
      {
       "titulo": "Anamnese Médica",
@@ -4357,8 +4272,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Abdome, Extremidades)",
-        "status": "nao_conforme"
+        "valor": "conforme (validado por IA)",
+        "status": "conforme"
        },
        {
         "item": "Conduta",
@@ -4451,9 +4366,9 @@
    {
     "id": "D",
     "titulo": "Enfermagem e Escalas",
-    "conformes": 11,
+    "conformes": 13,
     "total": 15,
-    "conformidade": 73.3,
+    "conformidade": 86.7,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -4475,8 +4390,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Gastrointestinal, Genitourinário)",
-        "status": "nao_conforme"
+        "valor": "conforme (validado por IA)",
+        "status": "conforme"
        },
        {
         "item": "Escala Braden",
@@ -4515,8 +4430,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 06/02, 07/02, 08/02)",
-        "status": "nao_conforme"
+        "valor": "conforme (IA: trecho[exame_fisico]: paciente idosa, 77 anos, internada para )",
+        "status": "conforme"
        },
        {
         "item": "Condutas",
@@ -4551,11 +4466,6 @@
   "nao_conformidades": [
    {
     "secao": "B",
-    "item": "Anamnese Médica — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Abdome, Extremidades)"
-   },
-   {
-    "secao": "B",
     "item": "Evolução Médica — Frequência Diária",
     "descricao": "Valor: não conforme (sem evolução entre 07/02 07:30 e 08/02 07:30)"
    },
@@ -4571,18 +4481,8 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Gastrointestinal, Genitourinário)"
-   },
-   {
-    "secao": "D",
     "item": "Anamnese Enfermagem — Curativo",
     "descricao": "Valor: N/A"
-   },
-   {
-    "secao": "D",
-    "item": "Evolução Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 06/02, 07/02, 08/02)"
    },
    {
     "secao": "D",
@@ -4603,7 +4503,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 87.5,
     "05/02": true,
     "06/02": false,
     "07/02": false,
@@ -4612,7 +4512,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 2,
-    "conformidade": 100,
+    "conformidade": 75,
     "05/02": false,
     "06/02": true,
     "07/02": false,
@@ -4621,7 +4521,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 3,
-    "conformidade": 100,
+    "conformidade": 85.7,
     "05/02": false,
     "06/02": true,
     "07/02": true,
@@ -4630,7 +4530,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "05/02": false,
     "06/02": false,
     "07/02": false,
@@ -4646,7 +4546,7 @@
  },
  {
   "prontuario": "62.407.871",
-  "conformidade_geral": 90.2,
+  "conformidade_geral": 95.1,
   "secoes": [
    {
     "id": "A",
@@ -4823,9 +4723,9 @@
    {
     "id": "D",
     "titulo": "Enfermagem e Escalas",
-    "conformes": 12,
+    "conformes": 14,
     "total": 15,
-    "conformidade": 80,
+    "conformidade": 93.3,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -4847,8 +4747,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
-        "status": "nao_conforme"
+        "valor": "conforme (IA: trecho[exame_fisico]: paciente feminina, 44 anos, admitida hoj)",
+        "status": "conforme"
        },
        {
         "item": "Escala Braden",
@@ -4887,8 +4787,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Respiratório — dia 21/03)",
-        "status": "nao_conforme"
+        "valor": "conforme (validado por IA)",
+        "status": "conforme"
        },
        {
         "item": "Condutas",
@@ -4928,18 +4828,8 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Genitourinário, Músculo-esquelético)"
-   },
-   {
-    "secao": "D",
     "item": "Anamnese Enfermagem — Curativo",
     "descricao": "Valor: N/A"
-   },
-   {
-    "secao": "D",
-    "item": "Evolução Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Respiratório — dia 21/03)"
    },
    {
     "secao": "D",
@@ -4972,14 +4862,14 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 85.7,
     "20/03": false,
     "21/03": true
    },
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "20/03": false,
     "21/03": false
    }
@@ -4991,7 +4881,7 @@
  },
  {
   "prontuario": "26.696.588",
-  "conformidade_geral": 83.3,
+  "conformidade_geral": 88.1,
   "secoes": [
    {
     "id": "A",
@@ -5045,9 +4935,9 @@
    {
     "id": "B",
     "titulo": "Anamnese / Evolução Médica",
-    "conformes": 7,
+    "conformes": 8,
     "total": 11,
-    "conformidade": 63.6,
+    "conformidade": 72.7,
     "subgrupos": [
      {
       "titulo": "Anamnese Médica",
@@ -5059,12 +4949,12 @@
        },
        {
         "item": "HD / CID",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA: null)",
         "status": "nao_conforme"
        },
        {
         "item": "AP / APP",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA: null)",
         "status": "nao_conforme"
        },
        {
@@ -5074,8 +4964,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Cardiovascular)",
-        "status": "nao_conforme"
+        "valor": "conforme (validado por IA)",
+        "status": "conforme"
        },
        {
         "item": "Conduta",
@@ -5168,9 +5058,9 @@
    {
     "id": "D",
     "titulo": "Enfermagem e Escalas",
-    "conformes": 13,
+    "conformes": 14,
     "total": 15,
-    "conformidade": 86.7,
+    "conformidade": 93.3,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -5192,8 +5082,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Respiratório, Genitourinário)",
-        "status": "nao_conforme"
+        "valor": "conforme (IA: trecho[exame_fisico]: paciente idosa, 77 anos, internada para )",
+        "status": "conforme"
        },
        {
         "item": "Escala Braden",
@@ -5269,17 +5159,12 @@
    {
     "secao": "B",
     "item": "Anamnese Médica — HD / CID",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA: null)"
    },
    {
     "secao": "B",
     "item": "Anamnese Médica — AP / APP",
-    "descricao": "Valor: Não registrado"
-   },
-   {
-    "secao": "B",
-    "item": "Anamnese Médica — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Cardiovascular)"
+    "descricao": "Valor: Não registrado (IA: null)"
    },
    {
     "secao": "B",
@@ -5290,11 +5175,6 @@
     "secao": "C",
     "item": "Diagnóstico / CID",
     "descricao": "Valor: Não registrado"
-   },
-   {
-    "secao": "D",
-    "item": "Anamnese Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Respiratório, Genitourinário)"
    },
    {
     "secao": "D",
@@ -5311,7 +5191,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 71.4,
     "10/03": true,
     "11/03": false,
     "12/03": false
@@ -5327,7 +5207,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 2,
-    "conformidade": 100,
+    "conformidade": 75,
     "10/03": false,
     "11/03": true,
     "12/03": true
@@ -5335,7 +5215,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 2,
-    "conformidade": 100,
+    "conformidade": 85.7,
     "10/03": false,
     "11/03": true,
     "12/03": true
@@ -5343,7 +5223,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "10/03": false,
     "11/03": false,
     "12/03": false
@@ -5357,7 +5237,7 @@
  },
  {
   "prontuario": "55.357.130",
-  "conformidade_geral": 78.6,
+  "conformidade_geral": 83.3,
   "secoes": [
    {
     "id": "A",
@@ -5411,16 +5291,16 @@
    {
     "id": "B",
     "titulo": "Anamnese / Evolução Médica",
-    "conformes": 7,
+    "conformes": 8,
     "total": 11,
-    "conformidade": 63.6,
+    "conformidade": 72.7,
     "subgrupos": [
      {
       "titulo": "Anamnese Médica",
       "itens": [
        {
         "item": "HDA",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA: null)",
         "status": "nao_conforme"
        },
        {
@@ -5440,8 +5320,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Cardiovascular, Respiratório)",
-        "status": "nao_conforme"
+        "valor": "conforme (IA: trecho[exame_fisico]: Paciente masculino, 54 anos, admitido na)",
+        "status": "conforme"
        },
        {
         "item": "Conduta",
@@ -5534,9 +5414,9 @@
    {
     "id": "D",
     "titulo": "Enfermagem e Escalas",
-    "conformes": 11,
+    "conformes": 12,
     "total": 15,
-    "conformidade": 73.3,
+    "conformidade": 80,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -5598,8 +5478,8 @@
        },
        {
         "item": "Exame Físico",
-        "valor": "não conforme (Faltam: Genitourinário — dia 23/05, 24/05)",
-        "status": "nao_conforme"
+        "valor": "conforme (IA: trecho[exame_fisico]: paciente em pós-operatório imediato de c)",
+        "status": "conforme"
        },
        {
         "item": "Condutas",
@@ -5635,12 +5515,7 @@
    {
     "secao": "B",
     "item": "Anamnese Médica — HDA",
-    "descricao": "Valor: Não registrado"
-   },
-   {
-    "secao": "B",
-    "item": "Anamnese Médica — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Cardiovascular, Respiratório)"
+    "descricao": "Valor: Não registrado (IA: null)"
    },
    {
     "secao": "B",
@@ -5674,11 +5549,6 @@
    },
    {
     "secao": "D",
-    "item": "Evolução Enfermagem — Exame Físico",
-    "descricao": "Valor: não conforme (Faltam: Genitourinário — dia 23/05, 24/05)"
-   },
-   {
-    "secao": "D",
     "item": "Evolução Enfermagem — Curativo",
     "descricao": "Valor: não conforme (IA: tipo de curativo não identificado — dia 23/05, 24/05)"
    }
@@ -5687,7 +5557,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 85.7,
     "22/05": true,
     "23/05": false,
     "24/05": false
@@ -5695,7 +5565,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 75,
     "22/05": true,
     "23/05": false,
     "24/05": false
@@ -5703,7 +5573,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 50,
     "22/05": false,
     "23/05": false,
     "24/05": true
@@ -5711,7 +5581,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 2,
-    "conformidade": 100,
+    "conformidade": 85.7,
     "22/05": false,
     "23/05": true,
     "24/05": true
@@ -5719,7 +5589,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "22/05": false,
     "23/05": false,
     "24/05": false

@@ -11,14 +11,18 @@
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
      "secao_d_anamnese.af",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -63,12 +67,22 @@
       "motivo": "invalid_json"
      },
      {
+      "campo": "secao_d_anamnese.exame_fisico",
+      "detalhe": "json inválido simulado",
+      "motivo": "invalid_json"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
       "detalhe": "json inválido simulado",
       "motivo": "invalid_json"
      },
      {
       "campo": "secao_d_evolucao.condutas",
+      "detalhe": "json inválido simulado",
+      "motivo": "invalid_json"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "json inválido simulado",
       "motivo": "invalid_json"
      },
@@ -88,6 +102,11 @@
       "motivo": "invalid_json"
      },
      {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "json inválido simulado",
+      "motivo": "invalid_json"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
       "detalhe": "json inválido simulado",
       "motivo": "invalid_json"
@@ -99,6 +118,11 @@
      },
      {
       "campo": "secao_d_evolucao.curativo",
+      "detalhe": "json inválido simulado",
+      "motivo": "invalid_json"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "json inválido simulado",
       "motivo": "invalid_json"
      },
@@ -194,7 +218,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (17 de 17): secao_c.descricao_tecnica (invalid_json), secao_b_anamnese.hda (invalid_json), secao_b_anamnese.ap_app (invalid_json), secao_b_evolucao.hd_cid (invalid_json), secao_b_evolucao.hd_cid (invalid_json), secao_d_anamnese.motivo_internacao (invalid_json), secao_d_anamnese.ap_app (invalid_json), secao_d_anamnese.af (invalid_json), secao_d_evolucao.motivo_internacao (invalid_json), secao_d_evolucao.condutas (invalid_json), secao_d_evolucao.motivo_internacao (invalid_json), secao_d_evolucao.condutas (invalid_json), secao_d_evolucao.curativo (invalid_json), secao_d_evolucao.motivo_internacao (invalid_json), secao_d_evolucao.condutas (invalid_json), secao_d_evolucao.curativo (invalid_json), secao_a.diagnostico_internacao (invalid_json). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (21 de 21): secao_c.descricao_tecnica (invalid_json), secao_b_anamnese.hda (invalid_json), secao_b_anamnese.ap_app (invalid_json), secao_b_evolucao.hd_cid (invalid_json), secao_b_evolucao.hd_cid (invalid_json), secao_d_anamnese.motivo_internacao (invalid_json), secao_d_anamnese.ap_app (invalid_json), secao_d_anamnese.af (invalid_json), secao_d_anamnese.exame_fisico (invalid_json), secao_d_evolucao.motivo_internacao (invalid_json), secao_d_evolucao.condutas (invalid_json), secao_d_evolucao.exame_fisico (invalid_json), secao_d_evolucao.motivo_internacao (invalid_json), secao_d_evolucao.condutas (invalid_json), secao_d_evolucao.curativo (invalid_json), secao_d_evolucao.exame_fisico (invalid_json), secao_d_evolucao.motivo_internacao (invalid_json), secao_d_evolucao.condutas (invalid_json), secao_d_evolucao.curativo (invalid_json), secao_d_evolucao.exame_fisico (invalid_json), secao_a.diagnostico_internacao (invalid_json). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "30/11/1946",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: invalid_json)",
@@ -264,17 +288,20 @@
     "campos_enviados": [
      "secao_c.descricao_tecnica",
      "secao_b_anamnese.hda",
+     "secao_b_anamnese.exame_fisico",
      "secao_b_evolucao.hd_cid",
      "secao_b_evolucao.procedimentos_condutas_queixas",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
      "secao_d_anamnese.af",
      "secao_d_anamnese.escala_braden",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -285,6 +312,11 @@
      },
      {
       "campo": "secao_b_anamnese.hda",
+      "detalhe": "json inválido simulado",
+      "motivo": "invalid_json"
+     },
+     {
+      "campo": "secao_b_anamnese.exame_fisico",
       "detalhe": "json inválido simulado",
       "motivo": "invalid_json"
      },
@@ -319,6 +351,11 @@
       "motivo": "invalid_json"
      },
      {
+      "campo": "secao_d_anamnese.exame_fisico",
+      "detalhe": "json inválido simulado",
+      "motivo": "invalid_json"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
       "detalhe": "json inválido simulado",
       "motivo": "invalid_json"
@@ -340,6 +377,11 @@
      },
      {
       "campo": "secao_d_evolucao.curativo",
+      "detalhe": "json inválido simulado",
+      "motivo": "invalid_json"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "json inválido simulado",
       "motivo": "invalid_json"
      },
@@ -434,7 +476,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (14 de 14): secao_c.descricao_tecnica (invalid_json), secao_b_anamnese.hda (invalid_json), secao_b_evolucao.hd_cid (invalid_json), secao_b_evolucao.procedimentos_condutas_queixas (invalid_json), secao_d_anamnese.motivo_internacao (invalid_json), secao_d_anamnese.ap_app (invalid_json), secao_d_anamnese.af (invalid_json), secao_d_anamnese.escala_braden (invalid_json), secao_d_evolucao.motivo_internacao (invalid_json), secao_d_evolucao.condutas (invalid_json), secao_d_evolucao.curativo (invalid_json), secao_d_evolucao.motivo_internacao (invalid_json), secao_d_evolucao.curativo (invalid_json), secao_a.diagnostico_internacao (invalid_json). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (17 de 17): secao_c.descricao_tecnica (invalid_json), secao_b_anamnese.hda (invalid_json), secao_b_anamnese.exame_fisico (invalid_json), secao_b_evolucao.hd_cid (invalid_json), secao_b_evolucao.procedimentos_condutas_queixas (invalid_json), secao_d_anamnese.motivo_internacao (invalid_json), secao_d_anamnese.ap_app (invalid_json), secao_d_anamnese.af (invalid_json), secao_d_anamnese.escala_braden (invalid_json), secao_d_anamnese.exame_fisico (invalid_json), secao_d_evolucao.motivo_internacao (invalid_json), secao_d_evolucao.condutas (invalid_json), secao_d_evolucao.curativo (invalid_json), secao_d_evolucao.motivo_internacao (invalid_json), secao_d_evolucao.curativo (invalid_json), secao_d_evolucao.exame_fisico (invalid_json), secao_a.diagnostico_internacao (invalid_json). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "11/6/1941",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: invalid_json)",
@@ -506,8 +548,10 @@
      "secao_c.uso_opme",
      "secao_b_anamnese.hda",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -532,12 +576,22 @@
       "motivo": "invalid_json"
      },
      {
+      "campo": "secao_d_anamnese.exame_fisico",
+      "detalhe": "json inválido simulado",
+      "motivo": "invalid_json"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
       "detalhe": "json inválido simulado",
       "motivo": "invalid_json"
      },
      {
       "campo": "secao_d_evolucao.curativo",
+      "detalhe": "json inválido simulado",
+      "motivo": "invalid_json"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "json inválido simulado",
       "motivo": "invalid_json"
      },
@@ -627,7 +681,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (7 de 7): secao_c.descricao_tecnica (invalid_json), secao_c.uso_opme (invalid_json), secao_b_anamnese.hda (invalid_json), secao_d_anamnese.motivo_internacao (invalid_json), secao_d_evolucao.motivo_internacao (invalid_json), secao_d_evolucao.curativo (invalid_json), secao_a.diagnostico_internacao (invalid_json). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (9 de 9): secao_c.descricao_tecnica (invalid_json), secao_c.uso_opme (invalid_json), secao_b_anamnese.hda (invalid_json), secao_d_anamnese.motivo_internacao (invalid_json), secao_d_anamnese.exame_fisico (invalid_json), secao_d_evolucao.motivo_internacao (invalid_json), secao_d_evolucao.curativo (invalid_json), secao_d_evolucao.exame_fisico (invalid_json), secao_a.diagnostico_internacao (invalid_json). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "3/4/1980",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: invalid_json)",

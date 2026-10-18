@@ -66,10 +66,20 @@ export const TEAM_ITEMS: ItemSpec[] = [
   ["Descrição", "descricao"],
 ];
 
-export const DOCUMENT_ROWS: ReadonlyArray<readonly [label: string, matrixKey: string]> = [
-  ["Anamnese Médica", "MEDICINA - Anamnese"],
-  ["Anamnese Enfermagem", "ENFERMAGEM - Anamnese"],
-  ["Evolução Médica", "MEDICINA - Evolução"],
-  ["Evolução Enfermagem", "ENFERMAGEM - Evolução"],
-  ["Serviço Social", "SERVIÇO SOCIAL - Evolução"],
+/** Per document type: the label, its key in the document matrix and the conformity count it is scored by. */
+export const DOCUMENT_ROWS: ReadonlyArray<
+  readonly [label: string, matrixKey: string, countsKey: DocumentCountsKey]
+> = [
+  ["Anamnese Médica", "MEDICINA - Anamnese", "conformity_b_anamnese"],
+  ["Anamnese Enfermagem", "ENFERMAGEM - Anamnese", "conformity_d_anamnese"],
+  ["Evolução Médica", "MEDICINA - Evolução", "conformity_b_evolucao"],
+  ["Evolução Enfermagem", "ENFERMAGEM - Evolução", "conformity_d_evolucao"],
+  ["Serviço Social", "SERVIÇO SOCIAL - Evolução", "conformity_e"],
 ];
+
+export type DocumentCountsKey =
+  | "conformity_b_anamnese"
+  | "conformity_d_anamnese"
+  | "conformity_b_evolucao"
+  | "conformity_d_evolucao"
+  | "conformity_e";

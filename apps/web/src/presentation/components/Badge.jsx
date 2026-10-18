@@ -1,10 +1,10 @@
 import React from 'react';
 
 export const statusCfg = {
-  conforme: { label: 'Conforme', color: '#00e676', bg: '#0d2b1a', border: '#00e67630' },
-  nao_conforme: { label: 'Não Conforme', color: '#ff5252', bg: '#2b0d0d', border: '#ff525230' },
-  nao_se_aplica: { label: 'Não se aplica', color: '#00d4ff', bg: '#002538', border: '#00d4ff30' },
-  nao_aplicavel: { label: 'Não se aplica', color: '#00d4ff', bg: '#002538', border: '#00d4ff30' },
+  conforme: { label: 'Conforme', color: 'var(--green)', bg: 'var(--green-bg)', border: 'color-mix(in srgb, var(--green) 19%, transparent)' },
+  nao_conforme: { label: 'Não Conforme', color: 'var(--red)', bg: 'var(--red-bg)', border: 'color-mix(in srgb, var(--red) 19%, transparent)' },
+  nao_se_aplica: { label: 'Não se aplica', color: 'var(--accent)', bg: 'var(--accent-bg)', border: 'color-mix(in srgb, var(--accent) 19%, transparent)' },
+  nao_aplicavel: { label: 'Não se aplica', color: 'var(--accent)', bg: 'var(--accent-bg)', border: 'color-mix(in srgb, var(--accent) 19%, transparent)' },
 };
 
 export default function Badge({ status }) {

@@ -352,3 +352,32 @@ def test_rules_ignore_accents_in_the_record_text(audit_env):
     d = audit([rec("MEDICINA", "Evolução", "hipotese diagnostica: sindrome coronariana. conduta: manter medicacoes.")])
     assert d["secao_b_evolucao"]["hd_cid"] == "conforme"
     assert d["secao_b_evolucao"]["procedimentos_condutas_queixas"] == "conforme"
+
+
+INCOMPLETE_MEDICAL_EXAM = "estado geral bom, acv: ritmo regular"
+
+
+def test_incomplete_physical_exam_goes_to_the_ai_and_conforme_overrides_the_keywords(audit_env):
+    audit_env(ai_answers({"exame_fisico": "ar: mv presente, abd: flácido, ext: sem edemas"}))
+    d = audit([rec("MEDICINA", "Anamnese", INCOMPLETE_MEDICAL_EXAM)])
+    assert d["secao_b_anamnese"]["exame_fisico"].startswith("conforme (IA:")
+
+
+@pytest.mark.parametrize("ai_answer", [None, "não conforme: faltam os demais sistemas"])
+def test_incomplete_physical_exam_keeps_the_missing_systems_when_the_ai_does_not_confirm(audit_env, ai_answer):
+    audit_env(ai_answers({"exame_fisico": ai_answer}))
+    d = audit([rec("MEDICINA", "Anamnese", INCOMPLETE_MEDICAL_EXAM)])
+    assert d["secao_b_anamnese"]["exame_fisico"].startswith("não conforme (Faltam:")
+
+
+def test_complete_physical_exam_is_not_sent_to_the_ai(audit_env):
+    sent = []
+
+    def scenario(payload, fields):
+        sent.extend(fields)
+        return "ok", {field: None for field in fields}, None
+
+    audit_env(scenario)
+    d = audit([rec("MEDICINA", "Anamnese", MEDICAL_EXAM)])
+    assert "exame_fisico" not in sent
+    assert d["secao_b_anamnese"]["exame_fisico"] == "conforme"

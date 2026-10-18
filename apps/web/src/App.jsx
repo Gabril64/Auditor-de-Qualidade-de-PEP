@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Icon from './presentation/components/Icon.jsx';
 import Sidebar from './presentation/components/Sidebar.jsx';
 import AuditView from './presentation/views/AuditView.jsx';
 import DashboardView from './presentation/views/DashboardView.jsx';
@@ -8,6 +9,7 @@ import LoginView from './presentation/views/LoginView.jsx';
 import ChangePasswordView from './presentation/views/ChangePasswordView.jsx';
 import UsersView from './presentation/views/UsersView.jsx';
 import NotificationBell from './presentation/components/NotificationBell.jsx';
+import ThemeToggle from './presentation/components/ThemeToggle.jsx';
 import { fetchSession, logout } from './data/authClient.js';
 import { onUnauthorized } from './data/session.js';
 
@@ -131,7 +133,7 @@ export default function App() {
               justifyContent: 'center',
               fontSize: 17
             }}>
-              ⚕
+              <Icon name="activity" size={18} />
             </div>
           )}
           <div>
@@ -140,6 +142,7 @@ export default function App() {
           </div>
 
           <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 12 }}>
+            <ThemeToggle />
             <NotificationBell onOpenAudit={handleSelectAuditFromDashboard} />
             {!isMobile && <span style={{ fontSize: 12, color: 'var(--text2)' }}>{session.user.name}</span>}
             <button

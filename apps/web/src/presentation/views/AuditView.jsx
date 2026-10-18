@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import Icon from '../components/Icon.jsx';
 import { submitAndPollBatch } from '../../data/apiClient.js';
 import { ResultCard } from '../components/AuditReport.jsx';
 
@@ -151,7 +152,7 @@ export default function AuditView({ isMobile }) {
       <div style={{ flex: 1, padding: isMobile ? '12px 10px' : '24px 16px', maxWidth: 900, width: '100%', margin: '0 auto' }}>
         {messages.length === 0 && (
           <div style={{ textAlign: 'center', padding: isMobile ? '30px 0 20px' : '60px 0 40px' }}>
-            <div style={{ fontSize: isMobile ? 36 : 48, marginBottom: 16 }}>📋</div>
+            <div style={{ fontSize: isMobile ? 36 : 48, marginBottom: 16 }}><Icon name="clipboard" size={isMobile ? 36 : 48} /></div>
             <h1 style={{ fontSize: isMobile ? 18 : 22, fontWeight: 600, marginBottom: 8, letterSpacing: '-0.03em' }}>
               Auditoria Inteligente de Prontuários
             </h1>
@@ -174,7 +175,7 @@ export default function AuditView({ isMobile }) {
                 textAlign: 'center',
                 minWidth: 140
               }}>
-                <div style={{ fontSize: 24, marginBottom: 8 }}>📤</div>
+                <div style={{ fontSize: 24, marginBottom: 8 }}><Icon name="upload" size={24} /></div>
                 <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--text)', marginBottom: 4 }}>Enviar</div>
                 <div style={{ fontSize: 10, color: 'var(--text2)' }}>Cole o JSON dos registros</div>
               </div>
@@ -186,7 +187,7 @@ export default function AuditView({ isMobile }) {
                 textAlign: 'center',
                 minWidth: 140
               }}>
-                <div style={{ fontSize: 24, marginBottom: 8 }}>🤖</div>
+                <div style={{ fontSize: 24, marginBottom: 8 }}><Icon name="bot" size={24} /></div>
                 <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--text)', marginBottom: 4 }}>Processar</div>
                 <div style={{ fontSize: 10, color: 'var(--text2)' }}>Motor de IA audita os dados</div>
               </div>
@@ -198,7 +199,7 @@ export default function AuditView({ isMobile }) {
                 textAlign: 'center',
                 minWidth: 140
               }}>
-                <div style={{ fontSize: 24, marginBottom: 8 }}>📊</div>
+                <div style={{ fontSize: 24, marginBottom: 8 }}><Icon name="chart" size={24} /></div>
                 <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--text)', marginBottom: 4 }}>Resultado</div>
                 <div style={{ fontSize: 10, color: 'var(--text2)' }}>Relatório individualizado</div>
               </div>
@@ -213,10 +214,10 @@ export default function AuditView({ isMobile }) {
           if (msg.type === 'error') return (
             <div key={i} style={{ marginBottom: 20 }}>
               <div style={{
-                background: '#2b0d0d', border: '1px solid var(--red)',
+                background: 'var(--red-bg)', border: '1px solid var(--red)',
                 borderRadius: '2px 12px 12px 12px', padding: '12px 16px', color: 'var(--red)', fontSize: 13
               }}>
-                ⚠ {msg.content}
+                <Icon name="alert" size={14} /> {msg.content}
               </div>
             </div>
           );
@@ -224,8 +225,8 @@ export default function AuditView({ isMobile }) {
             <div key={i} style={{ marginBottom: 24 }}>
               {msg.content._parcial && (
                 <div role="alert" style={{
-                  background: '#2b2410', border: '1px solid #ffd74060', borderRadius: 10,
-                  padding: '10px 14px', marginBottom: 10, fontSize: 12, color: '#ffd740'
+                  background: 'var(--yellow-bg)', border: '1px solid color-mix(in srgb, var(--yellow) 38%, transparent)', borderRadius: 10,
+                  padding: '10px 14px', marginBottom: 10, fontSize: 12, color: 'var(--yellow)'
                 }}>
                   <b>Auditoria incompleta.</b> A IA falhou em alguns campos deste prontuário; os itens que dependiam dela podem aparecer como não registrados.
                   {msg.content._aviso_ia && <div style={{ marginTop: 4, color: 'var(--text2)', fontFamily: 'var(--mono)', wordBreak: 'break-word' }}>{msg.content._aviso_ia}</div>}
@@ -307,7 +308,7 @@ export default function AuditView({ isMobile }) {
                 {!isMobile && <span style={{ fontSize: 10, color: 'var(--text3)', fontFamily: 'var(--mono)' }}>Ctrl+Enter</span>}
                 <button onClick={handleSend} disabled={!input.trim() || loading} style={{
                   background: input.trim() && !loading ? 'var(--accent)' : 'var(--bg4)',
-                  border: 'none', color: input.trim() && !loading ? '#000' : 'var(--text3)',
+                  border: 'none', color: input.trim() && !loading ? 'var(--on-accent)' : 'var(--text3)',
                   padding: isMobile ? '6px 12px' : '7px 18px', borderRadius: 7, fontSize: 12, fontWeight: 600,
                   cursor: input.trim() && !loading ? 'pointer' : 'default',
                   transition: 'all 0.15s', fontFamily: 'var(--sans)'

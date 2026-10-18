@@ -20,6 +20,38 @@
   --red2: #4a1010;
   --mono: 'IBM Plex Mono', monospace;
   --sans: 'IBM Plex Sans', sans-serif;
+  --green-bg: #0d2b1a;
+  --yellow-bg: #2b2410;
+  --red-bg: #2b0d0d;
+  --accent-bg: #002538;
+  --on-accent: #00131a;
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --bg: #f4f6f9;
+  --bg2: #ffffff;
+  --bg3: #eef1f6;
+  --bg4: #e3e8f0;
+  --border: #d5dbe5;
+  --border2: #c3cbd8;
+  --text: #1a2230;
+  --text2: #4d586b;
+  --text3: #7a8599;
+  --accent: #0077a8;
+  --accent2: #005f87;
+  --green: #0a8f4e;
+  --green2: #c9ecd8;
+  --yellow: #a66a00;
+  --yellow2: #f6e3b4;
+  --red: #c62828;
+  --red2: #f5c9c9;
+  --green-bg: #e3f5ea;
+  --yellow-bg: #fdf1d6;
+  --red-bg: #fde8e8;
+  --accent-bg: #e0f2fa;
+  --on-accent: #ffffff;
+  color-scheme: light;
 }
 
 body {

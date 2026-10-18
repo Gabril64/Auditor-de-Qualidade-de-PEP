@@ -124,7 +124,7 @@ export function transformAuditResult(rawResult: RawAuditResult): TransformedAudi
     conformidade_geral: percentage(globalCounts),
     secoes: sections,
     nao_conformidades: collectNonConformities(sections),
-    quantitativo: buildDocumentCountRows(auditData.matriz_documentos, days),
+    quantitativo: buildDocumentCountRows(auditData, days),
     days: days.length > 0 ? days : undefined,
   };
 }
@@ -231,22 +231,26 @@ function extractDays(dates: string[]): string[] {
   });
 }
 
-function buildDocumentCountRows(matrix: DocumentMatrix | undefined, days: string[]): DocumentCountRow[] {
+/** One row per document type: the days it exists on, how many, and how conforming its fields are. A day
+ * is matched by the full date from the matrix, so the same day and month in another year does not count. */
+function buildDocumentCountRows(auditData: AuditData, days: string[]): DocumentCountRow[] {
+  const matrix = auditData.matriz_documentos;
   const entriesByDocument = matrix?.matriz ?? {};
+  const fullDates = matrix?.datas ?? [];
 
-  return DOCUMENT_ROWS.map(([label, matrixKey]) => {
-    const documentDates = Object.keys(entriesByDocument[matrixKey] ?? {});
+  return DOCUMENT_ROWS.map(([label, matrixKey, countsKey]) => {
+    const documentDates = new Set(Object.keys(entriesByDocument[matrixKey] ?? {}));
     const row: DocumentCountRow = { tipo: label, total: 0, conformidade: 0 };
     let presentCount = 0;
 
-    for (const day of days) {
-      const found = documentDates.some((date) => date.includes(day));
+    days.forEach((day, index) => {
+      const found = documentDates.has(fullDates[index] ?? day);
       row[day] = found;
       if (found) presentCount++;
-    }
+    });
 
     row.total = presentCount;
-    row.conformidade = presentCount > 0 ? 100 : 0;
+    row.conformidade = percentage(readCounts(auditData[countsKey]));
     return row;
   });
 }

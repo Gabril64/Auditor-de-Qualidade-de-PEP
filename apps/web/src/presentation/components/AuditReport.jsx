@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Icon from './Icon.jsx';
 import ScoreRing from './ScoreRing.jsx';
 import Badge, { statusCfg } from './Badge.jsx';
 import { baseDraftOf, refKey, sameDraft } from '../../domain/auditValue.js';
@@ -71,7 +72,7 @@ function ItemRow({ it, isMobile, edit }) {
   const original = key && edit ? edit.originals[key] : undefined;
   const changedFromOriginal = original !== undefined && original !== null && String(it.valor) !== String(original.value ?? 'N/A');
   const editable = Boolean(edit?.editing && it.ref);
-  const color = draft ? statusCfg[draft.status].color : statusCfg[it.status]?.color || '#00e676';
+  const color = draft ? statusCfg[draft.status].color : statusCfg[it.status]?.color || 'var(--green)';
 
   function handleChange(patch) {
     const base = baseDraftOf(it);
@@ -92,12 +93,12 @@ function ItemRow({ it, isMobile, edit }) {
           {it.item}
           {draft && <span style={{ fontSize: 9, color: 'var(--accent)', fontFamily: 'var(--mono)' }}>não salvo</span>}
           {!draft && changedFromOriginal && (
-            <span style={{ fontSize: 9, color: '#ffd740', fontFamily: 'var(--mono)' }}>editado</span>
+            <span style={{ fontSize: 9, color: 'var(--yellow)', fontFamily: 'var(--mono)' }}>editado</span>
           )}
         </div>
         <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--text2)', wordBreak: 'break-word' }}>{it.valor}</div>
         {it.observacao && (
-          <div style={{ fontSize: 10, color: '#ffd740', marginTop: 4, opacity: 0.9 }}>⚠ {it.observacao}</div>
+          <div style={{ fontSize: 10, color: 'var(--yellow)', marginTop: 4, opacity: 0.9 }}><Icon name="alert" size={11} /> {it.observacao}</div>
         )}
         {changedFromOriginal && (
           <div style={{ fontSize: 10, color: 'var(--text3)', marginTop: 4, fontFamily: 'var(--mono)', wordBreak: 'break-word' }}>
@@ -204,10 +205,10 @@ export function ResultCard({ r, isMobile, edit }) {
           {!isMobile && (
             <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
               {r.secoes.map(s => {
-                const color = s.conformidade >= 90 ? '#00e676' : s.conformidade >= 75 ? '#ffd740' : '#ff5252';
-                const bg = s.conformidade >= 90 ? '#0d2b1a' : s.conformidade >= 75 ? '#2b2000' : '#2b0d0d';
+                const color = s.conformidade >= 90 ? 'var(--green)' : s.conformidade >= 75 ? 'var(--yellow)' : 'var(--red)';
+                const bg = s.conformidade >= 90 ? 'var(--green-bg)' : s.conformidade >= 75 ? 'var(--yellow-bg)' : 'var(--red-bg)';
                 return (
-                  <div key={s.id} style={{ background: bg, border: `1px solid ${color}30`, borderRadius: 8, padding: '7px 12px', textAlign: 'center' }}>
+                  <div key={s.id} style={{ background: bg, border: `1px solid color-mix(in srgb, ${color} 19%, transparent)`, borderRadius: 8, padding: '7px 12px', textAlign: 'center' }}>
                     <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--text2)', marginBottom: 2 }}>Seção {s.id}</div>
                     <div style={{ fontFamily: 'var(--mono)', fontSize: 16, fontWeight: 600, color }}>{s.conformidade}%</div>
                   </div>
@@ -257,13 +258,13 @@ export function ResultCard({ r, isMobile, edit }) {
               </thead>
               <tbody>
                 {(r.quantitativo || []).map((row, i) => {
-                  const c = row.conformidade >= 90 ? '#00e676' : row.conformidade >= 75 ? '#ffd740' : '#ff5252';
+                  const c = row.conformidade >= 90 ? 'var(--green)' : row.conformidade >= 75 ? 'var(--yellow)' : 'var(--red)';
                   return (
                     <tr key={i} style={{ borderBottom: '1px solid var(--border)', background: i % 2 === 0 ? 'var(--bg3)' : 'transparent' }}>
                       <td style={{ padding: isMobile ? '8px 8px' : '10px 12px', color: 'var(--text)' }}>{row.tipo}</td>
                       {days.map(d => (
                         <td key={d} style={{ padding: isMobile ? '8px 4px' : '10px 12px', textAlign: 'center', fontSize: 14 }}>
-                          {row[d] ? <span style={{ color: '#00e676' }}>✓</span> : <span style={{ color: 'var(--text3)' }}>—</span>}
+                          {row[d] ? <span style={{ color: 'var(--green)' }}><Icon name="check" size={14} /></span> : <span style={{ color: 'var(--text3)' }}>—</span>}
                         </td>
                       ))}
                       <td style={{ padding: isMobile ? '8px 4px' : '10px 12px', textAlign: 'center', color: 'var(--text)' }}>{row.total}</td>
@@ -279,11 +280,11 @@ export function ResultCard({ r, isMobile, edit }) {
         {tab === 'nao_conformidades' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             {(r.nao_conformidades || []).length === 0
-              ? <div style={{ color: '#00e676', fontSize: 13, padding: '16px', textAlign: 'center' }}>✓ Nenhuma não conformidade encontrada</div>
+              ? <div style={{ color: 'var(--green)', fontSize: 13, padding: '16px', textAlign: 'center' }}><Icon name="check" size={14} /> Nenhuma não conformidade encontrada</div>
               : (r.nao_conformidades || []).map((nc, i) => (
-                <div key={i} style={{ background: '#2b0d0d', border: '1px solid #ff525230', borderLeft: '3px solid #ff5252', borderRadius: 8, padding: '12px 16px' }}>
+                <div key={i} style={{ background: 'var(--red-bg)', border: '1px solid color-mix(in srgb, var(--red) 19%, transparent)', borderLeft: '3px solid var(--red)', borderRadius: 8, padding: '12px 16px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
-                    <span style={{ fontFamily: 'var(--mono)', fontSize: 11, background: '#ff525220', color: '#ff5252', padding: '2px 8px', borderRadius: 5 }}>
+                    <span style={{ fontFamily: 'var(--mono)', fontSize: 11, background: 'color-mix(in srgb, var(--red) 12%, transparent)', color: 'var(--red)', padding: '2px 8px', borderRadius: 5 }}>
                       Seção {nc.secao}
                     </span>
                     <span style={{ fontSize: 13, fontWeight: 500, color: 'var(--text)' }}>{nc.item}</span>

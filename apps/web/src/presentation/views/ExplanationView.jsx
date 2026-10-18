@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Icon from '../components/Icon.jsx';
 
 export default function ExplanationView({ isMobile }) {
   const [openSection, setOpenSection] = useState({
@@ -18,7 +19,7 @@ export default function ExplanationView({ isMobile }) {
     {
       title: 'CFM (Conselho Federal de Medicina)',
       sub: 'Resoluções CFM nº 1.821/07 e nº 2.217/18',
-      icon: '⚖️',
+      icon: 'scale',
       color: 'var(--accent)',
       points: [
         'Estruturação obrigatória de Anamnese nas primeiras 24 horas de admissão.',
@@ -30,7 +31,7 @@ export default function ExplanationView({ isMobile }) {
     {
       title: 'LGPD (Privacidade em Saúde)',
       sub: 'Lei Geral de Proteção de Dados (Lei nº 13.709/18)',
-      icon: '🔒',
+      icon: 'lock',
       color: 'var(--yellow)',
       points: [
         'Tratamento de dados sensíveis de saúde com restrição de acesso e criptografia.',
@@ -42,7 +43,7 @@ export default function ExplanationView({ isMobile }) {
     {
       title: 'RDC 63/2011 (Anvisa)',
       sub: 'Requisitos de Boas Práticas de Serviços de Saúde',
-      icon: '🛡️',
+      icon: 'shield',
       color: 'var(--green)',
       points: [
         'Garantia de segurança do paciente com registros de integridade lógica.',
@@ -59,7 +60,7 @@ export default function ExplanationView({ isMobile }) {
       {/* Title Header */}
       <div style={{ marginBottom: 32 }}>
         <h1 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, letterSpacing: '-0.03em' }}>
-          <span style={{ marginRight: 12 }}>⚕</span>Guia de Auditoria e Conformidade
+          <Icon name="activity" size={22} style={{ marginRight: 12 }} />Guia de Auditoria e Conformidade
         </h1>
         <p style={{ color: 'var(--text2)', fontSize: isMobile ? 13 : 15, marginTop: 8, maxWidth: 700, lineHeight: 1.6 }}>
           Entenda as regras de negócios clínicas e administrativas que ditam as conformidades nos relatórios e auditorias de prontuários da instituição.
@@ -94,12 +95,12 @@ export default function ExplanationView({ isMobile }) {
                 width: 44,
                 height: 44,
                 borderRadius: 10,
-                background: `${reg.color}15`,
+                background: `color-mix(in srgb, ${reg.color} 8%, transparent)`,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: reg.color
-              }}>{reg.icon}</span>
+              }}><Icon name={reg.icon} size={20} /></span>
               <div>
                 <div style={{ fontWeight: 600, fontSize: 14, color: 'var(--text)' }}>{reg.title}</div>
                 <div style={{ fontSize: 10, color: 'var(--text3)', fontFamily: 'var(--mono)', marginTop: 2 }}>{reg.sub}</div>
@@ -132,15 +133,15 @@ export default function ExplanationView({ isMobile }) {
         gap: 16
       }}>
         <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-          <span style={{ fontSize: 14, background: 'rgba(0, 230, 118, 0.1)', color: '#00e676', padding: '2px 8px', borderRadius: 6, fontFamily: 'var(--mono)', fontWeight: 600 }}>✅ Conforme</span>
+          <span style={{ fontSize: 14, background: 'color-mix(in srgb, var(--green) 10%, transparent)', color: 'var(--green)', padding: '2px 8px', borderRadius: 6, fontFamily: 'var(--mono)', fontWeight: 600 }}><Icon name="check-circle" size={13} /> Conforme</span>
           <span style={{ fontSize: 12, color: 'var(--text2)', lineHeight: 1.4 }}>Informação presente, adequada e compatível com o padrão exigido.</span>
         </div>
         <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-          <span style={{ fontSize: 14, background: 'rgba(255, 82, 82, 0.1)', color: '#ff5252', padding: '2px 8px', borderRadius: 6, fontFamily: 'var(--mono)', fontWeight: 600 }}>❌ Não conforme</span>
+          <span style={{ fontSize: 14, background: 'color-mix(in srgb, var(--red) 10%, transparent)', color: 'var(--red)', padding: '2px 8px', borderRadius: 6, fontFamily: 'var(--mono)', fontWeight: 600 }}><Icon name="x-circle" size={13} /> Não conforme</span>
           <span style={{ fontSize: 12, color: 'var(--text2)', lineHeight: 1.4 }}>Informação ausente, incompleta, inconsistente ou inadequada.</span>
         </div>
         <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-          <span style={{ fontSize: 14, background: 'rgba(0, 212, 255, 0.1)', color: 'var(--accent)', padding: '2px 8px', borderRadius: 6, fontFamily: 'var(--mono)', fontWeight: 600 }}>🔵 Não se aplica</span>
+          <span style={{ fontSize: 14, background: 'color-mix(in srgb, var(--accent) 10%, transparent)', color: 'var(--accent)', padding: '2px 8px', borderRadius: 6, fontFamily: 'var(--mono)', fontWeight: 600 }}><Icon name="minus-circle" size={13} /> Não se aplica</span>
           <span style={{ fontSize: 12, color: 'var(--text2)', lineHeight: 1.4 }}>Item não obrigatório ou categoria inexistente no prontuário.</span>
         </div>
       </div>
@@ -176,11 +177,11 @@ export default function ExplanationView({ isMobile }) {
               <h4 style={{ fontSize: 12, color: 'var(--accent)', marginTop: 16, marginBottom: 8, fontFamily: 'var(--mono)' }}>CRITÉRIOS DE AVALIAÇÃO</h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 <div style={{ display: 'flex', gap: 8, fontSize: 12 }}>
-                  <span style={{ color: '#00e676', fontWeight: 600 }}>Conforme:</span>
+                  <span style={{ color: 'var(--green)', fontWeight: 600 }}>Conforme:</span>
                   <span style={{ color: 'var(--text2)' }}>Todos os dados identificadores estão presentes; datas são coerentes; CID compatível com diagnóstico; unidade assistencial descrita corretamente.</span>
                 </div>
                 <div style={{ display: 'flex', gap: 8, fontSize: 12 }}>
-                  <span style={{ color: '#ff5252', fontWeight: 600 }}>Não Conforme:</span>
+                  <span style={{ color: 'var(--red)', fontWeight: 600 }}>Não Conforme:</span>
                   <span style={{ color: 'var(--text2)' }}>Presença de ausência de identificação, datas inconsistentes, CID incompatível ou unidade não registrada.</span>
                 </div>
                 <div style={{ display: 'flex', gap: 8, fontSize: 12 }}>
@@ -228,8 +229,8 @@ export default function ExplanationView({ isMobile }) {
                     <div key={item.c} style={{ borderBottom: '1px solid var(--border)', paddingBottom: 8, fontSize: 11 }}>
                       <strong style={{ color: 'var(--text)', display: 'block', marginBottom: 4 }}>{item.c}</strong>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: 2, paddingLeft: 8 }}>
-                        <span style={{ color: '#00e676' }}>✅ Conforme se: {item.val}</span>
-                        <span style={{ color: '#ff5252' }}>❌ Não Conforme se: {item.err}</span>
+                        <span style={{ color: 'var(--green)' }}><Icon name="check-circle" size={13} /> Conforme se: {item.val}</span>
+                        <span style={{ color: 'var(--red)' }}><Icon name="x-circle" size={13} /> Não Conforme se: {item.err}</span>
                       </div>
                     </div>
                   ))}
@@ -253,8 +254,8 @@ export default function ExplanationView({ isMobile }) {
                     <div key={item.c} style={{ borderBottom: '1px solid var(--border)', paddingBottom: 8, fontSize: 11 }}>
                       <strong style={{ color: 'var(--text)', display: 'block', marginBottom: 4 }}>{item.c}</strong>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: 2, paddingLeft: 8 }}>
-                        <span style={{ color: '#00e676' }}>✅ Conforme se: {item.val}</span>
-                        <span style={{ color: '#ff5252' }}>❌ Não Conforme se: {item.err}</span>
+                        <span style={{ color: 'var(--green)' }}><Icon name="check-circle" size={13} /> Conforme se: {item.val}</span>
+                        <span style={{ color: 'var(--red)' }}><Icon name="x-circle" size={13} /> Não Conforme se: {item.err}</span>
                       </div>
                     </div>
                   ))}
@@ -294,22 +295,22 @@ export default function ExplanationView({ isMobile }) {
                 <div style={{ borderBottom: '1px solid var(--border)', paddingBottom: 8 }}>
                   <strong style={{ color: 'var(--text)' }}>Técnica Cirúrgica</strong>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 2, paddingLeft: 8, marginTop: 4 }}>
-                    <span style={{ color: '#00e676' }}>✅ Conforme: Descrição detalhada incluindo tipo de anestesia, via de incisão, achados operatórios, técnica, síntese de planos e descrição do curativo oclusivo pós-cirúrgico.</span>
-                    <span style={{ color: '#ff5252' }}>❌ Não Conforme: Técnica incompleta ou ausência completa de descrição operatória.</span>
+                    <span style={{ color: 'var(--green)' }}><Icon name="check-circle" size={13} /> Conforme: Descrição detalhada incluindo tipo de anestesia, via de incisão, achados operatórios, técnica, síntese de planos e descrição do curativo oclusivo pós-cirúrgico.</span>
+                    <span style={{ color: 'var(--red)' }}><Icon name="x-circle" size={13} /> Não Conforme: Técnica incompleta ou ausência completa de descrição operatória.</span>
                   </div>
                 </div>
                 <div style={{ borderBottom: '1px solid var(--border)', paddingBottom: 8 }}>
                   <strong style={{ color: 'var(--text)' }}>Horários da Cirurgia</strong>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 2, paddingLeft: 8, marginTop: 4 }}>
-                    <span style={{ color: '#00e676' }}>✅ Conforme: Horário de início e horário de fim da cirurgia documentados corretamente.</span>
-                    <span style={{ color: '#ff5252' }}>❌ Não Conforme: Horários ausentes no registro cirúrgico.</span>
+                    <span style={{ color: 'var(--green)' }}><Icon name="check-circle" size={13} /> Conforme: Horário de início e horário de fim da cirurgia documentados corretamente.</span>
+                    <span style={{ color: 'var(--red)' }}><Icon name="x-circle" size={13} /> Não Conforme: Horários ausentes no registro cirúrgico.</span>
                   </div>
                 </div>
                 <div>
                   <strong style={{ color: 'var(--text)' }}>OPME (Órteses, Próteses e Materiais Especiais)</strong>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 2, paddingLeft: 8, marginTop: 4 }}>
-                    <span style={{ color: '#00e676' }}>✅ Conforme: Descrição e especificação detalhada de materiais especiais implantados ou utilizados.</span>
-                    <span style={{ color: 'var(--accent)' }}>🔵 Não se Aplica: Quando o procedimento realizado não envolve o uso de OPME.</span>
+                    <span style={{ color: 'var(--green)' }}><Icon name="check-circle" size={13} /> Conforme: Descrição e especificação detalhada de materiais especiais implantados ou utilizados.</span>
+                    <span style={{ color: 'var(--accent)' }}><Icon name="minus-circle" size={13} /> Não se Aplica: Quando o procedimento realizado não envolve o uso de OPME.</span>
                   </div>
                 </div>
               </div>
@@ -385,8 +386,8 @@ export default function ExplanationView({ isMobile }) {
                     <div key={item.c} style={{ borderBottom: '1px solid var(--border)', paddingBottom: 8 }}>
                       <strong style={{ color: 'var(--text)', display: 'block', marginBottom: 4 }}>{item.c}</strong>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: 2, paddingLeft: 8 }}>
-                        <span style={{ color: '#00e676' }}>✅ Conforme: {item.val}</span>
-                        <span style={{ color: '#ff5252' }}>❌ Não Conforme: {item.err}</span>
+                        <span style={{ color: 'var(--green)' }}><Icon name="check-circle" size={13} /> Conforme: {item.val}</span>
+                        <span style={{ color: 'var(--red)' }}><Icon name="x-circle" size={13} /> Não Conforme: {item.err}</span>
                       </div>
                     </div>
                   ))}
@@ -454,9 +455,9 @@ export default function ExplanationView({ isMobile }) {
                       )}
 
                       <div style={{ display: 'flex', flexDirection: 'column', gap: 2, paddingLeft: 8 }}>
-                        <span style={{ color: '#00e676' }}>✅ Conforme: {item.val}</span>
-                        <span style={{ color: '#ff5252' }}>❌ Não Conforme: {item.err}</span>
-                        {item.na && <span style={{ color: 'var(--accent)' }}>🔵 Não se Aplica: {item.na}</span>}
+                        <span style={{ color: 'var(--green)' }}><Icon name="check-circle" size={13} /> Conforme: {item.val}</span>
+                        <span style={{ color: 'var(--red)' }}><Icon name="x-circle" size={13} /> Não Conforme: {item.err}</span>
+                        {item.na && <span style={{ color: 'var(--accent)' }}><Icon name="minus-circle" size={13} /> Não se Aplica: {item.na}</span>}
                       </div>
                     </div>
                   ))}
@@ -486,7 +487,7 @@ export default function ExplanationView({ isMobile }) {
 
               <h4 style={{ fontSize: 12, color: 'var(--accent)', marginTop: 16, marginBottom: 8, fontFamily: 'var(--mono)' }}>CRITÉRIOS DE AVALIAÇÃO</h4>
               <p style={{ fontSize: 12, color: 'var(--text2)', marginBottom: 16 }}>
-                <strong>Regra de Ouro:</strong> Apenas avalie a qualidade documental se houver registro. Se não houver registro da categoria, classifique como <span style={{ color: 'var(--accent)' }}>🔵 Não se aplica</span> (e nunca como Não conforme).
+                <strong>Regra de Ouro:</strong> Apenas avalie a qualidade documental se houver registro. Se não houver registro da categoria, classifique como <span style={{ color: 'var(--accent)' }}><Icon name="minus-circle" size={13} /> Não se aplica</span> (e nunca como Não conforme).
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10, fontSize: 11 }}>
@@ -561,10 +562,10 @@ export default function ExplanationView({ isMobile }) {
                         <div key={i} style={{ borderBottom: '1px solid var(--border)', paddingBottom: 8 }}>
                           <strong style={{ color: 'var(--text)' }}>{f.label}</strong>
                           <div style={{ display: 'flex', flexDirection: 'column', gap: 2, paddingLeft: 8, marginTop: 4 }}>
-                            <span style={{ color: '#00e676' }}>✅ Conforme: {f.val}</span>
-                            <span style={{ color: '#ff5252' }}>❌ Não Conforme: {f.err}</span>
-                            {f.na && f.na !== '🔵' && <span style={{ color: 'var(--accent)' }}>🔵 Não se Aplica: {f.na}</span>}
-                            {f.na === '🔵' && <span style={{ color: 'var(--accent)' }}>🔵 Não se Aplica: Ausência de registro / Não indicado.</span>}
+                            <span style={{ color: 'var(--green)' }}><Icon name="check-circle" size={13} /> Conforme: {f.val}</span>
+                            <span style={{ color: 'var(--red)' }}><Icon name="x-circle" size={13} /> Não Conforme: {f.err}</span>
+                            {f.na && f.na !== '-' && <span style={{ color: 'var(--accent)' }}><Icon name="minus-circle" size={13} /> Não se Aplica: {f.na}</span>}
+                            {f.na === '-' && <span style={{ color: 'var(--accent)' }}><Icon name="minus-circle" size={13} /> Não se Aplica: Ausência de registro / Não indicado.</span>}
                           </div>
                         </div>
                       ))}
@@ -588,8 +589,8 @@ export default function ExplanationView({ isMobile }) {
 
         {/* Box 1: Non-conformities */}
         <div style={{ background: 'var(--bg2)', border: '1px solid var(--border)', borderRadius: 12, padding: 20 }}>
-          <h3 style={{ fontSize: 14, fontWeight: 600, color: '#ff5252', display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
-            <span>⚠️</span> O que comumente gera NÃO CONFORMIDADE
+          <h3 style={{ fontSize: 14, fontWeight: 600, color: 'var(--red)', display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
+            <Icon name="alert" size={16} /> O que comumente gera NÃO CONFORMIDADE
           </h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14, fontSize: 12 }}>
             <div>
@@ -631,7 +632,7 @@ export default function ExplanationView({ isMobile }) {
         {/* Box 2: Non-applicable */}
         <div style={{ background: 'var(--bg2)', border: '1px solid var(--border)', borderRadius: 12, padding: 20 }}>
           <h3 style={{ fontSize: 14, fontWeight: 600, color: 'var(--accent)', display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
-            <span>🔵</span> O que comumente gera NÃO SE APLICA
+            <Icon name="minus-circle" size={16} /> O que comumente gera NÃO SE APLICA
           </h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14, fontSize: 12 }}>
             <p style={{ color: 'var(--text2)', lineHeight: 1.5, margin: 0 }}>

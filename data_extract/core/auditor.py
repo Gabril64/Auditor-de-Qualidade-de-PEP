@@ -336,6 +336,11 @@ def _apply_daily_evolution_rule(audit_data, patient_records, base_info):
             )
 
 
+def _is_incomplete_physical_exam(value):
+    """The keywords found the exam but some body systems are missing ("não conforme (Faltam: ...)")."""
+    return isinstance(value, str) and value.startswith("não conforme (Faltam:")
+
+
 def _local_findings(category, record_type, normalized_description, description):
     """Keyword-based findings for one record, before the AI fallback fills in what is missing.
     Returns (target_key, values); target_key is None for a category with no rules of its own.
@@ -443,6 +448,9 @@ def audit_medical_records(records):
                     k for k, v in local_values.items()
                     if k not in FIELDS_WITHOUT_AI and (v == "Não registrado" or (isinstance(v, str) and v.startswith("Não registrado")))
                 ]
+                incomplete_exam = local_values.get("exame_fisico") if _is_incomplete_physical_exam(local_values.get("exame_fisico")) else None
+                if incomplete_exam:
+                    missing_fields.append("exame_fisico")
                 if missing_fields:
                     meta_lines.append(f"Seção {section_label} - IA ({', '.join(missing_fields)}) inicio {datetime.now().strftime('%H:%M:%S')}")
                     ai_duration = call_ai_and_apply(
@@ -450,6 +458,8 @@ def audit_medical_records(records):
                         null_overrides={"curativo": "não conforme (IA: tipo de curativo não identificado)"},
                     )
                     total_ai_time += ai_duration
+                    if incomplete_exam and not _is_valid(local_values["exame_fisico"]):
+                        local_values["exame_fisico"] = incomplete_exam
                     meta_lines.append(f"Seção {section_label} - IA ({', '.join(missing_fields)}) fim {datetime.now().strftime('%H:%M:%S')} ({ai_duration:.1f}s)")
 
                 if "evolução" in record_type:

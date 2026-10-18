@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import Icon from './Icon.jsx';
 import {
   fetchNotifications,
   markAllNotificationsRead,
@@ -6,7 +7,7 @@ import {
 } from '../../data/notificationsClient.js';
 import { lastNotificationId, mergeNotifications, notificationText, pollDelayMs } from '../../domain/notifications.js';
 
-const TONE_COLORS = { ok: '#00e676', warn: '#ffd740', bad: '#ff5252' };
+const TONE_COLORS = { ok: 'var(--green)', warn: 'var(--yellow)', bad: 'var(--red)' };
 const WHEN = { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' };
 
 /**
@@ -103,7 +104,7 @@ export default function NotificationBell({ onOpenAudit }) {
           padding: '5px 10px', fontSize: 14, cursor: 'pointer', position: 'relative',
         }}
       >
-        🔔
+        <Icon name="bell" size={16} />
         {unread > 0 && (
           <span style={{
             position: 'absolute', top: -6, right: -6, background: 'var(--red)', color: '#fff',

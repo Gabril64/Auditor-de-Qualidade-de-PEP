@@ -5,11 +5,11 @@ import { actionLabel, historyGroups, itemLabels } from '../../domain/auditHistor
 const WHEN = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' };
 
 const ACTION_COLORS = {
-  field_edit: '#ffd740',
-  approve: '#00e676',
-  revoke_approval: '#ffd740',
-  delete: '#ff5252',
-  restore: '#00d4ff',
+  field_edit: 'var(--yellow)',
+  approve: 'var(--green)',
+  revoke_approval: 'var(--yellow)',
+  delete: 'var(--red)',
+  restore: 'var(--accent)',
 };
 
 const statusLabel = (status) => statusCfg[status]?.label ?? status;

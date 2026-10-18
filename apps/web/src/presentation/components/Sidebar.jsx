@@ -1,13 +1,14 @@
 import React from 'react';
+import Icon from './Icon.jsx';
 
 export default function Sidebar({ activeView, setActiveView, isMobile, isAdmin = false }) {
   const menuItems = [
-    { id: 'audit', label: 'Auditoria de PEP', mobileLabel: 'Auditoria', icon: '📋', desc: 'Análise ativa de registros' },
-    { id: 'dashboard', label: 'Dashboard Geral', mobileLabel: 'Dashboard', icon: '📊', desc: 'Métricas e relatórios gerais' },
-    { id: 'explanation', label: 'Como Funciona', mobileLabel: 'Como Funciona', icon: '⚕', desc: 'Regras CFM e LGPD' }
+    { id: 'audit', label: 'Auditoria de PEP', mobileLabel: 'Auditoria', icon: 'clipboard', desc: 'Análise ativa de registros' },
+    { id: 'dashboard', label: 'Dashboard Geral', mobileLabel: 'Dashboard', icon: 'chart', desc: 'Métricas e relatórios gerais' },
+    { id: 'explanation', label: 'Como Funciona', mobileLabel: 'Como Funciona', icon: 'activity', desc: 'Regras CFM e LGPD' }
   ];
   if (isAdmin) {
-    menuItems.push({ id: 'users', label: 'Usuários', mobileLabel: 'Usuários', icon: '👥', desc: 'Contas e papéis' });
+    menuItems.push({ id: 'users', label: 'Usuários', mobileLabel: 'Usuários', icon: 'users', desc: 'Contas e papéis' });
   }
 
   if (isMobile) {
@@ -49,7 +50,7 @@ export default function Sidebar({ activeView, setActiveView, isMobile, isAdmin =
                 transition: 'all 0.15s ease'
               }}
             >
-              <span style={{ fontSize: 18 }}>{item.icon}</span>
+              <span style={{ fontSize: 18 }}><Icon name={item.icon} size={20} /></span>
               <span style={{ textAlign: 'center', whiteSpace: 'nowrap' }}>{item.mobileLabel}</span>
             </button>
           );
@@ -88,7 +89,7 @@ export default function Sidebar({ activeView, setActiveView, isMobile, isAdmin =
           justifyContent: 'center',
           fontSize: 17
         }}>
-          ⚕
+          <Icon name="activity" size={18} />
         </div>
         <div>
           <div style={{ fontWeight: 600, fontSize: 14, letterSpacing: '-0.02em' }}>Auditor de Qualidade</div>
@@ -128,7 +129,7 @@ export default function Sidebar({ activeView, setActiveView, isMobile, isAdmin =
               onMouseOver={e => {
                 if (!isActive) {
                   e.currentTarget.style.color = 'var(--text)';
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.02)';
+                  e.currentTarget.style.background = 'var(--bg3)';
                 }
               }}
               onMouseOut={e => {
@@ -148,7 +149,7 @@ export default function Sidebar({ activeView, setActiveView, isMobile, isAdmin =
                 justifyContent: 'center',
                 width: isActive ? 28 : 'auto',
                 height: isActive ? 28 : 'auto'
-              }}>{item.icon}</span>
+              }}><Icon name={item.icon} size={isActive ? 16 : 20} /></span>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <span style={{ fontSize: 13, fontWeight: isActive ? 600 : 500 }}>{item.label}</span>
                 <span style={{ fontSize: 9, color: 'var(--text3)', marginTop: 2 }}>{item.desc}</span>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Icon from '../components/Icon.jsx';
 import { createUser, fetchUsers, resetUserPassword, updateUser } from '../../data/usersClient.js';
 
 const ROLE_LABELS = { admin: 'Administrador', auditor: 'Auditor' };
@@ -12,12 +13,12 @@ const buttonStyle = {
   background: 'var(--bg3)', border: '1px solid var(--border2)', color: 'var(--text2)',
   borderRadius: 8, padding: '6px 12px', fontSize: 12, cursor: 'pointer',
 };
-const primaryStyle = { ...buttonStyle, background: 'var(--accent)', border: '1px solid var(--accent)', color: '#00131a', fontWeight: 600 };
+const primaryStyle = { ...buttonStyle, background: 'var(--accent)', border: '1px solid var(--accent)', color: 'var(--on-accent)', fontWeight: 600 };
 
 /** The temporary password is shown once; the administrator hands it over. */
 function PasswordNotice({ notice, onClose }) {
   return (
-    <div role="status" style={{ background: '#2b2410', border: '1px solid #ffd74060', borderRadius: 10, padding: '12px 16px', marginBottom: 16 }}>
+    <div role="status" style={{ background: 'var(--yellow-bg)', border: '1px solid color-mix(in srgb, var(--yellow) 38%, transparent)', borderRadius: 10, padding: '12px 16px', marginBottom: 16 }}>
       <div style={{ fontSize: 13, marginBottom: 6 }}>
         Senha temporária de <b>{notice.name}</b> (aparece só desta vez; a pessoa troca no primeiro acesso):
       </div>
@@ -90,13 +91,13 @@ export default function UsersView({ currentUser, isMobile }) {
   return (
     <div style={{ padding: pad, maxWidth: 960, margin: '0 auto' }}>
       <h1 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, letterSpacing: '-0.03em', marginBottom: 20 }}>
-        👥 Usuários
+        <Icon name="users" size={26} style={{ marginRight: 10 }} />Usuários
       </h1>
 
       {notice && <PasswordNotice notice={notice} onClose={() => setNotice(null)} />}
 
       {actionError && (
-        <div style={{ background: '#2b0d0d', border: '1px solid var(--red)', borderRadius: 10, padding: '10px 14px', fontSize: 13, color: 'var(--red)', marginBottom: 16 }}>
+        <div style={{ background: 'var(--red-bg)', border: '1px solid var(--red)', borderRadius: 10, padding: '10px 14px', fontSize: 13, color: 'var(--red)', marginBottom: 16 }}>
           {actionError}
         </div>
       )}

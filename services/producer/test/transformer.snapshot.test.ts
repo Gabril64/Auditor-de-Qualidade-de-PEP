@@ -56,3 +56,40 @@ test("the front end gets three statuses: não conforme and não registrado both 
   assert.equal(statusOf("Diagnóstico de Internação"), "conforme");
   assert.ok(result.nao_conformidades.some((nc) => nc.item === "Idade"));
 });
+
+test("quantitativo: each document type is scored by its own conformity count, not by being present", () => {
+  const result = transformAuditResult({
+    record_id: "1",
+    audit_data: {
+      matriz_documentos: {
+        datas: ["15/03/2024", "16/03/2024"],
+        matriz: { "MEDICINA - Anamnese": { "15/03/2024": 1 }, "ENFERMAGEM - Evolução": { "16/03/2024": 2 } },
+      },
+      conformity_b_anamnese: { valid: 6, total: 8 },
+      conformity_d_evolucao: { valid: 3, total: 7 },
+      conformity_b_evolucao: { valid: 0, total: 0 },
+    },
+  });
+  const byType = Object.fromEntries(result.quantitativo.map((row) => [row.tipo, row]));
+
+  assert.equal(byType["Anamnese Médica"]?.conformidade, 75);
+  assert.equal(byType["Evolução Enfermagem"]?.conformidade, 42.9);
+  assert.equal(byType["Anamnese Médica"]?.total, 1);
+  assert.equal(byType["Serviço Social"]?.conformidade, 100, "a category with nothing to score is not 0%");
+  assert.equal(byType["Serviço Social"]?.total, 0);
+});
+
+test("quantitativo: the same day and month in another year is not the same day", () => {
+  const result = transformAuditResult({
+    record_id: "1",
+    audit_data: {
+      matriz_documentos: {
+        datas: ["15/03/2023", "15/03/2024"],
+        matriz: { "MEDICINA - Anamnese": { "15/03/2024": 1 } },
+      },
+    },
+  });
+  const row = result.quantitativo.find((r) => r.tipo === "Anamnese Médica");
+
+  assert.equal(row?.total, 1);
+});

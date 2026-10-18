@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Icon from '../components/Icon.jsx';
 import { fetchAllAudits, fetchDashboardStats, fetchDeletedAudits, restoreAudit } from '../../data/apiClient.js';
 import { needsApproval } from '../../domain/approvals.js';
 import ApprovalSeal from '../components/ApprovalSeal.jsx';
@@ -120,7 +121,7 @@ export default function DashboardView({ onSelectAudit, user, isMobile }) {
       <div style={{ padding: isMobile ? '12px 10px 80px' : '24px 16px' }}>
         <div style={{ marginBottom: 32 }}>
           <h1 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, letterSpacing: '-0.03em', display: 'flex', alignItems: 'center', gap: 12 }}>
-            <span>📊</span> Painel de Qualidade PEP
+            <Icon name="chart" size={26} /> Painel de Qualidade PEP
           </h1>
         </div>
         <div style={{ textAlign: 'center', padding: '60px 0' }}>
@@ -147,15 +148,15 @@ export default function DashboardView({ onSelectAudit, user, isMobile }) {
       <div style={{ padding: isMobile ? '12px 10px 80px' : '24px 16px' }}>
         <div style={{ marginBottom: 32 }}>
           <h1 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, letterSpacing: '-0.03em', display: 'flex', alignItems: 'center', gap: 12 }}>
-            <span>📊</span> Painel de Qualidade PEP
+            <Icon name="chart" size={26} /> Painel de Qualidade PEP
           </h1>
         </div>
         <div style={{
-          background: '#2b0d0d', border: '1px solid var(--red)',
+          background: 'var(--red-bg)', border: '1px solid var(--red)',
           borderRadius: 12, padding: '20px 24px', textAlign: 'center'
         }}>
           <div style={{ fontSize: 14, color: 'var(--red)', fontWeight: 600, marginBottom: 8 }}>
-            ⚠️ Erro ao carregar dados
+            <Icon name="alert" size={15} /> Erro ao carregar dados
           </div>
           <div style={{ fontSize: 12, color: 'var(--text2)', marginBottom: 16 }}>{error}</div>
           <button
@@ -179,7 +180,7 @@ export default function DashboardView({ onSelectAudit, user, isMobile }) {
       <div style={{ padding: isMobile ? '12px 10px 80px' : '24px 16px' }}>
         <div style={{ marginBottom: 32 }}>
           <h1 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, letterSpacing: '-0.03em', display: 'flex', alignItems: 'center', gap: 12 }}>
-            <span>📊</span> Painel de Qualidade PEP
+            <Icon name="chart" size={26} /> Painel de Qualidade PEP
           </h1>
           <p style={{ color: 'var(--text2)', fontSize: isMobile ? 13 : 15, marginTop: 8, maxWidth: 640 }}>
             Indicadores consolidados da auditoria clínica institucional e status de conformidade legal.
@@ -189,7 +190,7 @@ export default function DashboardView({ onSelectAudit, user, isMobile }) {
           background: 'var(--bg2)', border: '1px solid var(--border)',
           borderRadius: 12, padding: '40px 24px', textAlign: 'center'
         }}>
-          <div style={{ fontSize: 48, marginBottom: 16 }}>📭</div>
+          <div style={{ fontSize: 48, marginBottom: 16 }}><Icon name="inbox" size={48} /></div>
           <div style={{ fontSize: 16, fontWeight: 600, color: 'var(--text)', marginBottom: 8 }}>
             Nenhuma auditoria realizada ainda
           </div>
@@ -207,7 +208,7 @@ export default function DashboardView({ onSelectAudit, user, isMobile }) {
       <div style={{ marginBottom: 32, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 12 }}>
         <div>
           <h1 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, letterSpacing: '-0.03em', display: 'flex', alignItems: 'center', gap: 12 }}>
-            <span>📊</span> Painel de Qualidade PEP
+            <Icon name="chart" size={26} /> Painel de Qualidade PEP
           </h1>
           <p style={{ color: 'var(--text2)', fontSize: isMobile ? 13 : 15, marginTop: 8, maxWidth: 640 }}>
             Indicadores consolidados da auditoria clínica institucional e status de conformidade legal.
@@ -225,7 +226,7 @@ export default function DashboardView({ onSelectAudit, user, isMobile }) {
           onMouseOver={e => { e.currentTarget.style.borderColor = 'var(--accent)'; }}
           onMouseOut={e => { e.currentTarget.style.borderColor = 'var(--border)'; }}
         >
-          🔄 Atualizar
+          <Icon name="refresh" size={13} /> Atualizar
         </button>
       </div>
 
@@ -279,7 +280,7 @@ export default function DashboardView({ onSelectAudit, user, isMobile }) {
           {stats?.min_conformity?.record_number ? (
             <>
               <div style={{ fontSize: 14, fontWeight: 600, marginTop: 14, color: 'var(--text)' }}>
-                ⚠️ Prontuário {stats.min_conformity.record_number}
+                <Icon name="alert" size={12} /> Prontuário {stats.min_conformity.record_number}
               </div>
               <div style={{ fontSize: 10, color: 'var(--red)', marginTop: 8 }}>
                 Menor pontuação registrada ({stats.min_conformity.value}%)
@@ -312,7 +313,7 @@ export default function DashboardView({ onSelectAudit, user, isMobile }) {
             <h3 style={{ fontSize: 15, fontWeight: 600, color: 'var(--text)', marginBottom: 20 }}>Conformidade por Seção Regulatória</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {sectionAverages.map(sec => {
-                const color = sec.value >= 90 ? '#00e676' : sec.value >= 75 ? '#ffd740' : '#ff5252';
+                const color = sec.value >= 90 ? 'var(--green)' : sec.value >= 75 ? 'var(--yellow)' : 'var(--red)';
                 return (
                   <div key={sec.id} style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                     <div style={{ 
@@ -331,7 +332,7 @@ export default function DashboardView({ onSelectAudit, user, isMobile }) {
                       <div style={{
                         width: `${sec.value}%`,
                         height: '100%',
-                        background: `linear-gradient(to right, ${color}cc, ${color})`,
+                        background: `linear-gradient(to right, color-mix(in srgb, ${color} 80%, transparent), ${color})`,
                         borderRadius: 4,
                         transition: 'width 1s cubic-bezier(0.4, 0, 0.2, 1)'
                       }} />
@@ -350,12 +351,12 @@ export default function DashboardView({ onSelectAudit, user, isMobile }) {
             padding: 20
           }}>
             <h3 style={{ fontSize: 15, fontWeight: 600, color: 'var(--text)', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }}>
-              <span>⚠️</span> Não Conformidades Mais Recorrentes
+              <Icon name="alert" size={16} /> Não Conformidades Mais Recorrentes
             </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {recurrentIssues.length === 0 ? (
                 <div style={{ fontSize: 12, color: 'var(--green)', padding: '8px 0' }}>
-                  ✓ Nenhuma não conformidade identificada nos prontuários da base.
+                  <Icon name="check" size={14} /> Nenhuma não conformidade identificada nos prontuários da base.
                 </div>
               ) : (
                 recurrentIssues.map((issue, idx) => (
@@ -374,9 +375,9 @@ export default function DashboardView({ onSelectAudit, user, isMobile }) {
                       <span style={{
                         fontFamily: 'var(--mono)',
                         fontSize: 10,
-                        background: 'rgba(255, 82, 82, 0.1)',
+                        background: 'color-mix(in srgb, var(--red) 10%, transparent)',
                         color: 'var(--red)',
-                        border: '1px solid rgba(255, 82, 82, 0.2)',
+                        border: '1px solid color-mix(in srgb, var(--red) 20%, transparent)',
                         padding: '2px 6px',
                         borderRadius: 4,
                         whiteSpace: 'nowrap'
@@ -493,7 +494,7 @@ export default function DashboardView({ onSelectAudit, user, isMobile }) {
                       fontSize: 12,
                       fontWeight: 700,
                       color,
-                      background: `${color}10`,
+                      background: `color-mix(in srgb, ${color} 10%, transparent)`,
                       padding: '4px 8px',
                       borderRadius: 6
                     }}>
@@ -536,14 +537,14 @@ export default function DashboardView({ onSelectAudit, user, isMobile }) {
                       }}
                       onMouseOver={e => {
                         e.currentTarget.style.borderColor = 'var(--accent)';
-                        e.currentTarget.style.background = 'rgba(0, 212, 255, 0.05)';
+                        e.currentTarget.style.background = 'color-mix(in srgb, var(--accent) 5%, transparent)';
                       }}
                       onMouseOut={e => {
                         e.currentTarget.style.borderColor = 'var(--border2)';
                         e.currentTarget.style.background = 'var(--bg4)';
                       }}
                     >
-                      Ver Detalhes ⚡
+                      Ver Detalhes <Icon name="arrow-right" size={13} />
                     </button>
                   )}
                 </div>

@@ -64,7 +64,7 @@
       "itens": [
        {
         "item": "HDA",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -74,7 +74,7 @@
        },
        {
         "item": "AP / APP",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -187,17 +187,17 @@
       "itens": [
        {
         "item": "Motivo Internação",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
         "item": "AP / APP",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
         "item": "AF",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -284,12 +284,12 @@
    {
     "secao": "B",
     "item": "Anamnese Médica — HDA",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
     "item": "Anamnese Médica — AP / APP",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
@@ -309,17 +309,17 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Motivo Internação",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — AP / APP",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — AF",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -356,7 +356,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 71.4,
     "15/03": true,
     "16/03": false,
     "17/03": false,
@@ -365,7 +365,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 50,
     "15/03": true,
     "16/03": false,
     "17/03": false,
@@ -374,7 +374,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 3,
-    "conformidade": 100,
+    "conformidade": 75,
     "15/03": false,
     "16/03": true,
     "17/03": true,
@@ -383,7 +383,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 3,
-    "conformidade": 100,
+    "conformidade": 42.9,
     "15/03": false,
     "16/03": true,
     "17/03": true,
@@ -392,7 +392,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "15/03": false,
     "16/03": false,
     "17/03": false,
@@ -471,7 +471,7 @@
       "itens": [
        {
         "item": "HDA",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -481,7 +481,7 @@
        },
        {
         "item": "AP / APP",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -545,7 +545,7 @@
       "itens": [
        {
         "item": "Motivo Internação",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -647,12 +647,12 @@
    {
     "secao": "B",
     "item": "Anamnese Médica — HDA",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
     "item": "Anamnese Médica — AP / APP",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
@@ -662,7 +662,7 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Motivo Internação",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -694,7 +694,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 71.4,
     "02/04": true,
     "03/04": false,
     "04/04": false,
@@ -704,7 +704,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 75,
     "02/04": true,
     "03/04": false,
     "04/04": false,
@@ -714,7 +714,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 4,
-    "conformidade": 100,
+    "conformidade": 75,
     "02/04": false,
     "03/04": true,
     "04/04": true,
@@ -724,7 +724,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 4,
-    "conformidade": 100,
+    "conformidade": 50,
     "02/04": false,
     "03/04": true,
     "04/04": true,
@@ -734,7 +734,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "02/04": false,
     "03/04": false,
     "04/04": false,
@@ -815,7 +815,7 @@
       "itens": [
        {
         "item": "HDA",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -938,7 +938,7 @@
       "itens": [
        {
         "item": "Motivo Internação",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -1035,7 +1035,7 @@
    {
     "secao": "B",
     "item": "Anamnese Médica — HDA",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
@@ -1060,7 +1060,7 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Motivo Internação",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -1092,7 +1092,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 71.4,
     "12/03": true,
     "13/03": false,
     "14/03": false
@@ -1100,7 +1100,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 75,
     "12/03": true,
     "13/03": false,
     "14/03": false
@@ -1108,7 +1108,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 2,
-    "conformidade": 100,
+    "conformidade": 75,
     "12/03": false,
     "13/03": true,
     "14/03": true
@@ -1116,7 +1116,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 2,
-    "conformidade": 100,
+    "conformidade": 57.1,
     "12/03": false,
     "13/03": true,
     "14/03": true
@@ -1124,7 +1124,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "12/03": false,
     "13/03": false,
     "14/03": false
@@ -1201,7 +1201,7 @@
       "itens": [
        {
         "item": "HDA",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -1211,12 +1211,12 @@
        },
        {
         "item": "AP / APP",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
         "item": "AF",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -1324,7 +1324,7 @@
       "itens": [
        {
         "item": "Motivo Internação",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -1421,17 +1421,17 @@
    {
     "secao": "B",
     "item": "Anamnese Médica — HDA",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
     "item": "Anamnese Médica — AP / APP",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
     "item": "Anamnese Médica — AF",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
@@ -1446,7 +1446,7 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Motivo Internação",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -1478,7 +1478,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 57.1,
     "20/05": true,
     "21/05": false,
     "22/05": false,
@@ -1487,7 +1487,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 75,
     "20/05": true,
     "21/05": false,
     "22/05": false,
@@ -1496,7 +1496,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 3,
-    "conformidade": 100,
+    "conformidade": 75,
     "20/05": false,
     "21/05": true,
     "22/05": true,
@@ -1505,7 +1505,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 3,
-    "conformidade": 100,
+    "conformidade": 57.1,
     "20/05": false,
     "21/05": true,
     "22/05": true,
@@ -1514,7 +1514,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "20/05": false,
     "21/05": false,
     "22/05": false,
@@ -1593,7 +1593,7 @@
       "itens": [
        {
         "item": "HDA",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -1667,17 +1667,17 @@
       "itens": [
        {
         "item": "Motivo Internação",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
         "item": "AP / APP",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
         "item": "AF",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -1769,7 +1769,7 @@
    {
     "secao": "B",
     "item": "Anamnese Médica — HDA",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
@@ -1784,17 +1784,17 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Motivo Internação",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — AP / APP",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — AF",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -1831,7 +1831,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 85.7,
     "02/06": true,
     "03/06": false,
     "04/06": false,
@@ -1841,7 +1841,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 50,
     "02/06": true,
     "03/06": false,
     "04/06": false,
@@ -1851,7 +1851,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 4,
-    "conformidade": 100,
+    "conformidade": 50,
     "02/06": false,
     "03/06": true,
     "04/06": true,
@@ -1861,7 +1861,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 4,
-    "conformidade": 100,
+    "conformidade": 42.9,
     "02/06": false,
     "03/06": true,
     "04/06": true,
@@ -1871,7 +1871,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "02/06": false,
     "03/06": false,
     "04/06": false,
@@ -1952,7 +1952,7 @@
       "itens": [
        {
         "item": "HDA",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -1967,7 +1967,7 @@
        },
        {
         "item": "AF",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -2075,7 +2075,7 @@
       "itens": [
        {
         "item": "Motivo Internação",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -2095,7 +2095,7 @@
        },
        {
         "item": "Escala Braden",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -2172,12 +2172,12 @@
    {
     "secao": "B",
     "item": "Anamnese Médica — HDA",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
     "item": "Anamnese Médica — AF",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
@@ -2197,7 +2197,7 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Motivo Internação",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -2207,7 +2207,7 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Escala Braden",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -2239,7 +2239,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 71.4,
     "15/01": true,
     "16/01": false,
     "17/01": false
@@ -2247,7 +2247,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 62.5,
     "15/01": true,
     "16/01": false,
     "17/01": false
@@ -2255,7 +2255,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 2,
-    "conformidade": 100,
+    "conformidade": 75,
     "15/01": false,
     "16/01": true,
     "17/01": true
@@ -2263,7 +2263,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 33.3,
     "15/01": false,
     "16/01": false,
     "17/01": true
@@ -2271,7 +2271,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "15/01": false,
     "16/01": false,
     "17/01": false
@@ -2348,7 +2348,7 @@
       "itens": [
        {
         "item": "HDA",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -2471,17 +2471,17 @@
       "itens": [
        {
         "item": "Motivo Internação",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
         "item": "AP / APP",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
         "item": "AF",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -2568,7 +2568,7 @@
    {
     "secao": "B",
     "item": "Anamnese Médica — HDA",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
@@ -2588,17 +2588,17 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Motivo Internação",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — AP / APP",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — AF",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -2630,7 +2630,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 71.4,
     "20/02": true,
     "21/02": false,
     "22/02": false,
@@ -2639,7 +2639,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 50,
     "20/02": true,
     "21/02": false,
     "22/02": false,
@@ -2657,7 +2657,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 3,
-    "conformidade": 100,
+    "conformidade": 57.1,
     "20/02": false,
     "21/02": true,
     "22/02": true,
@@ -2666,7 +2666,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "20/02": false,
     "21/02": false,
     "22/02": false,
@@ -2745,7 +2745,7 @@
       "itens": [
        {
         "item": "HDA",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -2819,7 +2819,7 @@
       "itens": [
        {
         "item": "Motivo Internação",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -2844,7 +2844,7 @@
        },
        {
         "item": "Escala Morse",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -2921,7 +2921,7 @@
    {
     "secao": "B",
     "item": "Anamnese Médica — HDA",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
@@ -2946,7 +2946,7 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Motivo Internação",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -2956,7 +2956,7 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Escala Morse",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -2983,7 +2983,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 85.7,
     "05/03": true,
     "06/03": false,
     "07/03": false,
@@ -2993,7 +2993,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 62.5,
     "05/03": true,
     "06/03": false,
     "07/03": false,
@@ -3003,7 +3003,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 3,
-    "conformidade": 100,
+    "conformidade": 0,
     "05/03": false,
     "06/03": true,
     "07/03": false,
@@ -3013,7 +3013,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 4,
-    "conformidade": 100,
+    "conformidade": 50,
     "05/03": false,
     "06/03": true,
     "07/03": true,
@@ -3023,7 +3023,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "05/03": false,
     "06/03": false,
     "07/03": false,
@@ -3104,7 +3104,7 @@
       "itens": [
        {
         "item": "HDA",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -3119,7 +3119,7 @@
        },
        {
         "item": "AF",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -3227,7 +3227,7 @@
       "itens": [
        {
         "item": "Motivo Internação",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -3324,12 +3324,12 @@
    {
     "secao": "B",
     "item": "Anamnese Médica — HDA",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
     "item": "Anamnese Médica — AF",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "C",
@@ -3344,7 +3344,7 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Motivo Internação",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -3381,7 +3381,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 71.4,
     "05/10": true,
     "06/10": false,
     "07/10": false
@@ -3389,7 +3389,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 75,
     "05/10": true,
     "06/10": false,
     "07/10": false
@@ -3405,7 +3405,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 2,
-    "conformidade": 100,
+    "conformidade": 42.9,
     "05/10": false,
     "06/10": true,
     "07/10": true
@@ -3413,7 +3413,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "05/10": false,
     "06/10": false,
     "07/10": false
@@ -3490,7 +3490,7 @@
       "itens": [
        {
         "item": "HDA",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -3613,17 +3613,17 @@
       "itens": [
        {
         "item": "Motivo Internação",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
         "item": "AP / APP",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
         "item": "AF",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -3633,7 +3633,7 @@
        },
        {
         "item": "Escala Braden",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -3710,7 +3710,7 @@
    {
     "secao": "B",
     "item": "Anamnese Médica — HDA",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
@@ -3740,17 +3740,17 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Motivo Internação",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — AP / APP",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — AF",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -3760,7 +3760,7 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Escala Braden",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -3797,7 +3797,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 57.1,
     "12/11": true,
     "13/11": false,
     "14/11": false,
@@ -3806,7 +3806,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 37.5,
     "12/11": true,
     "13/11": false,
     "14/11": false,
@@ -3815,7 +3815,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 3,
-    "conformidade": 100,
+    "conformidade": 50,
     "12/11": false,
     "13/11": true,
     "14/11": true,
@@ -3824,7 +3824,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 2,
-    "conformidade": 100,
+    "conformidade": 28.6,
     "12/11": false,
     "13/11": false,
     "14/11": true,
@@ -3833,7 +3833,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "12/11": false,
     "13/11": false,
     "14/11": false,
@@ -3912,7 +3912,7 @@
       "itens": [
        {
         "item": "HDA",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -3922,7 +3922,7 @@
        },
        {
         "item": "AP / APP",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -3986,7 +3986,7 @@
       "itens": [
        {
         "item": "Motivo Internação",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -4088,12 +4088,12 @@
    {
     "secao": "B",
     "item": "Anamnese Médica — HDA",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
     "item": "Anamnese Médica — AP / APP",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
@@ -4103,7 +4103,7 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Motivo Internação",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -4140,7 +4140,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 71.4,
     "20/11": true,
     "21/11": false,
     "22/11": false,
@@ -4150,7 +4150,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 75,
     "20/11": true,
     "21/11": false,
     "22/11": false,
@@ -4160,7 +4160,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 4,
-    "conformidade": 100,
+    "conformidade": 75,
     "20/11": false,
     "21/11": true,
     "22/11": true,
@@ -4170,7 +4170,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 4,
-    "conformidade": 100,
+    "conformidade": 42.9,
     "20/11": false,
     "21/11": true,
     "22/11": true,
@@ -4180,7 +4180,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "20/11": false,
     "21/11": false,
     "22/11": false,
@@ -4261,7 +4261,7 @@
       "itens": [
        {
         "item": "HDA",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -4384,7 +4384,7 @@
       "itens": [
        {
         "item": "Motivo Internação",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -4481,7 +4481,7 @@
    {
     "secao": "B",
     "item": "Anamnese Médica — HDA",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "C",
@@ -4491,7 +4491,7 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Motivo Internação",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -4528,7 +4528,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 85.7,
     "10/01": true,
     "11/01": false,
     "12/01": false
@@ -4536,7 +4536,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 75,
     "10/01": true,
     "11/01": false,
     "12/01": false
@@ -4552,7 +4552,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 2,
-    "conformidade": 100,
+    "conformidade": 42.9,
     "10/01": false,
     "11/01": true,
     "12/01": true
@@ -4560,7 +4560,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "10/01": false,
     "11/01": false,
     "12/01": false
@@ -4637,7 +4637,7 @@
       "itens": [
        {
         "item": "HDA",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -4647,12 +4647,12 @@
        },
        {
         "item": "AP / APP",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
         "item": "AF",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -4760,17 +4760,17 @@
       "itens": [
        {
         "item": "Motivo Internação",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
         "item": "AP / APP",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
         "item": "AF",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -4857,17 +4857,17 @@
    {
     "secao": "B",
     "item": "Anamnese Médica — HDA",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
     "item": "Anamnese Médica — AP / APP",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
     "item": "Anamnese Médica — AF",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
@@ -4897,17 +4897,17 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Motivo Internação",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — AP / APP",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — AF",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -4944,7 +4944,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 42.9,
     "05/02": true,
     "06/02": false,
     "07/02": false,
@@ -4953,7 +4953,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 50,
     "05/02": true,
     "06/02": false,
     "07/02": false,
@@ -4962,7 +4962,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 2,
-    "conformidade": 100,
+    "conformidade": 50,
     "05/02": false,
     "06/02": true,
     "07/02": false,
@@ -4971,7 +4971,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 3,
-    "conformidade": 100,
+    "conformidade": 42.9,
     "05/02": false,
     "06/02": true,
     "07/02": true,
@@ -4980,7 +4980,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "05/02": false,
     "06/02": false,
     "07/02": false,
@@ -5059,7 +5059,7 @@
       "itens": [
        {
         "item": "HDA",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -5182,7 +5182,7 @@
       "itens": [
        {
         "item": "Motivo Internação",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -5279,7 +5279,7 @@
    {
     "secao": "B",
     "item": "Anamnese Médica — HDA",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "C",
@@ -5294,7 +5294,7 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Motivo Internação",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -5326,14 +5326,14 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 85.7,
     "20/03": true,
     "21/03": false
    },
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 75,
     "20/03": true,
     "21/03": false
    },
@@ -5347,14 +5347,14 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 57.1,
     "20/03": false,
     "21/03": true
    },
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "20/03": false,
     "21/03": false
    }
@@ -5429,17 +5429,17 @@
       "itens": [
        {
         "item": "HDA",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
         "item": "HD / CID",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
         "item": "AP / APP",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -5552,7 +5552,7 @@
       "itens": [
        {
         "item": "Motivo Internação",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -5582,7 +5582,7 @@
        },
        {
         "item": "Conduta",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -5649,17 +5649,17 @@
    {
     "secao": "B",
     "item": "Anamnese Médica — HDA",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
     "item": "Anamnese Médica — HD / CID",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
     "item": "Anamnese Médica — AP / APP",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
@@ -5684,7 +5684,7 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Motivo Internação",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -5694,7 +5694,7 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Conduta",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -5721,7 +5721,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 42.9,
     "10/03": true,
     "11/03": false,
     "12/03": false
@@ -5729,7 +5729,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 62.5,
     "10/03": true,
     "11/03": false,
     "12/03": false
@@ -5737,7 +5737,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 2,
-    "conformidade": 100,
+    "conformidade": 75,
     "10/03": false,
     "11/03": true,
     "12/03": true
@@ -5745,7 +5745,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 2,
-    "conformidade": 100,
+    "conformidade": 57.1,
     "10/03": false,
     "11/03": true,
     "12/03": true
@@ -5753,7 +5753,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "10/03": false,
     "11/03": false,
     "12/03": false
@@ -5830,7 +5830,7 @@
       "itens": [
        {
         "item": "HDA",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -5840,12 +5840,12 @@
        },
        {
         "item": "AP / APP",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
         "item": "AF",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -5953,7 +5953,7 @@
       "itens": [
        {
         "item": "Motivo Internação",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -5983,7 +5983,7 @@
        },
        {
         "item": "Conduta",
-        "valor": "Não registrado",
+        "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
         "status": "nao_conforme"
        },
        {
@@ -6050,17 +6050,17 @@
    {
     "secao": "B",
     "item": "Anamnese Médica — HDA",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
     "item": "Anamnese Médica — AP / APP",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
     "item": "Anamnese Médica — AF",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "B",
@@ -6090,7 +6090,7 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Motivo Internação",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -6100,7 +6100,7 @@
    {
     "secao": "D",
     "item": "Anamnese Enfermagem — Conduta",
-    "descricao": "Valor: Não registrado"
+    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
    },
    {
     "secao": "D",
@@ -6127,7 +6127,7 @@
    {
     "tipo": "Anamnese Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 42.9,
     "22/05": true,
     "23/05": false,
     "24/05": false
@@ -6135,7 +6135,7 @@
    {
     "tipo": "Anamnese Enfermagem",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 62.5,
     "22/05": true,
     "23/05": false,
     "24/05": false
@@ -6143,7 +6143,7 @@
    {
     "tipo": "Evolução Médica",
     "total": 1,
-    "conformidade": 100,
+    "conformidade": 50,
     "22/05": false,
     "23/05": false,
     "24/05": true
@@ -6151,7 +6151,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 2,
-    "conformidade": 100,
+    "conformidade": 57.1,
     "22/05": false,
     "23/05": true,
     "24/05": true
@@ -6159,7 +6159,7 @@
    {
     "tipo": "Serviço Social",
     "total": 0,
-    "conformidade": 0,
+    "conformidade": 100,
     "22/05": false,
     "23/05": false,
     "24/05": false

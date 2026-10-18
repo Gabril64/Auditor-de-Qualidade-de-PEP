@@ -60,7 +60,8 @@ test("fields carry section, record type, status and the source taken from _ia_me
   assert.equal(find(rows, "C", null, "descricao_tecnica").source, "ai_null");
   assert.equal(find(rows, "D", "evolution", "condutas").status, "nao_conforme");
   assert.equal(find(rows, "D", "evolution", "condutas").source, "ai");
-  assert.equal(find(rows, "D", "evolution", "exame_fisico").source, "rule");
+  // An exam the rule found incomplete is sent to the AI to see whether it finds the missing systems.
+  assert.equal(find(rows, "D", "evolution", "exame_fisico").source, "ai");
   assert.equal(find(rows, "B", "evolution", "hd_cid").source, "ai");
   assert.equal(find(rows, "B", "anamnesis", "hd_cid").record_type, "anamnesis");
 });

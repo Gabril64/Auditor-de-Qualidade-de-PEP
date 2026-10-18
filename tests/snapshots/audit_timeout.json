@@ -11,14 +11,18 @@
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
      "secao_d_anamnese.af",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -63,12 +67,22 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_d_anamnese.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
      {
       "campo": "secao_d_evolucao.condutas",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -88,6 +102,11 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
@@ -99,6 +118,11 @@
      },
      {
       "campo": "secao_d_evolucao.curativo",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -194,7 +218,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (17 de 17): secao_c.descricao_tecnica (timeout), secao_b_anamnese.hda (timeout), secao_b_anamnese.ap_app (timeout), secao_b_evolucao.hd_cid (timeout), secao_b_evolucao.hd_cid (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.ap_app (timeout), secao_d_anamnese.af (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (21 de 21): secao_c.descricao_tecnica (timeout), secao_b_anamnese.hda (timeout), secao_b_anamnese.ap_app (timeout), secao_b_evolucao.hd_cid (timeout), secao_b_evolucao.hd_cid (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.ap_app (timeout), secao_d_anamnese.af (timeout), secao_d_anamnese.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "30/11/1946",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)",
@@ -267,13 +291,18 @@
      "secao_b_evolucao.hd_cid",
      "secao_b_evolucao.hd_cid",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -303,12 +332,7 @@
       "motivo": "timeout"
      },
      {
-      "campo": "secao_d_evolucao.motivo_internacao",
-      "detalhe": "timeout simulado",
-      "motivo": "timeout"
-     },
-     {
-      "campo": "secao_d_evolucao.condutas",
+      "campo": "secao_d_anamnese.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -323,6 +347,11 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
@@ -333,7 +362,32 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.condutas",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.motivo_internacao",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -432,7 +486,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (13 de 13): secao_b_anamnese.hda (timeout), secao_b_anamnese.ap_app (timeout), secao_b_evolucao.hd_cid (timeout), secao_b_evolucao.hd_cid (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (18 de 18): secao_b_anamnese.hda (timeout), secao_b_anamnese.ap_app (timeout), secao_b_evolucao.hd_cid (timeout), secao_b_evolucao.hd_cid (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.exame_fisico (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "25/6/1959",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)",
@@ -502,11 +556,15 @@
     "campos_enviados": [
      "secao_c.descricao_tecnica",
      "secao_b_anamnese.hda",
+     "secao_b_anamnese.exame_fisico",
      "secao_b_evolucao.hd_cid",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -521,6 +579,11 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_b_anamnese.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_b_evolucao.hd_cid",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
@@ -531,7 +594,17 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_d_anamnese.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -542,6 +615,11 @@
      },
      {
       "campo": "secao_d_evolucao.curativo",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -634,7 +712,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (8 de 8): secao_c.descricao_tecnica (timeout), secao_b_anamnese.hda (timeout), secao_b_evolucao.hd_cid (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (12 de 12): secao_c.descricao_tecnica (timeout), secao_b_anamnese.hda (timeout), secao_b_anamnese.exame_fisico (timeout), secao_b_evolucao.hd_cid (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "4/3/1957",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)",
@@ -706,13 +784,18 @@
      "secao_b_anamnese.hda",
      "secao_b_anamnese.ap_app",
      "secao_b_anamnese.af",
+     "secao_b_evolucao.exame_fisico",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -737,17 +820,17 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_b_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_anamnese.motivo_internacao",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
      {
-      "campo": "secao_d_evolucao.motivo_internacao",
-      "detalhe": "timeout simulado",
-      "motivo": "timeout"
-     },
-     {
-      "campo": "secao_d_evolucao.curativo",
+      "campo": "secao_d_anamnese.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -762,12 +845,37 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
      {
       "campo": "secao_d_evolucao.curativo",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.motivo_internacao",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.curativo",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -779,7 +887,7 @@
     ],
     "campos_null": [],
     "campos_ok": [],
-    "chamadas": 7,
+    "chamadas": 8,
     "chamadas_ok": 0,
     "chaves_normalizadas": [],
     "decodificacao": "greedy",
@@ -788,7 +896,7 @@
     "seed": null,
     "seed_aplicada": null,
     "temperature": 0.0,
-    "tentativas_total": 21,
+    "tentativas_total": 24,
     "top_k": 1,
     "top_p": 1.0
    },
@@ -863,7 +971,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (12 de 12): secao_c.descricao_tecnica (timeout), secao_b_anamnese.hda (timeout), secao_b_anamnese.ap_app (timeout), secao_b_anamnese.af (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (17 de 17): secao_c.descricao_tecnica (timeout), secao_b_anamnese.hda (timeout), secao_b_anamnese.ap_app (timeout), secao_b_anamnese.af (timeout), secao_b_evolucao.exame_fisico (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "12/12/1943",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)",
@@ -932,20 +1040,27 @@
    "_ia_meta": {
     "campos_enviados": [
      "secao_b_anamnese.hda",
+     "secao_b_evolucao.exame_fisico",
      "secao_b_evolucao.procedimentos_condutas_queixas",
+     "secao_b_evolucao.exame_fisico",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
      "secao_d_anamnese.af",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -955,7 +1070,17 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_b_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_b_evolucao.procedimentos_condutas_queixas",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_b_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -975,17 +1100,7 @@
       "motivo": "timeout"
      },
      {
-      "campo": "secao_d_evolucao.motivo_internacao",
-      "detalhe": "timeout simulado",
-      "motivo": "timeout"
-     },
-     {
-      "campo": "secao_d_evolucao.condutas",
-      "detalhe": "timeout simulado",
-      "motivo": "timeout"
-     },
-     {
-      "campo": "secao_d_evolucao.curativo",
+      "campo": "secao_d_anamnese.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -1005,6 +1120,31 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.motivo_internacao",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.condutas",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.curativo",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
@@ -1015,12 +1155,22 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
      {
       "campo": "secao_d_evolucao.curativo",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -1032,7 +1182,7 @@
     ],
     "campos_null": [],
     "campos_ok": [],
-    "chamadas": 8,
+    "chamadas": 9,
     "chamadas_ok": 0,
     "chaves_normalizadas": [],
     "decodificacao": "greedy",
@@ -1041,7 +1191,7 @@
     "seed": null,
     "seed_aplicada": null,
     "temperature": 0.0,
-    "tentativas_total": 24,
+    "tentativas_total": 27,
     "top_k": 1,
     "top_p": 1.0
    },
@@ -1119,7 +1269,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (16 de 16): secao_b_anamnese.hda (timeout), secao_b_evolucao.procedimentos_condutas_queixas (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.ap_app (timeout), secao_d_anamnese.af (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (23 de 23): secao_b_anamnese.hda (timeout), secao_b_evolucao.exame_fisico (timeout), secao_b_evolucao.procedimentos_condutas_queixas (timeout), secao_b_evolucao.exame_fisico (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.ap_app (timeout), secao_d_anamnese.af (timeout), secao_d_anamnese.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "24/3/1980",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)",
@@ -1190,10 +1340,14 @@
      "secao_c.descricao_tecnica",
      "secao_b_anamnese.hda",
      "secao_b_anamnese.af",
+     "secao_b_evolucao.exame_fisico",
+     "secao_b_evolucao.exame_fisico",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.escala_braden",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -1213,12 +1367,27 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_b_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_b_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_anamnese.motivo_internacao",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
      {
       "campo": "secao_d_anamnese.escala_braden",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_anamnese.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -1233,6 +1402,11 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_a.diagnostico_internacao",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
@@ -1240,7 +1414,7 @@
     ],
     "campos_null": [],
     "campos_ok": [],
-    "chamadas": 5,
+    "chamadas": 7,
     "chamadas_ok": 0,
     "chaves_normalizadas": [],
     "decodificacao": "greedy",
@@ -1249,7 +1423,7 @@
     "seed": null,
     "seed_aplicada": null,
     "temperature": 0.0,
-    "tentativas_total": 15,
+    "tentativas_total": 21,
     "top_k": 1,
     "top_p": 1.0
    },
@@ -1320,7 +1494,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (8 de 8): secao_c.descricao_tecnica (timeout), secao_b_anamnese.hda (timeout), secao_b_anamnese.af (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.escala_braden (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (12 de 12): secao_c.descricao_tecnica (timeout), secao_b_anamnese.hda (timeout), secao_b_anamnese.af (timeout), secao_b_evolucao.exame_fisico (timeout), secao_b_evolucao.exame_fisico (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.escala_braden (timeout), secao_d_anamnese.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.exame_fisico (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "29/7/1956",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)",
@@ -1391,15 +1565,20 @@
      "secao_c.descricao_tecnica",
      "secao_c.uso_opme",
      "secao_b_anamnese.hda",
+     "secao_b_anamnese.exame_fisico",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
      "secao_d_anamnese.af",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -1419,6 +1598,11 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_b_anamnese.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_anamnese.motivo_internacao",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
@@ -1434,12 +1618,7 @@
       "motivo": "timeout"
      },
      {
-      "campo": "secao_d_evolucao.motivo_internacao",
-      "detalhe": "timeout simulado",
-      "motivo": "timeout"
-     },
-     {
-      "campo": "secao_d_evolucao.curativo",
+      "campo": "secao_d_anamnese.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -1454,12 +1633,37 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
      {
       "campo": "secao_d_evolucao.curativo",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.motivo_internacao",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.curativo",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -1555,7 +1759,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (13 de 13): secao_c.descricao_tecnica (timeout), secao_c.uso_opme (timeout), secao_b_anamnese.hda (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.ap_app (timeout), secao_d_anamnese.af (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (18 de 18): secao_c.descricao_tecnica (timeout), secao_c.uso_opme (timeout), secao_b_anamnese.hda (timeout), secao_b_anamnese.exame_fisico (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.ap_app (timeout), secao_d_anamnese.af (timeout), secao_d_anamnese.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "10/7/1942",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)",
@@ -1625,19 +1829,25 @@
     "campos_enviados": [
      "secao_b_anamnese.hda",
      "secao_b_evolucao.hd_cid",
+     "secao_b_evolucao.exame_fisico",
      "secao_b_evolucao.hd_cid",
      "secao_b_evolucao.procedimentos_condutas_queixas",
      "secao_b_evolucao.hd_cid",
      "secao_b_evolucao.procedimentos_condutas_queixas",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.escala_morse",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -1648,6 +1858,11 @@
      },
      {
       "campo": "secao_b_evolucao.hd_cid",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_b_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -1682,17 +1897,7 @@
       "motivo": "timeout"
      },
      {
-      "campo": "secao_d_evolucao.motivo_internacao",
-      "detalhe": "timeout simulado",
-      "motivo": "timeout"
-     },
-     {
-      "campo": "secao_d_evolucao.condutas",
-      "detalhe": "timeout simulado",
-      "motivo": "timeout"
-     },
-     {
-      "campo": "secao_d_evolucao.motivo_internacao",
+      "campo": "secao_d_anamnese.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -1707,12 +1912,47 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.motivo_internacao",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
      {
       "campo": "secao_d_evolucao.condutas",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.motivo_internacao",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.condutas",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -1810,7 +2050,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (16 de 16): secao_b_anamnese.hda (timeout), secao_b_evolucao.hd_cid (timeout), secao_b_evolucao.hd_cid (timeout), secao_b_evolucao.procedimentos_condutas_queixas (timeout), secao_b_evolucao.hd_cid (timeout), secao_b_evolucao.procedimentos_condutas_queixas (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.escala_morse (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (22 de 22): secao_b_anamnese.hda (timeout), secao_b_evolucao.hd_cid (timeout), secao_b_evolucao.exame_fisico (timeout), secao_b_evolucao.hd_cid (timeout), secao_b_evolucao.procedimentos_condutas_queixas (timeout), secao_b_evolucao.hd_cid (timeout), secao_b_evolucao.procedimentos_condutas_queixas (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.escala_morse (timeout), secao_d_anamnese.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.exame_fisico (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "1/7/1969",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)",
@@ -1882,11 +2122,14 @@
      "secao_b_anamnese.hda",
      "secao_b_anamnese.af",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -1911,12 +2154,22 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_d_anamnese.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
      {
       "campo": "secao_d_evolucao.curativo",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -1932,6 +2185,11 @@
      },
      {
       "campo": "secao_d_evolucao.curativo",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -2024,7 +2282,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (10 de 10): secao_c.descricao_tecnica (timeout), secao_b_anamnese.hda (timeout), secao_b_anamnese.af (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (13 de 13): secao_c.descricao_tecnica (timeout), secao_b_anamnese.hda (timeout), secao_b_anamnese.af (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "11/8/1965",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)",
@@ -2094,17 +2352,20 @@
     "campos_enviados": [
      "secao_c.descricao_tecnica",
      "secao_b_anamnese.hda",
+     "secao_b_anamnese.exame_fisico",
      "secao_b_evolucao.hd_cid",
      "secao_b_evolucao.procedimentos_condutas_queixas",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
      "secao_d_anamnese.af",
      "secao_d_anamnese.escala_braden",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -2115,6 +2376,11 @@
      },
      {
       "campo": "secao_b_anamnese.hda",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_b_anamnese.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -2149,6 +2415,11 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_d_anamnese.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
@@ -2170,6 +2441,11 @@
      },
      {
       "campo": "secao_d_evolucao.curativo",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -2264,7 +2540,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (14 de 14): secao_c.descricao_tecnica (timeout), secao_b_anamnese.hda (timeout), secao_b_evolucao.hd_cid (timeout), secao_b_evolucao.procedimentos_condutas_queixas (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.ap_app (timeout), secao_d_anamnese.af (timeout), secao_d_anamnese.escala_braden (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (17 de 17): secao_c.descricao_tecnica (timeout), secao_b_anamnese.hda (timeout), secao_b_anamnese.exame_fisico (timeout), secao_b_evolucao.hd_cid (timeout), secao_b_evolucao.procedimentos_condutas_queixas (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.ap_app (timeout), secao_d_anamnese.af (timeout), secao_d_anamnese.escala_braden (timeout), secao_d_anamnese.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "11/6/1941",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)",
@@ -2334,18 +2610,24 @@
     "campos_enviados": [
      "secao_b_anamnese.hda",
      "secao_b_anamnese.ap_app",
+     "secao_b_evolucao.exame_fisico",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -2360,22 +2642,17 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_b_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_anamnese.motivo_internacao",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
      {
-      "campo": "secao_d_evolucao.motivo_internacao",
-      "detalhe": "timeout simulado",
-      "motivo": "timeout"
-     },
-     {
-      "campo": "secao_d_evolucao.condutas",
-      "detalhe": "timeout simulado",
-      "motivo": "timeout"
-     },
-     {
-      "campo": "secao_d_evolucao.curativo",
+      "campo": "secao_d_anamnese.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -2395,6 +2672,11 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
@@ -2410,12 +2692,42 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.motivo_internacao",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.condutas",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.curativo",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
      {
       "campo": "secao_d_evolucao.curativo",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -2427,7 +2739,7 @@
     ],
     "campos_null": [],
     "campos_ok": [],
-    "chamadas": 7,
+    "chamadas": 8,
     "chamadas_ok": 0,
     "chaves_normalizadas": [],
     "decodificacao": "greedy",
@@ -2436,7 +2748,7 @@
     "seed": null,
     "seed_aplicada": null,
     "temperature": 0.0,
-    "tentativas_total": 21,
+    "tentativas_total": 24,
     "top_k": 1,
     "top_p": 1.0
    },
@@ -2514,7 +2826,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (15 de 15): secao_b_anamnese.hda (timeout), secao_b_anamnese.ap_app (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (21 de 21): secao_b_anamnese.hda (timeout), secao_b_anamnese.ap_app (timeout), secao_b_evolucao.exame_fisico (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "28/11/1978",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)",
@@ -2585,10 +2897,13 @@
      "secao_c.descricao_tecnica",
      "secao_b_anamnese.hda",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -2608,7 +2923,17 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_d_anamnese.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -2624,6 +2949,11 @@
      },
      {
       "campo": "secao_d_evolucao.curativo",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -2716,7 +3046,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (8 de 8): secao_c.descricao_tecnica (timeout), secao_b_anamnese.hda (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (11 de 11): secao_c.descricao_tecnica (timeout), secao_b_anamnese.hda (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "15/6/1963",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)",
@@ -2788,17 +3118,22 @@
      "secao_b_anamnese.hda",
      "secao_b_anamnese.ap_app",
      "secao_b_anamnese.af",
+     "secao_b_anamnese.exame_fisico",
      "secao_b_evolucao.hd_cid",
      "secao_b_evolucao.hd_cid",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
      "secao_d_anamnese.af",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -2819,6 +3154,11 @@
      },
      {
       "campo": "secao_b_anamnese.af",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_b_anamnese.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -2848,7 +3188,17 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_d_anamnese.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -2859,6 +3209,11 @@
      },
      {
       "campo": "secao_d_evolucao.curativo",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -2874,6 +3229,11 @@
      },
      {
       "campo": "secao_d_evolucao.curativo",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -2968,7 +3328,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (16 de 16): secao_c.descricao_tecnica (timeout), secao_b_anamnese.hda (timeout), secao_b_anamnese.ap_app (timeout), secao_b_anamnese.af (timeout), secao_b_evolucao.hd_cid (timeout), secao_b_evolucao.hd_cid (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.ap_app (timeout), secao_d_anamnese.af (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (21 de 21): secao_c.descricao_tecnica (timeout), secao_b_anamnese.hda (timeout), secao_b_anamnese.ap_app (timeout), secao_b_anamnese.af (timeout), secao_b_anamnese.exame_fisico (timeout), secao_b_evolucao.hd_cid (timeout), secao_b_evolucao.hd_cid (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.ap_app (timeout), secao_d_anamnese.af (timeout), secao_d_anamnese.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.condutas (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "30/5/1947",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)",
@@ -3040,8 +3400,10 @@
      "secao_c.uso_opme",
      "secao_b_anamnese.hda",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -3066,12 +3428,22 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_d_anamnese.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
      {
       "campo": "secao_d_evolucao.curativo",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -3161,7 +3533,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (7 de 7): secao_c.descricao_tecnica (timeout), secao_c.uso_opme (timeout), secao_b_anamnese.hda (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (9 de 9): secao_c.descricao_tecnica (timeout), secao_c.uso_opme (timeout), secao_b_anamnese.hda (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "3/4/1980",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)",
@@ -3233,13 +3605,17 @@
      "secao_b_anamnese.hda",
      "secao_b_anamnese.hd_cid",
      "secao_b_anamnese.ap_app",
+     "secao_b_anamnese.exame_fisico",
      "secao_b_evolucao.hd_cid",
      "secao_b_evolucao.hd_cid",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.cd",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -3264,6 +3640,11 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_b_anamnese.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_b_evolucao.hd_cid",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
@@ -3284,7 +3665,17 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_d_anamnese.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_d_evolucao.motivo_internacao",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -3295,6 +3686,11 @@
      },
      {
       "campo": "secao_d_evolucao.curativo",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -3387,7 +3783,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (12 de 12): secao_c.descricao_tecnica (timeout), secao_b_anamnese.hda (timeout), secao_b_anamnese.hd_cid (timeout), secao_b_anamnese.ap_app (timeout), secao_b_evolucao.hd_cid (timeout), secao_b_evolucao.hd_cid (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.cd (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (16 de 16): secao_c.descricao_tecnica (timeout), secao_b_anamnese.hda (timeout), secao_b_anamnese.hd_cid (timeout), secao_b_anamnese.ap_app (timeout), secao_b_anamnese.exame_fisico (timeout), secao_b_evolucao.hd_cid (timeout), secao_b_evolucao.hd_cid (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.cd (timeout), secao_d_anamnese.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "3/9/1946",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)",
@@ -3460,13 +3856,17 @@
      "secao_b_anamnese.hda",
      "secao_b_anamnese.ap_app",
      "secao_b_anamnese.af",
+     "secao_b_anamnese.exame_fisico",
      "secao_b_evolucao.hd_cid",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.cd",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -3496,6 +3896,11 @@
       "motivo": "timeout"
      },
      {
+      "campo": "secao_b_anamnese.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
       "campo": "secao_b_evolucao.hd_cid",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
@@ -3511,12 +3916,7 @@
       "motivo": "timeout"
      },
      {
-      "campo": "secao_d_evolucao.motivo_internacao",
-      "detalhe": "timeout simulado",
-      "motivo": "timeout"
-     },
-     {
-      "campo": "secao_d_evolucao.curativo",
+      "campo": "secao_d_anamnese.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -3527,6 +3927,26 @@
      },
      {
       "campo": "secao_d_evolucao.curativo",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.motivo_internacao",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.curativo",
+      "detalhe": "timeout simulado",
+      "motivo": "timeout"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -3618,7 +4038,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (13 de 13): secao_c.descricao_tecnica (timeout), secao_c.uso_opme (timeout), secao_b_anamnese.hda (timeout), secao_b_anamnese.ap_app (timeout), secao_b_anamnese.af (timeout), secao_b_evolucao.hd_cid (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.cd (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (17 de 17): secao_c.descricao_tecnica (timeout), secao_c.uso_opme (timeout), secao_b_anamnese.hda (timeout), secao_b_anamnese.ap_app (timeout), secao_b_anamnese.af (timeout), secao_b_anamnese.exame_fisico (timeout), secao_b_evolucao.hd_cid (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.cd (timeout), secao_d_anamnese.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "20/8/1969",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)",

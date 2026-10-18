@@ -11,14 +11,18 @@
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
      "secao_d_anamnese.af",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -43,22 +47,22 @@
       "motivo": "campos_ausentes"
      },
      {
-      "campo": "secao_d_anamnese.ap_app",
-      "detalhe": "chaves ausentes simuladas",
-      "motivo": "campos_ausentes"
-     },
-     {
       "campo": "secao_d_anamnese.af",
       "detalhe": "chaves ausentes simuladas",
       "motivo": "campos_ausentes"
      },
      {
-      "campo": "secao_d_evolucao.condutas",
+      "campo": "secao_d_anamnese.exame_fisico",
       "detalhe": "chaves ausentes simuladas",
       "motivo": "campos_ausentes"
      },
      {
       "campo": "secao_d_evolucao.condutas",
+      "detalhe": "chaves ausentes simuladas",
+      "motivo": "campos_ausentes"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "chaves ausentes simuladas",
       "motivo": "campos_ausentes"
      },
@@ -68,12 +72,17 @@
       "motivo": "campos_ausentes"
      },
      {
-      "campo": "secao_d_evolucao.condutas",
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "chaves ausentes simuladas",
       "motivo": "campos_ausentes"
      },
      {
       "campo": "secao_d_evolucao.curativo",
+      "detalhe": "chaves ausentes simuladas",
+      "motivo": "campos_ausentes"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "chaves ausentes simuladas",
       "motivo": "campos_ausentes"
      },
@@ -87,9 +96,12 @@
     "campos_ok": [
      "secao_b_anamnese.hda",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.ap_app",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.motivo_internacao",
-     "secao_d_evolucao.motivo_internacao"
+     "secao_d_evolucao.condutas",
+     "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.condutas"
     ],
     "chamadas": 9,
     "chamadas_ok": 0,
@@ -126,9 +138,9 @@
     "valid": 6
    },
    "conformity_d_anamnese": {
-    "percent": 62.5,
+    "percent": 75.0,
     "total": 8,
-    "valid": 5
+    "valid": 6
    },
    "conformity_d_evolucao": {
     "percent": 57.14285714285714,
@@ -143,10 +155,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 11,
-    "percent": 73.80952380952381,
+    "invalid": 10,
+    "percent": 76.19047619047619,
     "total": 42,
-    "valid": 31
+    "valid": 32
    },
    "ia_incompleta": true,
    "matriz_documentos": {
@@ -175,7 +187,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (12 de 17): secao_c.descricao_tecnica (campos_ausentes), secao_b_anamnese.ap_app (campos_ausentes), secao_b_evolucao.hd_cid (campos_ausentes), secao_b_evolucao.hd_cid (campos_ausentes), secao_d_anamnese.ap_app (campos_ausentes), secao_d_anamnese.af (campos_ausentes), secao_d_evolucao.condutas (campos_ausentes), secao_d_evolucao.condutas (campos_ausentes), secao_d_evolucao.curativo (campos_ausentes), secao_d_evolucao.condutas (campos_ausentes), secao_d_evolucao.curativo (campos_ausentes), secao_a.diagnostico_internacao (campos_ausentes). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (13 de 21): secao_c.descricao_tecnica (campos_ausentes), secao_b_anamnese.ap_app (campos_ausentes), secao_b_evolucao.hd_cid (campos_ausentes), secao_b_evolucao.hd_cid (campos_ausentes), secao_d_anamnese.af (campos_ausentes), secao_d_anamnese.exame_fisico (campos_ausentes), secao_d_evolucao.condutas (campos_ausentes), secao_d_evolucao.exame_fisico (campos_ausentes), secao_d_evolucao.curativo (campos_ausentes), secao_d_evolucao.exame_fisico (campos_ausentes), secao_d_evolucao.curativo (campos_ausentes), secao_d_evolucao.exame_fisico (campos_ausentes), secao_a.diagnostico_internacao (campos_ausentes). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "30/11/1946",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: campos_ausentes)",
@@ -214,7 +226,7 @@
    },
    "secao_d_anamnese": {
     "af": "Não registrado (IA_NAO_EXECUTADA: campos_ausentes)",
-    "ap_app": "Não registrado (IA_NAO_EXECUTADA: campos_ausentes)",
+    "ap_app": "conforme (IA: trecho[ap_app])",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme",
@@ -223,7 +235,7 @@
     "motivo_internacao": "conforme (IA: trecho[motivo_internacao])"
    },
    "secao_d_evolucao": {
-    "condutas": "Não registrado (IA_NAO_EXECUTADA: campos_ausentes — dia 16/03, 17/03, 18/03)",
+    "condutas": "Não registrado (IA_NAO_EXECUTADA: campos_ausentes — dia 16/03)",
     "criacao_evolucao": "conforme",
     "curativo": "Não registrado (IA_NAO_EXECUTADA: campos_ausentes — dia 17/03, 18/03)",
     "escala_braden": "conforme",
@@ -245,17 +257,20 @@
     "campos_enviados": [
      "secao_c.descricao_tecnica",
      "secao_b_anamnese.hda",
+     "secao_b_anamnese.exame_fisico",
      "secao_b_evolucao.hd_cid",
      "secao_b_evolucao.procedimentos_condutas_queixas",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
      "secao_d_anamnese.af",
      "secao_d_anamnese.escala_braden",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -265,7 +280,7 @@
       "motivo": "campos_ausentes"
      },
      {
-      "campo": "secao_b_anamnese.hda",
+      "campo": "secao_b_anamnese.exame_fisico",
       "detalhe": "chaves ausentes simuladas",
       "motivo": "campos_ausentes"
      },
@@ -290,6 +305,11 @@
       "motivo": "campos_ausentes"
      },
      {
+      "campo": "secao_d_anamnese.exame_fisico",
+      "detalhe": "chaves ausentes simuladas",
+      "motivo": "campos_ausentes"
+     },
+     {
       "campo": "secao_d_evolucao.condutas",
       "detalhe": "chaves ausentes simuladas",
       "motivo": "campos_ausentes"
@@ -305,6 +325,11 @@
       "motivo": "campos_ausentes"
      },
      {
+      "campo": "secao_d_evolucao.exame_fisico",
+      "detalhe": "chaves ausentes simuladas",
+      "motivo": "campos_ausentes"
+     },
+     {
       "campo": "secao_a.diagnostico_internacao",
       "detalhe": "chaves ausentes simuladas",
       "motivo": "campos_ausentes"
@@ -312,6 +337,7 @@
     ],
     "campos_null": [],
     "campos_ok": [
+     "secao_b_anamnese.hda",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
      "secao_d_evolucao.motivo_internacao",
@@ -336,9 +362,9 @@
     "valid": 7
    },
    "conformity_b_anamnese": {
-    "percent": 57.14285714285714,
+    "percent": 71.42857142857143,
     "total": 7,
-    "valid": 4
+    "valid": 5
    },
    "conformity_b_evolucao": {
     "percent": 50.0,
@@ -369,10 +395,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 14,
-    "percent": 66.66666666666666,
+    "invalid": 13,
+    "percent": 69.04761904761905,
     "total": 42,
-    "valid": 28
+    "valid": 29
    },
    "ia_incompleta": true,
    "matriz_documentos": {
@@ -400,7 +426,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (10 de 14): secao_c.descricao_tecnica (campos_ausentes), secao_b_anamnese.hda (campos_ausentes), secao_b_evolucao.hd_cid (campos_ausentes), secao_b_evolucao.procedimentos_condutas_queixas (campos_ausentes), secao_d_anamnese.af (campos_ausentes), secao_d_anamnese.escala_braden (campos_ausentes), secao_d_evolucao.condutas (campos_ausentes), secao_d_evolucao.curativo (campos_ausentes), secao_d_evolucao.curativo (campos_ausentes), secao_a.diagnostico_internacao (campos_ausentes). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (12 de 17): secao_c.descricao_tecnica (campos_ausentes), secao_b_anamnese.exame_fisico (campos_ausentes), secao_b_evolucao.hd_cid (campos_ausentes), secao_b_evolucao.procedimentos_condutas_queixas (campos_ausentes), secao_d_anamnese.af (campos_ausentes), secao_d_anamnese.escala_braden (campos_ausentes), secao_d_anamnese.exame_fisico (campos_ausentes), secao_d_evolucao.condutas (campos_ausentes), secao_d_evolucao.curativo (campos_ausentes), secao_d_evolucao.curativo (campos_ausentes), secao_d_evolucao.exame_fisico (campos_ausentes), secao_a.diagnostico_internacao (campos_ausentes). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "11/6/1941",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: campos_ausentes)",
@@ -418,7 +444,7 @@
     "criacao_anamnese": "não conforme (criada 13h15 após a internação; prazo de 12h)",
     "exame_fisico": "não conforme (Faltam: Cardiovascular, Respiratório)",
     "hd_cid": "conforme",
-    "hda": "Não registrado (IA_NAO_EXECUTADA: campos_ausentes)"
+    "hda": "conforme (IA: trecho[hda])"
    },
    "secao_b_evolucao": {
     "exame_fisico": "conforme",
@@ -472,8 +498,10 @@
      "secao_c.uso_opme",
      "secao_b_anamnese.hda",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [
@@ -488,12 +516,17 @@
       "motivo": "campos_ausentes"
      },
      {
-      "campo": "secao_d_anamnese.motivo_internacao",
+      "campo": "secao_d_anamnese.exame_fisico",
       "detalhe": "chaves ausentes simuladas",
       "motivo": "campos_ausentes"
      },
      {
       "campo": "secao_d_evolucao.curativo",
+      "detalhe": "chaves ausentes simuladas",
+      "motivo": "campos_ausentes"
+     },
+     {
+      "campo": "secao_d_evolucao.exame_fisico",
       "detalhe": "chaves ausentes simuladas",
       "motivo": "campos_ausentes"
      },
@@ -506,6 +539,7 @@
     "campos_null": [],
     "campos_ok": [
      "secao_c.descricao_tecnica",
+     "secao_d_anamnese.motivo_internacao",
      "secao_d_evolucao.motivo_internacao"
     ],
     "chamadas": 5,
@@ -543,9 +577,9 @@
     "valid": 7
    },
    "conformity_d_anamnese": {
-    "percent": 75.0,
+    "percent": 87.5,
     "total": 8,
-    "valid": 6
+    "valid": 7
    },
    "conformity_d_evolucao": {
     "percent": 71.42857142857143,
@@ -560,10 +594,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 7,
-    "percent": 83.33333333333334,
+    "invalid": 6,
+    "percent": 85.71428571428571,
     "total": 42,
-    "valid": 35
+    "valid": 36
    },
    "ia_incompleta": true,
    "matriz_documentos": {
@@ -586,7 +620,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (5 de 7): secao_c.uso_opme (campos_ausentes), secao_b_anamnese.hda (campos_ausentes), secao_d_anamnese.motivo_internacao (campos_ausentes), secao_d_evolucao.curativo (campos_ausentes), secao_a.diagnostico_internacao (campos_ausentes). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (6 de 9): secao_c.uso_opme (campos_ausentes), secao_b_anamnese.hda (campos_ausentes), secao_d_anamnese.exame_fisico (campos_ausentes), secao_d_evolucao.curativo (campos_ausentes), secao_d_evolucao.exame_fisico (campos_ausentes), secao_a.diagnostico_internacao (campos_ausentes). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "3/4/1980",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: campos_ausentes)",
@@ -631,7 +665,7 @@
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
-    "motivo_internacao": "Não registrado (IA_NAO_EXECUTADA: campos_ausentes)"
+    "motivo_internacao": "conforme (IA: trecho[motivo_internacao])"
    },
    "secao_d_evolucao": {
     "condutas": "conforme",

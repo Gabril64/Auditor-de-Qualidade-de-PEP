@@ -282,7 +282,7 @@ export default function AuditDetailView({ auditId, user, onBack, isMobile }) {
       )}
 
       {saveError && (
-        <div style={{ marginBottom: 16, background: '#2b0d0d', border: '1px solid var(--red)', borderRadius: 10, padding: '10px 14px', fontSize: 13 }}>
+        <div style={{ marginBottom: 16, background: 'var(--red-bg)', border: '1px solid var(--red)', borderRadius: 10, padding: '10px 14px', fontSize: 13 }}>
           <div style={{ color: 'var(--red)' }}>{conflict ? 'Outra pessoa salvou esta auditoria antes de você.' : saveError}</div>
           {conflict && (
             <button onClick={load} style={{ ...secondaryButton, marginTop: 8 }}>
@@ -346,6 +346,6 @@ const dangerButton = {
 };
 
 const primaryButton = {
-  background: 'var(--accent)', border: '1px solid var(--accent)', color: '#00131a',
+  background: 'var(--accent)', border: '1px solid var(--accent)', color: 'var(--on-accent)',
   borderRadius: 8, padding: '7px 14px', fontSize: 12, fontWeight: 600, cursor: 'pointer',
 };

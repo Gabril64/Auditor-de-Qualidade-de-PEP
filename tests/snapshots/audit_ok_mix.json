@@ -11,20 +11,25 @@
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
      "secao_d_anamnese.af",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [],
     "campos_null": [
      "secao_c.descricao_tecnica",
-     "secao_b_evolucao.hd_cid"
+     "secao_b_evolucao.hd_cid",
+     "secao_d_evolucao.exame_fisico"
     ],
     "campos_ok": [
      "secao_b_anamnese.hda",
@@ -33,14 +38,17 @@
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
      "secao_d_anamnese.af",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "chamadas": 9,
@@ -78,9 +86,9 @@
     "valid": 6
    },
    "conformity_d_anamnese": {
-    "percent": 75.0,
+    "percent": 87.5,
     "total": 8,
-    "valid": 6
+    "valid": 7
    },
    "conformity_d_evolucao": {
     "percent": 42.857142857142854,
@@ -95,10 +103,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 9,
-    "percent": 78.57142857142857,
+    "invalid": 8,
+    "percent": 80.95238095238095,
     "total": 42,
-    "valid": 33
+    "valid": 34
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -170,7 +178,7 @@
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Cardiovascular, Gastrointestinal, Genitourinário, Músculo-esquelético)",
+    "exame_fisico": "conforme (validado por IA)",
     "motivo_internacao": "conforme (validado por IA)"
    },
    "secao_d_evolucao": {
@@ -179,7 +187,7 @@
     "curativo": "não conforme (IA: incompleto — dia 17/03)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Respiratório, Genitourinário, Músculo-esquelético — dia 16/03, 17/03, 18/03)",
+    "exame_fisico": "não conforme (Faltam: Respiratório, Genitourinário, Músculo-esquelético — dia 16/03, 17/03)",
     "motivo_internacao": "não conforme (IA: incompleto — dia 17/03)"
    },
    "secao_e": {
@@ -199,18 +207,26 @@
      "secao_b_evolucao.hd_cid",
      "secao_b_evolucao.hd_cid",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [],
     "campos_null": [
      "secao_b_evolucao.hd_cid",
+     "secao_d_anamnese.exame_fisico",
+     "secao_d_evolucao.exame_fisico",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas"
     ],
@@ -223,7 +239,9 @@
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "chamadas": 9,
@@ -365,7 +383,7 @@
     "curativo": "Não se aplica",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Músculo-esquelético — dia 03/04, 04/04, 05/04, 06/04)",
+    "exame_fisico": "não conforme (Faltam: Músculo-esquelético — dia 03/04, 04/04)",
     "motivo_internacao": "não conforme (IA: incompleto — dia 03/04, 05/04)"
    },
    "secao_e": {
@@ -382,24 +400,32 @@
     "campos_enviados": [
      "secao_c.descricao_tecnica",
      "secao_b_anamnese.hda",
+     "secao_b_anamnese.exame_fisico",
      "secao_b_evolucao.hd_cid",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [],
     "campos_null": [
      "secao_b_anamnese.hda",
+     "secao_b_anamnese.exame_fisico",
      "secao_b_evolucao.hd_cid",
      "secao_d_evolucao.curativo"
     ],
     "campos_ok": [
      "secao_c.descricao_tecnica",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "chamadas": 7,
@@ -442,9 +468,9 @@
     "valid": 6
    },
    "conformity_d_evolucao": {
-    "percent": 71.42857142857143,
+    "percent": 85.71428571428571,
     "total": 7,
-    "valid": 5
+    "valid": 6
    },
    "conformity_e": {
     "applies": false,
@@ -454,10 +480,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 8,
-    "percent": 80.95238095238095,
+    "invalid": 7,
+    "percent": 83.33333333333334,
     "total": 42,
-    "valid": 34
+    "valid": 35
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -535,7 +561,7 @@
     "curativo": "não conforme (IA: tipo de curativo não identificado — dia 14/03)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 13/03, 14/03)",
+    "exame_fisico": "conforme (validado por IA)",
     "motivo_internacao": "conforme (IA: trecho[motivo_internacao]: Paciente em pré-operatório de cateterism)"
    },
    "secao_e": {
@@ -554,34 +580,44 @@
      "secao_b_anamnese.hda",
      "secao_b_anamnese.ap_app",
      "secao_b_anamnese.af",
+     "secao_b_evolucao.exame_fisico",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [],
     "campos_null": [
-     "secao_c.descricao_tecnica"
+     "secao_c.descricao_tecnica",
+     "secao_d_anamnese.exame_fisico",
+     "secao_d_evolucao.exame_fisico",
+     "secao_d_evolucao.exame_fisico"
     ],
     "campos_ok": [
      "secao_b_anamnese.hda",
      "secao_b_anamnese.ap_app",
      "secao_b_anamnese.af",
+     "secao_b_evolucao.exame_fisico",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
      "secao_a.diagnostico_internacao"
     ],
-    "chamadas": 7,
-    "chamadas_ok": 7,
+    "chamadas": 8,
+    "chamadas_ok": 8,
     "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
@@ -589,7 +625,7 @@
     "seed": null,
     "seed_aplicada": null,
     "temperature": 0.0,
-    "tentativas_total": 7,
+    "tentativas_total": 8,
     "top_k": 1,
     "top_p": 1.0
    },
@@ -604,9 +640,9 @@
     "valid": 7
    },
    "conformity_b_evolucao": {
-    "percent": 75.0,
+    "percent": 100.0,
     "total": 4,
-    "valid": 3
+    "valid": 4
    },
    "conformity_c": {
     "applies": true,
@@ -632,10 +668,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 5,
-    "percent": 88.09523809523809,
+    "invalid": 4,
+    "percent": 90.47619047619048,
     "total": 42,
-    "valid": 37
+    "valid": 38
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -684,7 +720,7 @@
     "hda": "conforme (IA: trecho[hda]: paciente idosa, 81 anos, admitida para c)"
    },
    "secao_b_evolucao": {
-    "exame_fisico": "não conforme (Faltam: Geral — dia 21/05)",
+    "exame_fisico": "conforme (validado por IA)",
     "frequencia_diaria": "conforme",
     "hd_cid": "conforme",
     "procedimentos_condutas_queixas": "conforme"
@@ -716,7 +752,7 @@
     "curativo": "conforme (IA: trecho[curativo]: paciente em pós-operatório imediato de a)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Pele/Mucosas, Respiratório — dia 21/05, 22/05, 23/05)",
+    "exame_fisico": "não conforme (Faltam: Nervoso, Pele/Mucosas, Respiratório, Músculo-esquelético — dia 22/05, 23/05)",
     "motivo_internacao": "conforme (IA: trecho[motivo_internacao]: paciente em pós-operatório imediato de a)"
    },
    "secao_e": {
@@ -732,45 +768,59 @@
    "_ia_meta": {
     "campos_enviados": [
      "secao_b_anamnese.hda",
+     "secao_b_evolucao.exame_fisico",
      "secao_b_evolucao.procedimentos_condutas_queixas",
+     "secao_b_evolucao.exame_fisico",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
      "secao_d_anamnese.af",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [],
     "campos_null": [
-     "secao_d_evolucao.curativo"
+     "secao_b_evolucao.exame_fisico",
+     "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico"
     ],
     "campos_ok": [
      "secao_b_anamnese.hda",
+     "secao_b_evolucao.exame_fisico",
      "secao_b_evolucao.procedimentos_condutas_queixas",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
      "secao_d_anamnese.af",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
-    "chamadas": 8,
-    "chamadas_ok": 8,
+    "chamadas": 9,
+    "chamadas_ok": 9,
     "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
@@ -778,7 +828,7 @@
     "seed": null,
     "seed_aplicada": null,
     "temperature": 0.0,
-    "tentativas_total": 8,
+    "tentativas_total": 9,
     "top_k": 1,
     "top_p": 1.0
    },
@@ -804,9 +854,9 @@
     "valid": 0
    },
    "conformity_d_anamnese": {
-    "percent": 87.5,
+    "percent": 100.0,
     "total": 8,
-    "valid": 7
+    "valid": 8
    },
    "conformity_d_evolucao": {
     "percent": 71.42857142857143,
@@ -821,10 +871,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 6,
-    "percent": 81.81818181818183,
+    "invalid": 5,
+    "percent": 84.84848484848484,
     "total": 33,
-    "valid": 27
+    "valid": 28
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -876,7 +926,7 @@
     "hda": "conforme (IA: trecho[hda]: Paciente masculino, 45 anos, admitido em)"
    },
    "secao_b_evolucao": {
-    "exame_fisico": "não conforme (Faltam: Cardiovascular — dia 03/06, 04/06)",
+    "exame_fisico": "não conforme (Faltam: Cardiovascular — dia 04/06)",
     "frequencia_diaria": "conforme",
     "hd_cid": "conforme",
     "procedimentos_condutas_queixas": "conforme"
@@ -899,7 +949,7 @@
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Pele/Mucosas, Cardiovascular, Músculo-esquelético)",
+    "exame_fisico": "conforme (IA: trecho[exame_fisico]: paciente masculino, 45 anos, admitido em)",
     "motivo_internacao": "conforme (IA: trecho[motivo_internacao]: paciente masculino, 45 anos, admitido em)"
    },
    "secao_d_evolucao": {
@@ -908,7 +958,7 @@
     "curativo": "não conforme (IA: tipo de curativo não identificado — dia 05/06, 06/06)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Pele/Mucosas, Genitourinário, Músculo-esquelético — dia 03/06, 04/06, 05/06, 06/06)",
+    "exame_fisico": "não conforme (Faltam: Cardiovascular, Músculo-esquelético — dia 05/06)",
     "motivo_internacao": "conforme (IA: trecho[motivo_internacao]: Paciente no 2º dia de internação por pne)"
    },
    "secao_e": {
@@ -926,10 +976,14 @@
      "secao_c.descricao_tecnica",
      "secao_b_anamnese.hda",
      "secao_b_anamnese.af",
+     "secao_b_evolucao.exame_fisico",
+     "secao_b_evolucao.exame_fisico",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.escala_braden",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [],
@@ -940,13 +994,17 @@
     ],
     "campos_ok": [
      "secao_b_anamnese.hda",
+     "secao_b_evolucao.exame_fisico",
+     "secao_b_evolucao.exame_fisico",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.escala_braden",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
-     "secao_d_evolucao.condutas"
+     "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico"
     ],
-    "chamadas": 5,
-    "chamadas_ok": 5,
+    "chamadas": 7,
+    "chamadas_ok": 7,
     "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
@@ -954,7 +1012,7 @@
     "seed": null,
     "seed_aplicada": null,
     "temperature": 0.0,
-    "tentativas_total": 5,
+    "tentativas_total": 7,
     "top_k": 1,
     "top_p": 1.0
    },
@@ -969,9 +1027,9 @@
     "valid": 6
    },
    "conformity_b_evolucao": {
-    "percent": 75.0,
+    "percent": 100.0,
     "total": 4,
-    "valid": 3
+    "valid": 4
    },
    "conformity_c": {
     "applies": true,
@@ -980,14 +1038,14 @@
     "valid": 6
    },
    "conformity_d_anamnese": {
-    "percent": 75.0,
+    "percent": 87.5,
     "total": 8,
-    "valid": 6
+    "valid": 7
    },
    "conformity_d_evolucao": {
-    "percent": 66.66666666666666,
+    "percent": 83.33333333333334,
     "total": 6,
-    "valid": 4
+    "valid": 5
    },
    "conformity_e": {
     "applies": false,
@@ -997,10 +1055,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 9,
-    "percent": 78.04878048780488,
+    "invalid": 6,
+    "percent": 85.36585365853658,
     "total": 41,
-    "valid": 32
+    "valid": 35
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -1045,7 +1103,7 @@
     "hda": "conforme (IA: trecho[hda]: paciente masculino, 68 anos, admitido na)"
    },
    "secao_b_evolucao": {
-    "exame_fisico": "não conforme (Faltam: Geral, Cardiovascular, Respiratório, Abdome — dia 16/01, 17/01)",
+    "exame_fisico": "conforme (IA: trecho[exame_fisico]: Paciente no pós-operatório imediato de c)",
     "frequencia_diaria": "conforme",
     "hd_cid": "conforme",
     "procedimentos_condutas_queixas": "conforme"
@@ -1068,7 +1126,7 @@
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme (IA: trecho[escala_braden]: paciente masculino, 67 anos, internado p)",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
+    "exame_fisico": "conforme (IA: trecho[exame_fisico]: paciente masculino, 67 anos, internado p)",
     "motivo_internacao": "não conforme (IA: incompleto)"
    },
    "secao_d_evolucao": {
@@ -1077,7 +1135,7 @@
     "curativo": "Não se aplica",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 17/01)",
+    "exame_fisico": "conforme (IA: trecho[exame_fisico]: Paciente masculino, 67 anos, no 1º PO de)",
     "motivo_internacao": "conforme (IA: trecho[motivo_internacao]: Paciente masculino, 67 anos, no 1º PO de)"
    },
    "secao_e": {
@@ -1095,20 +1153,27 @@
      "secao_c.descricao_tecnica",
      "secao_c.uso_opme",
      "secao_b_anamnese.hda",
+     "secao_b_anamnese.exame_fisico",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
      "secao_d_anamnese.af",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [],
     "campos_null": [
-     "secao_d_evolucao.curativo"
+     "secao_b_anamnese.exame_fisico",
+     "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico"
     ],
     "campos_ok": [
      "secao_c.descricao_tecnica",
@@ -1117,9 +1182,12 @@
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
      "secao_d_anamnese.af",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
      "secao_a.diagnostico_internacao"
@@ -1159,9 +1227,9 @@
     "valid": 8
    },
    "conformity_d_anamnese": {
-    "percent": 87.5,
+    "percent": 100.0,
     "total": 8,
-    "valid": 7
+    "valid": 8
    },
    "conformity_d_evolucao": {
     "percent": 71.42857142857143,
@@ -1176,10 +1244,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 4,
-    "percent": 90.47619047619048,
+    "invalid": 3,
+    "percent": 92.85714285714286,
     "total": 42,
-    "valid": 38
+    "valid": 39
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -1251,7 +1319,7 @@
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Genitourinário)",
+    "exame_fisico": "conforme (validado por IA)",
     "motivo_internacao": "conforme (IA: trecho[motivo_internacao]: Paciente feminina, 81 anos, admitida na )"
    },
    "secao_d_evolucao": {
@@ -1260,7 +1328,7 @@
     "curativo": "não conforme (IA: tipo de curativo não identificado — dia 21/02)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Respiratório, Genitourinário, Músculo-esquelético — dia 21/02, 22/02, 23/02)",
+    "exame_fisico": "não conforme (Faltam: Nervoso, Pele/Mucosas, Respiratório, Genitourinário, Músculo-esquelético — dia 23/02)",
     "motivo_internacao": "conforme (validado por IA)"
    },
    "secao_e": {
@@ -1277,26 +1345,34 @@
     "campos_enviados": [
      "secao_b_anamnese.hda",
      "secao_b_evolucao.hd_cid",
+     "secao_b_evolucao.exame_fisico",
      "secao_b_evolucao.hd_cid",
      "secao_b_evolucao.procedimentos_condutas_queixas",
      "secao_b_evolucao.hd_cid",
      "secao_b_evolucao.procedimentos_condutas_queixas",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.escala_morse",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [],
     "campos_null": [
+     "secao_b_evolucao.exame_fisico",
      "secao_b_evolucao.procedimentos_condutas_queixas",
      "secao_d_anamnese.escala_morse",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas"
@@ -1308,9 +1384,13 @@
      "secao_b_evolucao.procedimentos_condutas_queixas",
      "secao_b_evolucao.hd_cid",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "chamadas": 10,
@@ -1348,9 +1428,9 @@
     "valid": 0
    },
    "conformity_d_anamnese": {
-    "percent": 75.0,
+    "percent": 87.5,
     "total": 8,
-    "valid": 6
+    "valid": 7
    },
    "conformity_d_evolucao": {
     "percent": 50.0,
@@ -1365,10 +1445,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 9,
-    "percent": 71.875,
+    "invalid": 8,
+    "percent": 75.0,
     "total": 32,
-    "valid": 23
+    "valid": 24
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -1442,7 +1522,7 @@
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme",
     "escala_morse": "Não registrado (IA: null)",
-    "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
+    "exame_fisico": "conforme (IA: trecho[exame_fisico]: paciente masculino, 54 anos, internado e)",
     "motivo_internacao": "conforme (IA: trecho[motivo_internacao]: paciente masculino, 54 anos, internado e)"
    },
    "secao_d_evolucao": {
@@ -1451,7 +1531,7 @@
     "curativo": "Não se aplica",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Respiratório, Cardiovascular, Genitourinário, Músculo-esquelético — dia 06/03, 07/03, 08/03, 09/03)",
+    "exame_fisico": "não conforme (Faltam: Respiratório, Cardiovascular, Genitourinário, Músculo-esquelético — dia 06/03)",
     "motivo_internacao": "não conforme (IA: incompleto — dia 06/03, 07/03, 08/03)"
    },
    "secao_e": {
@@ -1470,11 +1550,14 @@
      "secao_b_anamnese.hda",
      "secao_b_anamnese.af",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [],
@@ -1487,9 +1570,12 @@
      "secao_c.descricao_tecnica",
      "secao_b_anamnese.hda",
      "secao_b_anamnese.af",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "chamadas": 6,
@@ -1527,9 +1613,9 @@
     "valid": 7
    },
    "conformity_d_anamnese": {
-    "percent": 75.0,
+    "percent": 87.5,
     "total": 8,
-    "valid": 6
+    "valid": 7
    },
    "conformity_d_evolucao": {
     "percent": 57.14285714285714,
@@ -1544,10 +1630,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 7,
-    "percent": 83.33333333333334,
+    "invalid": 6,
+    "percent": 85.71428571428571,
     "total": 42,
-    "valid": 35
+    "valid": 36
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -1616,7 +1702,7 @@
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
+    "exame_fisico": "conforme (IA: trecho[exame_fisico]: Paciente masculino, 58 anos, admitido ne)",
     "motivo_internacao": "Não registrado (IA: null)"
    },
    "secao_d_evolucao": {
@@ -1625,7 +1711,7 @@
     "curativo": "não conforme (IA: tipo de curativo não identificado — dia 06/10)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Músculo-esquelético — dia 06/10, 07/10)",
+    "exame_fisico": "não conforme (Faltam: Músculo-esquelético — dia 07/10)",
     "motivo_internacao": "não conforme (IA: null — dia 07/10)"
    },
    "secao_e": {
@@ -1642,17 +1728,20 @@
     "campos_enviados": [
      "secao_c.descricao_tecnica",
      "secao_b_anamnese.hda",
+     "secao_b_anamnese.exame_fisico",
      "secao_b_evolucao.hd_cid",
      "secao_b_evolucao.procedimentos_condutas_queixas",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
      "secao_d_anamnese.af",
      "secao_d_anamnese.escala_braden",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [],
@@ -1665,13 +1754,16 @@
     ],
     "campos_ok": [
      "secao_b_anamnese.hda",
+     "secao_b_anamnese.exame_fisico",
      "secao_b_evolucao.hd_cid",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
      "secao_d_anamnese.af",
      "secao_d_anamnese.escala_braden",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "chamadas": 8,
@@ -1693,9 +1785,9 @@
     "valid": 7
    },
    "conformity_b_anamnese": {
-    "percent": 71.42857142857143,
+    "percent": 85.71428571428571,
     "total": 7,
-    "valid": 5
+    "valid": 6
    },
    "conformity_b_evolucao": {
     "percent": 75.0,
@@ -1709,14 +1801,14 @@
     "valid": 7
    },
    "conformity_d_anamnese": {
-    "percent": 75.0,
+    "percent": 87.5,
     "total": 8,
-    "valid": 6
+    "valid": 7
    },
    "conformity_d_evolucao": {
-    "percent": 42.857142857142854,
+    "percent": 57.14285714285714,
     "total": 7,
-    "valid": 3
+    "valid": 4
    },
    "conformity_e": {
     "applies": false,
@@ -1726,10 +1818,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 11,
-    "percent": 73.80952380952381,
+    "invalid": 8,
+    "percent": 80.95238095238095,
     "total": 42,
-    "valid": 31
+    "valid": 34
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -1772,7 +1864,7 @@
     "ap_app": "conforme",
     "cd": "conforme",
     "criacao_anamnese": "não conforme (criada 13h15 após a internação; prazo de 12h)",
-    "exame_fisico": "não conforme (Faltam: Cardiovascular, Respiratório)",
+    "exame_fisico": "conforme (validado por IA)",
     "hd_cid": "conforme",
     "hda": "conforme (validado por IA)"
    },
@@ -1800,7 +1892,7 @@
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme (IA: trecho[escala_braden]: paciente idosa, 82 anos, internada para )",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Genitourinário)",
+    "exame_fisico": "conforme (validado por IA)",
     "motivo_internacao": "conforme (IA: trecho[motivo_internacao]: paciente idosa, 82 anos, internada para )"
    },
    "secao_d_evolucao": {
@@ -1809,7 +1901,7 @@
     "curativo": "não conforme (IA: tipo de curativo não identificado — dia 14/11)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Nervoso, Pele/Mucosas, Respiratório, Genitourinário — dia 15/11)",
+    "exame_fisico": "conforme",
     "motivo_internacao": "Não registrado (IA: null)"
    },
    "secao_e": {
@@ -1826,42 +1918,54 @@
     "campos_enviados": [
      "secao_b_anamnese.hda",
      "secao_b_anamnese.ap_app",
+     "secao_b_evolucao.exame_fisico",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [],
     "campos_null": [
      "secao_d_evolucao.curativo",
      "secao_d_evolucao.motivo_internacao",
-     "secao_d_evolucao.curativo"
+     "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico"
     ],
     "campos_ok": [
      "secao_b_anamnese.hda",
      "secao_b_anamnese.ap_app",
+     "secao_b_evolucao.exame_fisico",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
-    "chamadas": 7,
-    "chamadas_ok": 7,
+    "chamadas": 8,
+    "chamadas_ok": 8,
     "chaves_normalizadas": [],
     "decodificacao": "greedy",
     "latencia_ia_s": 0.0,
@@ -1869,7 +1973,7 @@
     "seed": null,
     "seed_aplicada": null,
     "temperature": 0.0,
-    "tentativas_total": 7,
+    "tentativas_total": 8,
     "top_k": 1,
     "top_p": 1.0
    },
@@ -1884,9 +1988,9 @@
     "valid": 7
    },
    "conformity_b_evolucao": {
-    "percent": 75.0,
+    "percent": 100.0,
     "total": 4,
-    "valid": 3
+    "valid": 4
    },
    "conformity_c": {
     "applies": false,
@@ -1895,9 +1999,9 @@
     "valid": 0
    },
    "conformity_d_anamnese": {
-    "percent": 87.5,
+    "percent": 100.0,
     "total": 8,
-    "valid": 7
+    "valid": 8
    },
    "conformity_d_evolucao": {
     "percent": 42.857142857142854,
@@ -1912,10 +2016,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 7,
-    "percent": 78.78787878787878,
+    "invalid": 5,
+    "percent": 84.84848484848484,
     "total": 33,
-    "valid": 26
+    "valid": 28
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -1967,7 +2071,7 @@
     "hda": "conforme (IA: trecho[hda]: Paciente masculino, 45 anos, admitido co)"
    },
    "secao_b_evolucao": {
-    "exame_fisico": "não conforme (Faltam: Cardiovascular — dia 24/11)",
+    "exame_fisico": "conforme",
     "frequencia_diaria": "conforme",
     "hd_cid": "conforme",
     "procedimentos_condutas_queixas": "conforme"
@@ -1990,7 +2094,7 @@
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Cardiovascular, Genitourinário, Músculo-esquelético)",
+    "exame_fisico": "conforme (IA: trecho[exame_fisico]: paciente masculino, 45 anos, admitido na)",
     "motivo_internacao": "conforme (IA: trecho[motivo_internacao]: paciente masculino, 45 anos, admitido na)"
    },
    "secao_d_evolucao": {
@@ -1999,7 +2103,7 @@
     "curativo": "não conforme (IA: tipo de curativo não identificado — dia 21/11, 22/11)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 21/11, 22/11, 23/11, 24/11)",
+    "exame_fisico": "não conforme (Faltam: Respiratório, Genitourinário, Músculo-esquelético — dia 23/11)",
     "motivo_internacao": "não conforme (IA: null — dia 22/11)"
    },
    "secao_e": {
@@ -2017,10 +2121,13 @@
      "secao_c.descricao_tecnica",
      "secao_b_anamnese.hda",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [],
@@ -2031,9 +2138,12 @@
      "secao_c.descricao_tecnica",
      "secao_b_anamnese.hda",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "chamadas": 6,
@@ -2071,14 +2181,14 @@
     "valid": 8
    },
    "conformity_d_anamnese": {
-    "percent": 87.5,
+    "percent": 100.0,
     "total": 8,
-    "valid": 7
+    "valid": 8
    },
    "conformity_d_evolucao": {
-    "percent": 71.42857142857143,
+    "percent": 85.71428571428571,
     "total": 7,
-    "valid": 5
+    "valid": 6
    },
    "conformity_e": {
     "applies": false,
@@ -2088,10 +2198,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 3,
-    "percent": 92.85714285714286,
+    "invalid": 1,
+    "percent": 97.61904761904762,
     "total": 42,
-    "valid": 39
+    "valid": 41
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -2160,7 +2270,7 @@
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
+    "exame_fisico": "conforme (IA: trecho[exame_fisico]: paciente, 61 anos, admitido na unidade p)",
     "motivo_internacao": "conforme (validado por IA)"
    },
    "secao_d_evolucao": {
@@ -2169,7 +2279,7 @@
     "curativo": "conforme (IA: trecho[curativo]: paciente no 1º po de revascularização do)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 11/01, 12/01)",
+    "exame_fisico": "conforme (validado por IA)",
     "motivo_internacao": "não conforme (IA: null — dia 12/01)"
    },
    "secao_e": {
@@ -2188,17 +2298,22 @@
      "secao_b_anamnese.hda",
      "secao_b_anamnese.ap_app",
      "secao_b_anamnese.af",
+     "secao_b_anamnese.exame_fisico",
      "secao_b_evolucao.hd_cid",
      "secao_b_evolucao.hd_cid",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
      "secao_d_anamnese.af",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [],
@@ -2210,16 +2325,21 @@
      "secao_b_anamnese.hda",
      "secao_b_anamnese.ap_app",
      "secao_b_anamnese.af",
+     "secao_b_anamnese.exame_fisico",
      "secao_b_evolucao.hd_cid",
      "secao_b_evolucao.hd_cid",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
      "secao_d_anamnese.af",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.condutas",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "chamadas": 9,
@@ -2241,9 +2361,9 @@
     "valid": 8
    },
    "conformity_b_anamnese": {
-    "percent": 85.71428571428571,
+    "percent": 100.0,
     "total": 7,
-    "valid": 6
+    "valid": 7
    },
    "conformity_b_evolucao": {
     "percent": 75.0,
@@ -2257,14 +2377,14 @@
     "valid": 7
    },
    "conformity_d_anamnese": {
-    "percent": 75.0,
+    "percent": 87.5,
     "total": 8,
-    "valid": 6
+    "valid": 7
    },
    "conformity_d_evolucao": {
-    "percent": 71.42857142857143,
+    "percent": 85.71428571428571,
     "total": 7,
-    "valid": 5
+    "valid": 6
    },
    "conformity_e": {
     "applies": false,
@@ -2274,10 +2394,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 7,
-    "percent": 83.33333333333334,
+    "invalid": 4,
+    "percent": 90.47619047619048,
     "total": 42,
-    "valid": 35
+    "valid": 38
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -2320,7 +2440,7 @@
     "ap_app": "conforme (IA: trecho[ap_app]: paciente feminina, 77 anos, admitida na )",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
-    "exame_fisico": "não conforme (Faltam: Abdome, Extremidades)",
+    "exame_fisico": "conforme (validado por IA)",
     "hd_cid": "conforme",
     "hda": "conforme (IA: trecho[hda]: paciente feminina, 77 anos, admitida na )"
    },
@@ -2348,7 +2468,7 @@
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Gastrointestinal, Genitourinário)",
+    "exame_fisico": "conforme (validado por IA)",
     "motivo_internacao": "conforme (IA: trecho[motivo_internacao]: paciente idosa, 77 anos, admitida na enf)"
    },
    "secao_d_evolucao": {
@@ -2357,7 +2477,7 @@
     "curativo": "não conforme (IA: tipo de curativo não identificado — dia 08/02)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 06/02, 07/02, 08/02)",
+    "exame_fisico": "conforme (IA: trecho[exame_fisico]: paciente idosa, 77 anos, internada para )",
     "motivo_internacao": "conforme (IA: trecho[motivo_internacao]: paciente idosa, 77 anos, internada para )"
    },
    "secao_e": {
@@ -2376,8 +2496,10 @@
      "secao_c.uso_opme",
      "secao_b_anamnese.hda",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [],
@@ -2388,8 +2510,10 @@
      "secao_c.descricao_tecnica",
      "secao_b_anamnese.hda",
      "secao_d_anamnese.motivo_internacao",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "chamadas": 5,
@@ -2427,14 +2551,14 @@
     "valid": 6
    },
    "conformity_d_anamnese": {
-    "percent": 87.5,
+    "percent": 100.0,
     "total": 8,
-    "valid": 7
+    "valid": 8
    },
    "conformity_d_evolucao": {
-    "percent": 71.42857142857143,
+    "percent": 85.71428571428571,
     "total": 7,
-    "valid": 5
+    "valid": 6
    },
    "conformity_e": {
     "applies": false,
@@ -2444,10 +2568,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 4,
-    "percent": 90.2439024390244,
+    "invalid": 2,
+    "percent": 95.1219512195122,
     "total": 41,
-    "valid": 37
+    "valid": 39
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -2513,7 +2637,7 @@
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético)",
+    "exame_fisico": "conforme (IA: trecho[exame_fisico]: paciente feminina, 44 anos, admitida hoj)",
     "motivo_internacao": "conforme (IA: trecho[motivo_internacao]: paciente feminina, 44 anos, admitida hoj)"
    },
    "secao_d_evolucao": {
@@ -2522,7 +2646,7 @@
     "curativo": "não conforme (IA: incompleto — dia 21/03)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Respiratório — dia 21/03)",
+    "exame_fisico": "conforme (validado por IA)",
     "motivo_internacao": "conforme (IA: trecho[motivo_internacao]: paciente em pós-operatório imediato de c)"
    },
    "secao_e": {
@@ -2541,13 +2665,17 @@
      "secao_b_anamnese.hda",
      "secao_b_anamnese.hd_cid",
      "secao_b_anamnese.ap_app",
+     "secao_b_anamnese.exame_fisico",
      "secao_b_evolucao.hd_cid",
      "secao_b_evolucao.hd_cid",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.cd",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [],
@@ -2555,13 +2683,17 @@
      "secao_b_anamnese.hd_cid",
      "secao_b_anamnese.ap_app",
      "secao_b_evolucao.hd_cid",
-     "secao_b_evolucao.hd_cid"
+     "secao_b_evolucao.hd_cid",
+     "secao_d_evolucao.exame_fisico",
+     "secao_d_evolucao.exame_fisico"
     ],
     "campos_ok": [
      "secao_c.descricao_tecnica",
      "secao_b_anamnese.hda",
+     "secao_b_anamnese.exame_fisico",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.cd",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
@@ -2586,9 +2718,9 @@
     "valid": 8
    },
    "conformity_b_anamnese": {
-    "percent": 57.14285714285714,
+    "percent": 71.42857142857143,
     "total": 7,
-    "valid": 4
+    "valid": 5
    },
    "conformity_b_evolucao": {
     "percent": 75.0,
@@ -2602,9 +2734,9 @@
     "valid": 7
    },
    "conformity_d_anamnese": {
-    "percent": 87.5,
+    "percent": 100.0,
     "total": 8,
-    "valid": 7
+    "valid": 8
    },
    "conformity_d_evolucao": {
     "percent": 85.71428571428571,
@@ -2619,10 +2751,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 7,
-    "percent": 83.33333333333334,
+    "invalid": 5,
+    "percent": 88.09523809523809,
     "total": 42,
-    "valid": 35
+    "valid": 37
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -2663,7 +2795,7 @@
     "ap_app": "Não registrado (IA: null)",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
-    "exame_fisico": "não conforme (Faltam: Cardiovascular)",
+    "exame_fisico": "conforme (validado por IA)",
     "hd_cid": "Não registrado (IA: null)",
     "hda": "conforme (validado por IA)"
    },
@@ -2691,7 +2823,7 @@
     "criacao_anamnese": "conforme",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Respiratório, Genitourinário)",
+    "exame_fisico": "conforme (IA: trecho[exame_fisico]: paciente idosa, 77 anos, internada para )",
     "motivo_internacao": "conforme (IA: trecho[motivo_internacao]: paciente idosa, 77 anos, internada para )"
    },
    "secao_d_evolucao": {
@@ -2720,13 +2852,17 @@
      "secao_b_anamnese.hda",
      "secao_b_anamnese.ap_app",
      "secao_b_anamnese.af",
+     "secao_b_anamnese.exame_fisico",
      "secao_b_evolucao.hd_cid",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.cd",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
      "secao_d_evolucao.curativo",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "campos_erro": [],
@@ -2734,6 +2870,7 @@
      "secao_c.descricao_tecnica",
      "secao_b_anamnese.hda",
      "secao_b_evolucao.hd_cid",
+     "secao_d_anamnese.exame_fisico",
      "secao_d_evolucao.curativo",
      "secao_d_evolucao.curativo"
     ],
@@ -2741,10 +2878,13 @@
      "secao_c.uso_opme",
      "secao_b_anamnese.ap_app",
      "secao_b_anamnese.af",
+     "secao_b_anamnese.exame_fisico",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.cd",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_d_evolucao.motivo_internacao",
+     "secao_d_evolucao.exame_fisico",
      "secao_a.diagnostico_internacao"
     ],
     "chamadas": 7,
@@ -2766,9 +2906,9 @@
     "valid": 8
    },
    "conformity_b_anamnese": {
-    "percent": 71.42857142857143,
+    "percent": 85.71428571428571,
     "total": 7,
-    "valid": 5
+    "valid": 6
    },
    "conformity_b_evolucao": {
     "percent": 50.0,
@@ -2787,9 +2927,9 @@
     "valid": 6
    },
    "conformity_d_evolucao": {
-    "percent": 71.42857142857143,
+    "percent": 85.71428571428571,
     "total": 7,
-    "valid": 5
+    "valid": 6
    },
    "conformity_e": {
     "applies": false,
@@ -2799,10 +2939,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 9,
-    "percent": 78.57142857142857,
+    "invalid": 7,
+    "percent": 83.33333333333334,
     "total": 42,
-    "valid": 33
+    "valid": 35
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -2842,7 +2982,7 @@
     "ap_app": "conforme (IA: trecho[ap_app]: Paciente masculino, 54 anos, admitido na)",
     "cd": "conforme",
     "criacao_anamnese": "conforme",
-    "exame_fisico": "não conforme (Faltam: Cardiovascular, Respiratório)",
+    "exame_fisico": "conforme (IA: trecho[exame_fisico]: Paciente masculino, 54 anos, admitido na)",
     "hd_cid": "conforme",
     "hda": "Não registrado (IA: null)"
    },
@@ -2879,7 +3019,7 @@
     "curativo": "não conforme (IA: tipo de curativo não identificado — dia 23/05, 24/05)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
-    "exame_fisico": "não conforme (Faltam: Genitourinário — dia 23/05, 24/05)",
+    "exame_fisico": "conforme (IA: trecho[exame_fisico]: paciente em pós-operatório imediato de c)",
     "motivo_internacao": "conforme (IA: trecho[motivo_internacao]: paciente em pós-operatório imediato de c)"
    },
    "secao_e": {

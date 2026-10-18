@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from './Icon.jsx';
 
 const fieldStyle = {
   width: '100%',
@@ -43,7 +44,7 @@ export default function AuthCard({ title, subtitle, children }) {
             justifyContent: 'center',
             fontSize: 19,
           }}>
-            ⚕
+            <Icon name="activity" size={20} />
           </div>
           <div>
             <div style={{ fontWeight: 600, fontSize: 15, letterSpacing: '-0.02em' }}>Auditor de Qualidade</div>
@@ -113,7 +114,7 @@ export function PrimaryButton({ busy, children, ...buttonProps }) {
       style={{
         width: '100%',
         background: busy ? 'var(--accent2)' : 'var(--accent)',
-        color: '#001018',
+        color: 'var(--on-accent)',
         border: 'none',
         borderRadius: 8,
         padding: '12px 14px',
