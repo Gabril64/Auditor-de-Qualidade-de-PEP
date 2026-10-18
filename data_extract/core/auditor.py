@@ -17,7 +17,7 @@ from data_extract.core.llm_client import (
 from data_extract.core.parser import extract_record_info
 from data_extract.core.temporal import check_anamnesis_creation, check_daily_evolution, date_key, day_label
 from data_extract.keywords.exame_fisico import MEDICAL_PHYSICAL_EXAM_TERMS, NURSING_PHYSICAL_EXAM_TERMS
-from data_extract.keywords.opme import OPME_TERMS
+from data_extract.keywords.opme import OPME_GENERIC_TERMS, OPME_TERMS
 from data_extract.utils.helpers import (
     calculate_age,
     check_complete_physical_exam,
@@ -309,15 +309,22 @@ def _apply_surgery_presence(audit_data, surgical_description):
 
 
 def _audit_surgery_section(audit_data, description, ai_meta, meta_lines):
-    """OPME: a matching term found in the surgical description -> conforme; no term -> the AI decides
-    (null -> "Não se aplica"). Only the OPEN fields go to the AI: structured columns that come back
+    """OPME: a specific term found in the surgical description -> conforme; only a generic mention
+    ("material de síntese") -> não conforme, since it exists but is not explained; no mention -> the
+    AI decides (null -> "Não se aplica"). Only the OPEN fields go to the AI: structured columns that come back
     empty (especialidade, unidade, início, fim, CID, procedimento) stay "Não registrado", because the
     source column is the authority on them."""
     section_started_at = time.time()
     meta_lines.append(f"Seção C - inicio {datetime.now().strftime('%d/%m/%y, %H:%M:%S')}")
 
     found_terms = find_words(description, OPME_TERMS, plural=True)
-    audit_data["secao_c"]["uso_opme"] = f"conforme ({', '.join(found_terms)})" if found_terms else "Não registrado"
+    generic_terms = [] if found_terms else find_words(description, OPME_GENERIC_TERMS, plural=True)
+    if found_terms:
+        audit_data["secao_c"]["uso_opme"] = f"conforme ({', '.join(found_terms)})"
+    elif generic_terms:
+        audit_data["secao_c"]["uso_opme"] = f"não conforme (OPME mencionado sem especificar o material: {', '.join(generic_terms)})"
+    else:
+        audit_data["secao_c"]["uso_opme"] = "Não registrado"
 
     missing_fields = [k for k in ("descricao_tecnica", "uso_opme") if audit_data["secao_c"][k] == "Não registrado"]
     ai_duration = 0.0

@@ -264,6 +264,20 @@ def test_item08_poorly_described_opme_is_nao_conforme(audit_env):
     assert d["secao_c"]["uso_opme"] == "não conforme (IA: cita 'material de síntese' sem dizer qual)"
 
 
+def test_item08_generic_opme_mention_is_nao_conforme_without_asking_the_ai(audit_env):
+    calls = audit_env("all_null")
+    d = audit([surgery_rec("redução da fratura. fixação com material de síntese. hemostasia, síntese por planos, cirurgia longa e detalhada")])
+    assert d["secao_c"]["uso_opme"] == "não conforme (OPME mencionado sem especificar o material: material de síntese)"
+    assert not any("uso_opme" in c["fields"] for c in calls)
+    assert d["conformity_c"]["total"] == 8
+
+
+def test_item08_a_specific_term_wins_over_a_generic_mention(audit_env):
+    audit_env("all_null")
+    d = audit([surgery_rec("fixação com material de síntese, haste intramedular, síntese por planos, cirurgia longa e detalhada")])
+    assert d["secao_c"]["uso_opme"].startswith("conforme (haste")
+
+
 def test_item08_plural_terms_match():
     from data_extract.utils.text_match import find_words
     assert find_words("colocados drenos e telas", ["dreno", "tela"], plural=True) == ["dreno", "tela"]

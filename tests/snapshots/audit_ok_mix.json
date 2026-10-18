@@ -1151,7 +1151,6 @@
    "_ia_meta": {
     "campos_enviados": [
      "secao_c.descricao_tecnica",
-     "secao_c.uso_opme",
      "secao_b_anamnese.hda",
      "secao_b_anamnese.exame_fisico",
      "secao_d_anamnese.motivo_internacao",
@@ -1177,7 +1176,6 @@
     ],
     "campos_ok": [
      "secao_c.descricao_tecnica",
-     "secao_c.uso_opme",
      "secao_b_anamnese.hda",
      "secao_d_anamnese.motivo_internacao",
      "secao_d_anamnese.ap_app",
@@ -1222,9 +1220,9 @@
    },
    "conformity_c": {
     "applies": true,
-    "percent": 100.0,
+    "percent": 87.5,
     "total": 8,
-    "valid": 8
+    "valid": 7
    },
    "conformity_d_anamnese": {
     "percent": 100.0,
@@ -1244,10 +1242,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 3,
-    "percent": 92.85714285714286,
+    "invalid": 4,
+    "percent": 90.47619047619048,
     "total": 42,
-    "valid": 39
+    "valid": 38
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -1310,7 +1308,7 @@
     "inicio": "21/02/2024, 07:30",
     "tem_cirurgia": true,
     "unidade_funcional": "BLOCO CIRURGICO",
-    "uso_opme": "conforme (IA: trecho[uso_opme]: paciente em decúbito dorsal, sob raquian)"
+    "uso_opme": "não conforme (OPME mencionado sem especificar o material: material de síntese)"
    },
    "secao_d_anamnese": {
     "af": "conforme (IA: trecho[af]: Paciente feminina, 81 anos, admitida na )",

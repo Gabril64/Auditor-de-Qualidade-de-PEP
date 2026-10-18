@@ -1145,7 +1145,6 @@
    "_ia_meta": {
     "campos_enviados": [
      "secao_c.descricao_tecnica",
-     "secao_c.uso_opme",
      "secao_b_anamnese.hda",
      "secao_b_anamnese.exame_fisico",
      "secao_d_anamnese.motivo_internacao",
@@ -1166,7 +1165,6 @@
     "campos_erro": [],
     "campos_null": [
      "secao_c.descricao_tecnica",
-     "secao_c.uso_opme",
      "secao_b_anamnese.hda",
      "secao_b_anamnese.exame_fisico",
      "secao_d_anamnese.motivo_internacao",
@@ -1215,8 +1213,8 @@
    },
    "conformity_c": {
     "applies": true,
-    "percent": 85.71428571428571,
-    "total": 7,
+    "percent": 75.0,
+    "total": 8,
     "valid": 6
    },
    "conformity_d_anamnese": {
@@ -1237,9 +1235,9 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 11,
-    "percent": 73.17073170731707,
-    "total": 41,
+    "invalid": 12,
+    "percent": 71.42857142857143,
+    "total": 42,
     "valid": 30
    },
    "ia_incompleta": false,
@@ -1303,7 +1301,7 @@
     "inicio": "21/02/2024, 07:30",
     "tem_cirurgia": true,
     "unidade_funcional": "BLOCO CIRURGICO",
-    "uso_opme": "Não se aplica (IA: null)"
+    "uso_opme": "não conforme (OPME mencionado sem especificar o material: material de síntese)"
    },
    "secao_d_anamnese": {
     "af": "Não registrado (IA: null)",

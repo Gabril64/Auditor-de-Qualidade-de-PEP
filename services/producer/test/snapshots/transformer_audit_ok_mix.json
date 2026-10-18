@@ -2110,7 +2110,7 @@
  },
  {
   "prontuario": "65.534.823",
-  "conformidade_geral": 92.9,
+  "conformidade_geral": 90.5,
   "secoes": [
    {
     "id": "A",
@@ -2238,9 +2238,9 @@
    {
     "id": "C",
     "titulo": "Bloco Cirúrgico",
-    "conformes": 8,
+    "conformes": 7,
     "total": 8,
-    "conformidade": 100,
+    "conformidade": 87.5,
     "itens": [
      {
       "item": "Especialidade",
@@ -2279,8 +2279,8 @@
      },
      {
       "item": "Uso OPME",
-      "valor": "conforme (IA: trecho[uso_opme]: paciente em decúbito dorsal, sob raquian)",
-      "status": "conforme"
+      "valor": "não conforme (OPME mencionado sem especificar o material: material de síntese)",
+      "status": "nao_conforme"
      }
     ]
    },
@@ -2389,6 +2389,11 @@
     "secao": "B",
     "item": "Anamnese Médica — Exame Físico",
     "descricao": "Valor: não conforme (Faltam: Respiratório, Extremidades)"
+   },
+   {
+    "secao": "C",
+    "item": "Uso OPME",
+    "descricao": "Valor: não conforme (OPME mencionado sem especificar o material: material de síntese)"
    },
    {
     "secao": "D",

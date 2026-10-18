@@ -2285,7 +2285,7 @@
  },
  {
   "prontuario": "65.534.823",
-  "conformidade_geral": 73.2,
+  "conformidade_geral": 71.4,
   "secoes": [
    {
     "id": "A",
@@ -2414,8 +2414,8 @@
     "id": "C",
     "titulo": "Bloco Cirúrgico",
     "conformes": 6,
-    "total": 7,
-    "conformidade": 85.7,
+    "total": 8,
+    "conformidade": 75,
     "itens": [
      {
       "item": "Especialidade",
@@ -2454,8 +2454,8 @@
      },
      {
       "item": "Uso OPME",
-      "valor": "Não se aplica (IA: null)",
-      "status": "nao_se_aplica"
+      "valor": "não conforme (OPME mencionado sem especificar o material: material de síntese)",
+      "status": "nao_conforme"
      }
     ]
    },
@@ -2579,6 +2579,11 @@
     "secao": "C",
     "item": "Descrição Técnica",
     "descricao": "Valor: Não registrado (IA: null)"
+   },
+   {
+    "secao": "C",
+    "item": "Uso OPME",
+    "descricao": "Valor: não conforme (OPME mencionado sem especificar o material: material de síntese)"
    },
    {
     "secao": "D",

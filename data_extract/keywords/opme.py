@@ -5,3 +5,9 @@ OPME_TERMS = [
     "prótese mecânica", "introdutor", "filtro de veia cava", "tela",
     "dreno", "grampeador", "agente hemostático", "cola biológica", "lente intraocular"
 ]
+
+# Mentions that OPME was used without saying which material: the item exists but is not explained.
+OPME_GENERIC_TERMS = [
+    "opme", "material de síntese", "material de osteossíntese", "material implantável",
+    "material implantado", "implante", "órtese", "ortese",
+]

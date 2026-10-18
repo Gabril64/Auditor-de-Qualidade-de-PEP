@@ -1563,7 +1563,6 @@
    "_ia_meta": {
     "campos_enviados": [
      "secao_c.descricao_tecnica",
-     "secao_c.uso_opme",
      "secao_b_anamnese.hda",
      "secao_b_anamnese.exame_fisico",
      "secao_d_anamnese.motivo_internacao",
@@ -1584,11 +1583,6 @@
     "campos_erro": [
      {
       "campo": "secao_c.descricao_tecnica",
-      "detalhe": "timeout simulado",
-      "motivo": "timeout"
-     },
-     {
-      "campo": "secao_c.uso_opme",
       "detalhe": "timeout simulado",
       "motivo": "timeout"
      },
@@ -1759,7 +1753,7 @@
      }
     }
    },
-   "observacao_ia": "A IA não rodou para todos os campos (18 de 18): secao_c.descricao_tecnica (timeout), secao_c.uso_opme (timeout), secao_b_anamnese.hda (timeout), secao_b_anamnese.exame_fisico (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.ap_app (timeout), secao_d_anamnese.af (timeout), secao_d_anamnese.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
+   "observacao_ia": "A IA não rodou para todos os campos (17 de 17): secao_c.descricao_tecnica (timeout), secao_b_anamnese.hda (timeout), secao_b_anamnese.exame_fisico (timeout), secao_d_anamnese.motivo_internacao (timeout), secao_d_anamnese.ap_app (timeout), secao_d_anamnese.af (timeout), secao_d_anamnese.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_d_evolucao.motivo_internacao (timeout), secao_d_evolucao.curativo (timeout), secao_d_evolucao.exame_fisico (timeout), secao_a.diagnostico_internacao (timeout). Esses campos foram marcados como 'Não registrado' e o resultado é parcial.",
    "secao_a": {
     "data_nascimento": "10/7/1942",
     "diagnostico_internacao": "Não registrado (IA_NAO_EXECUTADA: timeout)",
@@ -1794,7 +1788,7 @@
     "inicio": "21/02/2024, 07:30",
     "tem_cirurgia": true,
     "unidade_funcional": "BLOCO CIRURGICO",
-    "uso_opme": "Não registrado (IA_NAO_EXECUTADA: timeout)"
+    "uso_opme": "não conforme (OPME mencionado sem especificar o material: material de síntese)"
    },
    "secao_d_anamnese": {
     "af": "Não registrado (IA_NAO_EXECUTADA: timeout)",

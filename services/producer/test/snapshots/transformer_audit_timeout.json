@@ -2454,7 +2454,7 @@
      },
      {
       "item": "Uso OPME",
-      "valor": "Não registrado (IA_NAO_EXECUTADA: timeout)",
+      "valor": "não conforme (OPME mencionado sem especificar o material: material de síntese)",
       "status": "nao_conforme"
      }
     ]
@@ -2583,7 +2583,7 @@
    {
     "secao": "C",
     "item": "Uso OPME",
-    "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
+    "descricao": "Valor: não conforme (OPME mencionado sem especificar o material: material de síntese)"
    },
    {
     "secao": "D",
