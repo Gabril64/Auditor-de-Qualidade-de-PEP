@@ -2150,7 +2150,7 @@
        },
        {
         "item": "Criação Evolução",
-        "valor": "não conforme (sem evolução entre 16/01 10:30 e 17/01 10:30)",
+        "valor": "não conforme (sem evolução em 16/01)",
         "status": "nao_conforme"
        },
        {
@@ -2232,7 +2232,7 @@
    {
     "secao": "D",
     "item": "Evolução Enfermagem — Criação Evolução",
-    "descricao": "Valor: não conforme (sem evolução entre 16/01 10:30 e 17/01 10:30)"
+    "descricao": "Valor: não conforme (sem evolução em 16/01)"
    }
   ],
   "quantitativo": [
@@ -2795,7 +2795,7 @@
        },
        {
         "item": "Frequência Diária",
-        "valor": "não conforme (sem evolução entre 07/03 22:00 e 08/03 22:00)",
+        "valor": "não conforme (sem evolução em 07/03)",
         "status": "nao_conforme"
        }
       ]
@@ -2936,7 +2936,7 @@
    {
     "secao": "B",
     "item": "Evolução Médica — Frequência Diária",
-    "descricao": "Valor: não conforme (sem evolução entre 07/03 22:00 e 08/03 22:00)"
+    "descricao": "Valor: não conforme (sem evolução em 07/03)"
    },
    {
     "secao": "D",
@@ -3683,7 +3683,7 @@
        },
        {
         "item": "Criação Evolução",
-        "valor": "não conforme (sem evolução entre 13/11 09:20 e 14/11 09:20)",
+        "valor": "não conforme (sem evolução em 13/11)",
         "status": "nao_conforme"
        },
        {
@@ -3780,7 +3780,7 @@
    {
     "secao": "D",
     "item": "Evolução Enfermagem — Criação Evolução",
-    "descricao": "Valor: não conforme (sem evolução entre 13/11 09:20 e 14/11 09:20)"
+    "descricao": "Valor: não conforme (sem evolução em 13/11)"
    },
    {
     "secao": "D",
@@ -4687,7 +4687,7 @@
        },
        {
         "item": "Frequência Diária",
-        "valor": "não conforme (sem evolução entre 07/02 07:30 e 08/02 07:30)",
+        "valor": "não conforme (sem evolução em 07/02)",
         "status": "nao_conforme"
        }
       ]
@@ -4877,7 +4877,7 @@
    {
     "secao": "B",
     "item": "Evolução Médica — Frequência Diária",
-    "descricao": "Valor: não conforme (sem evolução entre 07/02 07:30 e 08/02 07:30)"
+    "descricao": "Valor: não conforme (sem evolução em 07/02)"
    },
    {
     "secao": "C",
@@ -5875,7 +5875,7 @@
        },
        {
         "item": "Frequência Diária",
-        "valor": "não conforme (sem evolução entre 23/05 14:00 e 24/05 14:00)",
+        "valor": "não conforme (sem evolução em 23/05)",
         "status": "nao_conforme"
        }
       ]
@@ -6065,7 +6065,7 @@
    {
     "secao": "B",
     "item": "Evolução Médica — Frequência Diária",
-    "descricao": "Valor: não conforme (sem evolução entre 23/05 14:00 e 24/05 14:00)"
+    "descricao": "Valor: não conforme (sem evolução em 23/05)"
    },
    {
     "secao": "C",

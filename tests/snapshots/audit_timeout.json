@@ -1543,7 +1543,7 @@
    },
    "secao_d_evolucao": {
     "condutas": "Não registrado (IA_NAO_EXECUTADA: timeout — dia 17/01)",
-    "criacao_evolucao": "não conforme (sem evolução entre 16/01 10:30 e 17/01 10:30)",
+    "criacao_evolucao": "não conforme (sem evolução em 16/01)",
     "curativo": "Não se aplica",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
@@ -2072,7 +2072,7 @@
    },
    "secao_b_evolucao": {
     "exame_fisico": "não conforme (Faltam: Geral, Cardiovascular — dia 06/03)",
-    "frequencia_diaria": "não conforme (sem evolução entre 07/03 22:00 e 08/03 22:00)",
+    "frequencia_diaria": "não conforme (sem evolução em 07/03)",
     "hd_cid": "Não registrado (IA_NAO_EXECUTADA: timeout — dia 06/03, 08/03, 09/03)",
     "procedimentos_condutas_queixas": "Não registrado (IA_NAO_EXECUTADA: timeout — dia 08/03, 09/03)"
    },
@@ -2589,7 +2589,7 @@
    },
    "secao_d_evolucao": {
     "condutas": "Não registrado (IA_NAO_EXECUTADA: timeout — dia 14/11)",
-    "criacao_evolucao": "não conforme (sem evolução entre 13/11 09:20 e 14/11 09:20)",
+    "criacao_evolucao": "não conforme (sem evolução em 13/11)",
     "curativo": "Não registrado (IA_NAO_EXECUTADA: timeout — dia 14/11, 15/11)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
@@ -3350,7 +3350,7 @@
    },
    "secao_b_evolucao": {
     "exame_fisico": "conforme",
-    "frequencia_diaria": "não conforme (sem evolução entre 07/02 07:30 e 08/02 07:30)",
+    "frequencia_diaria": "não conforme (sem evolução em 07/02)",
     "hd_cid": "Não registrado (IA_NAO_EXECUTADA: timeout — dia 06/02, 08/02)",
     "procedimentos_condutas_queixas": "conforme"
    },
@@ -4060,7 +4060,7 @@
    },
    "secao_b_evolucao": {
     "exame_fisico": "conforme",
-    "frequencia_diaria": "não conforme (sem evolução entre 23/05 14:00 e 24/05 14:00)",
+    "frequencia_diaria": "não conforme (sem evolução em 23/05)",
     "hd_cid": "Não registrado (IA_NAO_EXECUTADA: timeout — dia 24/05)",
     "procedimentos_condutas_queixas": "conforme"
    },

@@ -15,7 +15,7 @@ from data_extract.core.llm_client import (
     query_ai_fields,
 )
 from data_extract.core.parser import extract_record_info
-from data_extract.core.temporal import check_anamnesis_creation, check_daily_evolution
+from data_extract.core.temporal import check_anamnesis_creation, check_daily_evolution, date_key, day_label
 from data_extract.keywords.exame_fisico import MEDICAL_PHYSICAL_EXAM_TERMS, NURSING_PHYSICAL_EXAM_TERMS
 from data_extract.keywords.opme import OPME_TERMS
 from data_extract.utils.helpers import (
@@ -248,7 +248,7 @@ def _build_document_matrix(patient_records):
 
         raw_date = info.get("data_criacao", "")
         if raw_date:
-            date = raw_date.split(',')[0].strip()
+            date = date_key(raw_date)
             all_dates.add(date)
             matrix.setdefault(doc_name, {})
             matrix[doc_name][date] = matrix[doc_name].get(date, 0) + 1
@@ -463,7 +463,7 @@ def audit_medical_records(records):
                     meta_lines.append(f"Seção {section_label} - IA ({', '.join(missing_fields)}) fim {datetime.now().strftime('%H:%M:%S')} ({ai_duration:.1f}s)")
 
                 if "evolução" in record_type:
-                    evolutions.setdefault(target_key, []).append((info["data_criacao"][:5], local_values))
+                    evolutions.setdefault(target_key, []).append((day_label(info["data_criacao"]), local_values))
                 else:
                     merge_section(target_section, local_values)
                 meta_lines.append(f"Seção {section_label} - fim {datetime.now().strftime('%d/%m/%y, %H:%M:%S')} ({time.time() - section_started_at:.1f}s)")

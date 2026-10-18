@@ -1,14 +1,13 @@
 """Deadline rules from the audit prompt.
 
 3.5  Medical and nursing anamnesis created within 12h of admission.
-3.6  Doctors and nurses evolve daily: one evolution per 24h window, counted from the admission date/time
-     until discharge. Day one's window is waived when there is an anamnesis in it; without an anamnesis
-     on day one, the count starts at admission itself.
+3.6  Doctors and nurses evolve daily: one evolution per calendar day, from the second day of the stay
+     until the day before discharge. Day one is waived when there is an anamnesis on it; without an
+     anamnesis on day one, the count starts at the admission day itself.
 """
 from datetime import datetime, timedelta
 
 ANAMNESIS_DEADLINE_HOURS = 12
-WINDOW = timedelta(hours=24)
 _DATE_FORMATS = ("%d/%m/%Y, %H:%M", "%d/%m/%Y %H:%M", "%d/%m/%Y")
 
 
@@ -22,6 +21,21 @@ def parse_datetime(value):
         except ValueError:
             continue
     return None
+
+
+def date_key(value):
+    """The date of a creation timestamp as DD/MM/AAAA, zero-padded ("3/12/2023, 10:53" -> "03/12/2023");
+    the text before the comma when it is not a date we can read."""
+    parsed = parse_datetime(value)
+    if parsed is not None:
+        return f"{parsed:%d/%m/%Y}"
+    return str(value or "").split(",")[0].strip()
+
+
+def day_label(value):
+    """DD/MM of a creation timestamp, zero-padded, for the "dia 17/03" notes."""
+    parsed = parse_datetime(value)
+    return f"{parsed:%d/%m}" if parsed is not None else str(value or "")[:5]
 
 
 def _format_hours(delta):
@@ -42,29 +56,28 @@ def check_anamnesis_creation(admission, creation):
 
 
 def check_daily_evolution(admission, discharge, anamnesis_creations, evolution_creations):
-    """One evolution per 24h window from admission to discharge.
+    """One evolution per calendar day, from the day after admission (when there is an anamnesis on the
+    admission day) or from the admission day itself (when there is not), up to the day before discharge.
 
     `anamnesis_creations` / `evolution_creations`: creation dates (text) of records of the SAME category.
-    Returns 'conforme' or 'não conforme (sem evolução entre X e Y; ...)'. 'Não registrado' if dates are missing.
+    Returns 'conforme' or 'não conforme (sem evolução em DD/MM, DD/MM)'. 'Não registrado' if dates are missing.
     """
     admission_dt, discharge_dt = parse_datetime(admission), parse_datetime(discharge)
     if admission_dt is None or discharge_dt is None or discharge_dt <= admission_dt:
         return "Não registrado"
 
-    total_windows = int((discharge_dt - admission_dt) / WINDOW)
-    anamnesis_on_day_one = any(
-        (dt := parse_datetime(c)) is not None and admission_dt <= dt < admission_dt + WINDOW
-        for c in anamnesis_creations
-    )
-    first_window = 1 if anamnesis_on_day_one else 0
+    admission_day, discharge_day = admission_dt.date(), discharge_dt.date()
+    anamnesis_days = {dt.date() for c in anamnesis_creations if (dt := parse_datetime(c)) is not None}
+    first_day = admission_day + timedelta(days=1) if admission_day in anamnesis_days else admission_day
+    evolution_days = {dt.date() for c in evolution_creations if (dt := parse_datetime(c)) is not None}
 
-    evolution_dates = [dt for c in evolution_creations if (dt := parse_datetime(c)) is not None]
-    missing_windows = []
-    for window in range(first_window, total_windows):
-        start, end = admission_dt + window * WINDOW, admission_dt + (window + 1) * WINDOW
-        if not any(start <= dt < end for dt in evolution_dates):
-            missing_windows.append(f"{start:%d/%m %H:%M} e {end:%d/%m %H:%M}")
+    missing_days = []
+    day = first_day
+    while day < discharge_day:
+        if day not in evolution_days:
+            missing_days.append(f"{day:%d/%m}")
+        day += timedelta(days=1)
 
-    if missing_windows:
-        return "não conforme (sem evolução entre " + "; entre ".join(missing_windows) + ")"
+    if missing_days:
+        return "não conforme (sem evolução em " + ", ".join(missing_days) + ")"
     return "conforme"

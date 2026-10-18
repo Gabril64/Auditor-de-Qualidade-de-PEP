@@ -94,9 +94,9 @@ def test_item03_daily_evolutions_are_conforme():
     assert check_daily_evolution(ADMISSION, DISCHARGE, [ADMISSION], ["16/03/2024, 14:30", "17/03/2024, 14:30", "18/03/2024, 14:30"]) == "conforme"
 
 
-def test_item03_missing_day_names_the_window():
+def test_item03_missing_day_names_the_day():
     r = check_daily_evolution(ADMISSION, DISCHARGE, [ADMISSION], ["16/03/2024, 14:30", "18/03/2024, 14:30"])
-    assert r == "não conforme (sem evolução entre 17/03 14:30 e 18/03 14:30)"
+    assert r == "não conforme (sem evolução em 17/03)"
 
 
 def test_item03_stay_of_three_days_needs_two_evolutions_but_accepts_three():
@@ -112,10 +112,10 @@ def test_item03_without_first_day_anamnese_counting_starts_at_admission():
     with_anamnese = check_daily_evolution(admission, discharge, [admission], ["21/03/2025, 08:00"])
     without_anamnese = check_daily_evolution(admission, discharge, [], ["21/03/2025, 08:00"])
     assert with_anamnese == "conforme"
-    assert without_anamnese == "não conforme (sem evolução entre 20/03 08:00 e 21/03 08:00)"
+    assert without_anamnese == "não conforme (sem evolução em 20/03)"
 
 
-def test_item03_late_anamnese_does_not_exempt_the_first_window():
+def test_item03_late_anamnese_does_not_exempt_the_first_day():
     admission, discharge = "20/03/2025, 08:00", "22/03/2025, 08:00"
     assert check_daily_evolution(admission, discharge, ["21/03/2025, 09:00"], ["21/03/2025, 09:00"]).startswith("não conforme")
 
@@ -134,7 +134,7 @@ def test_item03_audit_uses_medical_for_frequencia_and_nursing_for_criacao_evoluc
         rec("ENFERMAGEM", "Evolução", "c", created_at="12/01/2025, 10:00"),
     ])
     assert d["secao_b_evolucao"]["frequencia_diaria"] == "conforme"
-    assert d["secao_d_evolucao"]["criacao_evolucao"] == "não conforme (sem evolução entre 11/01 10:00 e 12/01 10:00)"
+    assert d["secao_d_evolucao"]["criacao_evolucao"] == "não conforme (sem evolução em 11/01)"
 
 
 def test_item03_every_evolution_must_be_conforme_and_reason_names_the_day():
@@ -381,3 +381,32 @@ def test_complete_physical_exam_is_not_sent_to_the_ai(audit_env):
     d = audit([rec("MEDICINA", "Anamnese", MEDICAL_EXAM)])
     assert "exame_fisico" not in sent
     assert d["secao_b_anamnese"]["exame_fisico"] == "conforme"
+
+
+def test_item03_daily_evolution_counts_calendar_days_not_24h_windows():
+    """Evolutions at 07:53 on the 4th and 09:16 on the 5th, admission 08:08 on the 3rd, anamnesis on the 3rd:
+    each day has its evolution, even though the second 24h window (from 08:08) holds none."""
+    r = check_daily_evolution("3/12/2023, 08:08", "5/12/2023, 18:15", ["3/12/2023, 10:53"], ["5/12/2023, 09:16", "4/12/2023, 07:53"])
+    assert r == "conforme"
+
+
+def test_item03_the_discharge_day_itself_is_not_required():
+    assert check_daily_evolution("10/03/2024, 08:30", "13/03/2024, 10:00", ["10/03/2024, 08:30"], ["11/03/2024, 08:30", "12/03/2024, 08:30"]) == "conforme"
+
+
+def test_item03_several_missing_days_are_all_named():
+    r = check_daily_evolution("10/03/2024, 08:30", "15/03/2024, 10:00", ["10/03/2024, 08:30"], ["12/03/2024, 08:30"])
+    assert r == "não conforme (sem evolução em 11/03, 13/03, 14/03)"
+
+
+def test_item03_dates_without_zero_padding_keep_each_day_in_the_document_matrix(audit_env):
+    audit_env("all_null")
+    base = {"Data da internação": "3/12/2023, 08:08", "Data de saída": "5/12/2023, 18:15"}
+    d = audit([
+        {**rec("MEDICINA", "Anamnese", "x", created_at="3/12/2023, 10:53"), **base},
+        {**rec("MEDICINA", "Evolução", "x", created_at="4/12/2023, 07:53"), **base},
+        {**rec("MEDICINA", "Evolução", "x", created_at="5/12/2023, 09:16"), **base},
+    ])
+    assert d["matriz_documentos"]["datas"] == ["03/12/2023", "04/12/2023", "05/12/2023"]
+    assert d["matriz_documentos"]["matriz"]["MEDICINA - Evolução"] == {"04/12/2023": 1, "05/12/2023": 1}
+    assert d["secao_b_evolucao"]["frequencia_diaria"] == "conforme"
