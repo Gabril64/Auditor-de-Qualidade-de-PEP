@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Icon from '../components/Icon.jsx';
 import { fetchAllAudits, fetchDashboardStats, fetchDeletedAudits, restoreAudit } from '../../data/apiClient.js';
 import { needsApproval } from '../../domain/approvals.js';
+import { matchesSearch } from '../../domain/auditSearch.js';
 import ApprovalSeal from '../components/ApprovalSeal.jsx';
 
 export default function DashboardView({ onSelectAudit, user, isMobile }) {
   const isAdmin = user?.role === 'admin';
   const [audits, setAudits] = useState([]);
+  const [search, setSearch] = useState('');
   const [listMode, setListMode] = useState('all'); // 'all' | 'needs_approval' | 'deleted'
   const [deleted, setDeleted] = useState([]);
   const [listError, setListError] = useState(null);
@@ -106,11 +108,12 @@ export default function DashboardView({ onSelectAudit, user, isMobile }) {
     .sort((a, b) => b.count - a.count)
     .slice(0, 5);
 
-  const shownAudits = listMode === 'deleted'
+  const modeAudits = listMode === 'deleted'
     ? deleted
     : listMode === 'needs_approval'
       ? audits.filter(needsApproval)
       : audits;
+  const shownAudits = modeAudits.filter((audit) => matchesSearch(audit, search));
 
   const totalCharts = stats?.total_audits || audits.length;
   const avgCompliance = stats?.avg_conformity || 0;
@@ -444,12 +447,25 @@ export default function DashboardView({ onSelectAudit, user, isMobile }) {
               </button>
             ))}
           </div>
+          <input
+            type="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Buscar por número do prontuário ou atendimento"
+            aria-label="Buscar prontuário"
+            style={{
+              width: '100%', background: 'var(--bg3)', border: '1px solid var(--border2)', borderRadius: 8,
+              color: 'var(--text)', fontFamily: 'var(--mono)', fontSize: 12, padding: '9px 12px', marginBottom: 14,
+            }}
+          />
           {listError && (
             <div style={{ color: 'var(--red)', fontSize: 12, marginBottom: 12 }}>{listError}</div>
           )}
           {shownAudits.length === 0 && (
             <div style={{ color: 'var(--text3)', fontSize: 12, fontFamily: 'var(--mono)', padding: '8px 0' }}>
-              {listMode === 'deleted' ? 'Nenhum prontuário excluído.' : listMode === 'needs_approval' ? 'Nada pendente de aprovação.' : 'Nenhum prontuário.'}
+              {search.trim() !== ''
+                ? `Nenhum prontuário encontrado para "${search.trim()}".`
+                : listMode === 'deleted' ? 'Nenhum prontuário excluído.' : listMode === 'needs_approval' ? 'Nada pendente de aprovação.' : 'Nenhum prontuário.'}
             </div>
           )}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
