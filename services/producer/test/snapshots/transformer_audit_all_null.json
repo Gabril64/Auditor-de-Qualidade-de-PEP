@@ -1,7 +1,7 @@
 [
  {
   "prontuario": "94.098.934",
-  "conformidade_geral": 66.7,
+  "conformidade_geral": 68.3,
   "secoes": [
    {
     "id": "A",
@@ -179,8 +179,8 @@
     "id": "D",
     "titulo": "Enfermagem e Escalas",
     "conformes": 7,
-    "total": 15,
-    "conformidade": 46.7,
+    "total": 14,
+    "conformidade": 50,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -224,11 +224,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -267,8 +262,8 @@
        },
        {
         "item": "Curativo",
-        "valor": "não conforme (IA: tipo de curativo não identificado — dia 17/03, 18/03)",
-        "status": "nao_conforme"
+        "valor": "Não se aplica",
+        "status": "nao_se_aplica"
        }
       ]
      }
@@ -328,11 +323,6 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
-   },
-   {
-    "secao": "D",
     "item": "Evolução Enfermagem — Motivo Internação",
     "descricao": "Valor: Não registrado (IA: null)"
    },
@@ -345,11 +335,6 @@
     "secao": "D",
     "item": "Evolução Enfermagem — Condutas",
     "descricao": "Valor: Não registrado (IA: null)"
-   },
-   {
-    "secao": "D",
-    "item": "Evolução Enfermagem — Curativo",
-    "descricao": "Valor: não conforme (IA: tipo de curativo não identificado — dia 17/03, 18/03)"
    }
   ],
   "quantitativo": [
@@ -383,7 +368,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 3,
-    "conformidade": 42.9,
+    "conformidade": 50,
     "15/03": false,
     "16/03": true,
     "17/03": true,
@@ -582,11 +567,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -671,11 +651,6 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
-   },
-   {
-    "secao": "D",
     "item": "Evolução Enfermagem — Motivo Internação",
     "descricao": "Valor: Não registrado (IA: null)"
    },
@@ -752,7 +727,7 @@
  },
  {
   "prontuario": "20.981.529",
-  "conformidade_geral": 73.8,
+  "conformidade_geral": 75.6,
   "secoes": [
    {
     "id": "A",
@@ -930,8 +905,8 @@
     "id": "D",
     "titulo": "Enfermagem e Escalas",
     "conformes": 10,
-    "total": 15,
-    "conformidade": 66.7,
+    "total": 14,
+    "conformidade": 71.4,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -975,11 +950,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -1018,8 +988,8 @@
        },
        {
         "item": "Curativo",
-        "valor": "não conforme (IA: tipo de curativo não identificado — dia 14/03)",
-        "status": "nao_conforme"
+        "valor": "Não se aplica",
+        "status": "nao_se_aplica"
        }
       ]
      }
@@ -1069,11 +1039,6 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
-   },
-   {
-    "secao": "D",
     "item": "Evolução Enfermagem — Motivo Internação",
     "descricao": "Valor: Não registrado (IA: null)"
    },
@@ -1081,11 +1046,6 @@
     "secao": "D",
     "item": "Evolução Enfermagem — Exame Físico",
     "descricao": "Valor: não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 13/03, 14/03)"
-   },
-   {
-    "secao": "D",
-    "item": "Evolução Enfermagem — Curativo",
-    "descricao": "Valor: não conforme (IA: tipo de curativo não identificado — dia 14/03)"
    }
   ],
   "quantitativo": [
@@ -1116,7 +1076,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 2,
-    "conformidade": 57.1,
+    "conformidade": 66.7,
     "12/03": false,
     "13/03": true,
     "14/03": true
@@ -1138,7 +1098,7 @@
  },
  {
   "prontuario": "75.463.740",
-  "conformidade_geral": 73.8,
+  "conformidade_geral": 75.6,
   "secoes": [
    {
     "id": "A",
@@ -1316,8 +1276,8 @@
     "id": "D",
     "titulo": "Enfermagem e Escalas",
     "conformes": 10,
-    "total": 15,
-    "conformidade": 66.7,
+    "total": 14,
+    "conformidade": 71.4,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -1361,11 +1321,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -1404,8 +1359,8 @@
        },
        {
         "item": "Curativo",
-        "valor": "não conforme (IA: tipo de curativo não identificado — dia 21/05, 22/05, 23/05)",
-        "status": "nao_conforme"
+        "valor": "Não se aplica (IA: null)",
+        "status": "nao_se_aplica"
        }
       ]
      }
@@ -1455,11 +1410,6 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
-   },
-   {
-    "secao": "D",
     "item": "Evolução Enfermagem — Motivo Internação",
     "descricao": "Valor: Não registrado (IA: null)"
    },
@@ -1467,11 +1417,6 @@
     "secao": "D",
     "item": "Evolução Enfermagem — Exame Físico",
     "descricao": "Valor: não conforme (Faltam: Pele/Mucosas, Respiratório — dia 21/05, 22/05, 23/05)"
-   },
-   {
-    "secao": "D",
-    "item": "Evolução Enfermagem — Curativo",
-    "descricao": "Valor: não conforme (IA: tipo de curativo não identificado — dia 21/05, 22/05, 23/05)"
    }
   ],
   "quantitativo": [
@@ -1505,7 +1450,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 3,
-    "conformidade": 57.1,
+    "conformidade": 66.7,
     "20/05": false,
     "21/05": true,
     "22/05": true,
@@ -1530,7 +1475,7 @@
  },
  {
   "prontuario": "93.165.952",
-  "conformidade_geral": 60.6,
+  "conformidade_geral": 62.5,
   "secoes": [
    {
     "id": "A",
@@ -1659,8 +1604,8 @@
     "id": "D",
     "titulo": "Enfermagem e Escalas",
     "conformes": 7,
-    "total": 15,
-    "conformidade": 46.7,
+    "total": 14,
+    "conformidade": 50,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -1704,11 +1649,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -1747,8 +1687,8 @@
        },
        {
         "item": "Curativo",
-        "valor": "não conforme (IA: tipo de curativo não identificado — dia 03/06, 04/06, 05/06, 06/06)",
-        "status": "nao_conforme"
+        "valor": "Não se aplica (IA: null)",
+        "status": "nao_se_aplica"
        }
       ]
      }
@@ -1803,11 +1743,6 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
-   },
-   {
-    "secao": "D",
     "item": "Evolução Enfermagem — Motivo Internação",
     "descricao": "Valor: Não registrado (IA: null)"
    },
@@ -1820,11 +1755,6 @@
     "secao": "D",
     "item": "Evolução Enfermagem — Condutas",
     "descricao": "Valor: não conforme (IA: null — dia 03/06, 04/06)"
-   },
-   {
-    "secao": "D",
-    "item": "Evolução Enfermagem — Curativo",
-    "descricao": "Valor: não conforme (IA: tipo de curativo não identificado — dia 03/06, 04/06, 05/06, 06/06)"
    }
   ],
   "quantitativo": [
@@ -1861,7 +1791,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 4,
-    "conformidade": 42.9,
+    "conformidade": 50,
     "02/06": false,
     "03/06": true,
     "04/06": true,
@@ -2112,11 +2042,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -2211,11 +2136,6 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
-   },
-   {
-    "secao": "D",
     "item": "Evolução Enfermagem — Motivo Internação",
     "descricao": "Valor: Não registrado (IA: null)"
    },
@@ -2285,7 +2205,7 @@
  },
  {
   "prontuario": "65.534.823",
-  "conformidade_geral": 71.4,
+  "conformidade_geral": 73.2,
   "secoes": [
    {
     "id": "A",
@@ -2463,8 +2383,8 @@
     "id": "D",
     "titulo": "Enfermagem e Escalas",
     "conformes": 8,
-    "total": 15,
-    "conformidade": 53.3,
+    "total": 14,
+    "conformidade": 57.1,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -2508,11 +2428,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -2551,8 +2466,8 @@
        },
        {
         "item": "Curativo",
-        "valor": "não conforme (IA: tipo de curativo não identificado — dia 21/02, 22/02, 23/02)",
-        "status": "nao_conforme"
+        "valor": "Não se aplica (IA: null)",
+        "status": "nao_se_aplica"
        }
       ]
      }
@@ -2607,11 +2522,6 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
-   },
-   {
-    "secao": "D",
     "item": "Evolução Enfermagem — Motivo Internação",
     "descricao": "Valor: Não registrado (IA: null)"
    },
@@ -2619,11 +2529,6 @@
     "secao": "D",
     "item": "Evolução Enfermagem — Exame Físico",
     "descricao": "Valor: não conforme (Faltam: Respiratório, Genitourinário, Músculo-esquelético — dia 21/02, 22/02, 23/02)"
-   },
-   {
-    "secao": "D",
-    "item": "Evolução Enfermagem — Curativo",
-    "descricao": "Valor: não conforme (IA: tipo de curativo não identificado — dia 21/02, 22/02, 23/02)"
    }
   ],
   "quantitativo": [
@@ -2657,7 +2562,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 3,
-    "conformidade": 57.1,
+    "conformidade": 66.7,
     "20/02": false,
     "21/02": true,
     "22/02": true,
@@ -2856,11 +2761,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -2960,11 +2860,6 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
-   },
-   {
-    "secao": "D",
     "item": "Evolução Enfermagem — Motivo Internação",
     "descricao": "Valor: Não registrado (IA: null)"
    },
@@ -3041,7 +2936,7 @@
  },
  {
   "prontuario": "50.888.322",
-  "conformidade_geral": 73.8,
+  "conformidade_geral": 75.6,
   "secoes": [
    {
     "id": "A",
@@ -3219,8 +3114,8 @@
     "id": "D",
     "titulo": "Enfermagem e Escalas",
     "conformes": 9,
-    "total": 15,
-    "conformidade": 60,
+    "total": 14,
+    "conformidade": 64.3,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -3264,11 +3159,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -3307,8 +3197,8 @@
        },
        {
         "item": "Curativo",
-        "valor": "não conforme (IA: tipo de curativo não identificado — dia 06/10, 07/10)",
-        "status": "nao_conforme"
+        "valor": "Não se aplica (IA: null)",
+        "status": "nao_se_aplica"
        }
       ]
      }
@@ -3353,11 +3243,6 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
-   },
-   {
-    "secao": "D",
     "item": "Evolução Enfermagem — Motivo Internação",
     "descricao": "Valor: Não registrado (IA: null)"
    },
@@ -3370,11 +3255,6 @@
     "secao": "D",
     "item": "Evolução Enfermagem — Condutas",
     "descricao": "Valor: não conforme (IA: null — dia 07/10)"
-   },
-   {
-    "secao": "D",
-    "item": "Evolução Enfermagem — Curativo",
-    "descricao": "Valor: não conforme (IA: tipo de curativo não identificado — dia 06/10, 07/10)"
    }
   ],
   "quantitativo": [
@@ -3405,7 +3285,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 2,
-    "conformidade": 42.9,
+    "conformidade": 50,
     "05/10": false,
     "06/10": true,
     "07/10": true
@@ -3427,7 +3307,7 @@
  },
  {
   "prontuario": "60.616.859",
-  "conformidade_geral": 59.5,
+  "conformidade_geral": 61,
   "secoes": [
    {
     "id": "A",
@@ -3605,8 +3485,8 @@
     "id": "D",
     "titulo": "Enfermagem e Escalas",
     "conformes": 5,
-    "total": 15,
-    "conformidade": 33.3,
+    "total": 14,
+    "conformidade": 35.7,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -3650,11 +3530,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -3693,8 +3568,8 @@
        },
        {
         "item": "Curativo",
-        "valor": "não conforme (IA: tipo de curativo não identificado — dia 14/11, 15/11)",
-        "status": "nao_conforme"
+        "valor": "Não se aplica (IA: null)",
+        "status": "nao_se_aplica"
        }
       ]
      }
@@ -3764,11 +3639,6 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
-   },
-   {
-    "secao": "D",
     "item": "Evolução Enfermagem — Motivo Internação",
     "descricao": "Valor: Não registrado (IA: null)"
    },
@@ -3786,11 +3656,6 @@
     "secao": "D",
     "item": "Evolução Enfermagem — Criação Evolução",
     "descricao": "Valor: não conforme (sem evolução em 13/11)"
-   },
-   {
-    "secao": "D",
-    "item": "Evolução Enfermagem — Curativo",
-    "descricao": "Valor: não conforme (IA: tipo de curativo não identificado — dia 14/11, 15/11)"
    }
   ],
   "quantitativo": [
@@ -3824,7 +3689,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 2,
-    "conformidade": 28.6,
+    "conformidade": 33.3,
     "12/11": false,
     "13/11": false,
     "14/11": true,
@@ -3849,7 +3714,7 @@
  },
  {
   "prontuario": "85.200.145",
-  "conformidade_geral": 66.7,
+  "conformidade_geral": 68.8,
   "secoes": [
    {
     "id": "A",
@@ -3978,8 +3843,8 @@
     "id": "D",
     "titulo": "Enfermagem e Escalas",
     "conformes": 9,
-    "total": 15,
-    "conformidade": 60,
+    "total": 14,
+    "conformidade": 64.3,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -4023,11 +3888,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -4066,8 +3926,8 @@
        },
        {
         "item": "Curativo",
-        "valor": "não conforme (IA: tipo de curativo não identificado — dia 21/11, 22/11, 23/11, 24/11)",
-        "status": "nao_conforme"
+        "valor": "Não se aplica (IA: null)",
+        "status": "nao_se_aplica"
        }
       ]
      }
@@ -4112,11 +3972,6 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
-   },
-   {
-    "secao": "D",
     "item": "Evolução Enfermagem — Motivo Internação",
     "descricao": "Valor: Não registrado (IA: null)"
    },
@@ -4129,11 +3984,6 @@
     "secao": "D",
     "item": "Evolução Enfermagem — Condutas",
     "descricao": "Valor: não conforme (IA: null — dia 21/11, 22/11, 23/11)"
-   },
-   {
-    "secao": "D",
-    "item": "Evolução Enfermagem — Curativo",
-    "descricao": "Valor: não conforme (IA: tipo de curativo não identificado — dia 21/11, 22/11, 23/11, 24/11)"
    }
   ],
   "quantitativo": [
@@ -4170,7 +4020,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 4,
-    "conformidade": 42.9,
+    "conformidade": 50,
     "20/11": false,
     "21/11": true,
     "22/11": true,
@@ -4198,7 +4048,7 @@
  },
  {
   "prontuario": "85.411.638",
-  "conformidade_geral": 78.6,
+  "conformidade_geral": 80.5,
   "secoes": [
    {
     "id": "A",
@@ -4376,8 +4226,8 @@
     "id": "D",
     "titulo": "Enfermagem e Escalas",
     "conformes": 9,
-    "total": 15,
-    "conformidade": 60,
+    "total": 14,
+    "conformidade": 64.3,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -4421,11 +4271,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -4464,8 +4309,8 @@
        },
        {
         "item": "Curativo",
-        "valor": "não conforme (IA: tipo de curativo não identificado — dia 12/01)",
-        "status": "nao_conforme"
+        "valor": "Não se aplica",
+        "status": "nao_se_aplica"
        }
       ]
      }
@@ -4500,11 +4345,6 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
-   },
-   {
-    "secao": "D",
     "item": "Evolução Enfermagem — Motivo Internação",
     "descricao": "Valor: Não registrado (IA: null)"
    },
@@ -4517,11 +4357,6 @@
     "secao": "D",
     "item": "Evolução Enfermagem — Condutas",
     "descricao": "Valor: não conforme (IA: null — dia 12/01)"
-   },
-   {
-    "secao": "D",
-    "item": "Evolução Enfermagem — Curativo",
-    "descricao": "Valor: não conforme (IA: tipo de curativo não identificado — dia 12/01)"
    }
   ],
   "quantitativo": [
@@ -4552,7 +4387,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 2,
-    "conformidade": 42.9,
+    "conformidade": 50,
     "10/01": false,
     "11/01": true,
     "12/01": true
@@ -4574,7 +4409,7 @@
  },
  {
   "prontuario": "72.116.418",
-  "conformidade_geral": 59.5,
+  "conformidade_geral": 61,
   "secoes": [
    {
     "id": "A",
@@ -4752,8 +4587,8 @@
     "id": "D",
     "titulo": "Enfermagem e Escalas",
     "conformes": 7,
-    "total": 15,
-    "conformidade": 46.7,
+    "total": 14,
+    "conformidade": 50,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -4797,11 +4632,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -4840,8 +4670,8 @@
        },
        {
         "item": "Curativo",
-        "valor": "não conforme (IA: tipo de curativo não identificado — dia 07/02, 08/02)",
-        "status": "nao_conforme"
+        "valor": "Não se aplica",
+        "status": "nao_se_aplica"
        }
       ]
      }
@@ -4916,11 +4746,6 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
-   },
-   {
-    "secao": "D",
     "item": "Evolução Enfermagem — Motivo Internação",
     "descricao": "Valor: Não registrado (IA: null)"
    },
@@ -4933,11 +4758,6 @@
     "secao": "D",
     "item": "Evolução Enfermagem — Condutas",
     "descricao": "Valor: não conforme (IA: null — dia 08/02)"
-   },
-   {
-    "secao": "D",
-    "item": "Evolução Enfermagem — Curativo",
-    "descricao": "Valor: não conforme (IA: tipo de curativo não identificado — dia 07/02, 08/02)"
    }
   ],
   "quantitativo": [
@@ -4971,7 +4791,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 3,
-    "conformidade": 42.9,
+    "conformidade": 50,
     "05/02": false,
     "06/02": true,
     "07/02": true,
@@ -4996,7 +4816,7 @@
  },
  {
   "prontuario": "62.407.871",
-  "conformidade_geral": 80.5,
+  "conformidade_geral": 82.5,
   "secoes": [
    {
     "id": "A",
@@ -5174,8 +4994,8 @@
     "id": "D",
     "titulo": "Enfermagem e Escalas",
     "conformes": 10,
-    "total": 15,
-    "conformidade": 66.7,
+    "total": 14,
+    "conformidade": 71.4,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -5219,11 +5039,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -5262,8 +5077,8 @@
        },
        {
         "item": "Curativo",
-        "valor": "não conforme (IA: tipo de curativo não identificado — dia 21/03)",
-        "status": "nao_conforme"
+        "valor": "Não se aplica (IA: null)",
+        "status": "nao_se_aplica"
        }
       ]
      }
@@ -5298,11 +5113,6 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
-   },
-   {
-    "secao": "D",
     "item": "Evolução Enfermagem — Motivo Internação",
     "descricao": "Valor: Não registrado (IA: null)"
    },
@@ -5310,11 +5120,6 @@
     "secao": "D",
     "item": "Evolução Enfermagem — Exame Físico",
     "descricao": "Valor: não conforme (Faltam: Respiratório — dia 21/03)"
-   },
-   {
-    "secao": "D",
-    "item": "Evolução Enfermagem — Curativo",
-    "descricao": "Valor: não conforme (IA: tipo de curativo não identificado — dia 21/03)"
    }
   ],
   "quantitativo": [
@@ -5342,7 +5147,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 1,
-    "conformidade": 57.1,
+    "conformidade": 66.7,
     "20/03": false,
     "21/03": true
    },
@@ -5361,7 +5166,7 @@
  },
  {
   "prontuario": "26.696.588",
-  "conformidade_geral": 66.7,
+  "conformidade_geral": 68.3,
   "secoes": [
    {
     "id": "A",
@@ -5539,8 +5344,8 @@
     "id": "D",
     "titulo": "Enfermagem e Escalas",
     "conformes": 9,
-    "total": 15,
-    "conformidade": 60,
+    "total": 14,
+    "conformidade": 64.3,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -5584,11 +5389,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -5627,8 +5427,8 @@
        },
        {
         "item": "Curativo",
-        "valor": "não conforme (IA: tipo de curativo não identificado — dia 12/03)",
-        "status": "nao_conforme"
+        "valor": "Não se aplica",
+        "status": "nao_se_aplica"
        }
       ]
      }
@@ -5693,11 +5493,6 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
-   },
-   {
-    "secao": "D",
     "item": "Evolução Enfermagem — Motivo Internação",
     "descricao": "Valor: Não registrado (IA: null)"
    },
@@ -5705,11 +5500,6 @@
     "secao": "D",
     "item": "Evolução Enfermagem — Exame Físico",
     "descricao": "Valor: não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 11/03, 12/03)"
-   },
-   {
-    "secao": "D",
-    "item": "Evolução Enfermagem — Curativo",
-    "descricao": "Valor: não conforme (IA: tipo de curativo não identificado — dia 12/03)"
    }
   ],
   "quantitativo": [
@@ -5740,7 +5530,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 2,
-    "conformidade": 57.1,
+    "conformidade": 66.7,
     "10/03": false,
     "11/03": true,
     "12/03": true
@@ -5762,7 +5552,7 @@
  },
  {
   "prontuario": "55.357.130",
-  "conformidade_geral": 65.9,
+  "conformidade_geral": 67.5,
   "secoes": [
    {
     "id": "A",
@@ -5940,8 +5730,8 @@
     "id": "D",
     "titulo": "Enfermagem e Escalas",
     "conformes": 9,
-    "total": 15,
-    "conformidade": 60,
+    "total": 14,
+    "conformidade": 64.3,
     "subgrupos": [
      {
       "titulo": "Anamnese Enfermagem",
@@ -5985,11 +5775,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -6028,8 +5813,8 @@
        },
        {
         "item": "Curativo",
-        "valor": "não conforme (IA: tipo de curativo não identificado — dia 23/05, 24/05)",
-        "status": "nao_conforme"
+        "valor": "Não se aplica (IA: null)",
+        "status": "nao_se_aplica"
        }
       ]
      }
@@ -6094,11 +5879,6 @@
    },
    {
     "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
-   },
-   {
-    "secao": "D",
     "item": "Evolução Enfermagem — Motivo Internação",
     "descricao": "Valor: Não registrado (IA: null)"
    },
@@ -6106,11 +5886,6 @@
     "secao": "D",
     "item": "Evolução Enfermagem — Exame Físico",
     "descricao": "Valor: não conforme (Faltam: Genitourinário — dia 23/05, 24/05)"
-   },
-   {
-    "secao": "D",
-    "item": "Evolução Enfermagem — Curativo",
-    "descricao": "Valor: não conforme (IA: tipo de curativo não identificado — dia 23/05, 24/05)"
    }
   ],
   "quantitativo": [
@@ -6141,7 +5916,7 @@
    {
     "tipo": "Evolução Enfermagem",
     "total": 2,
-    "conformidade": 57.1,
+    "conformidade": 66.7,
     "22/05": false,
     "23/05": true,
     "24/05": true

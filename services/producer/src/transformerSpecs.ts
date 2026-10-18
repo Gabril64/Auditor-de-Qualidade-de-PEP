@@ -48,7 +48,6 @@ export const NURSING_ANAMNESIS_ITEMS: ItemSpec[] = [
   ["Escala Morse", "escala_morse"],
   ["Conduta", "cd"],
   ["Criação Anamnese", "criacao_anamnese"],
-  ["Curativo", "curativo"],
 ];
 
 export const NURSING_EVOLUTION_ITEMS: ItemSpec[] = [

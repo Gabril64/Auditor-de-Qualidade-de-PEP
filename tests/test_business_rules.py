@@ -207,6 +207,18 @@ def test_item06_curativo_is_only_evaluated_in_nursing_evolution(audit_env):
     assert "curativo" not in d["conformity_d_anamnese"]
 
 
+def test_item06_curativo_in_the_surgical_description_does_not_count_for_the_nursing_evolution(audit_env):
+    calls = audit_env("all_null")
+    d = audit([
+        {**rec("ENFERMAGEM", "Anamnese", "paciente calmo"), **SURGERY, "Descrição Cirurgica": "curativo simples ao final. " + SURGICAL_DESCRIPTION},
+        rec("ENFERMAGEM", "Evolução", "paciente calmo", created_at="11/01/2025, 10:00"),
+    ])
+    assert d["secao_d_evolucao"]["curativo"] == "Não se aplica"
+    assert not any("curativo" in c["fields"] for c in calls)
+    assert d["conformity_d_anamnese"]["total"] == 8
+    assert d["conformity_d_evolucao"]["total"] == 6
+
+
 def test_item07_curativo_conforme_needs_type_and_the_three_details(audit_env):
     audit_env("all_null")
     d = audit([rec("ENFERMAGEM", "Evolução", "curativo simples, tamanho 3cm, exsudato seroso, sem necrose")])
@@ -226,8 +238,15 @@ def test_item07_type_not_identified_goes_to_ai(audit_env):
     assert d["secao_d_evolucao"]["curativo"] == "conforme (IA: Curativo simples)"
 
 
-def test_item07_ai_cannot_identify_type_is_nao_conforme(audit_env):
+def test_item07_ai_finding_no_dressing_is_nao_se_aplica(audit_env):
     audit_env("all_null")
+    d = audit([rec("ENFERMAGEM", "Evolução", "curativo oclusivo seco")])
+    assert d["secao_d_evolucao"]["curativo"] == "Não se aplica (IA: null)"
+    assert d["conformity_d_evolucao"]["total"] == 6
+
+
+def test_item07_ai_saying_the_type_is_missing_is_still_nao_conforme(audit_env):
+    audit_env(ai_answers({"curativo": "não conforme: tipo de curativo não identificado"}))
     d = audit([rec("ENFERMAGEM", "Evolução", "curativo oclusivo seco")])
     assert d["secao_d_evolucao"]["curativo"] == "não conforme (IA: tipo de curativo não identificado — dia 10/01)"
 

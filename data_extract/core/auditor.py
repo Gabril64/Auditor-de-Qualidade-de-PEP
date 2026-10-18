@@ -475,7 +475,7 @@ def audit_medical_records(records):
                     meta_lines.append(f"Seção {section_label} - IA ({', '.join(missing_fields)}) inicio {datetime.now().strftime('%H:%M:%S')}")
                     ai_duration = call_ai_and_apply(
                         local_values, missing_fields, truncate_text(info["descricao"]), f"{category} - {record_type}", target_key, ai_meta,
-                        null_overrides={"curativo": "não conforme (IA: tipo de curativo não identificado)"},
+                        null_overrides={"curativo": "Não se aplica (IA: null)"},
                     )
                     total_ai_time += ai_duration
                     if incomplete_exam and not _is_valid(local_values["exame_fisico"]):
@@ -598,7 +598,8 @@ def calculate_conformity(data):
     section_d_anamnese = data.get("secao_d_anamnese", {})
     d_a_items = ["motivo_internacao", "ap_app", "af", "exame_fisico", "escala_braden", "escala_morse", "cd", "criacao_anamnese"]
     d_a_valid = sum(1 for item in d_a_items if _is_valid(section_d_anamnese.get(item)))
-    data["conformity_d_anamnese"] = _score(d_a_valid, len(d_a_items))
+    d_a_total = len(d_a_items)
+    data["conformity_d_anamnese"] = _score(d_a_valid, d_a_total)
 
     section_d_evolucao = data.get("secao_d_evolucao", {})
     d_e_items = ["motivo_internacao", "exame_fisico", "condutas", "escala_braden", "escala_morse", "criacao_evolucao"]
@@ -618,7 +619,7 @@ def calculate_conformity(data):
     else:
         data["conformity_e"] = {"total": 0, "valid": 0, "percent": 100, "applies": False, "categoria": "Outras"}
 
-    global_total = a_total + len(b_a_items) + len(b_e_items) + len(d_a_items) + d_e_total
+    global_total = a_total + len(b_a_items) + len(b_e_items) + d_a_total + d_e_total
     global_valid = a_valid + b_a_valid + b_e_valid + d_a_valid + d_e_valid
     if has_surgery:
         global_total += data["conformity_c"]["total"]

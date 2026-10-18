@@ -77,7 +77,7 @@ def dressing_type(text):
 
 
 def check_dressing(text):
-    """Dressing (optional item; evaluated only in the nursing evolution).
+    """Dressing (optional item; evaluated only in the nursing evolution, from the record's own text only).
 
     - no 'curativo' word: 'Não se aplica'
     - type identified + size, exudate and necrosis described: 'conforme (Curativo <tipo>)'

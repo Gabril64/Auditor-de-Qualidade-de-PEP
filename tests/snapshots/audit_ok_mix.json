@@ -468,8 +468,8 @@
     "valid": 6
    },
    "conformity_d_evolucao": {
-    "percent": 85.71428571428571,
-    "total": 7,
+    "percent": 100.0,
+    "total": 6,
     "valid": 6
    },
    "conformity_e": {
@@ -480,9 +480,9 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 7,
-    "percent": 83.33333333333334,
-    "total": 42,
+    "invalid": 6,
+    "percent": 85.36585365853658,
+    "total": 41,
     "valid": 35
    },
    "ia_incompleta": false,
@@ -558,7 +558,7 @@
    "secao_d_evolucao": {
     "condutas": "conforme",
     "criacao_evolucao": "conforme",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 14/03)",
+    "curativo": "Não se aplica",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "conforme (validado por IA)",
@@ -955,7 +955,7 @@
    "secao_d_evolucao": {
     "condutas": "conforme (validado por IA)",
     "criacao_evolucao": "conforme",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 05/06, 06/06)",
+    "curativo": "não conforme (IA: incompleto — dia 06/06)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Cardiovascular, Músculo-esquelético — dia 05/06)",
@@ -1230,9 +1230,9 @@
     "valid": 8
    },
    "conformity_d_evolucao": {
-    "percent": 71.42857142857143,
+    "percent": 85.71428571428571,
     "total": 7,
-    "valid": 5
+    "valid": 6
    },
    "conformity_e": {
     "applies": false,
@@ -1242,10 +1242,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 4,
-    "percent": 90.47619047619048,
+    "invalid": 3,
+    "percent": 92.85714285714286,
     "total": 42,
-    "valid": 38
+    "valid": 39
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -1323,7 +1323,7 @@
    "secao_d_evolucao": {
     "condutas": "conforme",
     "criacao_evolucao": "conforme",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 21/02)",
+    "curativo": "conforme (IA: trecho[curativo]: paciente no 1º po de osteossíntese de fê)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Nervoso, Pele/Mucosas, Respiratório, Genitourinário, Músculo-esquelético — dia 23/02)",
@@ -1616,9 +1616,9 @@
     "valid": 7
    },
    "conformity_d_evolucao": {
-    "percent": 57.14285714285714,
+    "percent": 71.42857142857143,
     "total": 7,
-    "valid": 4
+    "valid": 5
    },
    "conformity_e": {
     "applies": false,
@@ -1628,10 +1628,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 6,
-    "percent": 85.71428571428571,
+    "invalid": 5,
+    "percent": 88.09523809523809,
     "total": 42,
-    "valid": 36
+    "valid": 37
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -1706,7 +1706,7 @@
    "secao_d_evolucao": {
     "condutas": "conforme",
     "criacao_evolucao": "conforme",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 06/10)",
+    "curativo": "conforme (validado por IA)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Músculo-esquelético — dia 07/10)",
@@ -1804,9 +1804,9 @@
     "valid": 7
    },
    "conformity_d_evolucao": {
-    "percent": 57.14285714285714,
+    "percent": 71.42857142857143,
     "total": 7,
-    "valid": 4
+    "valid": 5
    },
    "conformity_e": {
     "applies": false,
@@ -1816,10 +1816,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 8,
-    "percent": 80.95238095238095,
+    "invalid": 7,
+    "percent": 83.33333333333334,
     "total": 42,
-    "valid": 34
+    "valid": 35
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -1896,7 +1896,7 @@
    "secao_d_evolucao": {
     "condutas": "conforme (IA: trecho[condutas]: Paciente no 1º PO de artroplastia parcia)",
     "criacao_evolucao": "não conforme (sem evolução em 13/11)",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 14/11)",
+    "curativo": "conforme (validado por IA)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "conforme",
@@ -2002,9 +2002,9 @@
     "valid": 8
    },
    "conformity_d_evolucao": {
-    "percent": 42.857142857142854,
+    "percent": 57.14285714285714,
     "total": 7,
-    "valid": 3
+    "valid": 4
    },
    "conformity_e": {
     "applies": false,
@@ -2014,10 +2014,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 5,
-    "percent": 84.84848484848484,
+    "invalid": 4,
+    "percent": 87.87878787878788,
     "total": 33,
-    "valid": 28
+    "valid": 29
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -2098,7 +2098,7 @@
    "secao_d_evolucao": {
     "condutas": "não conforme (IA: incompleto — dia 21/11)",
     "criacao_evolucao": "conforme",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 21/11, 22/11)",
+    "curativo": "conforme (validado por IA)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Respiratório, Genitourinário, Músculo-esquelético — dia 23/11)",
@@ -2380,9 +2380,9 @@
     "valid": 7
    },
    "conformity_d_evolucao": {
-    "percent": 85.71428571428571,
+    "percent": 100.0,
     "total": 7,
-    "valid": 6
+    "valid": 7
    },
    "conformity_e": {
     "applies": false,
@@ -2392,10 +2392,10 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 4,
-    "percent": 90.47619047619048,
+    "invalid": 3,
+    "percent": 92.85714285714286,
     "total": 42,
-    "valid": 38
+    "valid": 39
    },
    "ia_incompleta": false,
    "matriz_documentos": {
@@ -2472,7 +2472,7 @@
    "secao_d_evolucao": {
     "condutas": "conforme",
     "criacao_evolucao": "conforme",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 08/02)",
+    "curativo": "conforme (IA: trecho[curativo]: paciente no 1º po de artroplastia total )",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "conforme (IA: trecho[exame_fisico]: paciente idosa, 77 anos, internada para )",
@@ -2925,8 +2925,8 @@
     "valid": 6
    },
    "conformity_d_evolucao": {
-    "percent": 85.71428571428571,
-    "total": 7,
+    "percent": 100.0,
+    "total": 6,
     "valid": 6
    },
    "conformity_e": {
@@ -2937,9 +2937,9 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 7,
-    "percent": 83.33333333333334,
-    "total": 42,
+    "invalid": 6,
+    "percent": 85.36585365853658,
+    "total": 41,
     "valid": 35
    },
    "ia_incompleta": false,
@@ -3014,7 +3014,7 @@
    "secao_d_evolucao": {
     "condutas": "conforme",
     "criacao_evolucao": "conforme",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 23/05, 24/05)",
+    "curativo": "Não se aplica (IA: null)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "conforme (IA: trecho[exame_fisico]: paciente em pós-operatório imediato de c)",

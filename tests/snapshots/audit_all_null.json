@@ -90,8 +90,8 @@
     "valid": 4
    },
    "conformity_d_evolucao": {
-    "percent": 42.857142857142854,
-    "total": 7,
+    "percent": 50.0,
+    "total": 6,
     "valid": 3
    },
    "conformity_e": {
@@ -102,9 +102,9 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 14,
-    "percent": 66.66666666666666,
-    "total": 42,
+    "invalid": 13,
+    "percent": 68.29268292682927,
+    "total": 41,
     "valid": 28
    },
    "ia_incompleta": false,
@@ -183,7 +183,7 @@
    "secao_d_evolucao": {
     "condutas": "Não registrado (IA: null)",
     "criacao_evolucao": "conforme",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 17/03, 18/03)",
+    "curativo": "Não se aplica",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Respiratório, Genitourinário, Músculo-esquelético — dia 16/03, 17/03, 18/03)",
@@ -465,8 +465,8 @@
     "valid": 6
    },
    "conformity_d_evolucao": {
-    "percent": 57.14285714285714,
-    "total": 7,
+    "percent": 66.66666666666666,
+    "total": 6,
     "valid": 4
    },
    "conformity_e": {
@@ -477,9 +477,9 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 11,
-    "percent": 73.80952380952381,
-    "total": 42,
+    "invalid": 10,
+    "percent": 75.60975609756098,
+    "total": 41,
     "valid": 31
    },
    "ia_incompleta": false,
@@ -555,7 +555,7 @@
    "secao_d_evolucao": {
     "condutas": "conforme",
     "criacao_evolucao": "conforme",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 14/03)",
+    "curativo": "Não se aplica",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 13/03, 14/03)",
@@ -652,8 +652,8 @@
     "valid": 6
    },
    "conformity_d_evolucao": {
-    "percent": 57.14285714285714,
-    "total": 7,
+    "percent": 66.66666666666666,
+    "total": 6,
     "valid": 4
    },
    "conformity_e": {
@@ -664,9 +664,9 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 11,
-    "percent": 73.80952380952381,
-    "total": 42,
+    "invalid": 10,
+    "percent": 75.60975609756098,
+    "total": 41,
     "valid": 31
    },
    "ia_incompleta": false,
@@ -745,7 +745,7 @@
    "secao_d_evolucao": {
     "condutas": "conforme",
     "criacao_evolucao": "conforme",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 21/05, 22/05, 23/05)",
+    "curativo": "Não se aplica (IA: null)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Pele/Mucosas, Respiratório — dia 21/05, 22/05, 23/05)",
@@ -854,8 +854,8 @@
     "valid": 4
    },
    "conformity_d_evolucao": {
-    "percent": 42.857142857142854,
-    "total": 7,
+    "percent": 50.0,
+    "total": 6,
     "valid": 3
    },
    "conformity_e": {
@@ -866,9 +866,9 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 13,
-    "percent": 60.60606060606061,
-    "total": 33,
+    "invalid": 12,
+    "percent": 62.5,
+    "total": 32,
     "valid": 20
    },
    "ia_incompleta": false,
@@ -950,7 +950,7 @@
    "secao_d_evolucao": {
     "condutas": "não conforme (IA: null — dia 03/06, 04/06)",
     "criacao_evolucao": "conforme",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 03/06, 04/06, 05/06, 06/06)",
+    "curativo": "Não se aplica (IA: null)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Pele/Mucosas, Genitourinário, Músculo-esquelético — dia 03/06, 04/06, 05/06, 06/06)",
@@ -1223,8 +1223,8 @@
     "valid": 4
    },
    "conformity_d_evolucao": {
-    "percent": 57.14285714285714,
-    "total": 7,
+    "percent": 66.66666666666666,
+    "total": 6,
     "valid": 4
    },
    "conformity_e": {
@@ -1235,9 +1235,9 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 12,
-    "percent": 71.42857142857143,
-    "total": 42,
+    "invalid": 11,
+    "percent": 73.17073170731707,
+    "total": 41,
     "valid": 30
    },
    "ia_incompleta": false,
@@ -1316,7 +1316,7 @@
    "secao_d_evolucao": {
     "condutas": "conforme",
     "criacao_evolucao": "conforme",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 21/02, 22/02, 23/02)",
+    "curativo": "Não se aplica (IA: null)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Respiratório, Genitourinário, Músculo-esquelético — dia 21/02, 22/02, 23/02)",
@@ -1607,8 +1607,8 @@
     "valid": 6
    },
    "conformity_d_evolucao": {
-    "percent": 42.857142857142854,
-    "total": 7,
+    "percent": 50.0,
+    "total": 6,
     "valid": 3
    },
    "conformity_e": {
@@ -1619,9 +1619,9 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 11,
-    "percent": 73.80952380952381,
-    "total": 42,
+    "invalid": 10,
+    "percent": 75.60975609756098,
+    "total": 41,
     "valid": 31
    },
    "ia_incompleta": false,
@@ -1697,7 +1697,7 @@
    "secao_d_evolucao": {
     "condutas": "não conforme (IA: null — dia 07/10)",
     "criacao_evolucao": "conforme",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 06/10, 07/10)",
+    "curativo": "Não se aplica (IA: null)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Músculo-esquelético — dia 06/10, 07/10)",
@@ -1794,8 +1794,8 @@
     "valid": 3
    },
    "conformity_d_evolucao": {
-    "percent": 28.57142857142857,
-    "total": 7,
+    "percent": 33.33333333333333,
+    "total": 6,
     "valid": 2
    },
    "conformity_e": {
@@ -1806,9 +1806,9 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 17,
-    "percent": 59.523809523809526,
-    "total": 42,
+    "invalid": 16,
+    "percent": 60.97560975609756,
+    "total": 41,
     "valid": 25
    },
    "ia_incompleta": false,
@@ -1886,7 +1886,7 @@
    "secao_d_evolucao": {
     "condutas": "não conforme (IA: null — dia 14/11)",
     "criacao_evolucao": "não conforme (sem evolução em 13/11)",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 14/11, 15/11)",
+    "curativo": "Não se aplica (IA: null)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Nervoso, Pele/Mucosas, Respiratório, Genitourinário — dia 15/11)",
@@ -1991,8 +1991,8 @@
     "valid": 6
    },
    "conformity_d_evolucao": {
-    "percent": 42.857142857142854,
-    "total": 7,
+    "percent": 50.0,
+    "total": 6,
     "valid": 3
    },
    "conformity_e": {
@@ -2003,9 +2003,9 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 11,
-    "percent": 66.66666666666666,
-    "total": 33,
+    "invalid": 10,
+    "percent": 68.75,
+    "total": 32,
     "valid": 22
    },
    "ia_incompleta": false,
@@ -2087,7 +2087,7 @@
    "secao_d_evolucao": {
     "condutas": "não conforme (IA: null — dia 21/11, 22/11, 23/11)",
     "criacao_evolucao": "conforme",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 21/11, 22/11, 23/11, 24/11)",
+    "curativo": "Não se aplica (IA: null)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 21/11, 22/11, 23/11, 24/11)",
@@ -2172,8 +2172,8 @@
     "valid": 6
    },
    "conformity_d_evolucao": {
-    "percent": 42.857142857142854,
-    "total": 7,
+    "percent": 50.0,
+    "total": 6,
     "valid": 3
    },
    "conformity_e": {
@@ -2184,9 +2184,9 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 9,
-    "percent": 78.57142857142857,
-    "total": 42,
+    "invalid": 8,
+    "percent": 80.48780487804879,
+    "total": 41,
     "valid": 33
    },
    "ia_incompleta": false,
@@ -2262,7 +2262,7 @@
    "secao_d_evolucao": {
     "condutas": "não conforme (IA: null — dia 12/01)",
     "criacao_evolucao": "conforme",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 12/01)",
+    "curativo": "Não se aplica",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 11/01, 12/01)",
@@ -2367,8 +2367,8 @@
     "valid": 4
    },
    "conformity_d_evolucao": {
-    "percent": 42.857142857142854,
-    "total": 7,
+    "percent": 50.0,
+    "total": 6,
     "valid": 3
    },
    "conformity_e": {
@@ -2379,9 +2379,9 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 17,
-    "percent": 59.523809523809526,
-    "total": 42,
+    "invalid": 16,
+    "percent": 60.97560975609756,
+    "total": 41,
     "valid": 25
    },
    "ia_incompleta": false,
@@ -2459,7 +2459,7 @@
    "secao_d_evolucao": {
     "condutas": "não conforme (IA: null — dia 08/02)",
     "criacao_evolucao": "conforme",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 07/02, 08/02)",
+    "curativo": "Não se aplica",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 06/02, 07/02, 08/02)",
@@ -2540,8 +2540,8 @@
     "valid": 6
    },
    "conformity_d_evolucao": {
-    "percent": 57.14285714285714,
-    "total": 7,
+    "percent": 66.66666666666666,
+    "total": 6,
     "valid": 4
    },
    "conformity_e": {
@@ -2552,9 +2552,9 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 8,
-    "percent": 80.48780487804879,
-    "total": 41,
+    "invalid": 7,
+    "percent": 82.5,
+    "total": 40,
     "valid": 33
    },
    "ia_incompleta": false,
@@ -2627,7 +2627,7 @@
    "secao_d_evolucao": {
     "condutas": "conforme",
     "criacao_evolucao": "conforme",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 21/03)",
+    "curativo": "Não se aplica (IA: null)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Respiratório — dia 21/03)",
@@ -2722,8 +2722,8 @@
     "valid": 5
    },
    "conformity_d_evolucao": {
-    "percent": 57.14285714285714,
-    "total": 7,
+    "percent": 66.66666666666666,
+    "total": 6,
     "valid": 4
    },
    "conformity_e": {
@@ -2734,9 +2734,9 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 14,
-    "percent": 66.66666666666666,
-    "total": 42,
+    "invalid": 13,
+    "percent": 68.29268292682927,
+    "total": 41,
     "valid": 28
    },
    "ia_incompleta": false,
@@ -2812,7 +2812,7 @@
    "secao_d_evolucao": {
     "condutas": "conforme",
     "criacao_evolucao": "conforme",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 12/03)",
+    "curativo": "Não se aplica",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Genitourinário, Músculo-esquelético — dia 11/03, 12/03)",
@@ -2909,8 +2909,8 @@
     "valid": 5
    },
    "conformity_d_evolucao": {
-    "percent": 57.14285714285714,
-    "total": 7,
+    "percent": 66.66666666666666,
+    "total": 6,
     "valid": 4
    },
    "conformity_e": {
@@ -2921,9 +2921,9 @@
     "valid": 0
    },
    "conformity_global": {
-    "invalid": 14,
-    "percent": 65.85365853658537,
-    "total": 41,
+    "invalid": 13,
+    "percent": 67.5,
+    "total": 40,
     "valid": 27
    },
    "ia_incompleta": false,
@@ -2998,7 +2998,7 @@
    "secao_d_evolucao": {
     "condutas": "conforme",
     "criacao_evolucao": "conforme",
-    "curativo": "não conforme (IA: tipo de curativo não identificado — dia 23/05, 24/05)",
+    "curativo": "Não se aplica (IA: null)",
     "escala_braden": "conforme",
     "escala_morse": "conforme",
     "exame_fisico": "não conforme (Faltam: Genitourinário — dia 23/05, 24/05)",

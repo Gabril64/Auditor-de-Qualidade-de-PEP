@@ -224,11 +224,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -325,11 +320,6 @@
     "secao": "D",
     "item": "Anamnese Enfermagem — Exame Físico",
     "descricao": "Valor: não conforme (Faltam: Cardiovascular, Gastrointestinal, Genitourinário, Músculo-esquelético)"
-   },
-   {
-    "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
    },
    {
     "secao": "D",
@@ -582,11 +572,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -668,11 +653,6 @@
     "secao": "D",
     "item": "Anamnese Enfermagem — Exame Físico",
     "descricao": "Valor: não conforme (Faltam: Pele/Mucosas, Músculo-esquelético)"
-   },
-   {
-    "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
    },
    {
     "secao": "D",
@@ -975,11 +955,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -1066,11 +1041,6 @@
     "secao": "D",
     "item": "Anamnese Enfermagem — Exame Físico",
     "descricao": "Valor: não conforme (Faltam: Gastrointestinal, Genitourinário, Músculo-esquelético)"
-   },
-   {
-    "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
    },
    {
     "secao": "D",
@@ -1361,11 +1331,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -1452,11 +1417,6 @@
     "secao": "D",
     "item": "Anamnese Enfermagem — Exame Físico",
     "descricao": "Valor: não conforme (Faltam: Genitourinário, Músculo-esquelético)"
-   },
-   {
-    "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
    },
    {
     "secao": "D",
@@ -1704,11 +1664,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -1800,11 +1755,6 @@
     "secao": "D",
     "item": "Anamnese Enfermagem — Exame Físico",
     "descricao": "Valor: não conforme (Faltam: Pele/Mucosas, Cardiovascular, Músculo-esquelético)"
-   },
-   {
-    "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
    },
    {
     "secao": "D",
@@ -2112,11 +2062,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -2208,11 +2153,6 @@
     "secao": "D",
     "item": "Anamnese Enfermagem — Escala Braden",
     "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
-   },
-   {
-    "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
    },
    {
     "secao": "D",
@@ -2508,11 +2448,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -2604,11 +2539,6 @@
     "secao": "D",
     "item": "Anamnese Enfermagem — Exame Físico",
     "descricao": "Valor: não conforme (Faltam: Genitourinário)"
-   },
-   {
-    "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
    },
    {
     "secao": "D",
@@ -2856,11 +2786,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -2957,11 +2882,6 @@
     "secao": "D",
     "item": "Anamnese Enfermagem — Escala Morse",
     "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
-   },
-   {
-    "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
    },
    {
     "secao": "D",
@@ -3264,11 +3184,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -3350,11 +3265,6 @@
     "secao": "D",
     "item": "Anamnese Enfermagem — Exame Físico",
     "descricao": "Valor: não conforme (Faltam: Genitourinário, Músculo-esquelético)"
-   },
-   {
-    "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
    },
    {
     "secao": "D",
@@ -3650,11 +3560,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -3761,11 +3666,6 @@
     "secao": "D",
     "item": "Anamnese Enfermagem — Escala Braden",
     "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
-   },
-   {
-    "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
    },
    {
     "secao": "D",
@@ -4023,11 +3923,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -4109,11 +4004,6 @@
     "secao": "D",
     "item": "Anamnese Enfermagem — Exame Físico",
     "descricao": "Valor: não conforme (Faltam: Cardiovascular, Genitourinário, Músculo-esquelético)"
-   },
-   {
-    "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
    },
    {
     "secao": "D",
@@ -4421,11 +4311,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -4497,11 +4382,6 @@
     "secao": "D",
     "item": "Anamnese Enfermagem — Exame Físico",
     "descricao": "Valor: não conforme (Faltam: Genitourinário, Músculo-esquelético)"
-   },
-   {
-    "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
    },
    {
     "secao": "D",
@@ -4797,11 +4677,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -4913,11 +4788,6 @@
     "secao": "D",
     "item": "Anamnese Enfermagem — Exame Físico",
     "descricao": "Valor: não conforme (Faltam: Gastrointestinal, Genitourinário)"
-   },
-   {
-    "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
    },
    {
     "secao": "D",
@@ -5219,11 +5089,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -5300,11 +5165,6 @@
     "secao": "D",
     "item": "Anamnese Enfermagem — Exame Físico",
     "descricao": "Valor: não conforme (Faltam: Genitourinário, Músculo-esquelético)"
-   },
-   {
-    "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
    },
    {
     "secao": "D",
@@ -5589,11 +5449,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -5695,11 +5550,6 @@
     "secao": "D",
     "item": "Anamnese Enfermagem — Conduta",
     "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
-   },
-   {
-    "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
    },
    {
     "secao": "D",
@@ -5990,11 +5840,6 @@
         "item": "Criação Anamnese",
         "valor": "conforme",
         "status": "conforme"
-       },
-       {
-        "item": "Curativo",
-        "valor": "N/A",
-        "status": "nao_conforme"
        }
       ]
      },
@@ -6101,11 +5946,6 @@
     "secao": "D",
     "item": "Anamnese Enfermagem — Conduta",
     "descricao": "Valor: Não registrado (IA_NAO_EXECUTADA: timeout)"
-   },
-   {
-    "secao": "D",
-    "item": "Anamnese Enfermagem — Curativo",
-    "descricao": "Valor: N/A"
    },
    {
     "secao": "D",
