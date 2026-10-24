@@ -4,6 +4,7 @@ import time
 from datetime import datetime
 
 from data_extract.core.llm_client import (
+    AI_JSON_SCHEMA,
     AI_MAX_CONTEXT_CHARS,
     AI_MISSING_FIELDS,
     AI_OK,
@@ -49,6 +50,7 @@ def _new_ai_meta():
         "temperature": AI_TEMPERATURE,
         "top_k": AI_TOP_K,
         "top_p": AI_TOP_P,
+        "saida_estruturada": AI_JSON_SCHEMA,
         "decodificacao": "greedy" if AI_TEMPERATURE == 0 or AI_TOP_K == 1 else "amostragem",
         "seed": AI_SEED,
         "seed_aplicada": None if AI_SEED is None else True,

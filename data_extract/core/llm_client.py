@@ -7,7 +7,10 @@ alongside it and recorded in the audit's signature, so the run is documented as 
 This is why LMSTUDIO_URL points at the OpenAI-compatible route: LMStudio's own /api/v1/chat answers
 400 "Unrecognized key(s) in object: 'seed'" and cannot carry a seed at all.
 AI_MAX_CONTEXT_CHARS caps a record's text sent to the AI so small models' context does not
-overflow. AI_OK/AI_TIMEOUT/AI_HTTP_ERROR/AI_INVALID_JSON/AI_EMPTY_RESPONSE/AI_MISSING_FIELDS are
+overflow. AI_JSON_SCHEMA (on by default) sends a `response_format` json_schema built from the requested
+fields, so the server only lets the model emit a JSON object with exactly those keys: what is left
+to measure is whether it found the term and whether it judged it complete, not whether it can write
+JSON. AI_OK/AI_TIMEOUT/AI_HTTP_ERROR/AI_INVALID_JSON/AI_EMPTY_RESPONSE/AI_MISSING_FIELDS are
 the possible outcomes of one AI call; query_ai_fields()'s docstring lists them with "status".
 """
 import json
@@ -32,6 +35,7 @@ AI_MAX_CONTEXT_CHARS = int(os.environ.get("AI_MAX_CONTEXT_CHARS", "6000"))
 AI_MAX_ATTEMPTS = int(os.environ.get("AI_MAX_ATTEMPTS", "3"))
 AI_TIMEOUT_SECONDS = int(os.environ.get("AI_TIMEOUT_SECONDS", "300"))
 AI_RETRY_DELAY_SECONDS = float(os.environ.get("AI_RETRY_DELAY_SECONDS", "1"))
+AI_JSON_SCHEMA = os.environ.get("AI_JSON_SCHEMA", "1").strip().lower() not in ("0", "false", "no", "off")
 
 AI_OK = "ok"
 AI_TIMEOUT = "timeout"
@@ -84,6 +88,24 @@ def _build_prompts(text, missing_fields, record_type):
     )
     input_text = f"TIPO DO REGISTRO: {record_type}\nTEXTO DO REGISTRO:\n{text}"
     return system_prompt, input_text
+
+
+def _response_format(fields):
+    """The json_schema that constrains the model's output to one object with exactly `fields`,
+    each a string or null. Values stay free: the schema fixes the shape, never the audit."""
+    return {
+        "type": "json_schema",
+        "json_schema": {
+            "name": "campos_extraidos",
+            "strict": True,
+            "schema": {
+                "type": "object",
+                "properties": {field: {"type": ["string", "null"]} for field in fields},
+                "required": list(fields),
+                "additionalProperties": False,
+            },
+        },
+    }
 
 
 def _extract_response_text(result_json):
@@ -212,7 +234,7 @@ def query_ai_fields(text, missing_fields, record_type):
       "error": str | None,              # reason for the last failure
       "attempts": int,
       "latency": float,                 # seconds summed across every attempt
-      "sampling": dict,                 # the decoding actually sent (seed, temperature, top_k, top_p)
+      "sampling": dict,                 # the decoding actually sent (seed, temperature, top_k, top_p, json_schema)
       "renamed_keys": dict,             # {field: key the model used} for orthographic variants
     }
     status is "ok" only when EVERY requested key came back in the JSON
@@ -237,6 +259,8 @@ def query_ai_fields(text, missing_fields, record_type):
     }
     if AI_SEED is not None:
         payload["seed"] = AI_SEED
+    if AI_JSON_SCHEMA:
+        payload["response_format"] = _response_format(missing_fields)
 
     started_at = time.time()
     status, fields, error = AI_HTTP_ERROR, {}, None
@@ -267,6 +291,7 @@ def query_ai_fields(text, missing_fields, record_type):
             "temperature": AI_TEMPERATURE,
             "top_k": AI_TOP_K,
             "top_p": AI_TOP_P,
+            "json_schema": AI_JSON_SCHEMA,
         },
     }
 

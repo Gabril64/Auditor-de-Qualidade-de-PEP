@@ -175,7 +175,42 @@ def test_decoding_and_seed_are_pinned_in_every_request(monkeypatch):
     r = llm_client.query_ai_fields("texto", ["hda"], "x")
     srv.shutdown()
     assert seen == [{"seed": 42, "temperature": 0.0, "top_k": 1, "top_p": 1.0}]
-    assert r["sampling"] == {"seed": 42, "temperature": 0.0, "top_k": 1, "top_p": 1.0}
+    assert r["sampling"] == {"seed": 42, "temperature": 0.0, "top_k": 1, "top_p": 1.0, "json_schema": True}
+
+
+def test_json_schema_pins_the_output_to_exactly_the_requested_fields(monkeypatch):
+    """The schema fixes the shape (those keys, string or null, nothing else), never the values."""
+    seen = []
+
+    def handler(body):
+        seen.append(body.get("response_format"))
+        return 200, {"choices": [{"message": {"content": '{"hda": "x", "af": null}'}}]}
+
+    srv = _server(handler)
+    monkeypatch.setattr(llm_client, "LMSTUDIO_URL", f"http://127.0.0.1:{srv.server_port}/")
+    r = llm_client.query_ai_fields("texto", ["hda", "af"], "x")
+    srv.shutdown()
+    schema = seen[0]["json_schema"]
+    assert seen[0]["type"] == "json_schema" and schema["strict"] is True
+    assert schema["schema"]["properties"] == {"hda": {"type": ["string", "null"]}, "af": {"type": ["string", "null"]}}
+    assert schema["schema"]["required"] == ["hda", "af"]
+    assert schema["schema"]["additionalProperties"] is False
+    assert r["status"] == "ok"
+
+
+def test_json_schema_switch_off_leaves_the_request_unconstrained(monkeypatch):
+    seen = []
+
+    def handler(body):
+        seen.append("response_format" in body)
+        return 200, {"choices": [{"message": {"content": '{"hda": "x"}'}}]}
+
+    srv = _server(handler)
+    monkeypatch.setattr(llm_client, "LMSTUDIO_URL", f"http://127.0.0.1:{srv.server_port}/")
+    monkeypatch.setattr(llm_client, "AI_JSON_SCHEMA", False)
+    r = llm_client.query_ai_fields("texto", ["hda"], "x")
+    srv.shutdown()
+    assert seen == [False] and r["sampling"]["json_schema"] is False
 
 
 def test_without_a_seed_configured_the_key_is_absent(monkeypatch):
